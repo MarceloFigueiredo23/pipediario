@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pipe Expansão · Marcelo · 20/06 10h</title>
+<link rel="canonical" href="https://marcelofigueiredo23.github.io/pipediario/">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --brand: #e50915;
+  --brand-light: #ff1a27;
+  --brand-dim: rgba(229, 9, 21, 0.12);
+  --brand-glow: rgba(229, 9, 21, 0.35);
+  --bg: #050505;
+  --bg-elev: #0c0c0c;
+  --surf: rgba(20, 20, 20, 0.85);
+  --surf2: #161616;
+  --glass: rgba(255, 255, 255, 0.04);
+  --bd: rgba(255, 255, 255, 0.08);
+  --bd-strong: rgba(255, 255, 255, 0.14);
+  --txt: #fafafa;
+  --mut: #a3a3a3;
+  --ok: #22c55e;
+  --warn: #facc15;
+  --info: #60a5fa;
+  --inv: #818cf8;
+  --bil: #fbbf24;
+  --exc: #f472b6;
+  --radius: 16px;
+  --shadow: 0 24px 80px rgba(0,0,0,.55);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--txt);
+  font: 14px/1.6 Inter, system-ui, sans-serif;
+  padding: 0 0 64px;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(229,9,21,.18), transparent),
+    radial-gradient(circle at 100% 0%, rgba(229,9,21,.06), transparent 40%);
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(5,5,5,.82);
+  border-bottom: 1px solid var(--bd);
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  flex-wrap: wrap;
+}
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.v4-logo { height: 28px; width: auto; display: block; }
+.sync-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; color: var(--mut);
+  background: var(--glass); border: 1px solid var(--bd);
+  padding: 6px 12px; border-radius: 999px;
+}
+.sync-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ok); box-shadow: 0 0 10px var(--ok);
+  animation: pulse 2s ease infinite;
+}
+.sync-dot.stale { background: var(--warn); box-shadow: 0 0 10px var(--warn); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 28px 24px 0; }
+
+.hero {
+  position: relative;
+  border-radius: var(--radius);
+  padding: 36px 32px 32px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, rgba(229,9,21,.14) 0%, rgba(20,20,20,.9) 45%, var(--surf2) 100%);
+  border: 1px solid var(--bd-strong);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; top: -40%; right: -10%;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 800; letter-spacing: .14em;
+  text-transform: uppercase; color: #fca5a5; margin-bottom: 10px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 24px; height: 3px; background: var(--brand); border-radius: 2px;
+}
+.hero h1 {
+  margin: 0 0 10px; font-size: clamp(26px, 4vw, 36px);
+  font-weight: 900; letter-spacing: -0.03em; line-height: 1.1;
+}
+.hero .meta { color: var(--mut); font-size: 13px; max-width: 720px; }
+.hero .meta strong { color: var(--txt); }
+
+.github-link-bar {
+  margin: 18px 0 14px; padding: 14px 16px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  border-radius: 12px;
+}
+.github-link-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px;
+}
+.github-url {
+  flex: 1; min-width: 200px;
+  font-size: 13px; font-weight: 600; color: #86efac;
+  word-break: break-all; text-decoration: none;
+}
+.github-url:hover { text-decoration: underline; }
+.copy-link-btn {
+  border: 1px solid var(--bd-strong); background: var(--glass);
+  color: var(--txt); font-size: 11px; font-weight: 700;
+  padding: 8px 14px; border-radius: 999px; cursor: pointer;
+}
+.copy-link-btn:hover { border-color: var(--brand); color: #fca5a5; }
+a.github-chip { text-decoration: none; }
+a.github-chip:hover { filter: brightness(1.08); }
+footer .footer-url { color: #86efac; text-decoration: none; font-weight: 600; }
+footer .footer-url:hover { text-decoration: underline; }
+
+.source-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;
+}
+.chip {
+  font-size: 10px; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; padding: 5px 10px; border-radius: 999px;
+  border: 1px solid var(--bd); background: var(--glass); color: var(--mut);
+}
+.chip.live { border-color: rgba(34,197,94,.35); color: #86efac; }
+.chip.cache { border-color: rgba(250,204,21,.3); color: #fde047; }
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px; margin-bottom: 24px;
+}
+.kpi {
+  background: var(--surf);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: border-color .2s, transform .2s;
+}
+.kpi:hover { border-color: var(--bd-strong); transform: translateY(-2px); }
+.kpi .v { font-size: 30px; font-weight: 900; line-height: 1; letter-spacing: -0.02em; }
+.kpi .v.red { color: var(--brand-light); text-shadow: 0 0 40px var(--brand-dim); }
+.kpi .l { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--mut); margin-top: 8px; font-weight: 600; }
+
+.nav-squad {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px;
+  padding: 6px; background: var(--glass); border: 1px solid var(--bd);
+  border-radius: 14px; width: fit-content; max-width: 100%;
+}
+.nav-squad a {
+  text-decoration: none; color: var(--mut);
+  padding: 10px 16px; border-radius: 10px; font-size: 12px; font-weight: 700;
+  transition: all .2s;
+}
+.nav-squad a:hover { color: #fff; background: var(--brand-dim); }
+.nav-squad a.rank-link { color: #fca5a5; }
+
+.squad-block { margin-bottom: 56px; scroll-margin-top: 72px; }
+.squad-block .sq-bar {
+  height: 3px; border-radius: 999px; margin-bottom: 22px;
+  box-shadow: 0 0 20px var(--brand-dim);
+}
+.badge-squad {
+  display: inline-block; font-size: 10px; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 6px; margin-bottom: 10px;
+  background: var(--brand-dim); color: #fca5a5; border: 1px solid rgba(229,9,21,.25);
+}
+
+.section {
+  background: var(--surf);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+.section h2 {
+  margin: 0 0 16px; font-size: 11px; text-transform: uppercase;
+  letter-spacing: .12em; color: var(--mut); font-weight: 800;
+}
+.section h3 { margin: 16px 0 10px; font-size: 15px; font-weight: 700; }
+.alert {
+  background: linear-gradient(90deg, var(--brand-dim), transparent);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px; margin-bottom: 16px; font-size: 13px;
+}
+.alert strong { color: var(--brand-light); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 768px) { .grid2 { grid-template-columns: 1fr; } .topbar { padding: 10px 16px; } }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--bd); vertical-align: top; }
+th {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--mut); font-weight: 800; background: rgba(255,255,255,.02);
+}
+tbody tr:hover { background: rgba(255,255,255,.02); }
+.cli { font-weight: 700; }
+.sub { color: var(--mut); font-size: 11px; margin-top: 2px; }
+.mut { color: var(--mut); }
+.phase-pill {
+  display: inline-block; padding: 4px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 700;
+  background: var(--brand-dim); color: #fca5a5; border: 1px solid rgba(229,9,21,.2);
+}
+.tag { display: inline-block; padding: 2px 8px; border-radius: 5px; font-size: 11px; font-weight: 600; }
+.tag-warn { background: rgba(250,204,21,.12); color: #fde047; }
+.tag-drop { background: rgba(239,68,68,.12); color: #fca5a5; }
+.tag-done { background: rgba(34,197,94,.12); color: #86efac; }
+.tag-info { background: rgba(96,165,250,.12); color: #93c5fd; }
+.comment { font-size: 12px; line-height: 1.5; color: #d4d4d4; }
+.comment-cell { max-width: 420px; }
+.funnel { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.funnel-step {
+  flex: 1; min-width: 100px; background: var(--surf2);
+  border: 1px solid var(--bd); border-radius: 12px; padding: 14px 12px; text-align: center;
+}
+.funnel-step.active-heavy { border-color: var(--brand); box-shadow: 0 0 24px var(--brand-dim); }
+.funnel-step .n { font-size: 26px; font-weight: 900; }
+.funnel-step .lbl { font-size: 9px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); margin-top: 4px; font-weight: 700; }
+.bar-bg { height: 4px; background: var(--bd); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-light)); border-radius: 2px; }
+.agenda-list { list-style: none; margin: 0; padding: 0; }
+.agenda-list li { padding: 10px 0; border-bottom: 1px solid var(--bd); font-size: 13px; }
+.agenda-list time { color: var(--brand-light); font-weight: 800; margin-right: 10px; font-variant-numeric: tabular-nums; }
+.dot-list { margin: 0; padding-left: 18px; font-size: 13px; color: #d4d4d4; }
+.dot-list li { margin-bottom: 6px; }
+.empty { color: var(--mut); font-style: italic; font-size: 13px; }
+.pill { display: inline-block; width: 18px; text-align: center; border-radius: 4px; font-size: 11px; font-weight: 700; }
+.pill.ok { background: rgba(34,197,94,.15); color: var(--ok); }
+.pill.no { background: rgba(239,68,68,.12); color: #ef4444; }
+tr.sla-row { background: rgba(250,204,21,.05); }
+.table-wrap { overflow-x: auto; border-radius: 10px; }
+.embed-funil .section { margin-bottom: 20px; }
+
+/* Metas + Ranking */
+.meta-rome-block { margin-top: 64px; scroll-margin-top: 72px; padding-top: 8px; border-top: 1px solid var(--bd); }
+.meta-rome-block .section-title { font-size: 24px; font-weight: 900; margin: 0 0 20px; letter-spacing: -0.02em; }
+.meta-table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 12px; overflow: hidden; border: 1px solid var(--bd-strong); }
+.meta-table th { background: linear-gradient(180deg, #f5e6a8, #e8d48a); color: #1a1a1a; font-weight: 800; padding: 14px 16px; text-align: center; }
+.meta-table td { padding: 12px 16px; border-top: 1px solid var(--bd); background: var(--surf2); }
+.meta-table td.num { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.meta-table .pct-ok { color: var(--ok); }
+.meta-table .pct-low { color: var(--brand-light); }
+.squad-meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+@media (max-width: 900px) { .squad-meta-grid { grid-template-columns: 1fr; } }
+.squad-meta-card {
+  background: var(--surf); border: 1px solid var(--bd); border-radius: var(--radius);
+  padding: 20px 22px; border-top: 3px solid var(--brand);
+}
+.squad-meta-card.inv { border-top-color: var(--inv); }
+.squad-meta-card.bil { border-top-color: var(--bil); }
+.squad-meta-card.exc { border-top-color: var(--exc); }
+.squad-meta-card h3 { margin: 0 0 14px; font-size: 17px; font-weight: 900; }
+.squad-meta-card .row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; gap: 8px; }
+.squad-meta-card .bar-bg { height: 6px; background: var(--bd); border-radius: 3px; margin-top: 10px; }
+.squad-meta-card .bar-fill { height: 100%; background: linear-gradient(90deg, var(--brand), #ff6b6b); border-radius: 3px; }
+
+.meta-rome-block.ranking-first { margin-bottom: 28px; }
+.meta-rome-block.ranking-first .ranking-hero { margin-bottom: 0; }
+.meta-rome-sub {
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid var(--bd);
+}
+.ranking-hero {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  background: linear-gradient(165deg, #0a0a0a 0%, #140508 50%, #0a0a0a 100%);
+  border: 1px solid var(--bd-strong); padding: 32px 28px 36px;
+  box-shadow: var(--shadow);
+}
+.ranking-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(229,9,21,.2), transparent 55%);
+  pointer-events: none;
+}
+.ranking-banner {
+  position: relative; z-index: 1;
+  background: linear-gradient(90deg, #15803d, #22c55e);
+  color: #fff; text-align: center; font-weight: 900; font-size: 14px;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 14px 20px; border-radius: 10px; margin-bottom: 36px;
+  box-shadow: 0 8px 32px rgba(34,197,94,.25);
+}
+.podium { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: center; gap: 20px; min-height: 340px; padding: 0 8px 8px; }
+.podium-slot { flex: 1; max-width: 220px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.podium-slot.place-1 { order: 2; }
+.podium-slot.place-2 { order: 1; }
+.podium-slot.place-3 { order: 3; }
+.podium-photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.15); margin-bottom: 8px; box-shadow: 0 12px 32px rgba(0,0,0,.5); background: var(--surf2); }
+.podium-slot.place-1 .podium-photo { width: 116px; height: 116px; border-color: #fbbf24; }
+.podium-avatar {
+  width: 96px; height: 96px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 8px;
+  background: linear-gradient(145deg, var(--brand), #7f1d1d);
+  border: 3px solid rgba(255,255,255,.1);
+}
+.podium-slot.place-1 .podium-avatar { width: 116px; height: 116px; font-size: 32px; border-color: #fbbf24; }
+.podium-medal { font-size: 30px; line-height: 1; margin-bottom: 4px; }
+.podium-name { font-weight: 800; font-size: 15px; margin-bottom: 2px; }
+.podium-squad { font-size: 11px; color: var(--mut); margin-bottom: 12px; font-weight: 600; }
+.podium-pedestal {
+  width: 100%; background: linear-gradient(180deg, var(--brand) 0%, #7f1d1d 100%);
+  border-radius: 12px 12px 6px 6px; padding: 16px 10px 20px;
+  box-shadow: 0 16px 40px var(--brand-glow);
+}
+.podium-slot.place-1 .podium-pedestal { min-height: 128px; padding-top: 22px; }
+.podium-slot.place-2 .podium-pedestal { min-height: 92px; opacity: .95; }
+.podium-slot.place-3 .podium-pedestal { min-height: 76px; opacity: .88; }
+.podium-value { font-size: 19px; font-weight: 900; color: #fff; }
+.podium-slot.place-1 .podium-value { font-size: 24px; }
+.podium-detail { font-size: 10px; color: rgba(255,255,255,.8); margin-top: 4px; }
+.ranking-table { margin-top: 28px; position: relative; z-index: 1; }
+.rank-name-cell { display: flex; align-items: center; gap: 10px; }
+.rank-row-photo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.12); flex-shrink: 0; }
+.rank-row-avatar {
+  width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: #fff; flex-shrink: 0;
+  background: linear-gradient(145deg, var(--brand), #7f1d1d);
+}
+.ranking-empty { text-align: center; color: var(--mut); padding: 40px 20px; font-style: italic; }
+.photo-hint { font-size: 11px; color: var(--mut); margin-top: 16px; text-align: center; }
+
+.timeline-item {
+  border-left: 2px solid var(--bd);
+  padding: 0 0 16px 16px; margin-left: 6px; position: relative;
+}
+.timeline-item::before {
+  content: ''; width: 8px; height: 8px; background: var(--brand);
+  border-radius: 50%; position: absolute; left: -5px; top: 4px;
+}
+.timeline-item .t-title { font-weight: 700; margin-bottom: 4px; }
+.timeline-item .t-meta { font-size: 11px; color: var(--mut); margin-bottom: 6px; }
+.tag-muted { background: rgba(255,255,255,.06); color: var(--mut); }
+.sit-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.sit-chip {
+  flex: 1; min-width: 90px; text-align: center; padding: 12px;
+  border-radius: 10px; border: 1px solid var(--bd); background: var(--surf2);
+}
+.funnel-step .n small { font-size: 12px; color: var(--mut); font-weight: 600; }
+
+footer {
+  text-align: center; color: var(--mut); font-size: 11px;
+  margin-top: 48px; padding: 24px 0; line-height: 1.7;
+  border-top: 1px solid var(--bd);
+}
+footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    
+<svg class="v4-logo" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg" aria-label="V4 Company">
+  <text x="0" y="26" font-family="Inter, Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e50915">V4</text>
+  <text x="52" y="26" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#737373" letter-spacing=".18em">COMPANY</text>
+</svg>
+    <span class="sync-pill"><span class="sync-dot"></span> Sync 10:09 · a cada 30min</span>
+  </div>
+  <div class="source-chips">
+    <a class="chip live github-chip" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">GitHub Pages</a>
+    <span class="chip live">Planilha CRM</span>
+    <span class="chip live">Flow · Ekyte · Agenda</span>
+  </div>
+</div>
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Farmer ABM · Expansão Carteira</div>
+      <h1>Pipe Diário — Report Operacional</h1>
+      
+<div class="github-link-bar">
+  <div class="github-link-label">
+    <span class="chip live">🔗 Link fixo · atualiza a cada 30min</span>
+  </div>
+  <div class="github-link-row">
+    <a class="github-url" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener noreferrer">https://marcelofigueiredo23.github.io/pipediario/</a>
+    <button type="button" class="copy-link-btn" data-copy="https://marcelofigueiredo23.github.io/pipediario/">Copiar</button>
+  </div>
+</div>
+      <div class="meta">
+        <strong>Marcelo Figueiredo</strong> · Safra jun/2026 ·
+        Gerado 20/06 10h<br>
+        Cruzamento Planilha CRM · Flow Cockpit · Ekyte · Google Calendar · Meta Rome
+      </div>
+      <div class="source-chips">
+    <span class="chip live">Planilha ao vivo</span>
+    <span class="chip live">Flow/Ekyte MCP recente · dumps há 0min</span>
+    <span class="chip live">Ranking vendidos jun</span>
+    </div>
+    </div>
+  </div>
+
+  
+<section class="meta-rome-block ranking-first" id="ranking-expansao">
+  <div class="ranking-hero">
+    <div class="ranking-banner">🏆 Ranking Expansão Carteira · Jun/26</div>
+    <div class="podium">
+<div class="podium-slot place-2">
+  <img class="podium-photo" src="coords/nayaraventura.png" alt="Nayara">
+  <div class="podium-medal">🥈</div>
+  <div class="podium-name">Nayara</div>
+  <div class="podium-squad">Billions</div>
+  <div class="podium-pedestal">
+    <div class="podium-value">R$ 6.532,00</div>
+    <div class="podium-detail">S/T R$ 6.532,00 · 3 vendas</div>
+  </div>
+</div>
+<div class="podium-slot place-1">
+  <img class="podium-photo" src="coords/melissa-pessoa.png" alt="Melissa">
+  <div class="podium-medal">🥇</div>
+  <div class="podium-name">Melissa</div>
+  <div class="podium-squad">Invictus</div>
+  <div class="podium-pedestal">
+    <div class="podium-value">R$ 11.505,38</div>
+    <div class="podium-detail">Exec R$ 11.505,38 · 1 venda</div>
+  </div>
+</div>
+<div class="podium-slot place-3">
+  <img class="podium-photo" src="coords/thaina-gomes.png" alt="Thainá">
+  <div class="podium-medal">🥉</div>
+  <div class="podium-name">Thainá</div>
+  <div class="podium-squad">Invictus</div>
+  <div class="podium-pedestal">
+    <div class="podium-value">R$ 5.010,00</div>
+    <div class="podium-detail">Exec R$ 5.010,00 · 1 venda</div>
+  </div>
+</div></div>
+    
+<div class="ranking-table">
+  <table>
+    <thead><tr><th>#</th><th>Coordenador</th><th>Squad</th><th>Vendas</th><th>Executar</th><th>Ter/Saber</th><th>Total</th></tr></thead>
+    <tbody><tr><td>1</td><td><div class='rank-name-cell'><img class="rank-row-photo" src="coords/melissa-pessoa.png" alt="Melissa"><strong>Melissa</strong></div></td><td>Invictus</td><td class='num'>1</td><td class='num'>R$ 11.505,38</td><td class='num'>R$ 0,00</td><td class='num'><strong>R$ 11.505,38</strong></td></tr><tr><td>2</td><td><div class='rank-name-cell'><img class="rank-row-photo" src="coords/nayaraventura.png" alt="Nayara"><strong>Nayara</strong></div></td><td>Billions</td><td class='num'>3</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.532,00</td><td class='num'><strong>R$ 6.532,00</strong></td></tr><tr><td>3</td><td><div class='rank-name-cell'><img class="rank-row-photo" src="coords/thaina-gomes.png" alt="Thainá"><strong>Thainá</strong></div></td><td>Invictus</td><td class='num'>1</td><td class='num'>R$ 5.010,00</td><td class='num'>R$ 0,00</td><td class='num'><strong>R$ 5.010,00</strong></td></tr><tr><td>4</td><td><div class='rank-name-cell'><img class="rank-row-photo" src="coords/jefferson-vieira.png" alt="Jefferson"><strong>Jefferson</strong></div></td><td>Invictus</td><td class='num'>1</td><td class='num'>R$ 2.800,00</td><td class='num'>R$ 0,00</td><td class='num'><strong>R$ 2.800,00</strong></td></tr></tbody>
+  </table>
+</div>
+      <p class="photo-hint">Fotos dos coordenadores · atualize em <code>coords/email-slug.png</code></p>
+  </div>
+
+  <div class="meta-rome-sub">
+    <div class="section-title">🎯 Meta Rome · Jun/26</div>
+    <div class="meta-table-wrap">
+<table class="meta-table">
+  <thead><tr><th>Jun</th><th>Meta</th><th>Realizado</th><th>%</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Expansão Carteira — Executar</td>
+      <td class="num">R$ 30.000,00</td>
+      <td class="num">R$ 19.315,38</td>
+      <td class="num pct-ok">64.4%</td>
+    </tr>
+    <tr>
+      <td>Expansão de Carteira — Ter / Saber</td>
+      <td class="num">R$ 30.000,00</td>
+      <td class="num">R$ 5.532,00</td>
+      <td class="num pct-low">18.4%</td>
+    </tr>
+  </tbody>
+</table></div>
+    <div class="squad-meta-grid">
+<div class="squad-meta-card inv">
+  <h3>Invictus</h3>
+  <div class="row"><span>Executar (MRR)</span><span class="num">R$ 19.315,38 / R$ 13.000,00</span></div>
+  <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
+  <div class="row" style="margin-top:12px"><span>Ter / Saber (TCV)</span><span>R$ 0,00 / R$ 10.000,00</span></div>
+  <div class="bar-bg"><div class="bar-fill" style="width:0%;opacity:.7"></div></div>
+</div>
+<div class="squad-meta-card bil">
+  <h3>Billions</h3>
+  <div class="row"><span>Executar (MRR)</span><span class="num">R$ 0,00 / R$ 11.000,00</span></div>
+  <div class="bar-bg"><div class="bar-fill" style="width:0%"></div></div>
+  <div class="row" style="margin-top:12px"><span>Ter / Saber (TCV)</span><span>R$ 5.532,00 / R$ 14.000,00</span></div>
+  <div class="bar-bg"><div class="bar-fill" style="width:40%;opacity:.7"></div></div>
+</div>
+<div class="squad-meta-card exc">
+  <h3>Exclusive</h3>
+  <div class="row"><span>Executar (MRR)</span><span class="num">R$ 0,00 / R$ 6.000,00</span></div>
+  <div class="bar-bg"><div class="bar-fill" style="width:0%"></div></div>
+  <div class="row" style="margin-top:12px"><span>Ter / Saber (TCV)</span><span>R$ 0,00 / R$ 6.000,00</span></div>
+  <div class="bar-bg"><div class="bar-fill" style="width:0%;opacity:.7"></div></div>
+</div></div>
+  </div>
+</section>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">10</div><div class="l">Opps ativas safra</div></div>
+    <div class="kpi"><div class="v red">5</div><div class="l">Fechados jun/26</div></div>
+    <div class="kpi"><div class="v">5</div><div class="l">Movimentos 24h</div></div>
+    <div class="kpi"><div class="v">4</div><div class="l">Sem card Flow</div></div>
+    <div class="kpi"><div class="v">12</div><div class="l">Total safra jun</div></div>
+  </div>
+
+  <nav class="nav-squad">
+    <a href="#ranking-expansao" class="rank-link">🏆 Ranking</a>
+    <a href="#squad-invictus">Invictus</a>
+    <a href="#squad-billions">Billions</a>
+    <a href="#squad-exclusive">Exclusive</a>
+  </nav>
+
+  
+<div class="squad-block" id="squad-invictus">
+  <div class="sq-bar" style="background:var(--inv)"></div>
+  <div class="badge-squad">V4 Company · Invictus</div>
+  <h2 style="font-size:22px;font-weight:800;margin:0 0 4px">[Invictus] Expansão</h2>
+  <p class="meta" style="margin-bottom:20px">Safra jun/26 · 7 opps ativas · 3 fechados no mês · 2026-06-20</p>
+  <div class="alert"><strong>Destaques:</strong> Migração concluída para fluxo [Invictus] Expansão Gerência (6 fases). Flow 85 cards · 84 match Ekyte · 0 pendentes. 6 movidos + 60 criados no Cockpit.</div>
+  
+  <div class="grid2">
+    <div class="section">
+      <h2>📅 Reuniões hoje · Invictus</h2>
+      <p class="empty">Nenhuma reunião de expansão/cliente hoje</p>
+    </div>
+    <div class="section">
+      <h2>🔄 Mudou desde ontem</h2>
+      <ul class='dot-list'><li>FAST SUPLAY: sem card Flow — abrir card</li><li>USJR: sem card Flow — abrir card</li><li>ATLANTICA MAQUINAS: sem card Flow — abrir card</li><li>FRANELIS TRANSPORTES: sem card Flow — abrir card</li></ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="section">
+      <h2>✅ Vendidos / fechados (jun/26)</h2>
+      <table><thead><tr><th>Conta</th><th>Produto</th><th>Assinatura</th></tr></thead><tbody><tr><td class='cli'>SUPRIMEDICO</td><td>SDR IA</td><td>01/06/2026</td></tr><tr><td class='cli'>ECOSTORAGE</td><td>Web</td><td>03/06/2026</td></tr><tr><td class='cli'>JUNDIA SORVETES</td><td>Aumento de escopo</td><td>18/06/2026</td></tr></tbody></table>
+    </div>
+    <div class="section">
+      <h2>📋 Ekyte — movimentou hoje</h2>
+      <p class="empty">Sem movimento Ekyte hoje</p>
+    </div>
+  </div>
+  <div class="section">
+    <h2>🎯 Pipe safra jun/26 · Farmer Marcelo · 7 ativas</h2>
+    <div class="table-wrap"><table><thead><tr><th>Conta</th><th>Produto</th><th>Etapa</th><th>Status planilha</th><th>Dias</th><th>F·P·E</th></tr></thead><tbody><tr><td class='cli'>SIMPLE EDUCATION ❄️</td><td>Web (Flow: assessoria_byline)</td><td>Plano de ação <span class="sub">· Ekyte: Account Planning</span></td><td>Em Follow · Ueliton</td><td style='text-align:right'>2d</td><td><span class="pill ok">✓</span> <span class="pill ok">✓</span> <span class="pill ok">✓</span></td></tr><tr><td class='cli'>SIMPLE EDUCATION ❄️</td><td>CRM MKT (Flow: assessoria_byline)</td><td>Plano de ação <span class="sub">· Ekyte: Account Planning</span></td><td>Em Follow · Ueliton</td><td style='text-align:right'>2d</td><td><span class="pill ok">✓</span> <span class="pill ok">✓</span> <span class="pill ok">✓</span></td></tr><tr class="sla-row"><td class='cli'>DALPACK COMERCIO 🌡️</td><td>Bi (Flow: BI)</td><td>Reunião agendada</td><td>Reunião Agendada · Jefferson</td><td style='text-align:right'>9d <span class="tag tag-warn">SLA</span></td><td><span class="pill ok">✓</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr><tr><td class='cli'>USJR ❄️</td><td>Outro, Manutenção de site</td><td>Em Follow</td><td>Em Follow · Jefferson</td><td style='text-align:right'>3d</td><td><span class="pill no">✗</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr><tr><td class='cli'>ATLANTICA MAQUINAS </td><td>Web</td><td>Reunião Agendada</td><td>Reunião Agendada · Thainá</td><td style='text-align:right'>3d</td><td><span class="pill no">✗</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr><tr><td class='cli'>FRANELIS TRANSPORTES ❄️</td><td>SDR IA</td><td>Reunião Agendada</td><td>Reunião Agendada · Melissa</td><td style='text-align:right'>3d</td><td><span class="pill no">✗</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr><tr><td class='cli'>FAST SUPLAY ❄️</td><td>SEO</td><td>Em Follow</td><td>Em Follow · Thainá</td><td style='text-align:right'>2d</td><td><span class="pill no">✗</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr></tbody></table></div><p class="sub">Safra jun/26 · Farmer Marcelo · F=Flow P=Planilha E=Ekyte</p>
+  </div>
+
+  
+  
+  <div class="kpis">
+    <div class="kpi"><div class="v">46</div><div class="l">Tasks Ekyte</div></div>
+    <div class="kpi"><div class="v red">46</div><div class="l">Ativas funil</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Pausadas</div></div>
+    <div class="kpi"><div class="v">8</div><div class="l">Pipeline quente</div></div>
+    <div class="kpi"><div class="v">10</div><div class="l">Follow UP</div></div>
+  </div>
+  
+  <div class="section">
+    <h2>Funil Ekyte — fases (live MCP)</h2>
+    <div class="funnel"><div class="funnel-step active-heavy"><div class="n">14<small> (14 atv)</small></div><div class="lbl">Account Planning</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div><div class="funnel-step active-heavy"><div class="n">14<small> (14 atv)</small></div><div class="lbl">Diagnóstico</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div><div class="funnel-step"><div class="n">2<small> (2 atv)</small></div><div class="lbl">Reunião Marcada</div><div class="bar-bg"><div class="bar-fill" style="width:14%"></div></div></div><div class="funnel-step"><div class="n">2<small> (2 atv)</small></div><div class="lbl">Reunião Realizada</div><div class="bar-bg"><div class="bar-fill" style="width:14%"></div></div></div><div class="funnel-step"><div class="n">4<small> (4 atv)</small></div><div class="lbl">Construção da Proposta</div><div class="bar-bg"><div class="bar-fill" style="width:28%"></div></div></div><div class="funnel-step active-heavy"><div class="n">10<small> (10 atv)</small></div><div class="lbl">Follow UP</div><div class="bar-bg"><div class="bar-fill" style="width:71%"></div></div></div></div><div class="sit-row" style="margin-top:18px"><div class="sit-chip ativa"><div class="n">46</div><div class="sub">Ativas</div></div><div class="sit-chip pausada"><div class="n">0</div><div class="sub">Pausadas</div></div><div class="sit-chip"><div class="n">0</div><div class="sub">Concluídas</div></div><div class="sit-chip"><div class="n">0</div><div class="sub">Canceladas</div></div></div>
+  </div>
+  
+  <div class="grid2">
+    <div class="section">
+      <h2>Por coordenação / executor</h2>
+      <table><thead><tr><th>Responsável</th><th>Total</th><th>Por fase</th></tr></thead><tbody><tr><td><strong>Ueliton</strong></td><td>20</td><td class='sub'>Account Planning: 10 · Follow UP: 7 · Diagnóstico: 3</td></tr><tr><td><strong>Jefferson</strong></td><td>8</td><td class='sub'>Account Planning: 3 · Follow UP: 2 · Diagnóstico: 2 · Reunião Realizada: 1</td></tr><tr><td><strong>Thainá</strong></td><td>7</td><td class='sub'>Diagnóstico: 4 · Reunião Realizada: 1 · Follow UP: 1 · Account Planning: 1</td></tr><tr><td><strong>Melissa</strong></td><td>5</td><td class='sub'>Diagnóstico: 5</td></tr><tr><td><strong>Marcelo</strong></td><td>4</td><td class='sub'>Construção da Proposta: 4</td></tr><tr><td><strong>Thiago</strong></td><td>2</td><td class='sub'>Reunião Marcada: 2</td></tr></tbody></table>
+    </div>
+    <div class="section">
+      <h2>Alinhamento Flow ↔ Ekyte</h2>
+      <table><tbody><tr><td>Cards Flow</td><td><strong>75</strong></td></tr><tr><td>Tasks Ekyte</td><td><strong>46</strong></td></tr><tr><td>Match</td><td><strong>47</strong></td></tr><tr><td>Sem match</td><td><strong>28</strong> (contas sem par Flow/Ekyte)</td></tr></tbody></table><h3>Flow por etapa</h3><p class='sub'>account_planning: 40 · diagnostico: 16 · follow_up: 12 · construcao_proposta: 5 · drop: 1 · reuniao_agendada: 1</p><h3>Gaps abertos</h3><ul style='margin:0;padding-left:18px;font-size:13px'><li>NOVO MILENIO UNIFORMES LTDA(NOVO MILENIO UNIFORMES LTDA - 05.335.577/0001-78) — card Flow sem task Ekyte</li><li>Promax Supertroca – Yanmar Agritech — card Flow sem task Ekyte</li><li>C. VIEGAS PRODUTOS AUTOMOTIVOS LTDA. — card Flow sem task Ekyte</li><li>CAPRICHO A TOA SERVICOS E COMERCIO DE CONFECCOES LTDA — card Flow sem task Ekyte</li><li>VALMAGAL - ENGENHARIA E CONSTRUÇÃO LDA(VALMAGAL - ENGENHARIA E CONSTRUÇÃO LDA) — card Flow sem task Ekyte</li><li>MANCHESTER DISTRIBUIDORA DE FERRO E ACO LTDA — card Flow sem task Ekyte</li><li>ALUMTECH COMERCIO LTDA — card Flow sem task Ekyte</li><li>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTOS MEDICOS E HOSPITALARES LTDA(SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTOS MEDICOS E HOSPITALARES LTDA - 35.491.267/0001-03) — card Flow sem task Ekyte</li></ul>
+    </div>
+  </div>
+  
+  
+  
+  <div class="embed-funil"><div class="section">
+    <h2>Pipeline quente — próximos passos imediatos</h2>
+    <p class="sub" style="margin-top:-8px;margin-bottom:14px">Tarefas ativas em Construção da Proposta, Reunião Marcada ou Reunião Realizada — com último comentário da task.</p>
+    <table>
+      <thead><tr><th>Cliente</th><th>Fase</th><th>Responsável</th><th>Último comentário / próximo passo</th></tr></thead>
+      <tbody><tr>
+        <td><span class="cli">Use Jr</span><div class="sub">#9528215</div></td>
+        <td><span class="phase-pill">Reunião Realizada</span></td>
+        <td>Jefferson Vieira</td>
+        
+        <td class="comment-cell"><div class="comment">Vamos fechar a proposta de manutenção de estoque para marketplace hoje para apresentar até dia 17/06.     Marcelo precisa finalizar a proposta junto com o Daniel</div></td>
+      </tr><tr>
+        <td><span class="cli">AYA ENGENHARIA E PROJETOS LTDA</span><div class="sub">#9526173</div></td>
+        <td><span class="phase-pill">Construção da Proposta</span></td>
+        <td>marcelo.gomes</td>
+        
+        <td class="comment-cell"><div class="comment">Está com o Marcelo para construir o PPT.</div></td>
+      </tr><tr>
+        <td><span class="cli">LF2 - INDUSTRIA E COMERCIO LTDA</span><div class="sub">#9526250</div></td>
+        <td><span class="phase-pill">Construção da Proposta</span></td>
+        <td>marcelo.gomes</td>
+        
+        <td class="comment-cell"><div class="comment">Precisamos vender a implementação + 30D onetime (3 meses de execução (fee x 3).  Após teste e dando certo, executamos o recorrente.</div></td>
+      </tr><tr>
+        <td><span class="cli">ML PARTICIPACOES LTDA</span><div class="sub">#9526234</div></td>
+        <td><span class="phase-pill">Construção da Proposta</span></td>
+        <td>marcelo.gomes</td>
+        
+        <td class="comment-cell"><div class="comment">Quando será a reunião sobre SEO/UX: 19/06   Diagnóstico - Bruno Reis - 17/06  Construção da proposta - Marcelo Figueiredo - 18/06  Apresentação da Proposta - Jefferson Vieira - 19/06      Já é contabilizado como uma reunião marcada, por conta do check-in.</div></td>
+      </tr><tr>
+        <td><span class="cli">SOTOBI MAQUINAS E ACESSORIOS PARA FABRICAS DE BLOCOS LTDA</span><div class="sub">#9526172</div></td>
+        <td><span class="phase-pill">Construção da Proposta</span></td>
+        <td>marcelo.gomes</td>
+        
+        <td class="comment-cell"><div class="comment">Diagnóstico feito pela Kamila está com a Julia para validação.     A ideia é apresentar para o Lucas na S25.</div></td>
+      </tr><tr>
+        <td><span class="cli">TAWÁ VEÍCULOS</span><div class="sub">#9526198</div></td>
+        <td><span class="phase-pill">Construção da Proposta</span></td>
+        <td>marcelo.gomes</td>
+        
+        <td class="comment-cell"><div class="comment">Quando será a reunião sobre SDR IA:   Diagnóstico - Julia Costa 09/06  Construção da proposta - Marcelo Figueiredo - 09/06  Touchpoint - Julia Costa - 15/06  Apresentação da Proposta - 19/06      Sem data de apresentação.</div></td>
+      </tr><tr>
+        <td><span class="cli">FTM TRANSPORTES LTDA</span><div class="sub">#9526092</div></td>
+        <td><span class="phase-pill">Reunião Marcada</span></td>
+        <td>Thiago Almeida</td>
+        
+        <td class="comment-cell"><div class="comment">Cliente vai mudar do Kommo para o SalesForce  Vender e só começar a execução após a transição.     Quando será a reunião sobre SDR AI: 18/06   Diagnóstico - Thiago Almeida - 15/06  Construção da proposta - 15/06  Apresentação da Proposta - 18/06      Já é contabilizado como uma reunião marcada, por conta do check-in.</div></td>
+      </tr><tr>
+        <td><span class="cli">Spa Sensoria</span><div class="sub">#9528217</div></td>
+        <td><span class="phase-pill">Reunião Marcada</span></td>
+        <td>Thiago Almeida</td>
+        
+        <td class="comment-cell"><div class="comment">Cliente vindo do saber, já monetizado com: Assessoria completa, social media, já tem CRM implementado.     A única frente possível de expansão pelo que mapeamos agora seria CRM marketing e Site Institucinoal para o SPA.     Alinhado diretamente com o Thiago</div></td>
+      </tr></tbody>
+    </table>
+  </div></div><div class="embed-funil"><div class="section">
+    <h2>Follow UP ativo (10)</h2>
+    <table>
+      <thead><tr><th>Cliente</th><th>Coordenador</th><th>Status nos comentários</th></tr></thead>
+      <tbody>
+      <tr>
+            <td><span class="cli">BMB TECIDOS LTDA</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">Plano de Ação:    V4 - Fazer limpeza nos leads parados a mais de 90d.  Bruno: Atender os leads que estão na etapa &quot;qualificada&quot; e Follow up      Problema inicialmente me parece ser de qualidade de lead, precisamos dar um passo atrás antes de pensar da SDR novamente.      Até quando:  10/07/2026</td>
+          </tr><tr>
+            <td><span class="cli">BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGURANCA LTDA</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">Não é prioridade para o cliente. Finalizou o site na semana anterior que era o foco interno, depois iriam pensar nesta demanda.     Amanhã 12/06, temos check-in. Irei abordar e pegar uma atualização.</td>
+          </tr><tr>
+            <td><span class="cli">CENTRO AUDITIVO MACAE</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">Propostas na mesa:  SDR IA e implementação de CRM Kommo   Leonardo, stakeholder, não tem dado retorno sobre as propostas. Tem se mantido &quot;ocupado&quot; com coisas internas da empresa.       R$ 2.800 de implementação One time  R$ 2.800 mensal de SDR para 600 atendimentos       Apresentação:  https://docs.google.com/presentation/d/1MJbD4p3t3n5kPEPoluNHMRzIJQw-dnNi1dYhykooVOk/edit?usp=sharing      Outras propostas:     WebSite, Landing Page - Ainda não apresentado</td>
+          </tr><tr>
+            <td><span class="cli">CENTRO BRASILIENSE DE NEFROLOGIA LTDA</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">O valor ficou acima do que consideram saudável para pagamento.     Dra Juliane, pediu um prazo &quot;teste&quot; para verificarem se a ferramenta de SDR IA / CRM será realmente útil. Não querem trocar de ferramenta, sem segurança.       Plano de Ação:  Validar com o Luís a proposta até dia 17/06</td>
+          </tr><tr>
+            <td><span class="cli">COLINA DOS IPES - COMERCIO E ADMINISTRACAO DE PLANOS E ASSISTENCIA FUNERAL LTDA</span></td>
+            <td>Jefferson Vieira</td>
+            <td class="comment-cell">Proposta já apresentada, precisamos do FUP:   Jefferson Vieira - Sexta-feira (12/06) - Ligação do Coordenador para o Stakeholder, buscando aquecer a proposta. Evidenciar aqui na task ação executada com report.      Teremos um evento no dia 26/06 (a confirmar) é interessante convidar o cliente (João), para buscar proximidade.</td>
+          </tr><tr>
+            <td><span class="cli">FABIO LUCHESI</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">Dropado.     Entenderam a necessidade e acreditam que faz sentido para a conta, porém será considerado apenas após Agosto, junto com novo site modelo e-commerce.      Plano de Ação:  Voltar a negociar em 10/08/2026 junto com a visão do site.</td>
+          </tr><tr>
+            <td><span class="cli">FIBRALINK SERVICOS DE TECNOLOGIA DA INFORMACAO LTDA</span></td>
+            <td>Thainá Gomes</td>
+            <td class="comment-cell">Cliente muito ausente, estou fazendo fup da proposta, temos check-in amanhã 12/06</td>
+          </tr><tr>
+            <td><span class="cli">GREEN WAY INSULATION</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">Proposta ainda sem standby.  Cliente atuando na operação e desmarcou os últimos 2 check-ins.   Próximo check-in 18/06.</td>
+          </tr><tr>
+            <td><span class="cli">V.L.O TEXTIL INDUSTRIA E COMERCIO IMPORTACAO E EXPORTACAO LTDA</span></td>
+            <td>Ueliton Pereira</td>
+            <td class="comment-cell">Proposta DROPADA!   Devolutiva dada no check-in em 10/06.         00:38:53       Thaily Kauane Serodio:   Show. E Flávio, à frente ali de CRM, você tem alguma novidade pra gente de como é que ficou? Vocês estavam dando uma olhada, chegaram a conversar?    Thaily Kauane Serodio:   Como é que ficou?    Flavio Zampieri:   Tá ele tenho novidade sim. Eh, depois de muita conversa aqui interna e como fazer, como viabilizar essa questão, eh, a diretoria chegou à conclusão que não vai abrir o CRM, tá? Isso porque eh é da filosofia da da empresa um cuidado muito grande com os com os clientes, com cadastro de clientes, com clientes, como se tivesse dentro de um cofre, sabe? E a gente tentou alternativas aqui, a gente tentou até contornar uma algum tipo de alternativa, mas chegamos na na chegamos na conclusão que não tem alternativa, sabe? simplesmente não tem como mexer nisso. Então a conclusão acabou sendo essa, Ti, eh, de não abrir, não mexer com o CRM mesmo.    Thaily Kauane Serodio:   É, entendi. É mais é uma política da empresa, né?       Flavio Zampieri:   Isso é é exatamente isso. É uma política da empresa, a gente nunca abriu, tá?    Thaily Kauane Serodio:   empresa.    Flavio Zampieri:   ninguém tem acesso a essas informações de cliente fora da empresa. E então a gente eh decidiu desde o começo, tá? Quando a gente começou a falar nisso, você percebeu até pela demora, né?      ----------------   Transcrição:  https://docs.google.com/document/d/1W6OTrc7TDTgunLlfASbpjaZDn6CvYAfjnv5fzrzKH3A/edit?tab=t.kq2q0ic21y0k   Gravação:  https://drive.google.com/file/d/1NeYeYVjBEvzCjJ-waiO2t5RQYljjHHdp/view?usp=sharing</td>
+          </tr><tr>
+            <td><span class="cli">VISOFLEX PORTAS E PORTOES LTDA</span></td>
+            <td>Jefferson Vieira</td>
+            <td class="comment-cell">Vamos apresentar o planejamento com o fluxo de reativação por email marketing dia 25/06.     Com a aprovação vamos seguir com a execução do fluxo por 30D retornaremos com a revisão da proposta dia 01/08.     Com esses disparos executados e com os dados em mãos, vamos conseguir a proposta do SDR IA mais assertiva.</td>
+          </tr>
+      </tbody>
+    </table>
+  </div></div><div class="embed-funil"><div class="section">
+    <h2>Tarefas pausadas (23) — análise</h2>
+    <p class="sub" style="margin-top:-8px;margin-bottom:14px">
+      Regra da migração: pausadas permanecem pausadas. Motivos extraídos do último comentário de cada task.
+      Jefferson concentra 13 pausadas;
+      Melissa 7;
+      Thainá 3.
+    </p>
+    <table>
+      <thead><tr><th>Cliente</th><th>Fase</th><th>Coord.</th><th>Motivo</th><th>Último comentário</th></tr></thead>
+      <tbody><tr>
+        <td><span class="cli">AERO TD ESCOLA DE AVIACAO CIVIL LTDA</span><div class="sub">#9526178</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Thainá Gomes</td>
+        <td><span class="tag tag-info">Pré-requisito operacional</span></td>
+        <td class="comment-cell"><div class="comment">Sugerimos a SDR IA para o cliente no último check-in, ele gosta da ideia, porém prefere que a gente finalize a implementação do CRM primeiro, para termos os dados 100% do funil     Próximo fup com o cliente: 27/07</div></td>
+      </tr><tr>
+        <td><span class="cli">ALUMTECH COMERCIO LTDA</span><div class="sub">#9526263</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Pausada — revisar</span></td>
+        <td class="comment-cell"><div class="comment">Precisamos projetar a expectativa de chegarmos nos 300k, estamos fazendo 100k, após chegarmos nos 300k conseguimos fazer o processo de expansão, dado o contexto que o cliente teve problemas no CNPJ;</div></td>
+      </tr><tr>
+        <td><span class="cli">BINARIO TECNOLOGIA DISTRIBUIDORA LTDA</span><div class="sub">#9528219</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-info">Pré-requisito operacional</span></td>
+        <td class="comment-cell"><div class="comment">Na última reunião de check-in apenas o responsável pela frente de marketplace entrou, nos sinalizou que terá uma pessoa a frente do marketplace só para trabalhar com a v4, ajustando estoque, subindo os kits sugeridos.     A expectativa é escalar tanto o mercado livre da binário quanto amazon da ninja(empresa principal) e com isso vamos possívelmente entrar no mercado livre da ninja, ele disse que nào pode tomar essa deisão sozinho mas está bem comprado com essa ideia e vai buscar essa confirmação internamente após a escala dos canais.</div></td>
+      </tr><tr>
+        <td><span class="cli">C. VIEGAS PRODUTOS AUTOMOTIVOS LTDA.</span><div class="sub">#9526135</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-drop">Inviável / drop</span></td>
+        <td class="comment-cell"><div class="comment">Visto o contexto de inadimplência do projeto, não faz sentido mapearmos expansão para Casa do Lavador</div></td>
+      </tr><tr>
+        <td><span class="cli">CAPRICHO A TOA SERVICOS E COMERCIO DE CONFECCOES LTDA</span><div class="sub">#9526258</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-done">Já expandiu</span></td>
+        <td class="comment-cell"><div class="comment">Expandimos a 30D.</div></td>
+      </tr><tr>
+        <td><span class="cli">Excel Group</span><div class="sub">#9526124</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-warn">Aguarda recuperação</span></td>
+        <td class="comment-cell"><div class="comment">Estamos no processo de garantia de recuperação para antes realizar o processo de expansão.</div></td>
+      </tr><tr>
+        <td><span class="cli">Exclusiva Home e Decor - Metalurgica G.l.a.</span><div class="sub">#9528216</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Timing / capacidade</span></td>
+        <td class="comment-cell"><div class="comment">Falei com o Thiago que fechou a frente de saber recentemente, opotunidades para account planning seriam Ecommerce novo e social media. Mas o clinte não contrataria agora.</div></td>
+      </tr><tr>
+        <td><span class="cli">Massimo Zanetti Beverage Brasil Ltda</span><div class="sub">#9526200</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Thainá Gomes</td>
+        <td><span class="tag tag-info">Pré-requisito operacional</span></td>
+        <td class="comment-cell"><div class="comment">Go Live será no dia 16/06</div></td>
+      </tr><tr>
+        <td><span class="cli">NOVO MILENIO UNIFORMES LTDA</span><div class="sub">#9526118</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-warn">Aguarda recuperação</span></td>
+        <td class="comment-cell"><div class="comment">Projeto está em recuperação, precisamos garantir que o tenhamos conosco para somente depois seguirmos com a frente de expansão.</div></td>
+      </tr><tr>
+        <td><span class="cli">PG QUIMICA LTDA</span><div class="sub">#9526156</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Thainá Gomes</td>
+        <td><span class="tag tag-info">Pré-requisito operacional</span></td>
+        <td class="comment-cell"><div class="comment">Dados defasados, não estamos usando o Perpettus, eles estão passando pelo processo de implementação do CashUp (ERP + CRM Sales).     Sales Enablement: Estamos executando a frente comercial com o Denis     BI: ficou travada essa frente com a saída do Rafael Patricio, a ideia era apresentar um BI como referência seguindo o modelo de negócio da PG para a Rafaela.</div></td>
+      </tr><tr>
+        <td><span class="cli">PLAY FIBRA SERVICOS DE INTERNET LTDA</span><div class="sub">#9526096</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-warn">Aguarda recuperação</span></td>
+        <td class="comment-cell"><div class="comment">Recuperação do cliente, vamos pausar momentaneamente a frente de expansão.</div></td>
+      </tr><tr>
+        <td><span class="cli">PORTICO ARQUITETURA E CONSTRUCOES LTDA</span><div class="sub">#9526106</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-warn">Aguarda recuperação</span></td>
+        <td class="comment-cell"><div class="comment">Precisamos recuperar primeito e gerar resultado.</div></td>
+      </tr><tr>
+        <td><span class="cli">Promax Supertroca – Yanmar Agritech</span><div class="sub">#9526247</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-done">Já expandiu</span></td>
+        <td class="comment-cell"><div class="comment">Cliente tem o LT 4; coordenador ligou para o cliente. Era para ter o acesso ontem e não recebemos até agora. Precisamos ativar a frente de assessoria com resultados para depois expandir. A meta está baseada em leads.</div></td>
+      </tr><tr>
+        <td><span class="cli">SIGO ERPDUO3 SOLUCOES EM TECNOLOGIA DA INFORMACAO LTDA</span><div class="sub">#9526257</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Pausada — revisar</span></td>
+        <td class="comment-cell"><div class="comment">Temos um problema de contrato com o cliente, em que estamos entregando muito além do que deveríamos.</div></td>
+      </tr><tr>
+        <td><span class="cli">SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTOS MEDICOS E HOSPITALARES LTDA</span><div class="sub">#9526227</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-done">Já expandiu</span></td>
+        <td class="comment-cell"><div class="comment">Cliente expandiu nos últimos 30D.</div></td>
+      </tr><tr>
+        <td><span class="cli">VALMAGAL - ENGENHARIA E CONSTRUÇÃO LDA</span><div class="sub">#9526133</div></td>
+        <td><span class="phase-pill">Account Planning</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-drop">Inviável / drop</span></td>
+        <td class="comment-cell"><div class="comment">Visto o contexto de inadimplência do projeto, não faz sentido mapearmos expansão para Valmagal.     Além disso, já levamos propostas nos últimos 3m e foram declinadas (SDR IA + designer dedicado)</div></td>
+      </tr><tr>
+        <td><span class="cli">Aquatro Suprimentos</span><div class="sub">#9526235</div></td>
+        <td><span class="phase-pill">Diagnóstico</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-info">Pré-requisito operacional</span></td>
+        <td class="comment-cell"><div class="comment">Cliente está em processo de desenvolvimento do CRM, após isso, executaremos a EC (nós quem estamos desenvolvendo o CRM).</div></td>
+      </tr><tr>
+        <td><span class="cli">AXSIS CONSULTORIA EM SUPPLY CHAIN LTDA.</span><div class="sub">#9526101</div></td>
+        <td><span class="phase-pill">Diagnóstico</span></td>
+        <td>Melissa Pessoa</td>
+        <td><span class="tag tag-muted">Pausada — revisar</span></td>
+        <td class="comment-cell"><div class="comment">Projeto somente de SM, acabamos de retirar as demais frentes de escopo da empresa.</div></td>
+      </tr><tr>
+        <td><span class="cli">DYDYO</span><div class="sub">#9526276</div></td>
+        <td><span class="phase-pill">Diagnóstico</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Timing / capacidade</span></td>
+        <td class="comment-cell"><div class="comment">Cliente precisa de tempo para se ajustar financeiramente e conseguirmos seguir. O planejamento de marketing deles já está no topo do que deveria ser.</div></td>
+      </tr><tr>
+        <td><span class="cli">IBarth</span><div class="sub">#9528206</div></td>
+        <td><span class="phase-pill">Diagnóstico</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Pausada — revisar</span></td>
+        <td class="comment-cell"><span class="sub">Sem comentário</span></td>
+      </tr><tr>
+        <td><span class="cli">MANCHESTER DISTRIBUIDORA DE FERRO E ACO LTDA</span><div class="sub">#9526286</div></td>
+        <td><span class="phase-pill">Diagnóstico</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Timing / capacidade</span></td>
+        <td class="comment-cell"><div class="comment">Cliente disse que não precisa no momento de estruturação comercial.     Falamos e ela está perdida, não ensinaram nada para ela. Acho interessante puxar uma call.</div></td>
+      </tr><tr>
+        <td><span class="cli">O3NT PRODUTOS DE HIGIENE E BEM ESTAR LTDA</span><div class="sub">#9526260</div></td>
+        <td><span class="phase-pill">Diagnóstico</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-muted">Pausada — revisar</span></td>
+        <td class="comment-cell"><div class="comment">Cliente tem uma meta expectativa acima do que estamos olhando (100k), estamos faturando 20k, a meta é progressiva para chegarmos lá no tempo.</div></td>
+      </tr><tr>
+        <td><span class="cli">DALPACK COMERCIO ELETRONICO LTDA</span><div class="sub">#9526249</div></td>
+        <td><span class="phase-pill">Reunião Marcada</span></td>
+        <td>Jefferson Vieira</td>
+        <td><span class="tag tag-done">Já expandiu</span></td>
+        <td class="comment-cell"><div class="comment">Cliente precisa primeiro gerar resultados para depois expandir.</div></td>
+      </tr></tbody>
+    </table>
+  </div></div><div class="embed-funil"><div class="section">
+    <h2>Próximos passos consolidados (comentários das tasks)</h2>
+    <p class="sub" style="margin-top:-8px;margin-bottom:14px">Extraídos dos comentários mais recentes — priorizados por fase avançada e situação ativa.</p>
+    <div class="timeline-item">
+        <div class="t-title">BMB TECIDOS LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528270</div>
+        <div class="comment">Plano de Ação:    V4 - Fazer limpeza nos leads parados a mais de 90d.  Bruno: Atender os leads que estão na etapa &quot;qualificada&quot; e Follow up      Problema inicialmente me parece ser de qualidade de lead, precisamos dar um passo atrás antes de pensar da SDR novamente.      Até quando:  10/07/2026</div>
+      </div><div class="timeline-item">
+        <div class="t-title">BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGURANCA LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528235</div>
+        <div class="comment">Não é prioridade para o cliente. Finalizou o site na semana anterior que era o foco interno, depois iriam pensar nesta demanda.     Amanhã 12/06, temos check-in. Irei abordar e pegar uma atualização.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">CENTRO AUDITIVO MACAE <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528261</div>
+        <div class="comment">Propostas na mesa:  SDR IA e implementação de CRM Kommo   Leonardo, stakeholder, não tem dado retorno sobre as propostas. Tem se mantido &quot;ocupado&quot; com coisas internas da empresa.       R$ 2.800 de implementação One time  R$ 2.800 mensal de SDR para 600 atendimentos       Apresentação:  https://docs.google.com/presentation/d/1MJbD4p3t3n5kPEPoluNHMRzIJQw-dnNi1dYhykooVOk/edit?usp=sharing      Outras propostas:     WebSite, Landing Page - Ainda não apresentado</div>
+      </div><div class="timeline-item">
+        <div class="t-title">CENTRO BRASILIENSE DE NEFROLOGIA LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528251</div>
+        <div class="comment">O valor ficou acima do que consideram saudável para pagamento.     Dra Juliane, pediu um prazo &quot;teste&quot; para verificarem se a ferramenta de SDR IA / CRM será realmente útil. Não querem trocar de ferramenta, sem segurança.       Plano de Ação:  Validar com o Luís a proposta até dia 17/06</div>
+      </div><div class="timeline-item">
+        <div class="t-title">COLINA DOS IPES - COMERCIO E ADMINISTRACAO DE PLANOS E ASSISTENCIA FUNERAL LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Jefferson Vieira · Task #9526232</div>
+        <div class="comment">Proposta já apresentada, precisamos do FUP:   Jefferson Vieira - Sexta-feira (12/06) - Ligação do Coordenador para o Stakeholder, buscando aquecer a proposta. Evidenciar aqui na task ação executada com report.      Teremos um evento no dia 26/06 (a confirmar) é interessante convidar o cliente (João), para buscar proximidade.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">FABIO LUCHESI <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528241</div>
+        <div class="comment">Dropado.     Entenderam a necessidade e acreditam que faz sentido para a conta, porém será considerado apenas após Agosto, junto com novo site modelo e-commerce.      Plano de Ação:  Voltar a negociar em 10/08/2026 junto com a visão do site.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">FIBRALINK SERVICOS DE TECNOLOGIA DA INFORMACAO LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Thainá Gomes · Task #9526182</div>
+        <div class="comment">Cliente muito ausente, estou fazendo fup da proposta, temos check-in amanhã 12/06</div>
+      </div><div class="timeline-item">
+        <div class="t-title">GREEN WAY INSULATION <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528263</div>
+        <div class="comment">Proposta ainda sem standby.  Cliente atuando na operação e desmarcou os últimos 2 check-ins.   Próximo check-in 18/06.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">V.L.O TEXTIL INDUSTRIA E COMERCIO IMPORTACAO E EXPORTACAO LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528255</div>
+        <div class="comment">Proposta DROPADA!   Devolutiva dada no check-in em 10/06.         00:38:53       Thaily Kauane Serodio:   Show. E Flávio, à frente ali de CRM, você tem alguma novidade pra gente de como é que ficou? Vocês estavam dando uma olhada, chegaram a conversar?    Thaily Kauane Serodio:   Como é que ficou?    Flavio Zampieri:   Tá ele tenho novidade sim. Eh, depois de muita conversa aqui interna e como fazer, como viabilizar essa questão, eh, a diretoria chegou à conclusão que não vai abrir o CRM, tá? Isso porque eh é da filosofia da da empresa um cuidado muito grande com os com os clientes, com cadastro de clientes, com clientes, como se tivesse dentro de um cofre, sabe? E a gente tentou alternativas aqui, a gente tentou até contornar uma algum tipo de alternativa, mas chegamos na na chegamos na conclusão que não tem alternativa, sabe? simplesmente não tem como mexer nisso. Então a conclusão acabou sendo essa, Ti, eh, de não abrir, não mexer com o CRM mesmo.    Thaily Kauane Serodio:   É, entendi. É mais é uma política da empresa, né?       Flavio Zampieri:   Isso é é exatamente isso. É uma política da empresa, a gente nunca abriu, tá?    Thaily Kauane Serodio:   empresa.    Flavio Zampieri:   ninguém tem acesso a essas informações de cliente fora da empresa. E então a gente eh decidiu desde o começo, tá? Quando a gente começou a falar nisso, você percebeu até pela demora, né?      ----------------   Transcrição:  https://docs.google.com/document/d/1W6OTrc7TDTgunLlfASbpjaZDn6CvYAfjnv5fzrzKH3A/edit?tab=t.kq2q0ic21y0k   Gravação:  https://drive.google.com/file/d/1NeYeYVjBEvzCjJ-waiO2t5RQYljjHHdp/view?usp=sharing</div>
+      </div><div class="timeline-item">
+        <div class="t-title">VISOFLEX PORTAS E PORTOES LTDA <span class="phase-pill">Follow UP</span></div>
+        <div class="t-meta">Ativa · Jefferson Vieira · Task #9528209</div>
+        <div class="comment">Vamos apresentar o planejamento com o fluxo de reativação por email marketing dia 25/06.     Com a aprovação vamos seguir com a execução do fluxo por 30D retornaremos com a revisão da proposta dia 01/08.     Com esses disparos executados e com os dados em mãos, vamos conseguir a proposta do SDR IA mais assertiva.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">Use Jr <span class="phase-pill">Reunião Realizada</span></div>
+        <div class="t-meta">Ativa · Jefferson Vieira · Task #9528215</div>
+        <div class="comment">Vamos fechar a proposta de manutenção de estoque para marketplace hoje para apresentar até dia 17/06.     Marcelo precisa finalizar a proposta junto com o Daniel</div>
+      </div><div class="timeline-item">
+        <div class="t-title">Sorvetes Jundia <span class="phase-pill">Reunião Realizada</span></div>
+        <div class="t-meta">Concluída · Thainá Gomes · Task #9526166</div>
+        <div class="comment">Dropou o aumento de escopo.      Estamos com essa oportunidade em aberto:     Empresa: https://www.instagram.com/jundiafoods/     Próximo passo: aguardando o Marcelo enviar o PPT da proposta.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">AYA ENGENHARIA E PROJETOS LTDA <span class="phase-pill">Construção da Proposta</span></div>
+        <div class="t-meta">Ativa · marcelo.gomes · Task #9526173</div>
+        <div class="comment">Está com o Marcelo para construir o PPT.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">LF2 - INDUSTRIA E COMERCIO LTDA <span class="phase-pill">Construção da Proposta</span></div>
+        <div class="t-meta">Ativa · marcelo.gomes · Task #9526250</div>
+        <div class="comment">Precisamos vender a implementação + 30D onetime (3 meses de execução (fee x 3).  Após teste e dando certo, executamos o recorrente.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">ML PARTICIPACOES LTDA <span class="phase-pill">Construção da Proposta</span></div>
+        <div class="t-meta">Ativa · marcelo.gomes · Task #9526234</div>
+        <div class="comment">Quando será a reunião sobre SEO/UX: 19/06   Diagnóstico - Bruno Reis - 17/06  Construção da proposta - Marcelo Figueiredo - 18/06  Apresentação da Proposta - Jefferson Vieira - 19/06      Já é contabilizado como uma reunião marcada, por conta do check-in.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">SOTOBI MAQUINAS E ACESSORIOS PARA FABRICAS DE BLOCOS LTDA <span class="phase-pill">Construção da Proposta</span></div>
+        <div class="t-meta">Ativa · marcelo.gomes · Task #9526172</div>
+        <div class="comment">Diagnóstico feito pela Kamila está com a Julia para validação.     A ideia é apresentar para o Lucas na S25.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">TAWÁ VEÍCULOS <span class="phase-pill">Construção da Proposta</span></div>
+        <div class="t-meta">Ativa · marcelo.gomes · Task #9526198</div>
+        <div class="comment">Quando será a reunião sobre SDR IA:   Diagnóstico - Julia Costa 09/06  Construção da proposta - Marcelo Figueiredo - 09/06  Touchpoint - Julia Costa - 15/06  Apresentação da Proposta - 19/06      Sem data de apresentação.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">FTM TRANSPORTES LTDA <span class="phase-pill">Reunião Marcada</span></div>
+        <div class="t-meta">Ativa · Thiago Almeida · Task #9526092</div>
+        <div class="comment">Cliente vai mudar do Kommo para o SalesForce  Vender e só começar a execução após a transição.     Quando será a reunião sobre SDR AI: 18/06   Diagnóstico - Thiago Almeida - 15/06  Construção da proposta - 15/06  Apresentação da Proposta - 18/06      Já é contabilizado como uma reunião marcada, por conta do check-in.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">Spa Sensoria <span class="phase-pill">Reunião Marcada</span></div>
+        <div class="t-meta">Ativa · Thiago Almeida · Task #9528217</div>
+        <div class="comment">Cliente vindo do saber, já monetizado com: Assessoria completa, social media, já tem CRM implementado.     A única frente possível de expansão pelo que mapeamos agora seria CRM marketing e Site Institucinoal para o SPA.     Alinhado diretamente com o Thiago</div>
+      </div><div class="timeline-item">
+        <div class="t-title">AUDDAS INTERMEDIACAO DE NEGOCIOS LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Jefferson Vieira · Task #9526265</div>
+        <div class="comment">Quando será a reunião sobre SEO: 16/06   Comunicação com o Bruno Sergio - 11/06  Diagnóstico - Bruno Sergio - 16/06  Construção da proposta - Marcelo Figueiredo - 16/06  Apresentação da Proposta - 18/06      Já é contabilizado como uma reunião marcada, por conta do check-in.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">BERRYGOOD COMERCIO, IMPORTACAO E DISTRIBUICAO DE FRUTAS LTDA. <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Melissa Pessoa · Task #9526122</div>
+        <div class="comment">Quando será a reunião sobre WebSite:    Diagnóstico - Melissa Pessoa - 05/06  Construção da proposta - Marcelo Figueiredo - 12/06  Touchpoint - Melissa Pessoa - 12/06  Apresentação da Proposta -       Sem data de apresentação.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">BUBLU <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Jefferson Vieira · Task #9526244</div>
+        <div class="comment">Quando será a reunião sobre Social Media: 23/06 (Vamos deixar mais espaçado porque vamos temporariamente migrar para essa frente, enquanto o cliente está sem produto para comercializar)   Diagnóstico - Emilly Miranda - 23/06  Construção da proposta -   Apresentação da Proposta - .</div>
+      </div><div class="timeline-item">
+        <div class="t-title">DERMOCOSMETIC COMERCIO DE PRODUTOS DE BELEZA LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Melissa Pessoa · Task #9526085</div>
+        <div class="comment">Proposta em FuP, precisamos revisitar:   Próxima reunião será no dia 16/06, preciso que seja feito no término do check-in o FUP sobre a proposta.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">DPONET DESENVOLVIMENTO DE SISTEMAS E CONSULTORIA EM SEGURANCA DA INFORMACAO LTDA. <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Thainá Gomes · Task #9526160</div>
+        <div class="comment">Estamos em construção do Diagnóstico com o  ﻿  @ Vinicius Santos ﻿ . A deadline para conclusão está para amanhã 12/06.     Vamos validar, construir a proposta e agendar a reunião com o Matheus na próxima semana.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Thainá Gomes · Task #9526196</div>
+        <div class="comment">Quando será a reunião sobre SDR IA:   Diagnóstico - Julia Costa 17/06  Construção da proposta - Marcelo Figueiredo - 18/06  Touchpoint - Julia Costa - 18/06  Apresentação da Proposta - 19/06      Sem data de apresentação.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">IGA BLUMENAU <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Melissa Pessoa · Task #9526113</div>
+        <div class="comment">Já fizemos apresentação de aumento de escopo em criativo e tráfego!     Vamos puxar uma estratégia de recuperação e garantir o FUP (3x dias na semana)   Segunda  Quarta  Sexta       ﻿  @ Melissa Pessoa ﻿  Relembrar o contato do cliente para o Marcelo.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">INSTITUTO PANAMERICANO DE OFTALMOLOGIA LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528266</div>
+        <div class="comment">Sem qualquer possibilidade de expansão aqui. Cliente com perfil que querer tudo na &quot;parceria&quot;.      Plano de Ação:    Mapear qualidade comercial através de cliente oculto e avaliar capacidade de atendimento.  Podemos avaliar SDR IA e Treinamento Comercial para Julho (15/07)</div>
+      </div><div class="timeline-item">
+        <div class="t-title">M. RESENDE &amp; CARVALHO EQUIPAMENTOS AGROINDUSTRIAIS LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Thainá Gomes · Task #9526185</div>
+        <div class="comment">Estamos entregando uma &quot;POC&quot; podemos se dizer, do Sales Enablement, com o acompanhamento e acoes que o JP está implementando com IA.após esse período de 30-40 dias, vamos evidenciar os avanços, e se for o caso, sugerir a monetização para o Sales Enablement.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">MENDES &amp; CIA TRANSPORTES E SOLUCOES LOGISTICAS LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528264</div>
+        <div class="comment">No check-in do dia 10/06 cliente trouxe feedback positivo sobre evolução, com mais uma venda creditada as campanhas (R$ 9.000,00)     Alinhei de entregar o SLA de criativos de campanhas (que não precisamos atualmente) no overdelivery para Instagram. Publicar no LinkedIn e Instagram.     Antes de expandir precisamos gerar mais resultados e chegar próximo ao breakeven. Margem de contribuição baixa, em torno de 12%.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">MSYS VISTORIAS LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Ueliton Pereira · Task #9528239</div>
+        <div class="comment">Já foi levada algumas propostas para este cliente. Ele sempre considerou os nossos preços caros e não seguiu conosco.     A demanda de  separar LTV por segmento (vistorias vs imobiliário), apresentamos a proposta e eles disseram que iriam seguir com este escopo internamente, pois como programadores eles conseguiriam fazer por lá.        Plano de Ação:        Validar como está o desenvolvimento e se estão desenvolvendo     Check-in em 24/06/2026</div>
+      </div><div class="timeline-item">
+        <div class="t-title">ONCO IMPORT ASSESSORIA E CONSULTORIA LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Melissa Pessoa · Task #9526121</div>
+        <div class="comment">Quando será a reunião sobre WebSite e SEO:   Comunicação com o Bruno Sérgio, solicitando o diagnóstico - Melissa Pessoa - 11/06  Diagnóstico - Bruno Sergio - 16/06  Construção da proposta - Marcelo Figueiredo - 17/06  Apresentação da Proposta - Rafael Clarindo - 18/06      Já é contabilizado como uma reunião marcada, próximo touchpoint da gerência com o cliente.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">PERNAMBUCO QUIMICA S A <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Thainá Gomes · Task #9526151</div>
+        <div class="comment">Vamos apresentar hoje o cliente oculto para a Stakeholder, o próximo passo será agendar uma call com a stakeholder e o Denis, para entender mais afundo a estrutura comercial deles, o Denis vai me auxiliar nessa para eu fazer futuramente.     A ideia é vender certo aqui, diferente do que aconteceu na PG.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">PORTIER COSMETICOS LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Ativa · Melissa Pessoa · Task #9523009</div>
+        <div class="comment">Quando será a reunião sobre marketplace: 18/06   Comunicação com o Otto - 11/06  Diagnóstico - Daniel Otto - 16/06  Construção da proposta - Marcelo Figueiredo 16/06  Apresentação da Proposta - Melissa Pessoa - 18/06      Já é contabilizado como uma reunião marcada, por conta do check-in.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">MANCHESTER DISTRIBUIDORA DE FERRO E ACO LTDA <span class="phase-pill">Diagnóstico</span></div>
+        <div class="t-meta">Pausada · Jefferson Vieira · Task #9526286</div>
+        <div class="comment">Cliente disse que não precisa no momento de estruturação comercial.     Falamos e ela está perdida, não ensinaram nada para ela. Acho interessante puxar uma call.</div>
+      </div><div class="timeline-item">
+        <div class="t-title">ACCENTURE PARTICIPACOES LTDA <span class="phase-pill">Account Planning</span></div>
+        <div class="t-meta">Ativa · Thainá Gomes · Task #9526186</div>
+        <div class="comment">Breakeven previsto para esse mês de junho, com uma meta de 20 locações para esse mês. Acredito que o melhor cenário seja bater a meta esse mês, breakevar o projeto e já vir com a proposta de SDR, pois o time dele está com dificuldade de trabalhar o lead, eles querem que o lead já chegue mais preparado, e a IA ajudaria muito nesse fluxo.     Próximo fup com o cliente: 23/06</div>
+      </div>
+  </div></div><div class="embed-funil"><div class="section">
+    <h2>Encerradas e canceladas</h2>
+    <div class="grid2">
+      <div>
+        <h3>Concluídas (2)</h3>
+        <ul><li>ECOSTORAGE SERVICOS LTDA — Na última semana, expandimos para site + captação (aprox. R$10.5k)     Não faz s</li><li>Sorvetes Jundia — Dropou o aumento de escopo.      Estamos com essa oportunidade em aberto:     Em</li></ul>
+      </div>
+      <div>
+        <h3>Canceladas (4)</h3>
+        <ul><li>AUTO PECAS E ACESSORIOS YOKOTA LTDA</li><li>BERTONCELLO AGENCIA DE CREDITO E CONSULTORIA FINANCEIRA LTDA</li><li>Kidys Park Brinquedos</li><li>TECNIPOOL ELEVADORES PARA ACESSIBILIDADE EM PISCINA LTDA</li></ul>
+      </div>
+    </div>
+  </div></div><div class="embed-funil"><div class="section">
+    <h2>Recomendações operacionais</h2>
+    <ol style="margin:0;padding-left:20px;font-size:13px;line-height:1.7;color:#d1d5db">
+      <li><strong style="color:var(--brand)">Hoje/esta semana:</strong> acompanhar propostas com Marcelo (5 em Construção) — ML PARTICIPAÇÕES reunião SEO/UX <strong>19/06</strong>; PG QUÍMICA apresentação BI <strong>24/06</strong>; VISOFLEX apresentação email marketing <strong>25/06</strong>; MANCHESTER call diagnóstico <strong>24/06</strong>.</li>
+      <li><strong>Jefferson:</strong> 13 pausadas — revisar quais retomam após recuperação (Manchester: cliente pediu call apesar de resistência inicial).</li>
+      <li><strong>Thiago (Saber):</strong> 2 reuniões marcadas — FTM (aguardar transição Kommo→Salesforce) e Spa Sensoria (já monetizado, validar próxima expansão).</li>
+      <li><strong>Follow UP:</strong> 10 ativos — priorizar CENTRO AUDITIVO MACAÉ, GREEN WAY e COLINA DOS IPÊS com FUP datado nos comentários; V.L.O TEXTIL e FABIO LUCHESI marcados como drop nos comentários — validar se movem para cancelada/declinado no Flow.</li>
+      <li><strong>Integração:</strong> resolver gaps Kidys Park / TECNIPOOL / ELEVATE; reconcluir ECOSTORAGE e Sorvetes Jundiaí se aplicável (2 concluídas).</li>
+      <li><strong>Ritual:</strong> coordenadores devem manter comentários com data explícita (“Quando será a reunião…”) — padrão já adotado em ~71 tasks.</li>
+    </ol>
+  </div></div>
+
+</div>
+
+<div class="squad-block" id="squad-billions">
+  <div class="sq-bar" style="background:var(--bil)"></div>
+  <div class="badge-squad">V4 Company · Billions</div>
+  <h2 style="font-size:22px;font-weight:800;margin:0 0 4px">[Colli&amp;Co] Billions Expansão</h2>
+  <p class="meta" style="margin-bottom:20px">Safra jun/26 · 3 opps ativas · 2 fechados no mês · 2026-06-20</p>
+  
+  
+  <div class="grid2">
+    <div class="section">
+      <h2>📅 Reuniões hoje · Billions</h2>
+      <p class="empty">Nenhuma reunião de expansão/cliente hoje</p>
+    </div>
+    <div class="section">
+      <h2>🔄 Mudou desde ontem</h2>
+      <ul class='dot-list'><li>SAMECH · Ekyte Análise → Briefing — Fabio</li></ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="section">
+      <h2>✅ Vendidos / fechados (jun/26)</h2>
+      <table><thead><tr><th>Conta</th><th>Produto</th><th>Assinatura</th></tr></thead><tbody><tr><td class='cli'>DI9 INVEST</td><td>Captação</td><td>05/06/2026</td></tr><tr><td class='cli'>AYA CLEANING</td><td>Video IA</td><td>15/06/2026</td></tr></tbody></table>
+    </div>
+    <div class="section">
+      <h2>📋 Ekyte — movimentou hoje</h2>
+      <ul class='dot-list'><li>SAMECH · Ekyte Análise → Briefing — Fabio</li></ul>
+    </div>
+  </div>
+  <div class="section">
+    <h2>🎯 Pipe safra jun/26 · Farmer Marcelo · 3 ativas</h2>
+    <div class="table-wrap"><table><thead><tr><th>Conta</th><th>Produto</th><th>Etapa</th><th>Status planilha</th><th>Dias</th><th>F·P·E</th></tr></thead><tbody><tr><td class='cli'>HOTEL LEO ❄️</td><td>Web, Assessoria (Flow: Social Media)</td><td>Follow Up</td><td>Em Follow · Ariel</td><td style='text-align:right'>1d</td><td><span class="pill ok">✓</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr><tr><td class='cli'>MANUS TURISMO 🌡️</td><td>Aumento de escopo (Flow: Assessoria de marketing e vendas)</td><td>Follow Up</td><td>Aceito · Guilherme</td><td style='text-align:right'>14d</td><td><span class="pill ok">✓</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr><tr><td class='cli'>SOL INTERIORS 🔥</td><td>Video IA (Flow: SDR IA)</td><td>Follow Up</td><td>Aceito · Nayara</td><td style='text-align:right'>8d</td><td><span class="pill ok">✓</span> <span class="pill ok">✓</span> <span class="pill no">✗</span></td></tr></tbody></table></div><p class="sub">Safra jun/26 · Farmer Marcelo · F=Flow P=Planilha E=Ekyte</p>
+  </div>
+
+  
+  
+  <div class="kpis">
+    <div class="kpi"><div class="v">7</div><div class="l">Tasks Ekyte</div></div>
+    <div class="kpi"><div class="v red">7</div><div class="l">Ativas funil</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Pausadas</div></div>
+    <div class="kpi"><div class="v">7</div><div class="l">Pipeline quente</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Follow UP</div></div>
+  </div>
+  <p class="sub">Billions: weekly expansão por conta ([BILLIONS] + tags expansão) e gestão Colli&Co — funil gerência [01][EXP] ainda em rollout.</p>
+  <div class="section">
+    <h2>Funil operacional Ekyte — fases reais do squad</h2>
+    <div class="funnel"><div class="funnel-step"><div class="n">3<small> (3 atv)</small></div><div class="lbl">Briefing</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div><div class="funnel-step"><div class="n">2<small> (2 atv)</small></div><div class="lbl">Revisão (Head)</div><div class="bar-bg"><div class="bar-fill" style="width:66%"></div></div></div><div class="funnel-step"><div class="n">1<small> (1 atv)</small></div><div class="lbl">Análise</div><div class="bar-bg"><div class="bar-fill" style="width:33%"></div></div></div><div class="funnel-step"><div class="n">1<small> (1 atv)</small></div><div class="lbl">Planejamento</div><div class="bar-bg"><div class="bar-fill" style="width:33%"></div></div></div></div><div class="sit-row" style="margin-top:18px"><div class="sit-chip ativa"><div class="n">7</div><div class="sub">Ativas</div></div><div class="sit-chip pausada"><div class="n">0</div><div class="sub">Pausadas</div></div><div class="sit-chip"><div class="n">0</div><div class="sub">Concluídas</div></div><div class="sit-chip"><div class="n">0</div><div class="sub">Canceladas</div></div></div>
+  </div>
+  
+  <div class="section">
+    <h2>📋 Tasks Ekyte ativas (7)</h2>
+    <table><thead><tr><th>Conta / workspace</th><th>Fase</th><th>Resp.</th><th>Prazo</th></tr></thead><tbody><tr><td><span class='cli'>Samech</span><div class='sub'>[BILLIONS] [SICA] Samech</div></td><td><span class='phase-pill'>Briefing</span></td><td>Fabio</td><td class='sub'>2026-07-01</td></tr><tr><td><span class='cli'>Samech</span><div class='sub'>[BILLIONS] [SICA] Samech</div></td><td><span class='phase-pill'>Briefing</span></td><td>Fabio</td><td class='sub'>2026-06-24</td></tr><tr><td><span class='cli'>Couselo</span><div class='sub'>[BILLIONS] [MTCL] Couselo</div></td><td><span class='phase-pill'>Planejamento</span></td><td>Nayara</td><td class='sub'>2026-06-12</td></tr><tr><td><span class='cli'>Fluxo das entregas TER para satisfação do cli</span><div class='sub'>GESTÃO COLLI&amp;CO 2026</div></td><td><span class='phase-pill'>Revisão (Head)</span></td><td>Guilherme</td><td class='sub'>2026-07-01</td></tr><tr><td><span class='cli'>Samech</span><div class='sub'>[BILLIONS] [SICA] Samech</div></td><td><span class='phase-pill'>Análise</span></td><td>André</td><td class='sub'>2026-06-22</td></tr><tr><td><span class='cli'>[05][ENG] Flow Cockpit Saber — Expansão e opo</span><div class='sub'>[V4 Colli] RevOPS</div></td><td><span class='phase-pill'>Briefing</span></td><td>Rafael</td><td class='sub'>2026-06-30</td></tr><tr><td><span class='cli'>Preencher Tactical de Expansão</span><div class='sub'>GESTÃO COLLI&amp;CO 2026</div></td><td><span class='phase-pill'>Revisão (Head)</span></td><td>Rodrigo</td><td class='sub'>2026-06-16</td></tr></tbody></table>
+  </div>
+  <div class="grid2">
+    <div class="section">
+      <h2>Por coordenação / executor</h2>
+      <table><thead><tr><th>Responsável</th><th>Total</th><th>Por fase</th></tr></thead><tbody><tr><td><strong>Fabio</strong></td><td>2</td><td class='sub'>Briefing: 2</td></tr><tr><td><strong>Nayara</strong></td><td>1</td><td class='sub'>Planejamento: 1</td></tr><tr><td><strong>Guilherme</strong></td><td>1</td><td class='sub'>Revisão (Head): 1</td></tr><tr><td><strong>André</strong></td><td>1</td><td class='sub'>Análise: 1</td></tr><tr><td><strong>Rafael</strong></td><td>1</td><td class='sub'>Briefing: 1</td></tr><tr><td><strong>Rodrigo</strong></td><td>1</td><td class='sub'>Revisão (Head): 1</td></tr></tbody></table>
+    </div>
+    <div class="section">
+      <h2>Alinhamento Flow ↔ Ekyte</h2>
+      <table><tbody><tr><td>Cards Flow</td><td><strong>29</strong></td></tr><tr><td>Tasks Ekyte</td><td><strong>7</strong></td></tr><tr><td>Match</td><td><strong>0</strong></td></tr><tr><td>Sem match</td><td><strong>29</strong> (contas sem par Flow/Ekyte)</td></tr></tbody></table><h3>Flow por etapa</h3><p class='sub'>follow_up: 6 · diagnostico: 6 · construcao_poc: 6 · account_planning: 6 · drop: 3 · finalizado: 2</p><h3>Gaps abertos</h3><ul style='margin:0;padding-left:18px;font-size:13px'><li>HOTEL LEO — card Flow sem task Ekyte</li><li>BEAUTY LABS COSMETICOS LTDA — card Flow sem task Ekyte</li><li>WELL SERVICES(WELL SERVICES) — card Flow sem task Ekyte</li><li>XRP PARTICIPACOES LTDA — card Flow sem task Ekyte</li><li>ALUGTEC LOCACAO DE MAQUINAS E EQUIPAMENTOS LTDA - 07.551.124/0001-04(ALUGTEC LOCACAO DE MAQUINAS E EQUIPAMENTOS LTDA - 07.551.124/0001-04) - MONETIZAÇÃO — card Flow sem task Ekyte</li><li>Meca Automatizadores — card Flow sem task Ekyte</li><li>OUTMAT (JVL INDUSTRIA E COMERCIO DE ELETROELETRONICOS LTDA) — card Flow sem task Ekyte</li><li>D P V PRODUTOS QUIMICOS LIMITADA - 53.235.180/0001-57(D P V PRODUTOS QUIMICOS LIMITADA - 53.235.180/0001-57) - MONETIZAÇÃO — card Flow sem task Ekyte</li></ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>🔥 Pipeline quente — próximos passos</h2>
+    <table><thead><tr><th>Cliente</th><th>Fase</th><th>Resp.</th><th>Próximo passo</th></tr></thead><tbody><tr><td><span class='cli'>Samech</span><div class='sub'>#9269245</div></td><td><span class='phase-pill'>Briefing</span></td><td>Fabio</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>Samech</span><div class='sub'>#9269246</div></td><td><span class='phase-pill'>Briefing</span></td><td>Fabio</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>Couselo</span><div class='sub'>#9365557</div></td><td><span class='phase-pill'>Planejamento</span></td><td>Nayara</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>Fluxo das entregas TER para satisfação do cliente </span><div class='sub'>#9440291</div></td><td><span class='phase-pill'>Revisão (Head)</span></td><td>Guilherme</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>Samech</span><div class='sub'>#9517289</div></td><td><span class='phase-pill'>Análise</span></td><td>André</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>[05][ENG] Flow Cockpit Saber — Expansão e oportuni</span><div class='sub'>#9525560</div></td><td><span class='phase-pill'>Briefing</span></td><td>Rafael</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>Preencher Tactical de Expansão</span><div class='sub'>#9558827</div></td><td><span class='phase-pill'>Revisão (Head)</span></td><td>Rodrigo</td><td class='comment-cell'><div class='comment'>—</div></td></tr></tbody></table>
+  </div>
+  
+  
+  
+
+</div>
+
+<div class="squad-block" id="squad-exclusive">
+  <div class="sq-bar" style="background:var(--exc)"></div>
+  <div class="badge-squad">V4 Company · Exclusive</div>
+  <h2 style="font-size:22px;font-weight:800;margin:0 0 4px">[Exclusive] - Monetização</h2>
+  <p class="meta" style="margin-bottom:20px">Safra jun/26 · 0 opps ativas · 0 fechados no mês · 2026-06-20</p>
+  
+  
+  <div class="grid2">
+    <div class="section">
+      <h2>📅 Reuniões hoje · Exclusive</h2>
+      <p class="empty">Nenhuma reunião de expansão/cliente hoje</p>
+    </div>
+    <div class="section">
+      <h2>🔄 Mudou desde ontem</h2>
+      <p class="empty">Sem movimentação relevante</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="section">
+      <h2>✅ Vendidos / fechados (jun/26)</h2>
+      <p class="empty">Nenhum fechamento em jun/26</p>
+    </div>
+    <div class="section">
+      <h2>📋 Ekyte — movimentou hoje</h2>
+      <p class="empty">Sem movimento Ekyte hoje</p>
+    </div>
+  </div>
+  <div class="section">
+    <h2>🎯 Pipe safra jun/26 · Farmer Marcelo · 0 ativas</h2>
+    <p class="empty">Nenhuma opp ativa na safra jun/26 (Marcelo)</p>
+  </div>
+
+  
+  
+  <div class="kpis">
+    <div class="kpi"><div class="v">2</div><div class="l">Tasks Ekyte</div></div>
+    <div class="kpi"><div class="v red">2</div><div class="l">Ativas funil</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Pausadas</div></div>
+    <div class="kpi"><div class="v">2</div><div class="l">Pipeline quente</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Follow UP</div></div>
+  </div>
+  
+  <div class="section">
+    <h2>Funil operacional Ekyte — fases reais do squad</h2>
+    <div class="funnel"><div class="funnel-step"><div class="n">2<small> (2 atv)</small></div><div class="lbl">Briefing</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div></div><div class="sit-row" style="margin-top:18px"><div class="sit-chip ativa"><div class="n">2</div><div class="sub">Ativas</div></div><div class="sit-chip pausada"><div class="n">0</div><div class="sub">Pausadas</div></div><div class="sit-chip"><div class="n">0</div><div class="sub">Concluídas</div></div><div class="sit-chip"><div class="n">0</div><div class="sub">Canceladas</div></div></div>
+  </div>
+  
+  <div class="section">
+    <h2>📋 Tasks Ekyte ativas (2)</h2>
+    <table><thead><tr><th>Conta / workspace</th><th>Fase</th><th>Resp.</th><th>Prazo</th></tr></thead><tbody><tr><td><span class='cli'>Go Live Ifood, Stone, Elements, Prudential</span><div class='sub'>[Exclusive] Gestão Gerencial</div></td><td><span class='phase-pill'>Briefing</span></td><td>Leonardo</td><td class='sub'>2026-06-13</td></tr><tr><td><span class='cli'>Avanti Site</span><div class='sub'>[Exclusive] Gestão Gerencial</div></td><td><span class='phase-pill'>Briefing</span></td><td>Vitor</td><td class='sub'>2026-06-13</td></tr></tbody></table>
+  </div>
+  <div class="grid2">
+    <div class="section">
+      <h2>Por coordenação / executor</h2>
+      <table><thead><tr><th>Responsável</th><th>Total</th><th>Por fase</th></tr></thead><tbody><tr><td><strong>Leonardo</strong></td><td>1</td><td class='sub'>Briefing: 1</td></tr><tr><td><strong>Vitor</strong></td><td>1</td><td class='sub'>Briefing: 1</td></tr></tbody></table>
+    </div>
+    <div class="section">
+      <h2>Alinhamento Flow ↔ Ekyte</h2>
+      <table><tbody><tr><td>Cards Flow</td><td><strong>4</strong></td></tr><tr><td>Tasks Ekyte</td><td><strong>2</strong></td></tr><tr><td>Match</td><td><strong>0</strong></td></tr><tr><td>Sem match</td><td><strong>4</strong> (contas sem par Flow/Ekyte)</td></tr></tbody></table><h3>Flow por etapa</h3><p class='sub'>account_planning: 4</p><h3>Gaps abertos</h3><ul style='margin:0;padding-left:18px;font-size:13px'><li>AVANTI INTERMEDIACOES DE NEGOCIOS EMPRESARIAIS LTDA — card Flow sem task Ekyte</li><li>BRILHO MAQUIAGEM LTDA — card Flow sem task Ekyte</li><li>CONSULTING NOW — card Flow sem task Ekyte</li><li>THE WAY CONCIERGE MEDICINE(THE WAY CONCIERGE MEDICINE) — card Flow sem task Ekyte</li><li>Go Live Ifood, Stone, Elements, Prudential — task Ekyte sem card Flow</li><li>Avanti Site — task Ekyte sem card Flow</li></ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>🔥 Pipeline quente — próximos passos</h2>
+    <table><thead><tr><th>Cliente</th><th>Fase</th><th>Resp.</th><th>Próximo passo</th></tr></thead><tbody><tr><td><span class='cli'>Go Live Ifood, Stone, Elements, Prudential</span><div class='sub'>#9496307</div></td><td><span class='phase-pill'>Briefing</span></td><td>Leonardo</td><td class='comment-cell'><div class='comment'>—</div></td></tr><tr><td><span class='cli'>Avanti Site</span><div class='sub'>#9496311</div></td><td><span class='phase-pill'>Briefing</span></td><td>Vitor</td><td class='comment-cell'><div class='comment'>—</div></td></tr></tbody></table>
+  </div>
+  
+  
+  
+
+</div>
+
+
+  <footer>
+    V4 Company · Pipe Diário · sync a cada 30 min<br>
+    Cockpit MCP expansion_cards · Invictus(85), Billions(41), Exclusive(4) · ekyte_list_tasks · Invictus(46), Billions(7), Exclusive(2) · Google Calendar · agenda.json<br>
+    <a class="footer-url" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">https://marcelofigueiredo23.github.io/pipediario/</a> · última sync 2026-06-20T10:09:04-03:00
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.copy-link-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var url = btn.getAttribute('data-copy') || '';
+    if (!url) return;
+    navigator.clipboard.writeText(url).then(function() {
+      btn.textContent = 'Copiado!';
+      setTimeout(function() { btn.textContent = 'Copiar'; }, 2000);
+    });
+  });
+});
+</script>
+</body>
+</html>
