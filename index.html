@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pipe Expansão · Marcelo · 20/06 10h</title>
+<title>Pipe Expansão · Marcelo · 20/06 08h</title>
 <link rel="canonical" href="https://marcelofigueiredo23.github.io/pipediario/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -174,7 +174,73 @@ footer .footer-url:hover { text-decoration: underline; }
 .nav-squad a:hover { color: #fff; background: var(--brand-dim); }
 .nav-squad a.rank-link { color: #fca5a5; }
 
-.squad-block { margin-bottom: 56px; scroll-margin-top: 72px; }
+.squad-view-bar {
+  position: sticky; top: 56px; z-index: 90;
+  margin: 0 0 24px; padding: 8px;
+  background: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--bd-strong);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+}
+.squad-view-bar .bar-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--mut);
+  padding: 4px 10px 10px;
+}
+.squad-view-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+@media (max-width: 900px) {
+  .squad-view-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.squad-view-tab {
+  appearance: none; border: 1px solid var(--bd);
+  background: var(--surf2); color: var(--mut);
+  border-radius: 12px; padding: 12px 14px;
+  cursor: pointer; text-align: left;
+  transition: all .2s; font-family: inherit;
+}
+.squad-view-tab:hover { border-color: var(--bd-strong); color: #fff; }
+.squad-view-tab.active {
+  color: #fff; border-color: var(--brand);
+  background: linear-gradient(135deg, rgba(229,9,21,.18), rgba(20,20,20,.95));
+  box-shadow: 0 0 24px var(--brand-dim);
+}
+.squad-view-tab.tab-inv.active { border-color: var(--inv); box-shadow: 0 0 24px rgba(129,140,248,.2); }
+.squad-view-tab.tab-bil.active { border-color: var(--bil); box-shadow: 0 0 24px rgba(251,191,36,.18); }
+.squad-view-tab.tab-exc.active { border-color: var(--exc); box-shadow: 0 0 24px rgba(244,114,182,.18); }
+.squad-view-tab .tab-name {
+  display: block; font-size: 13px; font-weight: 800; margin-bottom: 6px;
+}
+.squad-view-tab .tab-stats {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.squad-view-tab .tab-stat {
+  font-size: 10px; font-weight: 700; padding: 3px 8px;
+  border-radius: 999px; background: rgba(255,255,255,.06);
+  color: #d4d4d4;
+}
+.squad-view-tab.active .tab-stat { background: rgba(255,255,255,.1); }
+
+.view-panel { display: none; animation: viewFade .25s ease; }
+.view-panel.is-active { display: block; }
+@keyframes viewFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.squad-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px; margin-bottom: 20px;
+}
+.squad-kpis .kpi { padding: 14px 16px; }
+.squad-kpis .kpi .v { font-size: 24px; }
+
+.squad-block { margin-bottom: 56px; scroll-margin-top: 120px; }
 .squad-block .sq-bar {
   height: 3px; border-radius: 999px; margin-bottom: 22px;
   box-shadow: 0 0 20px var(--brand-dim);
@@ -376,12 +442,12 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
   <text x="0" y="26" font-family="Inter, Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e50915">V4</text>
   <text x="52" y="26" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#737373" letter-spacing=".18em">COMPANY</text>
 </svg>
-    <span class="sync-pill"><span class="sync-dot"></span> Sync 10:09 · a cada 30min</span>
+    <span class="sync-pill"><span class="sync-dot stale"></span> Sync 10:55 · a cada 30min</span>
   </div>
   <div class="source-chips">
     <a class="chip live github-chip" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">GitHub Pages</a>
     <span class="chip live">Planilha CRM</span>
-    <span class="chip live">Flow · Ekyte · Agenda</span>
+    <span class="chip cache">Flow · Ekyte · Agenda</span>
   </div>
 </div>
 <div class="wrap">
@@ -401,17 +467,61 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
 </div>
       <div class="meta">
         <strong>Marcelo Figueiredo</strong> · Safra jun/2026 ·
-        Gerado 20/06 10h<br>
+        Gerado 20/06 08h<br>
         Cruzamento Planilha CRM · Flow Cockpit · Ekyte · Google Calendar · Meta Rome
       </div>
       <div class="source-chips">
     <span class="chip live">Planilha ao vivo</span>
-    <span class="chip live">Flow/Ekyte MCP recente · dumps há 0min</span>
+    <span class="chip cache">Flow/Ekyte cache · dumps há 47min</span>
     <span class="chip live">Ranking vendidos jun</span>
     </div>
     </div>
   </div>
 
+  
+<div class="squad-view-bar" id="squad-view-bar">
+  <div class="bar-label">Selecionar visão</div>
+  <div class="squad-view-tabs" role="tablist">
+    <button type="button" class="squad-view-tab tab-geral active" data-view="geral">
+      <span class="tab-name">Visão geral</span>
+      <span class="tab-stats">
+        <span class="tab-stat">Ranking</span>
+        <span class="tab-stat">Meta Rome</span>
+      </span>
+    </button>
+    <button type="button" class="squad-view-tab tab-inv" data-view="invictus">
+      <span class="tab-name">Invictus</span>
+      <span class="tab-stats">
+        <span class="tab-stat">7 ativas</span>
+        <span class="tab-stat">3 fech.</span>
+        <span class="tab-stat">46 Ekyte</span>
+        <span class="tab-stat">Meta 149%</span>
+      </span>
+    </button>
+    <button type="button" class="squad-view-tab tab-bil" data-view="billions">
+      <span class="tab-name">Billions</span>
+      <span class="tab-stats">
+        <span class="tab-stat">3 ativas</span>
+        <span class="tab-stat">2 fech.</span>
+        <span class="tab-stat">7 Ekyte</span>
+        <span class="tab-stat">Meta 0%</span>
+      </span>
+    </button>
+    <button type="button" class="squad-view-tab tab-exc" data-view="exclusive">
+      <span class="tab-name">Exclusive</span>
+      <span class="tab-stats">
+        <span class="tab-stat">0 ativas</span>
+        <span class="tab-stat">0 fech.</span>
+        <span class="tab-stat">2 Ekyte</span>
+        <span class="tab-stat">Meta 0%</span>
+      </span>
+    </button>
+  </div>
+</div>
+
+  <div id="view-panels">
+    
+<div class="view-panel is-active" id="view-geral" data-view="geral" role="tabpanel">
   
 <section class="meta-rome-block ranking-first" id="ranking-expansao">
   <div class="ranking-hero">
@@ -501,7 +611,6 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
 </div></div>
   </div>
 </section>
-
   <div class="kpis">
     <div class="kpi"><div class="v">10</div><div class="l">Opps ativas safra</div></div>
     <div class="kpi"><div class="v red">5</div><div class="l">Fechados jun/26</div></div>
@@ -509,14 +618,18 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
     <div class="kpi"><div class="v">4</div><div class="l">Sem card Flow</div></div>
     <div class="kpi"><div class="v">12</div><div class="l">Total safra jun</div></div>
   </div>
-
-  <nav class="nav-squad">
-    <a href="#ranking-expansao" class="rank-link">🏆 Ranking</a>
-    <a href="#squad-invictus">Invictus</a>
-    <a href="#squad-billions">Billions</a>
-    <a href="#squad-exclusive">Exclusive</a>
-  </nav>
-
+</div>
+    
+<div class="view-panel" id="view-invictus" data-view="invictus" role="tabpanel">
+  
+  <div class="squad-kpis">
+    <div class="kpi"><div class="v red">7</div><div class="l">Opps ativas</div></div>
+    <div class="kpi"><div class="v">3</div><div class="l">Fechados mês</div></div>
+    <div class="kpi"><div class="v">46</div><div class="l">Ekyte ativas</div></div>
+    <div class="kpi"><div class="v">4</div><div class="l">Sem Flow</div></div>
+    <div class="kpi"><div class="v">5</div><div class="l">Sem Ekyte</div></div>
+    <div class="kpi"><div class="v">4</div><div class="l">Mudou 24h</div></div>
+  </div>
   
 <div class="squad-block" id="squad-invictus">
   <div class="sq-bar" style="background:var(--inv)"></div>
@@ -1001,6 +1114,18 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
 
 </div>
 
+</div>
+<div class="view-panel" id="view-billions" data-view="billions" role="tabpanel">
+  
+  <div class="squad-kpis">
+    <div class="kpi"><div class="v ">3</div><div class="l">Opps ativas</div></div>
+    <div class="kpi"><div class="v">2</div><div class="l">Fechados mês</div></div>
+    <div class="kpi"><div class="v">7</div><div class="l">Ekyte ativas</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Sem Flow</div></div>
+    <div class="kpi"><div class="v">3</div><div class="l">Sem Ekyte</div></div>
+    <div class="kpi"><div class="v">1</div><div class="l">Mudou 24h</div></div>
+  </div>
+  
 <div class="squad-block" id="squad-billions">
   <div class="sq-bar" style="background:var(--bil)"></div>
   <div class="badge-squad">V4 Company · Billions</div>
@@ -1073,6 +1198,18 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
 
 </div>
 
+</div>
+<div class="view-panel" id="view-exclusive" data-view="exclusive" role="tabpanel">
+  
+  <div class="squad-kpis">
+    <div class="kpi"><div class="v ">0</div><div class="l">Opps ativas</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Fechados mês</div></div>
+    <div class="kpi"><div class="v">2</div><div class="l">Ekyte ativas</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Sem Flow</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Sem Ekyte</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Mudou 24h</div></div>
+  </div>
+  
 <div class="squad-block" id="squad-exclusive">
   <div class="sq-bar" style="background:var(--exc)"></div>
   <div class="badge-squad">V4 Company · Exclusive</div>
@@ -1145,14 +1282,52 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
 
 </div>
 
+</div>
+  </div>
 
   <footer>
     V4 Company · Pipe Diário · sync a cada 30 min<br>
     Cockpit MCP expansion_cards · Invictus(85), Billions(41), Exclusive(4) · ekyte_list_tasks · Invictus(46), Billions(7), Exclusive(2) · Google Calendar · agenda.json<br>
-    <a class="footer-url" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">https://marcelofigueiredo23.github.io/pipediario/</a> · última sync 2026-06-20T10:09:04-03:00
+    <a class="footer-url" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">https://marcelofigueiredo23.github.io/pipediario/</a> · última sync 2026-06-20T10:55:41-03:00
   </footer>
 </div>
 <script>
+(function() {
+  var tabs = document.querySelectorAll('.squad-view-tab');
+  var panels = document.querySelectorAll('.view-panel');
+  var valid = ['geral', 'invictus', 'billions', 'exclusive'];
+
+  function setView(view) {
+    if (valid.indexOf(view) === -1) view = 'geral';
+    tabs.forEach(function(tab) {
+      tab.classList.toggle('active', tab.getAttribute('data-view') === view);
+    });
+    panels.forEach(function(panel) {
+      panel.classList.toggle('is-active', panel.getAttribute('data-view') === view);
+    });
+    try { localStorage.setItem('pipe-diario-view', view); } catch (e) {}
+    if (location.hash.replace('#', '') !== view) {
+      history.replaceState(null, '', '#' + view);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      setView(tab.getAttribute('data-view'));
+    });
+  });
+
+  var initial = (location.hash || '').replace('#', '').toLowerCase();
+  if (!initial) {
+    try { initial = localStorage.getItem('pipe-diario-view') || 'geral'; } catch (e) { initial = 'geral'; }
+  }
+  setView(initial);
+  window.addEventListener('hashchange', function() {
+    setView((location.hash || '').replace('#', '').toLowerCase());
+  });
+})();
+
 document.querySelectorAll('.copy-link-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     var url = btn.getAttribute('data-copy') || '';
