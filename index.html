@@ -359,6 +359,40 @@ tr.sla-row { background: rgba(250,204,21,.05); }
 a.chip.ee-link { text-decoration: none; }
 a.chip.ee-link:hover { filter: brightness(1.08); }
 
+.conversion-block {
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px solid var(--bd-strong);
+}
+.conversion-block .section-title { margin-bottom: 6px; }
+.conv-note { margin: 0 0 16px; max-width: 720px; }
+.conv-kpis { margin-bottom: 18px; }
+.conv-kpi-main .v { font-size: 36px; }
+.conv-squad-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-bottom: 22px;
+}
+@media (max-width: 768px) { .conv-squad-grid { grid-template-columns: 1fr; } }
+.conv-squad-card {
+  background: var(--surf); border: 1px solid var(--bd);
+  border-radius: var(--radius); padding: 16px 18px;
+  border-top: 3px solid var(--brand);
+}
+.conv-squad-card.inv { border-top-color: var(--inv); }
+.conv-squad-card.bil { border-top-color: var(--bil); }
+.conv-squad-card.exc { border-top-color: var(--exc); }
+.conv-squad-card h4 { margin: 0 0 8px; font-size: 14px; font-weight: 800; }
+.conv-pct { font-size: 28px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+.conv-pct.pct-ok { color: var(--ok); }
+.conv-pct.pct-mid { color: var(--warn); }
+.conv-pct.pct-low { color: #fca5a5; }
+.conv-subtitle {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--mut); font-weight: 800; margin: 0 0 10px;
+}
+.conv-tables .conv-table th, .conv-tables .conv-table td { font-size: 12px; }
+.conv-tables tr.highlight-farmer { background: rgba(229,9,21,.08); }
+.pct-mid { color: var(--warn); }
+
 .meta-rome-block.ranking-first { margin-bottom: 28px; }
 .meta-rome-block.ranking-first .ranking-hero { margin-bottom: 0; }
 .meta-rome-sub {
@@ -458,12 +492,12 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
   <text x="0" y="26" font-family="Inter, Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e50915">V4</text>
   <text x="52" y="26" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#737373" letter-spacing=".18em">COMPANY</text>
 </svg>
-    <span class="sync-pill"><span class="sync-dot stale"></span> Sync 08:01 · a cada 30min</span>
+    <span class="sync-pill"><span class="sync-dot"></span> Sync 08:26 · a cada 30min</span>
   </div>
   <div class="source-chips">
     <a class="chip live github-chip" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">GitHub Pages</a>
     <span class="chip live">Planilha CRM</span>
-    <span class="chip cache">Flow · Ekyte · Agenda</span>
+    <span class="chip live">Flow · Ekyte · Agenda</span>
   </div>
 </div>
 <div class="wrap">
@@ -488,7 +522,7 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
       </div>
       <div class="source-chips">
     <span class="chip live">Planilha ao vivo</span>
-    <span class="chip cache">Flow/Ekyte cache · dumps há 2752min</span>
+    <span class="chip live">Flow/Ekyte MCP recente · dumps há 1min</span>
     <span class="chip live">Ranking vendidos jun</span>
     </div>
     </div>
@@ -632,6 +666,51 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
     </tr>
   </tbody>
 </table></div>
+</div>
+    
+<div class="conversion-block">
+  <div class="section-title">📈 Taxa de conversão · Expansão Flow</div>
+  <p class="sub conv-note">finalizados ÷ total cards × 100 · Flow Cockpit · expansion_cards</p>
+  
+  <div class="conv-kpis">
+    <div class="kpi conv-kpi-main"><div class="v red">1.5%</div><div class="l">Conversão geral</div></div>
+    <div class="kpi"><div class="v">130</div><div class="l">Cards Flow</div></div>
+    <div class="kpi"><div class="v">2</div><div class="l">Finalizados</div></div>
+    <div class="kpi"><div class="v">6</div><div class="l">Drops</div></div>
+    <div class="kpi"><div class="v">122</div><div class="l">Em pipeline</div></div>
+  </div>
+  <div class="conv-squad-grid">
+<div class="conv-squad-card inv">
+  <h4>Invictus</h4>
+  <div class="conv-pct pct-low">0.0%</div>
+  <div class="sub">0/85 fechados · 1 drop</div>
+</div>
+<div class="conv-squad-card bil">
+  <h4>Billions</h4>
+  <div class="conv-pct pct-low">4.9%</div>
+  <div class="sub">2/41 fechados · 5 drop</div>
+</div>
+<div class="conv-squad-card exc">
+  <h4>Exclusive</h4>
+  <div class="conv-pct pct-low">0.0%</div>
+  <div class="sub">0/4 fechados · 0 drop</div>
+</div></div>
+  <div class="grid2 conv-tables">
+    <div>
+      <h3 class="conv-subtitle">Por coordenador</h3>
+      <div class="table-wrap"><table class="conv-table">
+        <thead><tr><th>Coordenador</th><th>Cards</th><th>Fech.</th><th>Drop</th><th>Tx %</th></tr></thead>
+        <tbody><tr><td><strong>Nayara</strong><div class='sub'>Billions</div></td><td class='num'>13</td><td class='num'>2</td><td class='num'>5</td><td class='num pct-ok'><strong>15.4%</strong></td></tr><tr><td><strong>Jefferson</strong><div class='sub'>Invictus</div></td><td class='num'>28</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Ueliton</strong><div class='sub'>Invictus</div></td><td class='num'>23</td><td class='num'>0</td><td class='num'>1</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Thainá</strong><div class='sub'>Invictus</div></td><td class='num'>17</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Ariel</strong><div class='sub'>Billions</div></td><td class='num'>16</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Melissa</strong><div class='sub'>Invictus</div></td><td class='num'>15</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Guilhermeduarte</strong><div class='sub'>—</div></td><td class='num'>8</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Sem coord.</strong><div class='sub'>—</div></td><td class='num'>5</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Marcos</strong><div class='sub'>—</div></td><td class='num'>2</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Vitor</strong><div class='sub'>Exclusive</div></td><td class='num'>2</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr><tr><td><strong>Jhonatan</strong><div class='sub'>—</div></td><td class='num'>1</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr></tbody>
+      </table></div>
+    </div>
+    <div>
+      <h3 class="conv-subtitle">Por farmer</h3>
+      <div class="table-wrap"><table class="conv-table">
+        <thead><tr><th>Farmer</th><th>Cards</th><th>Fech.</th><th>Drop</th><th>Tx %</th></tr></thead>
+        <tbody><tr class="highlight-farmer"><td><strong>Marcelo</strong></td><td class='num'>129</td><td class='num'>2</td><td class='num'>6</td><td class='num pct-low'><strong>1.6%</strong></td></tr><tr><td><strong>Sara</strong></td><td class='num'>1</td><td class='num'>0</td><td class='num'>0</td><td class='num pct-low'><strong>0.0%</strong></td></tr></tbody>
+      </table></div>
+    </div>
+  </div>
 </div>
   </div>
 </section>
@@ -1312,7 +1391,7 @@ footer code { font-size: 10px; background: var(--glass); padding: 2px 6px; borde
   <footer>
     V4 Company · Pipe Diário · sync a cada 30 min<br>
     Cockpit MCP expansion_cards · Invictus(85), Billions(41), Exclusive(4) · ekyte_list_tasks · Invictus(46), Billions(7), Exclusive(2) · Google Calendar · agenda.json<br>
-    <a class="footer-url" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">https://marcelofigueiredo23.github.io/pipediario/</a> · última sync 2026-06-22T08:01:01-03:00
+    <a class="footer-url" href="https://marcelofigueiredo23.github.io/pipediario/" target="_blank" rel="noopener">https://marcelofigueiredo23.github.io/pipediario/</a> · última sync 2026-06-22T08:26:16-03:00
   </footer>
 </div>
 <script>
