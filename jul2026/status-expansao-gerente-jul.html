@@ -42,6 +42,7 @@ tr:last-child td{border-bottom:none}
 .tag{display:inline-block;padding:2px 7px;border-radius:5px;font-size:9px;font-weight:700;text-transform:uppercase}
 .tag.ok{background:#dcfce7;color:var(--ok)}
 .tag.bad{background:#fee2e2;color:var(--late)}
+.tag.warn{background:#fef3c7;color:var(--up)}
 .tag.neu{background:#f1f5f9;color:var(--mut)}
 .sq{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px}
 .sq.inv{background:#eef2ff;color:var(--inv)}
@@ -144,15 +145,16 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
 <h2 id="clarindo">4 · Invictus — migração Clarindo no Flow (Jun/26)</h2>
 <div class="note note-ok">
   Em jun o Clarindo subiu a base Invictus no Flow: <strong>85 cards criados</strong> (score 10/06 + sync QGI/Ekyte 18/06).
-  No corte 06/07: <strong>84/85 match Ekyte</strong> · migração workflow <code>[Invictus] Expansão Gerência</code> concluída.
+  No corte 07/07: <strong>84/85 match Ekyte</strong> · migração workflow <code>[Invictus] Expansão Gerência</code> concluída.
+  Seção 4.3 cruzada com <strong>planilha base ativa</strong> (jun+jul) — Flow pode estar desatualizado.
 </div>
 
 <div class="kpis">
   <div class="kpi red"><div class="v">40</div><div class="l">Travados AP</div></div>
   <div class="kpi amber"><div class="v">18</div><div class="l">Em diagnóstico</div></div>
-  <div class="kpi green"><div class="v">23</div><div class="l">Rodando</div></div>
-  <div class="kpi green"><div class="v">3</div><div class="l">Finalizados</div></div>
-  <div class="kpi"><div class="v">23</div><div class="l">Avançaram ≥1 etapa</div></div>
+  <div class="kpi green"><div class="v">20</div><div class="l">Rodando (ativo)</div></div>
+  <div class="kpi green"><div class="v">3</div><div class="l">Finalizados Flow</div></div>
+  <div class="kpi amber"><div class="v">3</div><div class="l">Desalinh. planilha</div></div>
   <div class="kpi red"><div class="v">47%</div><div class="l">Parados no topo</div></div>
 </div>
 
@@ -167,7 +169,7 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
   </div>
 </div>
 
-<h3>Funil visual — etapas Flow (06/07)</h3>
+<h3>Funil visual — etapas Flow (07/07)</h3>
 <div class="funnel-bar"><div class="lbl">Drop</div><div class="track"><div class="fill" style="width:2%">1</div></div></div>
 <div class="funnel-bar"><div class="lbl">Account Planning</div><div class="track"><div class="fill" style="width:100%">40</div></div></div>
 <div class="funnel-bar"><div class="lbl">Diagnostico</div><div class="track"><div class="fill" style="width:45%">18</div></div></div>
@@ -189,7 +191,7 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
     <strong>Drop (1):</strong> Elevate — SDR IA declinada · Ueliton
   </div>
   <div>
-    <strong>Quente — apresentação / construção / reunião (7)</strong>
+    <strong>Quente — apresentação / construção / reunião (6)</strong>
     <table>
       <tr><th>Conta</th><th>Etapa</th><th>Coord.</th></tr>
       <tr><td class='cli'>FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA</td><td><span class='tag ok'>Apresentacao</span></td><td>Thainá Gomes</td></tr>
@@ -198,7 +200,6 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
 <tr><td class='cli'>SOTOBI MAQUINAS E ACESSORIOS PARA FABRICAS DE B…</td><td><span class='tag ok'>Apresentacao</span></td><td>Thainá Gomes</td></tr>
 <tr><td class='cli'>ML PARTICIPACOES LTDA</td><td><span class='tag ok'>Apresentacao</span></td><td>Jefferson Vieira</td></tr>
 <tr><td class='cli'>LF2 - INDUSTRIA E COMERCIO LTDA</td><td><span class='tag ok'>Construcao Proposta</span></td><td>Jefferson Vieira</td></tr>
-<tr><td class='cli'>DALPACK COMERCIO ELETRONICO LTDA(DALPACK COMERC…</td><td><span class='tag ok'>Reuniao agendada</span></td><td>Jefferson Vieira</td></tr>
 
     </table>
   </div>
@@ -218,57 +219,60 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
 <table>
   <tr><th>Conta</th><th>Produto</th><th class="num">Dias na etapa</th></tr>
   <tr class='coord-head'><td colspan='3'><strong>Jefferson Vieira</strong> · 15 cards</td></tr>
-<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>BI</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Web/Ecom</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Sales Enablement</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>Promax Supertroca – Yanmar Agritech</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>CAPRICHO A TOA SERVICOS E COMERCIO DE CONFECCOE…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>ALUMTECH COMERCIO LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>SA GONDOLAS DE ACO LTDA</td><td>—</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>Spa Sensoria</td><td>Profissional de Designer Gráfico, P…</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>BINARIO TECNOLOGIA DISTRIBUIDORA LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>SOMA SOLUCOES FINANCEIRAS LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>Exclusiva Home e Decor - Metalurgica G.l.a.</td><td>Profissional de Designer Gráfico, P…</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>BERTONCELLO AGENCIA DE CREDITO E CONSULTORIA FI…</td><td>—</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>SIGO ERP(DUO3 SOLUCOES EM TECNOLOGIA DA INFORMA…</td><td>—</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>AUTO PECAS E ACESSORIOS YOKOTA LTDA - Executar …</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>Mobile Phone</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>BI</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Web/Ecom</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Sales Enablement</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>Promax Supertroca – Yanmar Agritech</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>CAPRICHO A TOA SERVICOS E COMERCIO DE CONFECCOE…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>ALUMTECH COMERCIO LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>SA GONDOLAS DE ACO LTDA</td><td>—</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>Spa Sensoria</td><td>Profissional de Designer Gráfico, P…</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>BINARIO TECNOLOGIA DISTRIBUIDORA LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>SOMA SOLUCOES FINANCEIRAS LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>Exclusiva Home e Decor - Metalurgica G.l.a.</td><td>Profissional de Designer Gráfico, P…</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>BERTONCELLO AGENCIA DE CREDITO E CONSULTORIA FI…</td><td>—</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>SIGO ERP(DUO3 SOLUCOES EM TECNOLOGIA DA INFORMA…</td><td>—</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>AUTO PECAS E ACESSORIOS YOKOTA LTDA - Executar …</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>Mobile Phone</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
 <tr class='coord-head'><td colspan='3'><strong>Ueliton Pereira</strong> · 9 cards</td></tr>
-<tr><td class='cli'>INSTITUTO GRUPO BOTICARIO</td><td>social_media</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>SIMPLE EDUCATION(SIMPLE EDUCATION EDITORA LTDA)…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>WF ENGENHARIA CONSTRUTORA E INCORPORADORA (W F …</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>CONSTRUTORA E INCORPORADORA VILELA CAMPOS LTDA.</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>TERRA FERTIL COM E REPRES LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>BRG CONSULTORIA IMOBILIARIA LTDA (Prado Gonçalv…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>VCA MUSIC LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>ESCRITORIO VICENTINI & ANDRADE SOCIEDADE DE ADV…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>BELLA GULA FRANQUIAS</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>INSTITUTO GRUPO BOTICARIO</td><td>social_media</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>SIMPLE EDUCATION(SIMPLE EDUCATION EDITORA LTDA)…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>WF ENGENHARIA CONSTRUTORA E INCORPORADORA (W F …</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>CONSTRUTORA E INCORPORADORA VILELA CAMPOS LTDA.</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>TERRA FERTIL COM E REPRES LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>BRG CONSULTORIA IMOBILIARIA LTDA (Prado Gonçalv…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>VCA MUSIC LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>ESCRITORIO VICENTINI & ANDRADE SOCIEDADE DE ADV…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>BELLA GULA FRANQUIAS</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
 <tr class='coord-head'><td colspan='3'><strong>Thainá Gomes</strong> · 6 cards</td></tr>
-<tr><td class='cli'>PG QUIMICA LTDA</td><td>CRM</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>PG QUIMICA LTDA</td><td>BI</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>PG QUIMICA LTDA</td><td>Sales Enablement</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>ACCENTURE PARTICIPACOES LTDA(ACCENTURE PARTICIP…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>AERO TD ESCOLA DE AVIACAO CIVIL LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>Massimo Zanetti Beverage Brasil Ltda</td><td>Profissional de Marketplace, Profis…</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>PG QUIMICA LTDA</td><td>CRM</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>PG QUIMICA LTDA</td><td>BI</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>PG QUIMICA LTDA</td><td>Sales Enablement</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>ACCENTURE PARTICIPACOES LTDA(ACCENTURE PARTICIP…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>AERO TD ESCOLA DE AVIACAO CIVIL LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>Massimo Zanetti Beverage Brasil Ltda</td><td>Profissional de Marketplace, Profis…</td><td class='num'>18d</td></tr>
 <tr class='coord-head'><td colspan='3'><strong>Melissa Pessoa</strong> · 6 cards</td></tr>
-<tr><td class='cli'>NOVO MILENIO UNIFORMES LTDA(NOVO MILENIO UNIFOR…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>C. VIEGAS PRODUTOS AUTOMOTIVOS LTDA.</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>VALMAGAL - ENGENHARIA E CONSTRUÇÃO LDA(VALMAGAL…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>Excel Group</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>PORTICO ARQUITETURA E CONSTRUCOES LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>PLAY FIBRA SERVICOS DE INTERNET LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>NOVO MILENIO UNIFORMES LTDA(NOVO MILENIO UNIFOR…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>C. VIEGAS PRODUTOS AUTOMOTIVOS LTDA.</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>VALMAGAL - ENGENHARIA E CONSTRUÇÃO LDA(VALMAGAL…</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>Excel Group</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>PORTICO ARQUITETURA E CONSTRUCOES LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>PLAY FIBRA SERVICOS DE INTERNET LTDA</td><td>assessoria_byline</td><td class='num'>18d</td></tr>
 <tr class='coord-head'><td colspan='3'><strong>Sem coordenador</strong> · 4 cards</td></tr>
-<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Web/Ecom</td><td class='num'>25d</td></tr>
-<tr><td class='cli'>PG QUÍMICA(PG QUIMICA LTDA) - ASSESSORIA BYLINE…</td><td>CRM</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>PG QUÍMICA(PG QUIMICA LTDA) - ASSESSORIA BYLINE…</td><td>Sales Enablement</td><td class='num'>17d</td></tr>
-<tr><td class='cli'>PREVENT AUDIO COMERCIO DE APARELHOS AUDITIVOS L…</td><td>SDR AI</td><td class='num'>13d</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Web/Ecom</td><td class='num'>26d</td></tr>
+<tr><td class='cli'>PG QUÍMICA(PG QUIMICA LTDA) - ASSESSORIA BYLINE…</td><td>CRM</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>PG QUÍMICA(PG QUIMICA LTDA) - ASSESSORIA BYLINE…</td><td>Sales Enablement</td><td class='num'>18d</td></tr>
+<tr><td class='cli'>PREVENT AUDIO COMERCIO DE APARELHOS AUDITIVOS L…</td><td>SDR AI</td><td class='num'>14d</td></tr>
 
 </table>
 </div>
 
-<h3>4.3 · Rodando — follow-up e pós-diagnóstico (23 cards)</h3>
+<h3>4.3 · Rodando — follow-up e pós-diagnóstico (20 cards)</h3>
+<div class="note-warn note">
+  Lista revisada contra <strong>planilha base ativa</strong>: removidos 3 cards já <em>Drop</em> ou <em>Fechado</em> na planilha mas ainda ativos no Flow/Ekyte.
+</div>
 <table>
-  <tr><th>Conta</th><th>Etapa</th><th>Coord.</th><th>Histórico</th></tr>
+  <tr><th>Conta</th><th>Etapa Flow</th><th>Coord.</th><th>Histórico</th></tr>
   <tr><td class='cli'>AYA ENGENHARIA E PROJETOS LTDA</td><td><span class='tag neu'>Apresentacao</span></td><td>Thainá Gomes</td><td class='sub'>Construcao Proposta → Apresentacao</td></tr>
 <tr><td class='cli'>FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA</td><td><span class='tag neu'>Apresentacao</span></td><td>Thainá Gomes</td><td class='sub'>Account Planning → Apresentacao</td></tr>
 <tr><td class='cli'>ML PARTICIPACOES LTDA</td><td><span class='tag neu'>Apresentacao</span></td><td>Jefferson Vieira</td><td class='sub'>Construcao Proposta → Apresentacao</td></tr>
@@ -279,7 +283,6 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
 <tr><td class='cli'>BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGUR…</td><td><span class='tag neu'>Follow-up</span></td><td>—</td><td class='sub'>Follow-up</td></tr>
 <tr><td class='cli'>BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGUR…</td><td><span class='tag neu'>Follow-up</span></td><td>—</td><td class='sub'>Follow-up</td></tr>
 <tr><td class='cli'>BUBLU</td><td><span class='tag neu'>Follow-up</span></td><td>Jefferson Vieira</td><td class='sub'>Follow-up</td></tr>
-<tr><td class='cli'>CENTRO AUDITIVO MACAE</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
 <tr><td class='cli'>CENTRO BRASILIENSE DE NEFROLOGIA LTDA</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
 <tr><td class='cli'>COLINA DOS IPES - COMERCIO E ADMINISTRACAO DE P…</td><td><span class='tag neu'>Follow-up</span></td><td>Jefferson Vieira</td><td class='sub'>Follow-up</td></tr>
 <tr><td class='cli'>DERMOCOSMETIC COMERCIO DE PRODUTOS DE BELEZA LT…</td><td><span class='tag neu'>Follow-up</span></td><td>Melissa Pessoa</td><td class='sub'>Diagnostico → Follow-up</td></tr>
@@ -290,18 +293,29 @@ ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
 <tr><td class='cli'>IGA BLUMENAU(KAIROS GRI INSTITUTO DE GASTRONOMI…</td><td><span class='tag neu'>Follow-up</span></td><td>Melissa Pessoa</td><td class='sub'>Diagnostico → Follow-up</td></tr>
 <tr><td class='cli'>TAWÁ VEÍCULOS</td><td><span class='tag neu'>Follow-up</span></td><td>Thainá Gomes</td><td class='sub'>Construcao Proposta → Follow-up</td></tr>
 <tr><td class='cli'>V.L.O TEXTIL INDUSTRIA E COMERCIO IMPORTACAO E …</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
-<tr><td class='cli'>VISOFLEX PORTAS E PORTOES LTDA</td><td><span class='tag neu'>Follow-up</span></td><td>Jefferson Vieira</td><td class='sub'>Follow-up</td></tr>
-<tr><td class='cli'>DALPACK COMERCIO ELETRONICO LTDA(DALPACK COMERC…</td><td><span class='tag neu'>Reuniao agendada</span></td><td>Jefferson Vieira</td><td class='sub'>Reuniao agendada</td></tr>
 
 </table>
 
-<h3>Encerrados no Flow</h3>
+<h3>4.4 · Desalinhamento planilha × Flow (3 cards)</h3>
+<p class="sub">Encerrados na planilha (safra jun) — pendente atualizar card no Flow e task no Ekyte.</p>
+<table>
+  <tr><th>Conta</th><th>Planilha</th><th>Flow (desatualizado)</th><th>Obs.</th></tr>
+  <tr><td class='cli'>CENTRO AUDITIVO MACAE</td><td><span class='tag warn'>Drop</span></td><td><span class='tag neu'>Follow-up</span></td><td>SEM BUDGET</td></tr>
+<tr><td class='cli'>DALPACK COMERCIO ELETRONICO LTDA(DALPACK COMERC…</td><td><span class='tag warn'>Drop</span></td><td><span class='tag neu'>Reuniao agendada</span></td><td>DROP SEM REALIZAR, CLIENTE NÃO QUIS OUVOR PROPOSTA</td></tr>
+<tr><td class='cli'>VISOFLEX PORTAS E PORTOES LTDA</td><td><span class='tag warn'>Fechado</span></td><td><span class='tag neu'>Follow-up</span></td><td>—</td></tr>
+
+</table>
+
+<h3>Encerrados no Flow (+ desalinhamentos)</h3>
 <table>
   <tr><th>Conta</th><th>Status</th><th>Coord.</th><th>Obs.</th></tr>
-  <tr><td class='cli'>ECOSTORAGE SERVICOS LTDA</td><td><span class='tag ok'>Finalizado</span></td><td>Melissa Pessoa</td><td>Fechado jun/2026 — site + captação · R$ 11.505,38 one-time.…</td></tr>
-<tr><td class='cli'>ELEVATE INCORPORADORA E CONSTRUTORA LTDA - Exec…</td><td><span class='tag bad'>Drop</span></td><td>Ueliton Pereira</td><td>Expansion Score 81 · Cliente Safe · Proposta declinada. Opo…</td></tr>
-<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td><span class='tag ok'>Finalizado</span></td><td>—</td><td>Fechado jun/2026 — expansão · R$ 2.800,00 one-time. Card pr…</td></tr>
-<tr><td class='cli'>Sorvetes Jundia</td><td><span class='tag ok'>Finalizado</span></td><td>Thainá Gomes</td><td>Fechado jun/2026 — aumento de escopo · R$ 5.010,00 MRR. Atu…</td></tr>
+  <tr><td class='cli'>ELEVATE INCORPORADORA E CONSTRUTORA LTDA - Exec…</td><td><span class='tag bad'>Drop</span></td><td>Ueliton Pereira</td><td>Expansion Score 81 · Cliente Safe · Proposta declinada. Oportunidade: S…</td></tr>
+<tr><td class='cli'>ECOSTORAGE SERVICOS LTDA</td><td><span class='tag ok'>Finalizado</span></td><td>Melissa Pessoa</td><td>Fechado jun/2026 — site + captação · R$ 11.505,38 one-time. Atualizado …</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td><span class='tag ok'>Finalizado</span></td><td>—</td><td>Fechado jun/2026 — expansão · R$ 2.800,00 one-time. Card principal (Sal…</td></tr>
+<tr><td class='cli'>Sorvetes Jundia</td><td><span class='tag ok'>Finalizado</span></td><td>Thainá Gomes</td><td>Fechado jun/2026 — aumento de escopo · R$ 5.010,00 MRR. Atualizado via …</td></tr>
+<tr><td class='cli'>CENTRO AUDITIVO MACAE</td><td><span class='tag warn'>Planilha: Drop</span></td><td>Ueliton Pereira</td><td>Desalinhamento — planilha Drop (02/06/2026) · Flow ainda em Follow-up ·…</td></tr>
+<tr><td class='cli'>DALPACK COMERCIO ELETRONICO LTDA(DALPACK COMERC…</td><td><span class='tag warn'>Planilha: Drop</span></td><td>Jefferson Vieira</td><td>Desalinhamento — planilha Drop (05/06/2026) · Flow ainda em Reuniao age…</td></tr>
+<tr><td class='cli'>VISOFLEX PORTAS E PORTOES LTDA</td><td><span class='tag warn'>Planilha: Fechado</span></td><td>Jefferson Vieira</td><td>Desalinhamento — planilha Fechado (30/06/2026) · Flow ainda em Follow-u…</td></tr>
 
 </table>
 
