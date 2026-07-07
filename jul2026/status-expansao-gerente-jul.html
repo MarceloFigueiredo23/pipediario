@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Status Expansão Carteira · Jul/2026</title>
+<style>
+:root{
+  --bg:#fff;--surf:#f8f9fb;--bd:#e2e5ea;--txt:#1a1d23;--mut:#5c6370;
+  --ok:#15803d;--late:#dc2626;--up:#b45309;--v4:#e11d2e;--accent:#2563eb;--inv:#4338ca;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 "Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:36px 28px 72px}
+header{border-bottom:3px solid var(--v4);padding-bottom:18px;margin-bottom:24px}
+h1{font-size:26px;font-weight:800;margin:0 0 6px}
+.subtitle{color:var(--mut);font-size:14px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.nav a{font-size:12px;color:var(--accent);text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:20px;background:var(--surf)}
+.nav a:hover{border-color:var(--v4);color:var(--v4)}
+h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--v4);margin:32px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+h3{font-size:15px;font-weight:700;margin:16px 0 8px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:14px 0}
+.kpi{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.kpi .v{font-size:24px;font-weight:800;line-height:1.1}
+.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin-top:4px}
+.kpi.red .v{color:var(--v4)}.kpi.green .v{color:var(--ok)}.kpi.amber .v{color:var(--up)}
+.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 14px;font-size:13px;margin:12px 0}
+.note-warn{background:#fffbeb;border-color:#fde68a}
+.note-ok{background:#f0fdf4;border-color:#bbf7d0}
+.box-bad{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px}
+.box-ok{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.grid2{grid-template-columns:1fr}.wrap{padding:20px 14px}}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0;background:#fff;border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+th,td{padding:9px 11px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+th{background:var(--surf);font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600}
+tr:last-child td{border-bottom:none}
+.cli{font-weight:600;color:#111}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.sub{font-size:11px;color:var(--mut)}
+.tag{display:inline-block;padding:2px 7px;border-radius:5px;font-size:9px;font-weight:700;text-transform:uppercase}
+.tag.ok{background:#dcfce7;color:var(--ok)}
+.tag.bad{background:#fee2e2;color:var(--late)}
+.tag.neu{background:#f1f5f9;color:var(--mut)}
+.sq{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px}
+.sq.inv{background:#eef2ff;color:var(--inv)}
+.sq.bil{background:#fffbeb;color:#b45309}
+.sq.exc{background:#fdf2f8;color:#be185d}
+.coord-head td{background:#f1f5f9;font-size:11px;font-weight:700}
+.chart-box{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:12px 0}
+.chart-box canvas{max-height:220px}
+.funnel-bar{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:12px}
+.funnel-bar .lbl{width:130px;flex-shrink:0;color:var(--mut);font-size:11px}
+.funnel-bar .track{flex:1;height:22px;background:#e2e5ea;border-radius:4px;overflow:hidden}
+.funnel-bar .fill{height:100%;background:linear-gradient(90deg,var(--inv),#6366f1);border-radius:4px;display:flex;align-items:center;padding:0 8px;color:#fff;font-size:10px;font-weight:700}
+.squad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.squad-grid{grid-template-columns:1fr}}
+.squad-card{border:1px solid var(--bd);border-radius:12px;padding:16px;background:#fff;position:relative;overflow:hidden}
+.squad-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.squad-card.inv::before{background:var(--inv)}
+.squad-card.bil::before{background:#b45309}
+.squad-card.exc::before{background:#be185d}
+.squad-card h3{margin:0 0 10px;font-size:14px}
+.squad-card .meta{font-size:12px;color:var(--mut);line-height:1.7}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--bd);font-size:11px;color:var(--mut)}
+a{color:var(--accent)}
+ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Status Expansão Carteira · Jul/2026</h1>
+  <div class="subtitle">Marcelo Figueiredo · Farmer ABM · Corte 07/07/2026</div>
+  <div class="nav">
+    <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/#geral" target="_blank">Pipe Diário — funil &amp; meta jul ↗</a>
+    <a href="#visitas">Visitas</a>
+    <a href="#jun">Jun fechado</a>
+    <a href="#clarindo">Flow Clarindo</a>
+    <a href="#flow">Flow monetização</a>
+  </div>
+</header>
+
+<div class="note">
+  <strong>Operação jul/26</strong> (meta×realizado, funil ativo, reuniões) → consultar no
+  <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/#geral" target="_blank">Pipe Diário</a>.
+  Este relatório cobre <strong>retrospectiva jun</strong>, <strong>migração Flow Invictus (Clarindo)</strong> e <strong>pendências para o gerente</strong>.
+</div>
+
+<h2 id="visitas">1 · Meta visitas presenciais — 4 clientes</h2>
+<table>
+  <tr><th>Cliente</th><th>Squad</th><th>Observação</th></tr>
+  <tr><td class="cli">OXXY</td><td><span class="sq inv">Invictus</span></td><td>Agendar</td></tr>
+  <tr><td class="cli">XP</td><td><span class="sq inv">Invictus</span></td><td>Agendar</td></tr>
+  <tr><td class="cli">Atlântica Máquinas</td><td><span class="sq inv">Invictus</span></td><td>Drop em jun · reabrir com visita</td></tr>
+  <tr><td class="cli">Sementes Paulista</td><td><span class="sq bil">Billions</span></td><td>Em pipe · plano de ação (Ariel)</td></tr>
+  <tr><td class="cli">Durcon Equipamentos</td><td><span class="sq bil">Billions</span></td><td>Em pipe · diagnóstico (Ariel)</td></tr>
+</table>
+<p class="sub">Meta: <strong>4 visitas</strong> · 5 contas mapeadas — definir quais 4 entram na meta.</p>
+
+<h2 id="jun">2 · Status ataque — retrospectiva Jun/26</h2>
+<div class="kpis">
+  <div class="kpi"><div class="v">25</div><div class="l">Opps safra</div></div>
+  <div class="kpi"><div class="v">22</div><div class="l">Reuniões safra</div></div>
+  <div class="kpi green"><div class="v">7</div><div class="l">Assinaturas</div></div>
+  <div class="kpi green"><div class="v">32%</div><div class="l">Conv. reunião→venda</div></div>
+  <div class="kpi"><div class="v">14</div><div class="l">Carry → jul</div></div>
+  <div class="kpi amber"><div class="v">20%</div><div class="l">Meta MRR Rome</div></div>
+</div>
+<p class="sub">MRR assinado jun: <strong>R$ 6.042</strong> · TCV: <strong>R$ 81.425</strong> · Drops safra: 8</p>
+
+<h2>3 · Funil jun/26 por squad</h2>
+<div class="squad-grid">
+  <div class="squad-card inv">
+    <h3><span class="sq inv">Invictus</span></h3>
+    <div class="meta">
+      14 opps safra · 2 fechadas · 5 drops · 7 carry<br>
+      12 reuniões · 4 vendas* · conv. 33%<br>
+      MRR assinado: <strong>R$ 5.010</strong>
+    </div>
+  </div>
+  <div class="squad-card bil">
+    <h3><span class="sq bil">Billions</span></h3>
+    <div class="meta">
+      11 opps safra · 2 fechadas · 3 drops · 6 carry<br>
+      9 reuniões · 3 vendas* · conv. 33%<br>
+      MRR assinado: <strong>R$ 1.032</strong>
+    </div>
+  </div>
+  <div class="squad-card exc">
+    <h3><span class="sq exc">Exclusive</span></h3>
+    <div class="meta">
+      1 opp safra · 0 fechadas · 0 drops · 1 carry<br>
+      1 reunião · 0 vendas<br>
+      MRR assinado: <strong>R$ 0</strong>
+    </div>
+  </div>
+</div>
+<p class="sub">*Vendas = assinaturas no mês (inclui carry mar/mai). Status safra: Follow 10 · Drop 8 · Fechado 4 · Agendar 2 · Aceito 1 · Reunião agendada 1.</p>
+
+<h2 id="clarindo">4 · Invictus — migração Clarindo no Flow (Jun/26)</h2>
+<div class="note note-ok">
+  Em jun o Clarindo subiu a base Invictus no Flow: <strong>85 cards criados</strong> (score 10/06 + sync QGI/Ekyte 18/06).
+  No corte 06/07: <strong>84/85 match Ekyte</strong> · migração workflow <code>[Invictus] Expansão Gerência</code> concluída.
+</div>
+
+<div class="kpis">
+  <div class="kpi red"><div class="v">40</div><div class="l">Travados AP</div></div>
+  <div class="kpi amber"><div class="v">18</div><div class="l">Em diagnóstico</div></div>
+  <div class="kpi green"><div class="v">23</div><div class="l">Rodando</div></div>
+  <div class="kpi green"><div class="v">3</div><div class="l">Finalizados</div></div>
+  <div class="kpi"><div class="v">23</div><div class="l">Avançaram ≥1 etapa</div></div>
+  <div class="kpi red"><div class="v">47%</div><div class="l">Parados no topo</div></div>
+</div>
+
+<div class="grid2">
+  <div class="chart-box">
+    <h3>Distribuição por etapa (85 cards)</h3>
+    <canvas id="chartEtapas"></canvas>
+  </div>
+  <div class="chart-box">
+    <h3>Travados em AP — por coordenador</h3>
+    <canvas id="chartAP"></canvas>
+  </div>
+</div>
+
+<h3>Funil visual — etapas Flow (06/07)</h3>
+<div class="funnel-bar"><div class="lbl">Drop</div><div class="track"><div class="fill" style="width:2%">1</div></div></div>
+<div class="funnel-bar"><div class="lbl">Account Planning</div><div class="track"><div class="fill" style="width:100%">40</div></div></div>
+<div class="funnel-bar"><div class="lbl">Diagnostico</div><div class="track"><div class="fill" style="width:45%">18</div></div></div>
+<div class="funnel-bar"><div class="lbl">Finalizado</div><div class="track"><div class="fill" style="width:8%">3</div></div></div>
+<div class="funnel-bar"><div class="lbl">Follow-up</div><div class="track"><div class="fill" style="width:40%">16</div></div></div>
+<div class="funnel-bar"><div class="lbl">Apresentacao</div><div class="track"><div class="fill" style="width:12%">5</div></div></div>
+<div class="funnel-bar"><div class="lbl">Reuniao agendada</div><div class="track"><div class="fill" style="width:2%">1</div></div></div>
+<div class="funnel-bar"><div class="lbl">Construcao Proposta</div><div class="track"><div class="fill" style="width:2%">1</div></div></div>
+
+<h3>4.1 · O que moveu — fechou ou pipeline quente</h3>
+<div class="grid2">
+  <div class="box-ok">
+    <strong>Finalizados (3)</strong>
+    <ul>
+      <li><strong>Sorvetes Jundia</strong> — AP→Construção→Apresentação→Fechado · R$5.010 MRR · Thainá</li>
+      <li><strong>Ecostorage</strong> — AP→Fechado · R$11.505 TER · Melissa</li>
+      <li><strong>Suprimedico</strong> — AP→Fechado · R$2.800 TER</li>
+    </ul>
+    <strong>Drop (1):</strong> Elevate — SDR IA declinada · Ueliton
+  </div>
+  <div>
+    <strong>Quente — apresentação / construção / reunião (7)</strong>
+    <table>
+      <tr><th>Conta</th><th>Etapa</th><th>Coord.</th></tr>
+      <tr><td class='cli'>FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA</td><td><span class='tag ok'>Apresentacao</span></td><td>Thainá Gomes</td></tr>
+<tr><td class='cli'>Use Jr</td><td><span class='tag ok'>Apresentacao</span></td><td>Jefferson Vieira</td></tr>
+<tr><td class='cli'>AYA ENGENHARIA E PROJETOS LTDA</td><td><span class='tag ok'>Apresentacao</span></td><td>Thainá Gomes</td></tr>
+<tr><td class='cli'>SOTOBI MAQUINAS E ACESSORIOS PARA FABRICAS DE B…</td><td><span class='tag ok'>Apresentacao</span></td><td>Thainá Gomes</td></tr>
+<tr><td class='cli'>ML PARTICIPACOES LTDA</td><td><span class='tag ok'>Apresentacao</span></td><td>Jefferson Vieira</td></tr>
+<tr><td class='cli'>LF2 - INDUSTRIA E COMERCIO LTDA</td><td><span class='tag ok'>Construcao Proposta</span></td><td>Jefferson Vieira</td></tr>
+<tr><td class='cli'>DALPACK COMERCIO ELETRONICO LTDA(DALPACK COMERC…</td><td><span class='tag ok'>Reuniao agendada</span></td><td>Jefferson Vieira</td></tr>
+
+    </table>
+  </div>
+</div>
+
+<h3>4.2 · Onde travou</h3>
+<div class="box-bad">
+  <strong>Gargalo principal:</strong> 40 cards (47%) nunca saíram de <em>Account Planning</em> — cadastro no Flow sem avanço comercial.
+  <strong>Jefferson concentra 15</strong> dos 40 parados. Diagnóstico: 18 cards com 13–17 dias sem progressão.
+</div>
+<div class="note-warn note">
+  <strong>Regressões de etapa:</strong> Pernambuco Química (Diagnóstico→Construção→Diagnóstico) · MSYS (oscilou AP↔Diagnóstico) · Prevent Audio (Follow→AP) · PG Química (Diagnóstico→AP).
+</div>
+
+<h3>40 cards parados em Account Planning</h3>
+<div style="max-height:420px;overflow:auto;border:1px solid var(--bd);border-radius:10px">
+<table>
+  <tr><th>Conta</th><th>Produto</th><th class="num">Dias na etapa</th></tr>
+  <tr class='coord-head'><td colspan='3'><strong>Jefferson Vieira</strong> · 15 cards</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>BI</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Web/Ecom</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Sales Enablement</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>Promax Supertroca – Yanmar Agritech</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>CAPRICHO A TOA SERVICOS E COMERCIO DE CONFECCOE…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>ALUMTECH COMERCIO LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>SA GONDOLAS DE ACO LTDA</td><td>—</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>Spa Sensoria</td><td>Profissional de Designer Gráfico, P…</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>BINARIO TECNOLOGIA DISTRIBUIDORA LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>SOMA SOLUCOES FINANCEIRAS LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>Exclusiva Home e Decor - Metalurgica G.l.a.</td><td>Profissional de Designer Gráfico, P…</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>BERTONCELLO AGENCIA DE CREDITO E CONSULTORIA FI…</td><td>—</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>SIGO ERP(DUO3 SOLUCOES EM TECNOLOGIA DA INFORMA…</td><td>—</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>AUTO PECAS E ACESSORIOS YOKOTA LTDA - Executar …</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>Mobile Phone</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr class='coord-head'><td colspan='3'><strong>Ueliton Pereira</strong> · 9 cards</td></tr>
+<tr><td class='cli'>INSTITUTO GRUPO BOTICARIO</td><td>social_media</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>SIMPLE EDUCATION(SIMPLE EDUCATION EDITORA LTDA)…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>WF ENGENHARIA CONSTRUTORA E INCORPORADORA (W F …</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>CONSTRUTORA E INCORPORADORA VILELA CAMPOS LTDA.</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>TERRA FERTIL COM E REPRES LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>BRG CONSULTORIA IMOBILIARIA LTDA (Prado Gonçalv…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>VCA MUSIC LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>ESCRITORIO VICENTINI & ANDRADE SOCIEDADE DE ADV…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>BELLA GULA FRANQUIAS</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr class='coord-head'><td colspan='3'><strong>Thainá Gomes</strong> · 6 cards</td></tr>
+<tr><td class='cli'>PG QUIMICA LTDA</td><td>CRM</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>PG QUIMICA LTDA</td><td>BI</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>PG QUIMICA LTDA</td><td>Sales Enablement</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>ACCENTURE PARTICIPACOES LTDA(ACCENTURE PARTICIP…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>AERO TD ESCOLA DE AVIACAO CIVIL LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>Massimo Zanetti Beverage Brasil Ltda</td><td>Profissional de Marketplace, Profis…</td><td class='num'>17d</td></tr>
+<tr class='coord-head'><td colspan='3'><strong>Melissa Pessoa</strong> · 6 cards</td></tr>
+<tr><td class='cli'>NOVO MILENIO UNIFORMES LTDA(NOVO MILENIO UNIFOR…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>C. VIEGAS PRODUTOS AUTOMOTIVOS LTDA.</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>VALMAGAL - ENGENHARIA E CONSTRUÇÃO LDA(VALMAGAL…</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>Excel Group</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>PORTICO ARQUITETURA E CONSTRUCOES LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>PLAY FIBRA SERVICOS DE INTERNET LTDA</td><td>assessoria_byline</td><td class='num'>17d</td></tr>
+<tr class='coord-head'><td colspan='3'><strong>Sem coordenador</strong> · 4 cards</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td>Web/Ecom</td><td class='num'>25d</td></tr>
+<tr><td class='cli'>PG QUÍMICA(PG QUIMICA LTDA) - ASSESSORIA BYLINE…</td><td>CRM</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>PG QUÍMICA(PG QUIMICA LTDA) - ASSESSORIA BYLINE…</td><td>Sales Enablement</td><td class='num'>17d</td></tr>
+<tr><td class='cli'>PREVENT AUDIO COMERCIO DE APARELHOS AUDITIVOS L…</td><td>SDR AI</td><td class='num'>13d</td></tr>
+
+</table>
+</div>
+
+<h3>4.3 · Rodando — follow-up e pós-diagnóstico (23 cards)</h3>
+<table>
+  <tr><th>Conta</th><th>Etapa</th><th>Coord.</th><th>Histórico</th></tr>
+  <tr><td class='cli'>AYA ENGENHARIA E PROJETOS LTDA</td><td><span class='tag neu'>Apresentacao</span></td><td>Thainá Gomes</td><td class='sub'>Construcao Proposta → Apresentacao</td></tr>
+<tr><td class='cli'>FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA</td><td><span class='tag neu'>Apresentacao</span></td><td>Thainá Gomes</td><td class='sub'>Account Planning → Apresentacao</td></tr>
+<tr><td class='cli'>ML PARTICIPACOES LTDA</td><td><span class='tag neu'>Apresentacao</span></td><td>Jefferson Vieira</td><td class='sub'>Construcao Proposta → Apresentacao</td></tr>
+<tr><td class='cli'>SOTOBI MAQUINAS E ACESSORIOS PARA FABRICAS DE B…</td><td><span class='tag neu'>Apresentacao</span></td><td>Thainá Gomes</td><td class='sub'>Diagnostico → Apresentacao</td></tr>
+<tr><td class='cli'>Use Jr</td><td><span class='tag neu'>Apresentacao</span></td><td>Jefferson Vieira</td><td class='sub'>Account Planning → Apresentacao</td></tr>
+<tr><td class='cli'>LF2 - INDUSTRIA E COMERCIO LTDA</td><td><span class='tag neu'>Construcao Proposta</span></td><td>Jefferson Vieira</td><td class='sub'>Diagnostico → Construcao Proposta</td></tr>
+<tr><td class='cli'>BMB TECIDOS LTDA</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGUR…</td><td><span class='tag neu'>Follow-up</span></td><td>—</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGUR…</td><td><span class='tag neu'>Follow-up</span></td><td>—</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>BUBLU</td><td><span class='tag neu'>Follow-up</span></td><td>Jefferson Vieira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>CENTRO AUDITIVO MACAE</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>CENTRO BRASILIENSE DE NEFROLOGIA LTDA</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>COLINA DOS IPES - COMERCIO E ADMINISTRACAO DE P…</td><td><span class='tag neu'>Follow-up</span></td><td>Jefferson Vieira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>DERMOCOSMETIC COMERCIO DE PRODUTOS DE BELEZA LT…</td><td><span class='tag neu'>Follow-up</span></td><td>Melissa Pessoa</td><td class='sub'>Diagnostico → Follow-up</td></tr>
+<tr><td class='cli'>DERMOCOSMETIC COMERCIO DE PRODUTOS DE BELEZA LT…</td><td><span class='tag neu'>Follow-up</span></td><td>—</td><td class='sub'>Diagnostico → Follow-up</td></tr>
+<tr><td class='cli'>FABIO LUCHESI (Primeset)</td><td><span class='tag neu'>Follow-up</span></td><td>—</td><td class='sub'>Account Planning → Follow-up</td></tr>
+<tr><td class='cli'>FIBRALINK SERVICOS DE TECNOLOGIA DA INFORMACAO …</td><td><span class='tag neu'>Follow-up</span></td><td>Thainá Gomes</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>GREEN WAY INSULATION(GREEN WAY INSULATION)</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>IGA BLUMENAU(KAIROS GRI INSTITUTO DE GASTRONOMI…</td><td><span class='tag neu'>Follow-up</span></td><td>Melissa Pessoa</td><td class='sub'>Diagnostico → Follow-up</td></tr>
+<tr><td class='cli'>TAWÁ VEÍCULOS</td><td><span class='tag neu'>Follow-up</span></td><td>Thainá Gomes</td><td class='sub'>Construcao Proposta → Follow-up</td></tr>
+<tr><td class='cli'>V.L.O TEXTIL INDUSTRIA E COMERCIO IMPORTACAO E …</td><td><span class='tag neu'>Follow-up</span></td><td>Ueliton Pereira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>VISOFLEX PORTAS E PORTOES LTDA</td><td><span class='tag neu'>Follow-up</span></td><td>Jefferson Vieira</td><td class='sub'>Follow-up</td></tr>
+<tr><td class='cli'>DALPACK COMERCIO ELETRONICO LTDA(DALPACK COMERC…</td><td><span class='tag neu'>Reuniao agendada</span></td><td>Jefferson Vieira</td><td class='sub'>Reuniao agendada</td></tr>
+
+</table>
+
+<h3>Encerrados no Flow</h3>
+<table>
+  <tr><th>Conta</th><th>Status</th><th>Coord.</th><th>Obs.</th></tr>
+  <tr><td class='cli'>ECOSTORAGE SERVICOS LTDA</td><td><span class='tag ok'>Finalizado</span></td><td>Melissa Pessoa</td><td>Fechado jun/2026 — site + captação · R$ 11.505,38 one-time.…</td></tr>
+<tr><td class='cli'>ELEVATE INCORPORADORA E CONSTRUTORA LTDA - Exec…</td><td><span class='tag bad'>Drop</span></td><td>Ueliton Pereira</td><td>Expansion Score 81 · Cliente Safe · Proposta declinada. Opo…</td></tr>
+<tr><td class='cli'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTO…</td><td><span class='tag ok'>Finalizado</span></td><td>—</td><td>Fechado jun/2026 — expansão · R$ 2.800,00 one-time. Card pr…</td></tr>
+<tr><td class='cli'>Sorvetes Jundia</td><td><span class='tag ok'>Finalizado</span></td><td>Thainá Gomes</td><td>Fechado jun/2026 — aumento de escopo · R$ 5.010,00 MRR. Atu…</td></tr>
+
+</table>
+
+<div class="grid2" style="margin-top:16px">
+  <div class="box-ok">
+    <strong>O que funcionou</strong>
+    <ul>
+      <li>Base carteira inteira no Flow em 2 semanas</li>
+      <li>Match Ekyte 84/85 no fechamento jun</li>
+      <li>Cards com jornada Ekyte herdaram etapa e avançaram</li>
+      <li>3 fechamentos refletidos no Flow</li>
+    </ul>
+  </div>
+  <div class="box-bad">
+    <strong>O que travou</strong>
+    <ul>
+      <li>47% parado no AP — coords não puxaram diagnóstico</li>
+      <li>Sync cria card mas não força avanço comercial</li>
+      <li>Construção de Proposta quase zero (1 card: LF2)</li>
+      <li>81 cards ainda abertos carry → jul</li>
+    </ul>
+  </div>
+</div>
+
+<h2>5 · Safra comercial Invictus (planilha · jun)</h2>
+<table>
+  <tr><th>Conta</th><th>Coord.</th><th>Abertura</th><th>Reunião jun?</th><th>Desfecho</th></tr>
+  <tr><td class="cli">Jundia Sorvetes</td><td>Thainá</td><td>10/06</td><td>Sim</td><td><span class="tag ok">Fechado</span></td></tr>
+  <tr><td class="cli">VLOCA</td><td>Thainá</td><td>26/06</td><td>Sim</td><td><span class="tag ok">Fechado</span></td></tr>
+  <tr><td class="cli">Visoflex</td><td>Jefferson</td><td>30/06</td><td>Não</td><td>Assinou 01/07</td></tr>
+  <tr><td class="cli">Fares Aquino</td><td>Thainá</td><td>19/06</td><td>Sim</td><td>Follow / Apresentação</td></tr>
+  <tr><td class="cli">Dalpack</td><td>Jefferson</td><td>05/06</td><td>Sim</td><td>Reunião agendada</td></tr>
+  <tr><td class="cli">Centro Auditivo / Simple Education</td><td>Ueliton</td><td>02–05/06</td><td>Sim</td><td><span class="tag bad">Drop</span></td></tr>
+  <tr><td class="cli">Atlântica Máquinas</td><td>Jefferson</td><td>17/06</td><td>Sim</td><td><span class="tag bad">Drop</span></td></tr>
+  <tr><td colspan="5" class="sub">+ Fast Supplier, USJR, Franelis, Martins — carry jul · sem card Flow em parte das contas</td></tr>
+</table>
+
+<h2 id="flow">6 · Flow pronto para monetização?</h2>
+<table>
+  <tr><th>Pergunta</th><th>Resposta</th></tr>
+  <tr><td class="cli">Cobre tudo que precisamos?</td><td><strong>Parcialmente.</strong> Base Invictus migrada, mas 47% parada no AP.</td></tr>
+  <tr><td class="cli">Funil inteiro num lugar?</td><td><strong>Não.</strong> Planilha = opps validadas · Ekyte = jornada AP→reunião · Flow = etapas (muitas sem movimento).</td></tr>
+  <tr><td class="cli">O que está bom?</td><td>Migração estruturou a base; match Ekyte alto; cards com jornada avançam.</td></tr>
+  <tr><td class="cli">O que falta?</td><td>Volume de oportunidade ativa; regra de avanço pós-AP; menos regressão de etapa; Billions/Exclusive em rollout.</td></tr>
+</table>
+<div class="note note-ok">
+  <strong>Proposta:</strong> criar etapa <strong>«Oportunidade»</strong> após Diagnóstico pronto, junto com Construção de Proposta.
+  Tudo a partir daí = <strong>oportunidade ativa do mês</strong> (critério para meta, conversão e volume de ataque).
+</div>
+
+<footer>
+  Gerado 07/07/2026 · Fontes: Pipe Diário (dump 06/07), Cockpit Flow expansion cards, planilha safra jun/26, report-data-jun.json<br>
+  Pipe ao vivo: <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/#geral">marcelofigueiredo23.github.io/pipediario/jul2026</a>
+</footer>
+
+</div>
+<script>
+const V4='#e11d2e', INV='#4338ca';
+new Chart(document.getElementById('chartEtapas'),{
+  type:'bar',
+  data:{labels:["Drop", "Account Planning", "Diagnostico", "Finalizado", "Follow-up", "Apresentacao", "Reuniao agendada", "Construcao Proposta"],datasets:[{label:'Cards',data:[1, 40, 18, 3, 16, 5, 1, 1],backgroundColor:INV,borderRadius:6}]},
+  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}
+});
+new Chart(document.getElementById('chartAP'),{
+  type:'bar',
+  data:{labels:["Jefferson Vieira", "Ueliton Pereira", "Thainá Gomes", "Melissa Pessoa", "Sem coordenador"],datasets:[{label:'Parados AP',data:[15, 9, 6, 6, 4],backgroundColor:V4,borderRadius:6}]},
+  options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+});
+</script>
+</body>
+</html>
