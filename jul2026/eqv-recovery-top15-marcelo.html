@@ -3,764 +3,1244 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EQV Recovery TOP 15 — Marcelo · Jul/2026</title>
+<title>Empresa Que Vende · EQV Recovery TOP 15 — Marcelo</title>
+<link rel="canonical" href="https://marcelofigueiredo23.github.io/pipediario/jul2026/eqv-recovery-top15-marcelo.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#fff;--surf:#f8f9fb;--bd:#e2e5ea;--txt:#1a1d23;--mut:#5c6370;
-  --ok:#15803d;--late:#dc2626;--up:#b45309;--v4:#e11d2e;--accent:#2563eb;
+:root {
+  --brand: #e50915;
+  --brand-light: #ff1a27;
+  --brand-dim: rgba(229, 9, 21, 0.14);
+  --brand-glow: rgba(229, 9, 21, 0.35);
+  --bg: #050505;
+  --bg-elev: #0c0c0c;
+  --surf: rgba(20, 20, 20, 0.88);
+  --surf2: #141414;
+  --glass: rgba(255, 255, 255, 0.04);
+  --bd: rgba(255, 255, 255, 0.08);
+  --bd-strong: rgba(255, 255, 255, 0.14);
+  --txt: #fafafa;
+  --mut: #a3a3a3;
+  --ok: #22c55e;
+  --warn: #facc15;
+  --bad: #f87171;
+  --info: #60a5fa;
+  --inv: #818cf8;
+  --bil: #fbbf24;
+  --exc: #f472b6;
+  --radius: 16px;
+  --shadow: 0 24px 80px rgba(0,0,0,.55);
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 "Segoe UI",system-ui,sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:36px 28px 72px}
-header{border-bottom:3px solid var(--v4);padding-bottom:18px;margin-bottom:24px}
-h1{font-size:26px;font-weight:800;margin:0 0 6px}
-.subtitle{color:var(--mut);font-size:14px}
-.nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
-.nav a{font-size:12px;color:var(--accent);text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:20px;background:var(--surf)}
-.nav a:hover{border-color:var(--v4);color:var(--v4)}
-h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--v4);margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
-@media(max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
-.kpi{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px;text-align:center}
-.kpi .v{font-size:24px;font-weight:800}
-.kpi .l{font-size:10px;text-transform:uppercase;color:var(--mut);margin-top:4px}
-.note{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:13px;margin:12px 0}
-.note-blue{background:#eff6ff;border-color:#bfdbfe}
-.pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
-@media(max-width:700px){.pricing{grid-template-columns:1fr 1fr}}
-.price-card{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:12px;text-align:center}
-.price-card .v{font-size:18px;font-weight:800;color:var(--v4)}
-.price-card .l{font-size:10px;color:var(--mut);text-transform:uppercase}
-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;border:1px solid var(--bd);border-radius:10px;overflow:hidden}
-th,td{padding:10px 12px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
-th{background:var(--surf);font-size:10px;text-transform:uppercase;color:var(--mut)}
-tr:last-child td{border-bottom:none}
-.cli{font-weight:600}
-.cli a{color:inherit;text-decoration:none}
-.cli a:hover{color:var(--v4)}
-.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:9px;font-weight:700;text-transform:uppercase}
-.tag.ok{background:#dcfce7;color:var(--ok)}
-.tag.bad{background:#fee2e2;color:var(--late)}
-.tag.warn{background:#fef3c7;color:var(--up)}
-.tag.neu{background:#f1f5f9;color:var(--mut)}
-.card{border:1px solid var(--bd);border-radius:14px;padding:20px;margin:18px 0;background:#fff}
-.card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
-.rank{font-size:28px;font-weight:800;color:var(--v4);line-height:1;min-width:48px}
-.sub{font-size:12px;color:var(--mut);margin-top:2px}
-.score{margin-left:auto;text-align:center;background:var(--surf);border-radius:10px;padding:8px 14px;border:1px solid var(--bd)}
-.score-v{display:block;font-size:22px;font-weight:800;color:var(--v4)}
-.score-l{font-size:9px;text-transform:uppercase;color:var(--mut)}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;font-size:12px}
-@media(max-width:600px){.grid3{grid-template-columns:1fr}}
-.field{background:var(--surf);padding:8px 10px;border-radius:8px}
-.field .lbl{display:block;font-size:9px;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
-.obs{font-size:12px;color:var(--mut);background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px;margin:10px 0}
-h4{font-size:13px;margin:14px 0 6px;color:var(--txt)}
-ul,ol{margin:6px 0;padding-left:20px;font-size:13px}
-li{margin:4px 0}
-.pitch-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;margin:12px 0;font-size:13px}
-.pitch-box p{margin:6px 0 0}
-.alert-box{background:#fee2e2;border:1px solid #fecaca;border-radius:8px;padding:10px 12px;font-size:12px;margin-bottom:10px;color:var(--late)}
-.steps li{margin:8px 0}
-footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--bd);font-size:11px;color:var(--mut)}
-a{color:var(--accent)}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--txt);
+  font: 14px/1.6 Inter, system-ui, sans-serif;
+  padding-bottom: 64px;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(229,9,21,.16), transparent),
+    radial-gradient(circle at 100% 0%, rgba(229,9,21,.05), transparent 40%);
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(5,5,5,.88);
+  border-bottom: 1px solid var(--bd);
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.topbar-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.v4-logo { height: 28px; width: auto; display: block; }
+.colli-badge {
+  font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--bil); background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.28);
+  padding: 5px 10px; border-radius: 999px;
+}
+.topbar-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  font-size: 11px; font-weight: 600; color: var(--mut);
+  background: var(--glass); border: 1px solid var(--bd);
+  padding: 6px 12px; border-radius: 999px; text-decoration: none;
+}
+.chip:hover { border-color: var(--brand); color: var(--txt); }
+.chip.live { color: #86efac; border-color: rgba(34,197,94,.3); background: rgba(34,197,94,.08); }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 28px 24px 0; }
+
+.hero {
+  position: relative; border-radius: var(--radius); padding: 40px 36px 36px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, rgba(229,9,21,.18) 0%, rgba(20,20,20,.95) 50%, var(--surf2) 100%);
+  border: 1px solid var(--bd-strong); box-shadow: var(--shadow); overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; top: -40%; right: -8%;
+  width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: #fca5a5; margin-bottom: 12px;
+}
+.hero-eyebrow::before { content: ''; width: 24px; height: 3px; background: var(--brand); border-radius: 2px; }
+.product-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  padding: 10px 18px; border-radius: 12px;
+  background: rgba(229,9,21,.15); border: 1px solid rgba(229,9,21,.35);
+}
+.product-badge .eqv-mark {
+  font-size: 11px; font-weight: 900; letter-spacing: .12em; color: #fca5a5;
+  background: var(--brand); color: #fff; padding: 4px 8px; border-radius: 6px;
+}
+.product-badge .eqv-name { font-size: 15px; font-weight: 800; letter-spacing: -.02em; }
+.hero h1 {
+  margin: 0 0 12px; font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900; letter-spacing: -0.03em; line-height: 1.08;
+}
+.hero h1 em { font-style: normal; color: var(--brand-light); }
+.hero-desc { color: var(--mut); font-size: 15px; max-width: 720px; line-height: 1.65; margin-bottom: 20px; }
+.hero-desc strong { color: var(--txt); }
+.hero-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-nav a {
+  font-size: 12px; font-weight: 600; color: var(--txt); text-decoration: none;
+  padding: 8px 14px; border-radius: 999px;
+  background: var(--glass); border: 1px solid var(--bd);
+  transition: border-color .2s, background .2s;
+}
+.hero-nav a:hover { border-color: var(--brand); background: var(--brand-dim); }
+
+.section-title {
+  font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--brand-light); margin: 40px 0 16px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd); display: flex; align-items: center; gap: 10px;
+}
+.section-title::before { content: ''; width: 4px; height: 16px; background: var(--brand); border-radius: 2px; }
+
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+@media(max-width:700px){ .kpis { grid-template-columns: 1fr 1fr; } }
+.kpi {
+  background: var(--surf); border: 1px solid var(--bd); border-radius: var(--radius);
+  padding: 18px 16px; text-align: center;
+}
+.kpi .v { font-size: 28px; font-weight: 900; letter-spacing: -.02em; line-height: 1; }
+.kpi .l { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); margin-top: 6px; }
+.kpi.highlight { border-color: rgba(229,9,21,.4); background: linear-gradient(180deg, rgba(229,9,21,.12), var(--surf)); }
+.kpi.highlight .v { color: var(--brand-light); }
+
+.glass-panel {
+  background: var(--surf); border: 1px solid var(--bd); border-radius: var(--radius);
+  padding: 20px 22px; margin: 14px 0; font-size: 13px; line-height: 1.65;
+}
+.glass-panel strong { color: var(--txt); }
+.glass-panel.warn { border-color: rgba(250,204,21,.3); background: rgba(250,204,21,.06); }
+.glass-panel.info { border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.06); }
+
+.pricing {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0;
+}
+@media(max-width:700px){ .pricing { grid-template-columns: 1fr 1fr; } }
+.price-card {
+  background: var(--surf); border: 1px solid var(--bd); border-radius: var(--radius);
+  padding: 20px 16px; text-align: center; position: relative; overflow: hidden;
+}
+.price-card.featured {
+  border-color: rgba(229,9,21,.45);
+  background: linear-gradient(180deg, rgba(229,9,21,.14), var(--surf));
+}
+.price-card.featured::before {
+  content: 'RECOVERY'; position: absolute; top: 10px; right: -28px;
+  font-size: 8px; font-weight: 800; letter-spacing: .1em;
+  background: var(--brand); color: #fff; padding: 3px 32px; transform: rotate(45deg);
+}
+.price-card .v { font-size: 22px; font-weight: 900; color: var(--brand-light); letter-spacing: -.02em; }
+.price-card .l { font-size: 10px; color: var(--mut); text-transform: uppercase; letter-spacing: .06em; margin-top: 6px; }
+
+.table-wrap {
+  overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--bd);
+  background: var(--surf); margin: 16px 0;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 12px 14px; border-bottom: 1px solid var(--bd); text-align: left; vertical-align: middle; }
+th {
+  background: rgba(0,0,0,.35); font-size: 10px; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--mut); font-weight: 700;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+.rank-cell { width: 48px; }
+.rank-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--brand-dim); color: var(--brand-light);
+  font-weight: 800; font-size: 12px;
+}
+.cli { font-weight: 600; }
+.cli a { color: var(--txt); text-decoration: none; }
+.cli a:hover { color: var(--brand-light); }
+.warn-dot {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(250,204,21,.2); color: var(--warn); font-size: 10px; font-weight: 800;
+}
+.feature-cell { color: var(--mut); font-size: 12px; }
+
+.tag {
+  display: inline-block; padding: 3px 9px; border-radius: 6px;
+  font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em;
+}
+.tag.ok { background: rgba(34,197,94,.15); color: var(--ok); }
+.tag.bad { background: rgba(248,113,113,.15); color: var(--bad); }
+.tag.warn { background: rgba(250,204,21,.15); color: var(--warn); }
+.tag.neu { background: rgba(255,255,255,.06); color: var(--mut); }
+.tag.feature { background: rgba(96,165,250,.12); color: var(--info); }
+.score-chip { font-size: 11px; padding: 4px 10px; }
+
+.squad-pill {
+  display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px;
+}
+.squad-pill.inv { background: rgba(129,140,248,.15); color: var(--inv); }
+.squad-pill.bil { background: rgba(251,191,36,.15); color: var(--bil); }
+.squad-pill.exc { background: rgba(244,114,182,.15); color: var(--exc); }
+.squad-pill.neu { background: rgba(255,255,255,.06); color: var(--mut); }
+.tier-pill {
+  font-size: 10px; font-weight: 700; color: var(--mut);
+  background: rgba(255,255,255,.05); padding: 3px 8px; border-radius: 6px;
+}
+
+.card {
+  position: relative; border-radius: var(--radius); margin: 20px 0; overflow: hidden;
+  background: var(--surf); border: 1px solid var(--bd);
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
+}
+.card-accent { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--brand); }
+.card-inv .card-accent { background: var(--inv); }
+.card-bil .card-accent { background: var(--bil); }
+.card-exc .card-accent { background: var(--exc); }
+.card-body { padding: 22px 24px 24px 28px; }
+.card-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+.rank-badge {
+  font-size: 13px; font-weight: 900; color: var(--brand-light);
+  background: var(--brand-dim); border: 1px solid rgba(229,9,21,.3);
+  padding: 8px 12px; border-radius: 10px; line-height: 1;
+}
+.card-title-block { flex: 1; min-width: 200px; }
+.card-title-block .cli { margin: 0 0 6px; font-size: 18px; font-weight: 800; letter-spacing: -.02em; }
+.card-meta { font-size: 12px; color: var(--mut); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.meta-sep { opacity: .4; }
+.score-ring {
+  text-align: center; background: rgba(0,0,0,.35);
+  border: 1px solid var(--bd-strong); border-radius: 12px; padding: 10px 16px; min-width: 72px;
+}
+.score-v { display: block; font-size: 26px; font-weight: 900; color: var(--brand-light); line-height: 1; }
+.score-l { font-size: 9px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); margin-top: 4px; display: block; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+@media(max-width:600px){ .grid3 { grid-template-columns: 1fr; } }
+.field {
+  background: rgba(0,0,0,.25); border: 1px solid var(--bd); border-radius: 10px; padding: 10px 12px;
+}
+.field .lbl { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); margin-bottom: 4px; }
+.field .val { font-size: 12px; font-weight: 600; color: var(--txt); }
+
+.obs-box {
+  font-size: 12px; color: var(--mut); background: rgba(250,204,21,.06);
+  border: 1px solid rgba(250,204,21,.2); border-radius: 10px; padding: 12px 14px; margin: 12px 0;
+}
+.obs-label {
+  display: block; font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--warn); margin-bottom: 4px;
+}
+
+.section-block { margin: 18px 0; }
+.section-block h4 {
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--mut); margin: 0 0 10px; display: flex; align-items: center; gap: 8px;
+}
+.section-icon { color: var(--brand); font-size: 10px; }
+.ctx-list { margin: 0; padding-left: 18px; font-size: 13px; color: #d4d4d4; }
+.ctx-list li { margin: 6px 0; }
+
+.pitch-box {
+  background: linear-gradient(135deg, rgba(34,197,94,.1), rgba(34,197,94,.04));
+  border: 1px solid rgba(34,197,94,.25); border-radius: 12px; padding: 16px 18px; margin: 16px 0;
+}
+.pitch-label {
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--ok); margin-bottom: 8px;
+}
+.pitch-box p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--txt); }
+
+.alert-box {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.3);
+  border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #fecaca; margin-bottom: 12px;
+}
+.alert-icon {
+  flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(248,113,113,.3); color: #fff; font-weight: 800; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.steps { margin: 0; padding-left: 20px; counter-reset: step; list-style: none; }
+.steps li {
+  position: relative; padding-left: 8px; margin: 10px 0; font-size: 13px; color: #d4d4d4;
+  counter-increment: step;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: -24px; top: 1px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--brand-dim); color: var(--brand-light);
+  font-size: 10px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+
+footer {
+  margin-top: 56px; padding: 20px 0; border-top: 1px solid var(--bd);
+  font-size: 11px; color: var(--mut); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+}
+footer a { color: var(--info); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
 </style>
 </head>
 <body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <svg class="v4-logo" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg" aria-label="V4 Company">
+  <text x="0" y="26" font-family="Inter, Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e50915">V4</text>
+  <text x="52" y="26" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#a3a3a3" letter-spacing=".18em">COMPANY</text>
+</svg>
+    <span class="colli-badge">Colli&amp;Co · Farmer ABM</span>
+  </div>
+  <div class="topbar-chips">
+    <a class="chip live" href="index.html">Pipe diário</a>
+    <span class="chip">BPMN 2 Recovery</span>
+    <span class="chip">Safra EE · Jul/2026</span>
+  </div>
+</div>
+
 <div class="wrap">
 
-<header>
-  <h1>EQV Recovery — TOP 15</h1>
-  <div class="subtitle">Plano de ação · Marcelo Figueiredo · Safra EE drops · 2026-07-08</div>
-  <div class="nav">
-    <a href="#resumo">Resumo</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#tabela">Tabela</a>
-    <a href="#fichas">Fichas</a>
-    <a href="index.html">Pipe diário</a>
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Monetização · Base ativa · Drops E.E</div>
+      <div class="product-badge">
+        <span class="eqv-mark">EQV</span>
+        <span class="eqv-name">Empresa Que Vende</span>
+      </div>
+      <h1>Recovery <em>TOP 15</em></h1>
+      <p class="hero-desc">
+        Plano de ação para resgatar contas que droparam da <strong>Estruturação Estratégica</strong>
+        com o produto <strong>Empresa Que Vende</strong> — consultoria de acompanhamento +
+        execução assistida para GTM previsível e escalável.<br>
+        <strong>Marcelo Figueiredo</strong> · Corte 2026-07-08
+      </p>
+      <div class="hero-nav">
+        <a href="#resumo">Resumo</a>
+        <a href="#pricing">Pricing recovery</a>
+        <a href="#tabela">Ranking</a>
+        <a href="#fichas">Fichas por cliente</a>
+      </div>
+    </div>
   </div>
-</header>
 
-<section id="resumo">
-  <h2>Resumo executivo</h2>
-  <div class="kpis">
-    <div class="kpi"><div class="v">15</div><div class="l">Contas selecionadas</div></div>
-    <div class="kpi"><div class="v">38</div><div class="l">Drops EE total</div></div>
-    <div class="kpi"><div class="v">16</div><div class="l">Com transcrição</div></div>
-    <div class="kpi"><div class="v">~20–30%</div><div class="l">Meta conversão EQV</div></div>
-  </div>
-  <div class="note">
-    <strong>Produto:</strong> Empresa Que Vende (EQV) — BPMN 2 Recovery<br>
-    <strong>Tese:</strong> Consultoria de acompanhamento + execução assistida para GTM previsível e escalável — resgata drops EE com perfil executor (Tiny/Small/Medium) que não converteram para EXECUTAR.
-  </div>
-  <div class="note note-blue">
-    <strong>Ajustes do Farmer (2026-07-08):</strong><br>
-    Excluídos: Hiper Colchões (BM), CASARÃO DAS FIBRAS, Clínica Gorga (BS), Nacional Auto Vidros (BS)<br>
-    R Casagrande Negócios Imobiliários → Seronni plástica facial (BT)
-  </div>
-</section>
+  <section id="resumo">
+    <h2 class="section-title">Resumo executivo</h2>
+    <div class="kpis">
+      <div class="kpi highlight"><div class="v">15</div><div class="l">Contas priorizadas</div></div>
+      <div class="kpi"><div class="v">38</div><div class="l">Drops EE carteira</div></div>
+      <div class="kpi"><div class="v">16</div><div class="l">Com transcrição</div></div>
+      <div class="kpi highlight"><div class="v">20–30%</div><div class="l">Meta conversão EQV</div></div>
+    </div>
+    <div class="glass-panel">
+      <strong>Produto:</strong> Empresa Que Vende (EQV) — BPMN 2 Recovery<br>
+      <strong>Tese:</strong> Consultoria de acompanhamento + execução assistida para GTM previsível e escalável — resgata drops EE com perfil executor (Tiny/Small/Medium) que não converteram para EXECUTAR.
+    </div>
+    <div class="glass-panel info">
+      <strong>Curadoria Farmer (2026-07-08):</strong><br>
+      Excluídos: Hiper Colchões (BM), CASARÃO DAS FIBRAS, Clínica Gorga (BS), Nacional Auto Vidros (BS)<br>
+      R Casagrande Negócios Imobiliários → Seronni plástica facial (BT)
+    </div>
+  </section>
 
-<section id="pricing">
-  <h2>Pricing recovery BPMN 2</h2>
-  <div class="pricing">
-    <div class="price-card"><div class="v">R$ 15.000</div><div class="l">Cashback EE</div></div>
-    <div class="price-card"><div class="v">R$ 35.000</div><div class="l">Âncora EQV</div></div>
-    <div class="price-card"><div class="v">R$ 20.000</div><div class="l">Investimento líquido</div></div>
-    <div class="price-card"><div class="v">12× R$ 1.890</div><div class="l">Alternativa</div></div>
-  </div>
-  <p style="font-size:13px;color:var(--mut)">Narrativa: consultoria de acompanhamento + execução assistida para GTM previsível e escalável — não é “mais mídia”, é maturidade operacional com time V4 no campo.</p>
-</section>
+  <section id="pricing">
+    <h2 class="section-title">Pricing · BPMN 2 Recovery</h2>
+    <div class="pricing">
+      <div class="price-card"><div class="v">R$ 15.000</div><div class="l">Cashback EE</div></div>
+      <div class="price-card"><div class="v">R$ 35.000</div><div class="l">Âncora EQV</div></div>
+      <div class="price-card featured"><div class="v">R$ 20.000</div><div class="l">Investimento líquido</div></div>
+      <div class="price-card"><div class="v">12× R$ 1.890</div><div class="l">Parcelado</div></div>
+    </div>
+    <div class="glass-panel warn">
+      <strong>Narrativa de venda:</strong> não é “mais mídia” — é maturidade GTM com time V4 no campo.
+      O cashback da EE reduz o risco percebido e abre a Conversa de Transição para execução assistida.
+    </div>
+  </section>
 
-<section id="tabela">
-  <h2>Ranking TOP 15</h2>
-  <table>
-    <thead><tr>
-      <th>#</th><th>Cliente</th><th>Tier</th><th>Squad</th><th>Nota</th><th>Feature EQV</th><th>Drop</th>
-    </tr></thead>
-    <tbody><tr>
-  <td><strong>1</strong></td>
+  <section id="tabela">
+    <h2 class="section-title">Ranking TOP 15</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>#</th><th>Cliente</th><th>Tier</th><th>Squad</th><th>Nota</th><th>Feature EQV</th><th>Drop</th>
+        </tr></thead>
+        <tbody><tr class="row-inv">
+  <td class="rank-cell"><span class="rank-num">1</span></td>
   <td class="cli"><a href="#c1">Lapidum Aesthetic Clinic</a></td>
-  <td>SMALL</td>
-  <td>Invictus</td>
-  <td><span class="tag ok">9</span></td>
-  <td>Conteúdo + Social Media</td>
+  <td><span class="tier-pill">SMALL</span></td>
+  <td><span class="squad-pill inv">Invictus</span></td>
+  <td><span class="tag ok score-chip">9</span></td>
+  <td class="feature-cell">Conteúdo + Social Media</td>
   <td>Budget</td>
-</tr><tr>
-  <td><strong>2</strong></td>
+</tr><tr class="row-exc">
+  <td class="rank-cell"><span class="rank-num">2</span></td>
   <td class="cli"><a href="#c2">Newtec Tecnologia</a></td>
-  <td>SMALL</td>
-  <td>Exclusive</td>
-  <td><span class="tag ok">8.5</span></td>
-  <td>Comercial + CRM</td>
+  <td><span class="tier-pill">SMALL</span></td>
+  <td><span class="squad-pill exc">Exclusive</span></td>
+  <td><span class="tag ok score-chip">8.5</span></td>
+  <td class="feature-cell">Comercial + CRM</td>
   <td>—</td>
-</tr><tr>
-  <td><strong>3</strong></td>
+</tr><tr class="row-exc">
+  <td class="rank-cell"><span class="rank-num">3</span></td>
   <td class="cli"><a href="#c3">LK Internet (BT)</a></td>
-  <td>TINY</td>
-  <td>Exclusive</td>
-  <td><span class="tag ok">8</span></td>
-  <td>Conteúdo + Mídia</td>
+  <td><span class="tier-pill">TINY</span></td>
+  <td><span class="squad-pill exc">Exclusive</span></td>
+  <td><span class="tag ok score-chip">8</span></td>
+  <td class="feature-cell">Conteúdo + Mídia</td>
   <td>Budget</td>
-</tr><tr>
-  <td><strong>4</strong></td>
+</tr><tr class="row-exc">
+  <td class="rank-cell"><span class="rank-num">4</span></td>
   <td class="cli"><a href="#c4">All lab (LM)</a></td>
-  <td>MEDIUM</td>
-  <td>Exclusive</td>
-  <td><span class="tag ok">9</span></td>
-  <td>Comercial (Sales Enablement)</td>
+  <td><span class="tier-pill">MEDIUM</span></td>
+  <td><span class="squad-pill exc">Exclusive</span></td>
+  <td><span class="tag ok score-chip">9</span></td>
+  <td class="feature-cell">Comercial (Sales Enablement)</td>
   <td>—</td>
-</tr><tr>
-  <td><strong>5</strong></td>
+</tr><tr class="row-inv">
+  <td class="rank-cell"><span class="rank-num">5</span></td>
   <td class="cli"><a href="#c5">Seronni plástica facial (BT)</a></td>
-  <td>TINY</td>
-  <td>Invictus</td>
-  <td><span class="tag ok">7</span></td>
-  <td>Conteúdo + Social Media</td>
+  <td><span class="tier-pill">TINY</span></td>
+  <td><span class="squad-pill inv">Invictus</span></td>
+  <td><span class="tag ok score-chip">7</span></td>
+  <td class="feature-cell">Conteúdo + Social Media</td>
   <td>Timing</td>
-</tr><tr>
-  <td><strong>6</strong></td>
+</tr><tr class="row-bil">
+  <td class="rank-cell"><span class="rank-num">6</span></td>
   <td class="cli"><a href="#c6">Cosel (LT)</a></td>
-  <td>TINY</td>
-  <td>Billions</td>
-  <td><span class="tag ok">7</span></td>
-  <td>Comercial B2B</td>
+  <td><span class="tier-pill">TINY</span></td>
+  <td><span class="squad-pill bil">Billions</span></td>
+  <td><span class="tag ok score-chip">7</span></td>
+  <td class="feature-cell">Comercial B2B</td>
   <td>Timing</td>
-</tr><tr>
-  <td><strong>7</strong></td>
+</tr><tr class="row-bil">
+  <td class="rank-cell"><span class="rank-num">7</span></td>
   <td class="cli"><a href="#c7">Fronsul (BS)</a></td>
-  <td>SMALL</td>
-  <td>Billions</td>
-  <td><span class="tag ok">7</span></td>
-  <td>Comercial + Mídia</td>
+  <td><span class="tier-pill">SMALL</span></td>
+  <td><span class="squad-pill bil">Billions</span></td>
+  <td><span class="tag ok score-chip">7</span></td>
+  <td class="feature-cell">Comercial + Mídia</td>
   <td>Budget</td>
-</tr><tr>
-  <td><strong>8</strong></td>
+</tr><tr class="row-inv">
+  <td class="rank-cell"><span class="rank-num">8</span></td>
   <td class="cli"><a href="#c8">Cartola Beers</a></td>
-  <td>SMALL</td>
-  <td>Invictus</td>
-  <td><span class="tag warn">6.5</span></td>
-  <td>Social + Mídia regional</td>
+  <td><span class="tier-pill">SMALL</span></td>
+  <td><span class="squad-pill inv">Invictus</span></td>
+  <td><span class="tag warn score-chip">6.5</span></td>
+  <td class="feature-cell">Social + Mídia regional</td>
   <td>Timing</td>
-</tr><tr>
-  <td><strong>9</strong></td>
+</tr><tr class="row-exc">
+  <td class="rank-cell"><span class="rank-num">9</span></td>
   <td class="cli"><a href="#c9">Legacy Corp (BT)</a></td>
-  <td>TINY</td>
-  <td>Exclusive</td>
-  <td><span class="tag warn">6</span></td>
-  <td>Mídia lead gen</td>
+  <td><span class="tier-pill">TINY</span></td>
+  <td><span class="squad-pill exc">Exclusive</span></td>
+  <td><span class="tag warn score-chip">6</span></td>
+  <td class="feature-cell">Mídia lead gen</td>
   <td>Timing</td>
-</tr><tr>
-  <td><strong>10</strong></td>
+</tr><tr class="row-exc">
+  <td class="rank-cell"><span class="rank-num">10</span></td>
   <td class="cli"><a href="#c10">Fortline Indústria e Comércio de Móveis (BT)</a></td>
-  <td>MEDIUM</td>
-  <td>Exclusive</td>
-  <td><span class="tag warn">6.5</span></td>
-  <td>Comercial + Mídia B2B</td>
+  <td><span class="tier-pill">MEDIUM</span></td>
+  <td><span class="squad-pill exc">Exclusive</span></td>
+  <td><span class="tag warn score-chip">6.5</span></td>
+  <td class="feature-cell">Comercial + Mídia B2B</td>
   <td>Timing</td>
-</tr><tr>
-  <td><strong>11</strong></td>
+</tr><tr class="row-exc">
+  <td class="rank-cell"><span class="rank-num">11</span></td>
   <td class="cli"><a href="#c11">Oticas Recris (BM)</a></td>
-  <td>MEDIUM</td>
-  <td>Exclusive</td>
-  <td><span class="tag warn">6</span></td>
-  <td>Mídia local + Conteúdo</td>
+  <td><span class="tier-pill">MEDIUM</span></td>
+  <td><span class="squad-pill exc">Exclusive</span></td>
+  <td><span class="tag warn score-chip">6</span></td>
+  <td class="feature-cell">Mídia local + Conteúdo</td>
   <td>—</td>
-</tr><tr>
-  <td><strong>12</strong></td>
-  <td class="cli"><a href="#c12">Grupo Astral</a> ⚠️</td>
-  <td>SMALL</td>
-  <td>Billions</td>
-  <td><span class="tag warn">6</span></td>
-  <td>Comercial</td>
+</tr><tr class="row-bil">
+  <td class="rank-cell"><span class="rank-num">12</span></td>
+  <td class="cli"><a href="#c12">Grupo Astral</a> <span class="warn-dot" title="Atenção">!</span></td>
+  <td><span class="tier-pill">SMALL</span></td>
+  <td><span class="squad-pill bil">Billions</span></td>
+  <td><span class="tag warn score-chip">6</span></td>
+  <td class="feature-cell">Comercial</td>
   <td>Interno</td>
-</tr><tr>
-  <td><strong>13</strong></td>
+</tr><tr class="row-bil">
+  <td class="rank-cell"><span class="rank-num">13</span></td>
   <td class="cli"><a href="#c13">NDMF — Alisson Joias (LM)</a></td>
-  <td>MEDIUM</td>
-  <td>Billions</td>
-  <td><span class="tag warn">5.5</span></td>
-  <td>Conteúdo + Mídia + CRM</td>
+  <td><span class="tier-pill">MEDIUM</span></td>
+  <td><span class="squad-pill bil">Billions</span></td>
+  <td><span class="tag warn score-chip">5.5</span></td>
+  <td class="feature-cell">Conteúdo + Mídia + CRM</td>
   <td>—</td>
-</tr><tr>
-  <td><strong>14</strong></td>
+</tr><tr class="row-bil">
+  <td class="rank-cell"><span class="rank-num">14</span></td>
   <td class="cli"><a href="#c14">Adesiva</a></td>
-  <td>MEDIUM</td>
-  <td>Billions</td>
-  <td><span class="tag warn">5.5</span></td>
-  <td>Comercial (Sales Enablement)</td>
+  <td><span class="tier-pill">MEDIUM</span></td>
+  <td><span class="squad-pill bil">Billions</span></td>
+  <td><span class="tag warn score-chip">5.5</span></td>
+  <td class="feature-cell">Comercial (Sales Enablement)</td>
   <td>Budget</td>
-</tr><tr>
-  <td><strong>15</strong></td>
+</tr><tr class="row-bil">
+  <td class="rank-cell"><span class="rank-num">15</span></td>
   <td class="cli"><a href="#c15">Lumens Atuarial (LS)</a></td>
-  <td>SMALL</td>
-  <td>Billions</td>
-  <td><span class="tag warn">5</span></td>
-  <td>Comercial + Conteúdo técnico</td>
+  <td><span class="tier-pill">SMALL</span></td>
+  <td><span class="squad-pill bil">Billions</span></td>
+  <td><span class="tag warn score-chip">5</span></td>
+  <td class="feature-cell">Comercial + Conteúdo técnico</td>
   <td>Budget</td>
 </tr></tbody>
-  </table>
-</section>
+      </table>
+    </div>
+  </section>
 
-<section id="fichas">
-  <h2>Fichas — plano de ação por cliente</h2>
-  
-<article class="card" id="c1">
-  <div class="card-head">
-    <span class="rank">#1</span>
-    <div>
-      <h3 class="cli">Lapidum Aesthetic Clinic</h3>
-      <div class="sub">SMALL · Invictus · Thiago Almeida</div>
+  <section id="fichas">
+    <h2 class="section-title">Fichas · plano de ação por cliente</h2>
+    
+<article class="card card-inv" id="c1">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#1</div>
+      <div class="card-title-block">
+        <h3 class="cli">Lapidum Aesthetic Clinic</h3>
+        <div class="card-meta">
+          <span class="squad-pill inv">Invictus</span>
+          <span class="meta-sep">·</span>
+          <span>SMALL</span>
+          <span class="meta-sep">·</span>
+          <span>Thiago Almeida</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">9</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">9</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Conteúdo + Social Media</span>
+      <span class="tag neu">Drop Budget</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">16/03/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">30/04/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">[E.E] Semana 2 — 01/04/2026</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>AINDA NÃO SABEMOS SE VAMOS EXECUTAR — ticket EE R$ 15k</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Reposicionamento premium — harmonização glútea/facial público AB</li><li>TAM/SAM/SOM: 363–580 mulheres/ano; meta faturamento R$ 290k/mês</li><li>3 personas definidas (esposa troféu, empresária, blogueira)</li><li>PUV: experiência estética personalizada com resultados naturais</li><li>Diretriz visual alto luxo — demanda clara de Conteúdo + Social EXECUTAR</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Vocês já têm o mapa estratégico (personas, TAM, posicionamento premium). O EQV coloca a execução assistida no ar — conteúdo de autoridade + social que converte consulta — com cashback dos R$ 15k da EE.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Conversa de Transição com decisor (Fernandes) — validar budget pós-EE</li><li>Montar proposta EQV Conteúdo + Social (âncora R$ 35k · líquido R$ 20k)</li><li>Alinhar com Thiago (coord) entregáveis EE já aprovados</li><li>Agendar call recovery em até 7 dias</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Conteúdo + Social Media</span>
-    <span class="tag neu">Drop: Budget</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>16/03/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>30/04/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>[E.E] Semana 2 — 01/04/2026</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> AINDA NÃO SABEMOS SE VAMOS EXECUTAR — ticket EE R$ 15k</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Reposicionamento premium — harmonização glútea/facial público AB</li><li>TAM/SAM/SOM: 363–580 mulheres/ano; meta faturamento R$ 290k/mês</li><li>3 personas definidas (esposa troféu, empresária, blogueira)</li><li>PUV: experiência estética personalizada com resultados naturais</li><li>Diretriz visual alto luxo — demanda clara de Conteúdo + Social EXECUTAR</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Vocês já têm o mapa estratégico (personas, TAM, posicionamento premium). O EQV coloca a execução assistida no ar — conteúdo de autoridade + social que converte consulta — com cashback dos R$ 15k da EE.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Conversa de Transição com decisor (Fernandes) — validar budget pós-EE</li><li><strong>2.</strong> Montar proposta EQV Conteúdo + Social (âncora R$ 35k · líquido R$ 20k)</li><li><strong>3.</strong> Alinhar com Thiago (coord) entregáveis EE já aprovados</li><li><strong>4.</strong> Agendar call recovery em até 7 dias</li></ol>
 </article>
-<article class="card" id="c2">
-  <div class="card-head">
-    <span class="rank">#2</span>
-    <div>
-      <h3 class="cli">Newtec Tecnologia</h3>
-      <div class="sub">SMALL · Exclusive · Rafaela Tolomeu</div>
+<article class="card card-exc" id="c2">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#2</div>
+      <div class="card-title-block">
+        <h3 class="cli">Newtec Tecnologia</h3>
+        <div class="card-meta">
+          <span class="squad-pill exc">Exclusive</span>
+          <span class="meta-sep">·</span>
+          <span>SMALL</span>
+          <span class="meta-sep">·</span>
+          <span>Rafaela Tolomeu</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">8.5</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">8.5</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Comercial + CRM</span>
+      <span class="tag neu">Drop —</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">16/03/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">30/04/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">[E.E] Semana 03 Entrega — 27/04/2026</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Ticket proposto R$ 14k (E. Comercial)</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Lançamento Newtech Cloud — diferenciação técnica condomínios/B2B</li><li>Estratégia: Google + Meta Ads com prospecção ativa</li><li>Contratação de vendedor dedicado aprovada na call</li><li>CRM e réguas de cadência citados como essenciais</li><li>Mercado segurança eletrônica com receita recorrente</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>O vendedor novo precisa de processo — não só campanha. EQV acelera o ramp com CRM, régua e acompanhamento comercial assistido, usando o diagnóstico da semana 3.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Confirmar status do vendedor contratado pós-EE</li><li>Proposta TER CRM Basic + EXECUTAR Comercial via EQV recovery</li><li>Rafaela validar follow-ups não respondidos (obs planilha)</li><li>Call recovery com foco em previsibilidade do funil B2B</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Comercial + CRM</span>
-    <span class="tag neu">Drop: —</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>16/03/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>30/04/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>[E.E] Semana 03 Entrega — 27/04/2026</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Ticket proposto R$ 14k (E. Comercial)</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Lançamento Newtech Cloud — diferenciação técnica condomínios/B2B</li><li>Estratégia: Google + Meta Ads com prospecção ativa</li><li>Contratação de vendedor dedicado aprovada na call</li><li>CRM e réguas de cadência citados como essenciais</li><li>Mercado segurança eletrônica com receita recorrente</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>O vendedor novo precisa de processo — não só campanha. EQV acelera o ramp com CRM, régua e acompanhamento comercial assistido, usando o diagnóstico da semana 3.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Confirmar status do vendedor contratado pós-EE</li><li><strong>2.</strong> Proposta TER CRM Basic + EXECUTAR Comercial via EQV recovery</li><li><strong>3.</strong> Rafaela validar follow-ups não respondidos (obs planilha)</li><li><strong>4.</strong> Call recovery com foco em previsibilidade do funil B2B</li></ol>
 </article>
-<article class="card" id="c3">
-  <div class="card-head">
-    <span class="rank">#3</span>
-    <div>
-      <h3 class="cli">LK Internet (BT)</h3>
-      <div class="sub">TINY · Exclusive · Rafaela Tolomeu</div>
+<article class="card card-exc" id="c3">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#3</div>
+      <div class="card-title-block">
+        <h3 class="cli">LK Internet (BT)</h3>
+        <div class="card-meta">
+          <span class="squad-pill exc">Exclusive</span>
+          <span class="meta-sep">·</span>
+          <span>TINY</span>
+          <span class="meta-sep">·</span>
+          <span>Rafaela Tolomeu</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">8</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">8</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Conteúdo + Mídia</span>
+      <span class="tag neu">Drop Budget</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">16/03/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">30/04/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">[E.E] Semana 02 — 07/04/2026</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Fatura 10k — drop por orçamento</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Reorientação social para humanização e benefícios reais</li><li>Erro crítico no link do Instagram — correção urgente</li><li>Padronização de design para autoridade e conversão</li><li>Diagnóstico integrado mídia + design + performance</li><li>TINY ISP — ticket EXECUTAR enxuto (10–20%) pode destravar</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Corrigimos o básico na EE (link, design, narrativa). EQV recovery com pacote enxuto de mídia + conteúdo — cashback EE reduz o investimento líquido para ~R$ 20k.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Validar se link Instagram foi corrigido</li><li>Proposta EXECUTAR enxuta (Mídia local + Social)</li><li>Checar capacidade financeira (fatura 10k na obs)</li><li>Retomar com Rafaela — FUP desde 30/04</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Conteúdo + Mídia</span>
-    <span class="tag neu">Drop: Budget</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>16/03/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>30/04/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>[E.E] Semana 02 — 07/04/2026</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Fatura 10k — drop por orçamento</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Reorientação social para humanização e benefícios reais</li><li>Erro crítico no link do Instagram — correção urgente</li><li>Padronização de design para autoridade e conversão</li><li>Diagnóstico integrado mídia + design + performance</li><li>TINY ISP — ticket EXECUTAR enxuto (10–20%) pode destravar</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Corrigimos o básico na EE (link, design, narrativa). EQV recovery com pacote enxuto de mídia + conteúdo — cashback EE reduz o investimento líquido para ~R$ 20k.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Validar se link Instagram foi corrigido</li><li><strong>2.</strong> Proposta EXECUTAR enxuta (Mídia local + Social)</li><li><strong>3.</strong> Checar capacidade financeira (fatura 10k na obs)</li><li><strong>4.</strong> Retomar com Rafaela — FUP desde 30/04</li></ol>
 </article>
-<article class="card" id="c4">
-  <div class="card-head">
-    <span class="rank">#4</span>
-    <div>
-      <h3 class="cli">All lab (LM)</h3>
-      <div class="sub">MEDIUM · Exclusive · Rafaela Tolomeu</div>
+<article class="card card-exc" id="c4">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#4</div>
+      <div class="card-title-block">
+        <h3 class="cli">All lab (LM)</h3>
+        <div class="card-meta">
+          <span class="squad-pill exc">Exclusive</span>
+          <span class="meta-sep">·</span>
+          <span>MEDIUM</span>
+          <span class="meta-sep">·</span>
+          <span>Rafaela Tolomeu</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">9</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">9</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Comercial (Sales Enablement)</span>
+      <span class="tag neu">Drop —</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">09/03/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">23/04/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">[ALLA] Semana 03 Neo Lab — 09/04/2026</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Não respondeu follows — chances até 10/05; proposta R$ 108k/12m</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Funis distintos B2C e B2B com aquisição via tráfego pago</li><li>Auditoria comercial score 18% — falhas graves de abordagem</li><li>Treinamento SPIN Selling + GPC TBA para qualificação</li><li>CRM prioritário para pipeline e ticket médio</li><li>Diferenciação por valor vs. preço — pronto para TER CRM + EXECUTAR</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Score comercial 18% não se resolve com mais lead — EQV coloca Sales Enablement + CRM no chão, com execução assistida sobre o que a EE já mapeou.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Reativar contato (silêncio pós-pitch)</li><li>Proposta EQV Comercial + TER CRM Pro</li><li>Usar evidência do score 18% como gancho SPICED</li><li>Rafaela confirma decisor e budget real vs. R$ 108k original</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Comercial (Sales Enablement)</span>
-    <span class="tag neu">Drop: —</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>09/03/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>23/04/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>[ALLA] Semana 03 Neo Lab — 09/04/2026</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Não respondeu follows — chances até 10/05; proposta R$ 108k/12m</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Funis distintos B2C e B2B com aquisição via tráfego pago</li><li>Auditoria comercial score 18% — falhas graves de abordagem</li><li>Treinamento SPIN Selling + GPC TBA para qualificação</li><li>CRM prioritário para pipeline e ticket médio</li><li>Diferenciação por valor vs. preço — pronto para TER CRM + EXECUTAR</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Score comercial 18% não se resolve com mais lead — EQV coloca Sales Enablement + CRM no chão, com execução assistida sobre o que a EE já mapeou.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Reativar contato (silêncio pós-pitch)</li><li><strong>2.</strong> Proposta EQV Comercial + TER CRM Pro</li><li><strong>3.</strong> Usar evidência do score 18% como gancho SPICED</li><li><strong>4.</strong> Rafaela confirma decisor e budget real vs. R$ 108k original</li></ol>
 </article>
-<article class="card" id="c5">
-  <div class="card-head">
-    <span class="rank">#5</span>
-    <div>
-      <h3 class="cli">Seronni plástica facial (BT)</h3>
-      <div class="sub">TINY · Invictus · Melissa Pessoa</div>
+<article class="card card-inv" id="c5">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#5</div>
+      <div class="card-title-block">
+        <h3 class="cli">Seronni plástica facial (BT)</h3>
+        <div class="card-meta">
+          <span class="squad-pill inv">Invictus</span>
+          <span class="meta-sep">·</span>
+          <span>TINY</span>
+          <span class="meta-sep">·</span>
+          <span>Melissa Pessoa</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">7</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">7</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Conteúdo + Social Media</span>
+      <span class="tag neu">Drop Timing</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">01/12/2025</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">15/01/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">Sem transcrição BigQuery — validar Drive/Ekyte</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Pitch realizado 21/01 — drop timing</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Clínica estética premium — perfil similar Lapidum/Gorga</li><li>Drop por timing (não budget) — janela recovery aberta</li><li>TINY com pitch realizado = fundação EE entregue</li><li>Segmento: harmonização/plástica facial — demanda conteúdo autoridade</li><li>Substitui R Casagrande na lista (imobiliário drop interno)</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>A EE estruturou o posicionamento; o timing adiou a execução. EQV recovery traz conteúdo + social assistido para captar consultas — com cashback da EE.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Melissa buscar gravação EE no Drive</li><li>Conversa de Transição — entender o que mudou desde jan/26</li><li>Proposta EQV Conteúdo + Social (pacote clínica)</li><li>Validar decisor e capacidade TINY (parcelado 12×)</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Conteúdo + Social Media</span>
-    <span class="tag neu">Drop: Timing</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>01/12/2025</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>15/01/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>Sem transcrição BigQuery — validar Drive/Ekyte</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Pitch realizado 21/01 — drop timing</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Clínica estética premium — perfil similar Lapidum/Gorga</li><li>Drop por timing (não budget) — janela recovery aberta</li><li>TINY com pitch realizado = fundação EE entregue</li><li>Segmento: harmonização/plástica facial — demanda conteúdo autoridade</li><li>Substitui R Casagrande na lista (imobiliário drop interno)</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>A EE estruturou o posicionamento; o timing adiou a execução. EQV recovery traz conteúdo + social assistido para captar consultas — com cashback da EE.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Melissa buscar gravação EE no Drive</li><li><strong>2.</strong> Conversa de Transição — entender o que mudou desde jan/26</li><li><strong>3.</strong> Proposta EQV Conteúdo + Social (pacote clínica)</li><li><strong>4.</strong> Validar decisor e capacidade TINY (parcelado 12×)</li></ol>
 </article>
-<article class="card" id="c6">
-  <div class="card-head">
-    <span class="rank">#6</span>
-    <div>
-      <h3 class="cli">Cosel (LT)</h3>
-      <div class="sub">TINY · Billions · Jhonatan Mayer</div>
+<article class="card card-bil" id="c6">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#6</div>
+      <div class="card-title-block">
+        <h3 class="cli">Cosel (LT)</h3>
+        <div class="card-meta">
+          <span class="squad-pill bil">Billions</span>
+          <span class="meta-sep">·</span>
+          <span>TINY</span>
+          <span class="meta-sep">·</span>
+          <span>Jhonatan Mayer</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">7</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">7</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Comercial B2B</span>
+      <span class="tag neu">Drop Timing</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">18/11/2025</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">02/01/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">Sem transcrição — ticker COSE localizado</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Reunião realizada, bom retorno — precisa tempo planejamento financeiro; R$ 9,6k</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Industrial soldas B2B — TINY com ticket moderado</li><li>Drop timing (não budget) — cliente engajado na reunião</li><li>Obs indica retorno positivo pós-pitch</li><li>Leadbroker na origem — perfil executor industrial</li><li>EQV Comercial outbound + Mídia LinkedIn</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Vocês pediram tempo para o planejamento financeiro — faz sentido. O EQV entra com execução assistida enxuta no comercial B2B, sem o ticket cheio de EXECUTAR.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Jhonatan retomar FUP pós-jan/26</li><li>Validar se planejamento financeiro estabilizou</li><li>Proposta EQV Comercial enxuta + cashback EE</li><li>Checar entrega EE completa no Flow (COSE)</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Comercial B2B</span>
-    <span class="tag neu">Drop: Timing</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>18/11/2025</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>02/01/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>Sem transcrição — ticker COSE localizado</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Reunião realizada, bom retorno — precisa tempo planejamento financeiro; R$ 9,6k</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Industrial soldas B2B — TINY com ticket moderado</li><li>Drop timing (não budget) — cliente engajado na reunião</li><li>Obs indica retorno positivo pós-pitch</li><li>Leadbroker na origem — perfil executor industrial</li><li>EQV Comercial outbound + Mídia LinkedIn</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Vocês pediram tempo para o planejamento financeiro — faz sentido. O EQV entra com execução assistida enxuta no comercial B2B, sem o ticket cheio de EXECUTAR.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Jhonatan retomar FUP pós-jan/26</li><li><strong>2.</strong> Validar se planejamento financeiro estabilizou</li><li><strong>3.</strong> Proposta EQV Comercial enxuta + cashback EE</li><li><strong>4.</strong> Checar entrega EE completa no Flow (COSE)</li></ol>
 </article>
-<article class="card" id="c7">
-  <div class="card-head">
-    <span class="rank">#7</span>
-    <div>
-      <h3 class="cli">Fronsul (BS)</h3>
-      <div class="sub">SMALL · Billions · Eder Vasconcelos</div>
+<article class="card card-bil" id="c7">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#7</div>
+      <div class="card-title-block">
+        <h3 class="cli">Fronsul (BS)</h3>
+        <div class="card-meta">
+          <span class="squad-pill bil">Billions</span>
+          <span class="meta-sep">·</span>
+          <span>SMALL</span>
+          <span class="meta-sep">·</span>
+          <span>Eder Vasconcelos</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">7</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">7</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag ok">ALTO</span>
+      <span class="tag feature">Comercial + Mídia</span>
+      <span class="tag neu">Drop Budget</span>
+      <span class="tag neu">Pitch Morno</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">20/01/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">06/03/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">EE finished fev/26 — sem calls BigQuery</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Retorno segunda — proposta R$ 16k E. Comercial</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Engenharia B2B — geração de projetos</li><li>Pitch Morno + drop budget = recuperável com cashback</li><li>Proposta comercial R$ 16k já discutida</li><li>EE entregue até sb_drop fev/26</li><li>EQV Comercial para prospecção de obras/projetos</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>A proposta de R$ 16k ficou no budget — o EQV recovery com cashback EE aproxima o investimento líquido e mantém o foco comercial que a estruturação já desenhou.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Eder confirmar status do &#x27;retorno segunda&#x27;</li><li>Reframe ROI: projetos ganhos vs. fee EQV</li><li>Proposta EQV Comercial recovery</li><li>Validar ticker FRON no Cockpit</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag ok">ALTO</span>
-    <span class="tag neu">Comercial + Mídia</span>
-    <span class="tag neu">Drop: Budget</span>
-    <span class="tag neu">Pitch: Morno</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>20/01/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>06/03/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>EE finished fev/26 — sem calls BigQuery</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Retorno segunda — proposta R$ 16k E. Comercial</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Engenharia B2B — geração de projetos</li><li>Pitch Morno + drop budget = recuperável com cashback</li><li>Proposta comercial R$ 16k já discutida</li><li>EE entregue até sb_drop fev/26</li><li>EQV Comercial para prospecção de obras/projetos</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>A proposta de R$ 16k ficou no budget — o EQV recovery com cashback EE aproxima o investimento líquido e mantém o foco comercial que a estruturação já desenhou.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Eder confirmar status do &#x27;retorno segunda&#x27;</li><li><strong>2.</strong> Reframe ROI: projetos ganhos vs. fee EQV</li><li><strong>3.</strong> Proposta EQV Comercial recovery</li><li><strong>4.</strong> Validar ticker FRON no Cockpit</li></ol>
 </article>
-<article class="card" id="c8">
-  <div class="card-head">
-    <span class="rank">#8</span>
-    <div>
-      <h3 class="cli">Cartola Beers</h3>
-      <div class="sub">SMALL · Invictus · Melissa Pessoa</div>
+<article class="card card-inv" id="c8">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#8</div>
+      <div class="card-title-block">
+        <h3 class="cli">Cartola Beers</h3>
+        <div class="card-meta">
+          <span class="squad-pill inv">Invictus</span>
+          <span class="meta-sep">·</span>
+          <span>SMALL</span>
+          <span class="meta-sep">·</span>
+          <span>Melissa Pessoa</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">6.5</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">6.5</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Social + Mídia regional</span>
+      <span class="tag neu">Drop Timing</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">21/11/2025</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">05/01/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">EE finished dez/25 — sem transcrição</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Pitch sendo marcado — jan/26</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Distribuidora bebidas — varejo B2B regional</li><li>Drop timing — não objeção de valor</li><li>SMALL — ICP EQV parcial</li><li>Demanda natural: social + mídia para PDVs/distribuidores</li><li>Pitch realizado em jan/26</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>O timing adiou, mas o diagnóstico está pronto. EQV coloca social + mídia regional no ar com acompanhamento — ideal para distribuidora que precisa de presença e captação.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Melissa confirmar se pitch foi realizado</li><li>Buscar material EE no Ekyte/Drive</li><li>Proposta EQV Social + Mídia</li><li>Validar sazonalidade do setor bebidas</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Social + Mídia regional</span>
-    <span class="tag neu">Drop: Timing</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>21/11/2025</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>05/01/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>EE finished dez/25 — sem transcrição</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Pitch sendo marcado — jan/26</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Distribuidora bebidas — varejo B2B regional</li><li>Drop timing — não objeção de valor</li><li>SMALL — ICP EQV parcial</li><li>Demanda natural: social + mídia para PDVs/distribuidores</li><li>Pitch realizado em jan/26</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>O timing adiou, mas o diagnóstico está pronto. EQV coloca social + mídia regional no ar com acompanhamento — ideal para distribuidora que precisa de presença e captação.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Melissa confirmar se pitch foi realizado</li><li><strong>2.</strong> Buscar material EE no Ekyte/Drive</li><li><strong>3.</strong> Proposta EQV Social + Mídia</li><li><strong>4.</strong> Validar sazonalidade do setor bebidas</li></ol>
 </article>
-<article class="card" id="c9">
-  <div class="card-head">
-    <span class="rank">#9</span>
-    <div>
-      <h3 class="cli">Legacy Corp (BT)</h3>
-      <div class="sub">TINY · Exclusive · Rafaela Tolomeu</div>
+<article class="card card-exc" id="c9">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#9</div>
+      <div class="card-title-block">
+        <h3 class="cli">Legacy Corp (BT)</h3>
+        <div class="card-meta">
+          <span class="squad-pill exc">Exclusive</span>
+          <span class="meta-sep">·</span>
+          <span>TINY</span>
+          <span class="meta-sep">·</span>
+          <span>Rafaela Tolomeu</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">6</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">6</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Mídia lead gen</span>
+      <span class="tag neu">Drop Timing</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">02/03/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">16/04/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">Possível: Remax Legacy 03/07/2026 — validar vínculo</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>EE churned abr/26</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>TINY — ticket limitado, validar entrega EE</li><li>Drop timing em abr/26</li><li>Ticker LGCP — possível confusão com produto Legacy (OMNI)</li><li>Call Remax Legacy em 03/jul pode ser reentrada</li><li>Imobiliário/corretagem — EQV Mídia + CRM nurturing</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Se a EE entregou o mapa de captação, o EQV recovery coloca mídia de leads com execução assistida — ticket enxuto para TINY.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Confirmar se Remax Legacy = Legacy Corp (BT)</li><li>Validar % entrega EE antes do churn</li><li>Rafaela alinhar histórico com cliente</li><li>Proposta EQV enxuta só se EE ≥ 60% entregue</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Mídia lead gen</span>
-    <span class="tag neu">Drop: Timing</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>02/03/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>16/04/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>Possível: Remax Legacy 03/07/2026 — validar vínculo</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> EE churned abr/26</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>TINY — ticket limitado, validar entrega EE</li><li>Drop timing em abr/26</li><li>Ticker LGCP — possível confusão com produto Legacy (OMNI)</li><li>Call Remax Legacy em 03/jul pode ser reentrada</li><li>Imobiliário/corretagem — EQV Mídia + CRM nurturing</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Se a EE entregou o mapa de captação, o EQV recovery coloca mídia de leads com execução assistida — ticket enxuto para TINY.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Confirmar se Remax Legacy = Legacy Corp (BT)</li><li><strong>2.</strong> Validar % entrega EE antes do churn</li><li><strong>3.</strong> Rafaela alinhar histórico com cliente</li><li><strong>4.</strong> Proposta EQV enxuta só se EE ≥ 60% entregue</li></ol>
 </article>
-<article class="card" id="c10">
-  <div class="card-head">
-    <span class="rank">#10</span>
-    <div>
-      <h3 class="cli">Fortline Indústria e Comércio de Móveis (BT)</h3>
-      <div class="sub">MEDIUM · Exclusive · Rafaela Tolomeu</div>
+<article class="card card-exc" id="c10">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#10</div>
+      <div class="card-title-block">
+        <h3 class="cli">Fortline Indústria e Comércio de Móveis (BT)</h3>
+        <div class="card-meta">
+          <span class="squad-pill exc">Exclusive</span>
+          <span class="meta-sep">·</span>
+          <span>MEDIUM</span>
+          <span class="meta-sep">·</span>
+          <span>Rafaela Tolomeu</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">6.5</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">6.5</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Comercial + Mídia B2B</span>
+      <span class="tag neu">Drop Timing</span>
+      <span class="tag neu">Pitch —</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">09/03/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">23/04/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">Reunião de vendas Fortline — 26/02/2026</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Drop timing — relacionamento warm (fornecedor sede V4 Campinas)</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Cliente já fornecedor/mobiliário da sede V4 Campinas — relacionamento warm</li><li>Gabriel Ramos (decisor) receptivo à assessoria comercial</li><li>Indústria de móveis corporativos — escala B2B</li><li>Drop timing (não budget) — retomar quando ciclo industrial desengargalar</li><li>Potencial EXECUTAR Mídia + Comercial para prospecção corporativa</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>O timing adiou, mas o relacionamento está aquecido. EQV recovery coloca comercial assistido + mídia B2B no ar — vocês já conhecem a V4 por dentro.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Rafaela retomar com Gabriel Ramos (decisor)</li><li>Validar se ciclo industrial estabilizou desde abr/26</li><li>Proposta EQV Comercial + Mídia B2B</li><li>Usar âncora de relacionamento (fornecedor Campinas) na abertura</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Comercial + Mídia B2B</span>
-    <span class="tag neu">Drop: Timing</span>
-    <span class="tag neu">Pitch: —</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>09/03/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>23/04/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>Reunião de vendas Fortline — 26/02/2026</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Drop timing — relacionamento warm (fornecedor sede V4 Campinas)</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Cliente já fornecedor/mobiliário da sede V4 Campinas — relacionamento warm</li><li>Gabriel Ramos (decisor) receptivo à assessoria comercial</li><li>Indústria de móveis corporativos — escala B2B</li><li>Drop timing (não budget) — retomar quando ciclo industrial desengargalar</li><li>Potencial EXECUTAR Mídia + Comercial para prospecção corporativa</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>O timing adiou, mas o relacionamento está aquecido. EQV recovery coloca comercial assistido + mídia B2B no ar — vocês já conhecem a V4 por dentro.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Rafaela retomar com Gabriel Ramos (decisor)</li><li><strong>2.</strong> Validar se ciclo industrial estabilizou desde abr/26</li><li><strong>3.</strong> Proposta EQV Comercial + Mídia B2B</li><li><strong>4.</strong> Usar âncora de relacionamento (fornecedor Campinas) na abertura</li></ol>
 </article>
-<article class="card" id="c11">
-  <div class="card-head">
-    <span class="rank">#11</span>
-    <div>
-      <h3 class="cli">Oticas Recris (BM)</h3>
-      <div class="sub">MEDIUM · Exclusive · Rafaela Tolomeu</div>
+<article class="card card-exc" id="c11">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#11</div>
+      <div class="card-title-block">
+        <h3 class="cli">Oticas Recris (BM)</h3>
+        <div class="card-meta">
+          <span class="squad-pill exc">Exclusive</span>
+          <span class="meta-sep">·</span>
+          <span>MEDIUM</span>
+          <span class="meta-sep">·</span>
+          <span>Rafaela Tolomeu</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">6</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">6</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Mídia local + Conteúdo</span>
+      <span class="tag neu">Drop —</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">01/04/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">16/05/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">Sem transcrição BigQuery</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Ticket R$ 6k proposto</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Ótica varejo — MEDIUM fora do sweet spot TINY/SMALL</li><li>Pitch Frio — necessário Conversa de Transição</li><li>Proposta inicial R$ 6k (enxuta)</li><li>EE recente (abr-mai/26)</li><li>EQV: mídia local + conteúdo para fluxo na loja</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Ótica com EE recente — EQV recovery foca em mídia local e conteúdo que traz gente à loja, com pacote acessível via cashback.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Rafaela buscar calls EE no Drive</li><li>Conversa de Transição presencial/online</li><li>Proposta EQV Mídia local enxuta</li><li>Validar ticket R$ 6k vs. EQV recovery R$ 20k líquido</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Mídia local + Conteúdo</span>
-    <span class="tag neu">Drop: —</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>01/04/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>16/05/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>Sem transcrição BigQuery</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Ticket R$ 6k proposto</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Ótica varejo — MEDIUM fora do sweet spot TINY/SMALL</li><li>Pitch Frio — necessário Conversa de Transição</li><li>Proposta inicial R$ 6k (enxuta)</li><li>EE recente (abr-mai/26)</li><li>EQV: mídia local + conteúdo para fluxo na loja</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Ótica com EE recente — EQV recovery foca em mídia local e conteúdo que traz gente à loja, com pacote acessível via cashback.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Rafaela buscar calls EE no Drive</li><li><strong>2.</strong> Conversa de Transição presencial/online</li><li><strong>3.</strong> Proposta EQV Mídia local enxuta</li><li><strong>4.</strong> Validar ticket R$ 6k vs. EQV recovery R$ 20k líquido</li></ol>
 </article>
-<article class="card" id="c12">
-  <div class="card-head">
-    <span class="rank">#12</span>
-    <div>
-      <h3 class="cli">Grupo Astral</h3>
-      <div class="sub">SMALL · Billions · Eder Vasconcelos</div>
+<article class="card card-bil" id="c12">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#12</div>
+      <div class="card-title-block">
+        <h3 class="cli">Grupo Astral</h3>
+        <div class="card-meta">
+          <span class="squad-pill bil">Billions</span>
+          <span class="meta-sep">·</span>
+          <span>SMALL</span>
+          <span class="meta-sep">·</span>
+          <span>Eder Vasconcelos</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">6</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">6</span>
-      <span class="score-l">EQV</span>
+    <div class="alert-box"><span class="alert-icon">!</span> Drop interno — resolver ops antes de vender</div>
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Comercial</span>
+      <span class="tag neu">Drop Interno</span>
+      <span class="tag neu">Pitch Morno</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">26/01/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">12/03/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">Sem transcrição — drop interno V4</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Agendando visita 27/02; proposta R$ 93,7k/12m</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Drop Interno — bloqueio operacional V4, não objeção cliente</li><li>Pitch Morno — engajamento existente</li><li>Proposta robusta discutida (R$ 93k)</li><li>Visita presencial agendada fev/26</li><li>Retomar após coordenador destravar entrega EE</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>O bloqueio foi nosso, não de vocês. Com a EE estabilizada, o EQV recovery retoma do ponto onde paramos — comercial assistido e cashback.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Eder destravar pendência interna EE</li><li>Retomar visita/reunião presencial</li><li>Proposta EQV Comercial (não repetir R$ 93k de cara)</li><li>Usar tom de &#x27;retomada&#x27;, não cold pitch</li></ol>
     </div>
   </div>
-  <div class="alert-box">⚠️ Drop interno — resolver ops antes de vender</div>
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Comercial</span>
-    <span class="tag neu">Drop: Interno</span>
-    <span class="tag neu">Pitch: Morno</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>26/01/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>12/03/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>Sem transcrição — drop interno V4</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Agendando visita 27/02; proposta R$ 93,7k/12m</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Drop Interno — bloqueio operacional V4, não objeção cliente</li><li>Pitch Morno — engajamento existente</li><li>Proposta robusta discutida (R$ 93k)</li><li>Visita presencial agendada fev/26</li><li>Retomar após coordenador destravar entrega EE</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>O bloqueio foi nosso, não de vocês. Com a EE estabilizada, o EQV recovery retoma do ponto onde paramos — comercial assistido e cashback.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Eder destravar pendência interna EE</li><li><strong>2.</strong> Retomar visita/reunião presencial</li><li><strong>3.</strong> Proposta EQV Comercial (não repetir R$ 93k de cara)</li><li><strong>4.</strong> Usar tom de &#x27;retomada&#x27;, não cold pitch</li></ol>
 </article>
-<article class="card" id="c13">
-  <div class="card-head">
-    <span class="rank">#13</span>
-    <div>
-      <h3 class="cli">NDMF — Alisson Joias (LM)</h3>
-      <div class="sub">MEDIUM · Billions · Jhonatan Mayer</div>
+<article class="card card-bil" id="c13">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#13</div>
+      <div class="card-title-block">
+        <h3 class="cli">NDMF — Alisson Joias (LM)</h3>
+        <div class="card-meta">
+          <span class="squad-pill bil">Billions</span>
+          <span class="meta-sep">·</span>
+          <span>MEDIUM</span>
+          <span class="meta-sep">·</span>
+          <span>Jhonatan Mayer</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">5.5</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">5.5</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Conteúdo + Mídia + CRM</span>
+      <span class="tag neu">Drop —</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">02/02/2026</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">19/03/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">EE finished mar/26 — sem calls BigQuery</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Proposta R$ 27k/6m — pitch 03/03</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Joalheria/e-commerce — varejo premium</li><li>EE entregue até sb_drop mar/26</li><li>Proposta R$ 27k já apresentada</li><li>Demanda: conteúdo aspiracional + mídia + CRM</li><li>Pitch Frio — precisa evidência resultado EE</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Joalheria precisa de vitrine digital que vende. EQV recovery une conteúdo + mídia + CRM com execução assistida — cashback aproxima do ticket discutido.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Jhonatan recuperar material EE (NDMF)</li><li>Validar decisor Alisson e status e-commerce</li><li>Proposta EQV Conteúdo + Mídia</li><li>Comparar R$ 27k original vs. recovery R$ 20k líquido</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Conteúdo + Mídia + CRM</span>
-    <span class="tag neu">Drop: —</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>02/02/2026</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>19/03/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>EE finished mar/26 — sem calls BigQuery</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Proposta R$ 27k/6m — pitch 03/03</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Joalheria/e-commerce — varejo premium</li><li>EE entregue até sb_drop mar/26</li><li>Proposta R$ 27k já apresentada</li><li>Demanda: conteúdo aspiracional + mídia + CRM</li><li>Pitch Frio — precisa evidência resultado EE</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Joalheria precisa de vitrine digital que vende. EQV recovery une conteúdo + mídia + CRM com execução assistida — cashback aproxima do ticket discutido.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Jhonatan recuperar material EE (NDMF)</li><li><strong>2.</strong> Validar decisor Alisson e status e-commerce</li><li><strong>3.</strong> Proposta EQV Conteúdo + Mídia</li><li><strong>4.</strong> Comparar R$ 27k original vs. recovery R$ 20k líquido</li></ol>
 </article>
-<article class="card" id="c14">
-  <div class="card-head">
-    <span class="rank">#14</span>
-    <div>
-      <h3 class="cli">Adesiva</h3>
-      <div class="sub">MEDIUM · Billions · Ariel Pinguelli</div>
+<article class="card card-bil" id="c14">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#14</div>
+      <div class="card-title-block">
+        <h3 class="cli">Adesiva</h3>
+        <div class="card-meta">
+          <span class="squad-pill bil">Billions</span>
+          <span class="meta-sep">·</span>
+          <span>MEDIUM</span>
+          <span class="meta-sep">·</span>
+          <span>Ariel Pinguelli</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">5.5</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">5.5</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Comercial (Sales Enablement)</span>
+      <span class="tag neu">Drop Budget</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">26/11/2025</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">10/01/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">EE finished fev/26 — ticker ADES</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Plano Sales Enablement + SM + CRM — falta marcar reunião</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Indústria adesivos B2B</li><li>Plano já desenhado: Sales Enablement + Social + CRM</li><li>Drop budget — reunião nunca marcada</li><li>EE entregue fev/26</li><li>EQV Comercial outbound + Mídia LinkedIn</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>O plano de Sales Enablement + CRM já estava desenhado — só faltou o budget. EQV recovery com cashback EE viabiliza a execução assistida.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Ariel marcar reunião pendente (obs planilha)</li><li>Retomar plano Sales Enablement da EE</li><li>Proposta EQV Comercial recovery</li><li>Validar pipeline B2B e decisor</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Comercial (Sales Enablement)</span>
-    <span class="tag neu">Drop: Budget</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>26/11/2025</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>10/01/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>EE finished fev/26 — ticker ADES</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Plano Sales Enablement + SM + CRM — falta marcar reunião</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Indústria adesivos B2B</li><li>Plano já desenhado: Sales Enablement + Social + CRM</li><li>Drop budget — reunião nunca marcada</li><li>EE entregue fev/26</li><li>EQV Comercial outbound + Mídia LinkedIn</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>O plano de Sales Enablement + CRM já estava desenhado — só faltou o budget. EQV recovery com cashback EE viabiliza a execução assistida.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Ariel marcar reunião pendente (obs planilha)</li><li><strong>2.</strong> Retomar plano Sales Enablement da EE</li><li><strong>3.</strong> Proposta EQV Comercial recovery</li><li><strong>4.</strong> Validar pipeline B2B e decisor</li></ol>
 </article>
-<article class="card" id="c15">
-  <div class="card-head">
-    <span class="rank">#15</span>
-    <div>
-      <h3 class="cli">Lumens Atuarial (LS)</h3>
-      <div class="sub">SMALL · Billions · Jhonatan Mayer</div>
+<article class="card card-bil" id="c15">
+  <div class="card-accent"></div>
+  <div class="card-body">
+    <div class="card-head">
+      <div class="rank-badge">#15</div>
+      <div class="card-title-block">
+        <h3 class="cli">Lumens Atuarial (LS)</h3>
+        <div class="card-meta">
+          <span class="squad-pill bil">Billions</span>
+          <span class="meta-sep">·</span>
+          <span>SMALL</span>
+          <span class="meta-sep">·</span>
+          <span>Jhonatan Mayer</span>
+        </div>
+      </div>
+      <div class="score-ring">
+        <span class="score-v">5</span>
+        <span class="score-l">fit EQV</span>
+      </div>
     </div>
-    <div class="score">
-      <span class="score-v">5</span>
-      <span class="score-l">EQV</span>
+    
+    <div class="tags">
+      <span class="tag warn">MEDIO</span>
+      <span class="tag feature">Comercial + Conteúdo técnico</span>
+      <span class="tag neu">Drop Budget</span>
+      <span class="tag neu">Pitch Frio</span>
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="lbl">EE início</span><span class="val">26/11/2025</span></div>
+      <div class="field"><span class="lbl">Limite pitch</span><span class="val">10/01/2026</span></div>
+      <div class="field"><span class="lbl">Última call</span><span class="val">EE sb_drop dez/25 — sem calls BigQuery</span></div>
+    </div>
+    <div class="obs-box"><span class="obs-label">Planilha safra</span>Reunião 14/01 14h realizada</div>
+    <div class="section-block">
+      <h4><span class="section-icon">◆</span> Contexto EE + calls</h4>
+      <ul class="ctx-list"><li>Consultoria atuarial B2B — nicho técnico</li><li>Reunião pitch realizada 14/01</li><li>Drop budget pós-reunião</li><li>SMALL — ICP EQV ok</li><li>Conteúdo técnico + prospecção consultiva</li></ul>
+    </div>
+    <div class="pitch-box">
+      <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
+      <p>Atuarial vende confiança e expertise. EQV recovery coloca conteúdo técnico + prospecção assistida — ticket enxuto com cashback EE.</p>
+    </div>
+    <div class="section-block">
+      <h4><span class="section-icon">→</span> Próximos passos</h4>
+      <ol class="steps"><li>Jhonatan retomar pós-reunião 14/01</li><li>Entender objeção budget específica</li><li>Proposta EQV Comercial + Conteúdo técnico</li><li>Validar ticker LUME no Flow</li></ol>
     </div>
   </div>
-  
-  <div class="tags">
-    <span class="tag warn">MEDIO</span>
-    <span class="tag neu">Comercial + Conteúdo técnico</span>
-    <span class="tag neu">Drop: Budget</span>
-    <span class="tag neu">Pitch: Frio</span>
-  </div>
-  <div class="grid3">
-    <div class="field"><span class="lbl">EE início</span><span>26/11/2025</span></div>
-    <div class="field"><span class="lbl">Limite pitch</span><span>10/01/2026</span></div>
-    <div class="field"><span class="lbl">Última call</span><span>EE sb_drop dez/25 — sem calls BigQuery</span></div>
-  </div>
-  <p class="obs"><strong>Planilha:</strong> Reunião 14/01 14h realizada</p>
-  <h4>Contexto (EE + calls)</h4>
-  <ul><li>Consultoria atuarial B2B — nicho técnico</li><li>Reunião pitch realizada 14/01</li><li>Drop budget pós-reunião</li><li>SMALL — ICP EQV ok</li><li>Conteúdo técnico + prospecção consultiva</li></ul>
-  <div class="pitch-box">
-    <strong>Pitch recovery EQV</strong>
-    <p>Atuarial vende confiança e expertise. EQV recovery coloca conteúdo técnico + prospecção assistida — ticket enxuto com cashback EE.</p>
-  </div>
-  <h4>Próximos passos</h4>
-  <ol class="steps"><li><strong>1.</strong> Jhonatan retomar pós-reunião 14/01</li><li><strong>2.</strong> Entender objeção budget específica</li><li><strong>3.</strong> Proposta EQV Comercial + Conteúdo técnico</li><li><strong>4.</strong> Validar ticker LUME no Flow</li></ol>
 </article>
-</section>
+  </section>
 
-<footer>
-  Gerado em 08/07/2026 13:50 · Fontes: safra-ee.csv (jun/2026), marcelo-ee-drops-calls-analysis.json, Call EQV 08/07/2026 — Sala Robiati<br>
-  Farmer V4 · EQV Recovery BPMN 2 · <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/">GitHub Pages jul/2026</a>
-</footer>
+  <footer>
+    <div class="footer-brand">
+      <svg class="v4-logo" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg" aria-label="V4 Company">
+  <text x="0" y="26" font-family="Inter, Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e50915">V4</text>
+  <text x="52" y="26" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#a3a3a3" letter-spacing=".18em">COMPANY</text>
+</svg>
+      <span>Colli&amp;Co · Empresa Que Vende · Recovery BPMN 2</span>
+    </div>
+    <div>
+      Atualizado 08/07/2026 13:56 · Marcelo Figueiredo<br>
+      <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/">GitHub Pages jul/2026</a>
+    </div>
+  </footer>
 
 </div>
 </body>
