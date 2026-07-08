@@ -11,7 +11,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 "Segoe UI",system-ui,sans-serif}
-.wrap{max-width:900px;margin:0 auto;padding:36px 28px 72px}
+.wrap{max-width:960px;margin:0 auto;padding:36px 28px 72px}
 header{border-bottom:3px solid var(--v4);padding-bottom:18px;margin-bottom:24px}
 h1{font-size:26px;font-weight:800;margin:0 0 6px}
 .subtitle{color:var(--mut);font-size:14px}
@@ -20,6 +20,7 @@ h1{font-size:26px;font-weight:800;margin:0 0 6px}
 .nav a:hover{border-color:var(--v4);color:var(--v4)}
 h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--v4);margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
 h3{font-size:15px;font-weight:700;margin:18px 0 8px}
+h4{font-size:13px;font-weight:700;margin:14px 0 6px;color:var(--txt)}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
 @media(max-width:600px){.kpis{grid-template-columns:1fr}}
 .kpi{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;text-align:center}
@@ -31,7 +32,8 @@ h3{font-size:15px;font-weight:700;margin:18px 0 8px}
 .note-ok{background:#f0fdf4;border-color:#bbf7d0}
 .note-v4{background:#fef2f2;border-color:#fecaca}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:700px){.grid2{grid-template-columns:1fr}.wrap{padding:20px 14px}}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+@media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr}.wrap{padding:20px 14px}}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;background:#fff;border:1px solid var(--bd);border-radius:10px;overflow:hidden}
 th,td{padding:10px 12px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
 th{background:var(--surf);font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600}
@@ -43,13 +45,27 @@ tr:last-child td{border-bottom:none}
 .tag.bad{background:#fee2e2;color:var(--late)}
 .tag.warn{background:#fef3c7;color:var(--up)}
 .tag.neu{background:#f1f5f9;color:var(--mut)}
-.flow-diagram{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:20px;margin:16px 0;font-size:13px}
+.tag.new{background:#ede9fe;color:var(--inv)}
+.flow-diagram{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:20px;margin:16px 0;font-size:13px;overflow-x:auto}
 .flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0}
-.flow-box{padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:#fff;font-size:12px;font-weight:600}
+.flow-box{padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:#fff;font-size:12px;font-weight:600;white-space:nowrap}
 .flow-box.active{border-color:var(--ok);background:#f0fdf4;color:var(--ok)}
 .flow-box.gap{border-color:var(--up);background:#fffbeb;color:var(--up);border-style:dashed}
+.flow-box.branch{border-color:var(--accent);background:#eff6ff;color:var(--accent)}
 .flow-box.muted{opacity:.55;font-weight:500}
 .flow-arrow{color:var(--mut);font-size:16px}
+.layer-card{border:1px solid var(--bd);border-radius:12px;padding:14px 16px;background:#fff}
+.layer-card h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.layer-card.safra{border-top:3px solid var(--ok)}
+.layer-card.ekyte{border-top:3px solid var(--accent)}
+.layer-card.flow{border-top:3px solid var(--v4)}
+.layer-card p{margin:0;font-size:12px;color:var(--mut)}
+.stage{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:16px 18px;margin:12px 0}
+.stage-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px}
+.stage-head h3{margin:0;font-size:14px}
+.stage table{margin:8px 0 0;font-size:12px}
+.stage table th{font-size:9px}
+.mermaid-wrap{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:14px 0;overflow-x:auto}
 .action-list{margin:12px 0;padding:0;list-style:none}
 .action-list li{padding:12px 14px;border:1px solid var(--bd);border-radius:10px;margin-bottom:8px;font-size:13px;background:#fff}
 .action-list li strong{display:block;margin-bottom:4px;color:var(--txt)}
@@ -62,11 +78,15 @@ tr:last-child td{border-bottom:none}
 .compare-card.poc{border-top:3px solid var(--up)}
 .compare-card ul{margin:0;padding-left:18px;font-size:12px;color:var(--mut)}
 .compare-card li{margin:4px 0}
+.checklist{list-style:none;padding:0;margin:8px 0}
+.checklist li{padding:6px 0 6px 28px;position:relative;font-size:13px}
+.checklist li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border:2px solid var(--bd);border-radius:4px;background:#fff}
 footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--bd);font-size:11px;color:var(--mut)}
 a{color:var(--accent)}
 ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
 blockquote{margin:16px 0;padding:14px 18px;border-left:4px solid var(--v4);background:var(--surf);border-radius:0 10px 10px 0;font-size:14px;color:var(--mut)}
 blockquote strong{color:var(--txt)}
+code{font-size:12px;background:var(--surf);padding:1px 6px;border-radius:4px;border:1px solid var(--bd)}
 </style>
 </head>
 <body>
@@ -74,32 +94,39 @@ blockquote strong{color:var(--txt)}
 
 <header>
   <h1>Flow — Ajustes de Operação</h1>
-  <div class="subtitle">Nota interna · Farmer ABM · Jul/2026 · Corte 07/07</div>
+  <div class="subtitle">Nota interna · Farmer ABM · Jul/2026 · v2 após call Marcelo / Rodrigo · 08/07</div>
   <div class="nav">
     <a href="#contexto">Contexto</a>
-    <a href="#ekyte">Ekyte × Flow</a>
-    <a href="#oportunidade">Etapa Oportunidade</a>
-    <a href="#poc">POC vs Diagnóstico</a>
-    <a href="#acoes">Ações pro time</a>
-    <a href="report-status-expansao-gerente-jul.html">Status expansão completo ↗</a>
+    <a href="#arquitetura">Arquitetura</a>
+    <a href="#funil">Funil</a>
+    <a href="#etapas">Etapas</a>
+    <a href="#oportunidade">Oportunidade</a>
+    <a href="#poc">POC</a>
+    <a href="#depara">De-para</a>
+    <a href="#rituais">Rituais</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#produto">Backlog Cockpit</a>
+    <a href="#acoes">Ações</a>
+    <a href="report-status-expansao-gerente-jul.html">Status expansão ↗</a>
   </div>
 </header>
 
 <div class="note note-v4">
-  <strong>Escopo deste doc:</strong> ajustes discretos na operação do Flow — não é revisão do funil inteiro.
-  O Flow funciona bem como estrutura; o foco aqui é <em>o que conta como oportunidade real</em>, <em>quem move o quê</em> e <em>quando usar cada etapa</em>.
+  <strong>Escopo:</strong> ajustes discretos na operação do Flow — não é revisão do funil inteiro.
+  O Flow funciona bem como estrutura; o foco é <em>o que conta como oportunidade real</em>,
+  <em>quem move o quê</em>, <em>quando usar cada etapa</em> e como as três camadas (safra, Ekyte, Flow) se alinham.
 </div>
 
+<!-- ═══ 1 · CONTEXTO ═══ -->
 <h2 id="contexto">1 · Onde estamos</h2>
 
-<p>Quase todos os clientes da carteira ativa já têm card no Flow Cockpit. O volume por squad no corte de 07/07:</p>
+<p>Quase todos os clientes da carteira ativa já têm card no Flow Cockpit. Volume por squad no corte de 07/07:</p>
 
 <div class="kpis">
   <div class="kpi inv"><div class="v">85</div><div class="l">Invictus</div></div>
   <div class="kpi bil"><div class="v">41</div><div class="l">Billions</div></div>
   <div class="kpi exc"><div class="v">4</div><div class="l">Exclusive</div></div>
 </div>
-
 <p class="sub">Fonte: Cockpit expansion cards · 130 cards no total</p>
 
 <div class="grid2">
@@ -119,39 +146,9 @@ blockquote strong{color:var(--txt)}
       <li>Etapa POC com volume que não reflete construção real de prova de conceito</li>
       <li>Sem critério claro de «oportunidade ativa» para meta e priorização ACC/Farmer</li>
       <li>Movimentação depende quase só do andamento de tasks no Ekyte</li>
+      <li>130 cards Flow vs 53 tasks Ekyte — card sem jornada ≠ oportunidade</li>
     </ul>
   </div>
-</div>
-
-<h2 id="ekyte">2 · Ekyte dita o ritmo do Flow</h2>
-
-<blockquote>
-  <strong>Percepção operacional:</strong> hoje o Ekyte é o motor das movimentações no Flow.
-  O card só avança quando a task correspondente progride na jornada de expansão.
-</blockquote>
-
-<table>
-  <tr><th>Sistema</th><th>Papel hoje</th><th>Quem mexe</th></tr>
-  <tr>
-    <td class="cli">Planilha safra</td>
-    <td>Oportunidades validadas comercialmente (abertura, reunião, desfecho)</td>
-    <td>Farmer / coordenação</td>
-  </tr>
-  <tr>
-    <td class="cli">Ekyte</td>
-    <td>Jornada operacional: AP → diagnóstico → reunião → follow-up</td>
-    <td>ACC / coordenador / executor da task</td>
-  </tr>
-  <tr>
-    <td class="cli">Flow Cockpit</td>
-    <td>Etapas do pipeline de expansão; espelha (em grande parte) o Ekyte</td>
-    <td>Movido indiretamente pelo Ekyte — pouca movimentação manual</td>
-  </tr>
-</table>
-
-<div class="note note-warn">
-  <strong>Implicação:</strong> se a task não anda, o card não anda — mesmo com intenção comercial clara do Farmer.
-  Isso é aceitável para governança, mas exige uma etapa explícita de validação de oportunidade <em>antes</em> de depender só do Ekyte.
 </div>
 
 <h3>Tasks Ekyte vs cards Flow (corte 06/07)</h3>
@@ -162,62 +159,284 @@ blockquote strong{color:var(--txt)}
   <tr><td class="cli">Exclusive</td><td>4</td><td>2</td><td>100% em Account Planning</td></tr>
 </table>
 
-<h2 id="oportunidade">3 · Falta uma etapa «Oportunidade»</h2>
+<!-- ═══ 2 · ARQUITETURA ═══ -->
+<h2 id="arquitetura">2 · Arquitetura — 3 camadas, 2 cortes</h2>
 
-<p>Para priorização do ACC e do Farmer, precisamos distinguir <strong>conta na carteira</strong> de <strong>oportunidade comercial ativa</strong>.</p>
+<div class="grid3">
+  <div class="layer-card safra">
+    <h4>① Planilha safra</h4>
+    <p><strong>Compromisso comercial do mês.</strong> Oportunidades validadas: abertura, reunião, desfecho.</p>
+    <p style="margin-top:8px"><span class="tag ok">Farmer</span> <span class="tag neu">Coord</span></p>
+  </div>
+  <div class="layer-card ekyte">
+    <h4>② Ekyte</h4>
+    <p><strong>Jornada operacional.</strong> AP → Diagnóstico → Reunião → Proposta → Follow-up. Task com comentário: próximo passo + data + dono.</p>
+    <p style="margin-top:8px"><span class="tag neu">ACC</span> <span class="tag neu">Coord</span> <span class="tag neu">Executor</span></p>
+  </div>
+  <div class="layer-card flow">
+    <h4>③ Flow Cockpit</h4>
+    <p><strong>Visão única + KPI.</strong> Etapas do pipeline; espelha o Ekyte (sync QGI) + corte comercial manual.</p>
+    <p style="margin-top:8px"><span class="tag warn">Sync auto</span> <span class="tag new">Manual opp</span></p>
+  </div>
+</div>
+
+<blockquote>
+  <strong>Regra central:</strong> Ekyte manda no <em>ritmo operacional</em>; Farmer manda na <em>priorização comercial</em>.
+  A etapa <strong>Oportunidade</strong> é o handshake entre os dois sistemas.
+</blockquote>
+
+<h3>Corte 1 — Carteira vs oportunidade ativa</h3>
+<table>
+  <tr><th>Conceito</th><th>O que é</th><th>Entra na meta MRR?</th><th>Onde vive</th></tr>
+  <tr>
+    <td class="cli">Conta na base</td>
+    <td>Cliente ativo com card migrado, sem ataque neste ciclo</td>
+    <td><span class="tag bad">Não</span></td>
+    <td>Flow em AP / Diagnóstico parado</td>
+  </tr>
+  <tr>
+    <td class="cli">Oportunidade ativa</td>
+    <td>Ataque validado no mês, produto e dono definidos</td>
+    <td><span class="tag ok">Sim</span></td>
+    <td>Flow ≥ <strong>Oportunidade</strong> + safra + Ekyte com task ativa</td>
+  </tr>
+</table>
+
+<h3>Corte 2 — Quem move o quê</h3>
+<table>
+  <tr><th>Movimento</th><th>Motor</th><th>Quem</th><th>Quando</th></tr>
+  <tr>
+    <td class="cli">AP → Diagnóstico → Reunião → Proposta</td>
+    <td>Ekyte → sync QGI → Flow</td>
+    <td>ACC / coord + executor</td>
+    <td>Task avança de fase no Ekyte</td>
+  </tr>
+  <tr>
+    <td class="cli">Entrada em <strong>Oportunidade</strong></td>
+    <td><span class="tag new">Manual no Flow</span></td>
+    <td>Farmer ou ACC (com OK Farmer)</td>
+    <td>4 critérios atendidos — <em>não espera Ekyte</em></td>
+  </tr>
+  <tr>
+    <td class="cli">Safra do mês</td>
+    <td>Planilha</td>
+    <td>Farmer</td>
+    <td>Início do ciclo / weekly expansão</td>
+  </tr>
+  <tr>
+    <td class="cli">Drop / adiamento</td>
+    <td>Manual</td>
+    <td>Farmer + coord</td>
+    <td>Sem fit, sem timing ou sem capacidade</td>
+  </tr>
+</table>
+
+<div class="note note-warn">
+  <strong>Implicação de hoje:</strong> se a task não anda, o card não anda — mesmo com intenção comercial clara do Farmer.
+  Isso é aceitável para governança, mas exige validação explícita de oportunidade <em>antes</em> de depender só do Ekyte.
+</div>
+
+<!-- ═══ 3 · FUNIL ═══ -->
+<h2 id="funil">3 · Funil proposto (com ramos)</h2>
 
 <div class="flow-diagram">
-  <p class="sub" style="margin:0 0 12px">Funil proposto — marcar o corte de oportunidade ativa</p>
+  <p class="sub" style="margin:0 0 12px">Tronco principal + ramos laterais (POC, SABER, Drop)</p>
   <div class="flow-row">
     <span class="flow-box muted">Account Planning</span>
     <span class="flow-arrow">→</span>
     <span class="flow-box muted">Diagnóstico</span>
     <span class="flow-arrow">→</span>
-    <span class="flow-box gap">« Oportunidade »</span>
+    <span class="flow-box gap">Oportunidade</span>
     <span class="flow-arrow">→</span>
-    <span class="flow-box active">Construção de Proposta</span>
+    <span class="flow-box active">Construção Proposta</span>
     <span class="flow-arrow">→</span>
     <span class="flow-box">Apresentação</span>
     <span class="flow-arrow">→</span>
-    <span class="flow-box">Follow Up / Fechado</span>
+    <span class="flow-box">Follow Up</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-box active">Fechado</span>
+  </div>
+  <div class="flow-row" style="margin-top:14px">
+    <span class="sub">Ramos:</span>
+    <span class="flow-box gap">Oportunidade</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-box branch">Construção POC</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-box active">Construção Proposta</span>
+    <span style="margin:0 12px;color:var(--bd)">|</span>
+    <span class="flow-box muted">Diagnóstico</span>
+    <span class="flow-arrow">⇢</span>
+    <span class="flow-box branch">SABER em execução</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-box muted">Diagnóstico</span>
+    <span style="margin:0 12px;color:var(--bd)">|</span>
+    <span class="flow-box" style="border-color:var(--late);color:var(--late)">Drop</span>
+    <span class="sub">(de qualquer etapa antes de Fechado)</span>
   </div>
 </div>
 
 <div class="note note-ok">
-  <strong>Regra proposta:</strong> tudo a partir de <strong>«Oportunidade»</strong> (junto com Construção de Proposta) =
-  <strong>oportunidade ativa do mês</strong> — critério para meta MRR, taxa de conversão e volume de ataque do Farmer.
+  <strong>Regra:</strong> tudo a partir de <strong>Oportunidade</strong> = <strong>oportunidade ativa do mês</strong> —
+  critério para meta MRR, taxa de conversão e volume de ataque do Farmer.
+  <br>Hoje Invictus tem apenas <strong>1 card</strong> em Construção de Proposta — o funil não separa «conta mapeada» de «opp ativa».
 </div>
 
-<h3>Quando promover para «Oportunidade»?</h3>
+<h3>Ordem lógica no Flow (proposta)</h3>
 <table>
-  <tr><th>Critério</th><th>Sim → Oportunidade</th><th>Não → permanece antes</th></tr>
-  <tr>
-    <td class="cli">Produto definido</td>
-    <td>Família e escopo fechados (ex.: CRM, SEO, SDR IA)</td>
-    <td>«Tem potencial» sem produto escolhido</td>
-  </tr>
-  <tr>
-    <td class="cli">Diagnóstico</td>
-    <td>Gap validado com cliente ou evidência interna (call, check-in, dados)</td>
-    <td>Só hipótese do AP, sem conversa</td>
-  </tr>
-  <tr>
-    <td class="cli">Intenção comercial</td>
-    <td>Farmer/ACC alinhou ataque no mês (safra)</td>
-    <td>Backlog de carteira sem prioridade</td>
-  </tr>
-  <tr>
-    <td class="cli">Responsável</td>
-    <td>Coordenador + executor sabem que vão construir proposta</td>
-    <td>Card existe só porque migrou da base</td>
-  </tr>
+  <tr><th>#</th><th>Chave técnica</th><th>Label UI</th><th>Tipo</th></tr>
+  <tr><td>1</td><td><code>account_planning</code></td><td>Plano de ação</td><td>Base / carteira</td></tr>
+  <tr><td>2</td><td><code>diagnostico</code></td><td>Diagnóstico</td><td>Exploração</td></tr>
+  <tr><td>3</td><td><code>oportunidade</code></td><td><strong>Oportunidade</strong></td><td><span class="tag new">Corte comercial</span></td></tr>
+  <tr><td>4a</td><td><code>construcao_poc</code></td><td>POC</td><td>Ramo lateral (só após Oportunidade)</td></tr>
+  <tr><td>4b</td><td><code>construcao_proposta</code></td><td>Construção proposta</td><td>Tronco principal</td></tr>
+  <tr><td>5</td><td><code>reuniao_agendada</code></td><td>Reunião agendada</td><td>Operacional</td></tr>
+  <tr><td>6</td><td><code>apresentacao_proposta</code></td><td>Apresentação</td><td>Fechamento</td></tr>
+  <tr><td>7</td><td><code>follow_up</code></td><td>Follow Up</td><td>Fechamento</td></tr>
+  <tr><td>8</td><td><code>finalizado</code></td><td>Fechado</td><td>Terminal</td></tr>
+  <tr><td>9</td><td><code>drop</code></td><td>Drop</td><td>Terminal</td></tr>
 </table>
+<p class="sub">Hoje POC está na posição 3 no código — na prática deve ser <strong>ramo depois de Oportunidade</strong>, não atalho de diagnóstico.</p>
 
-<p class="sub">Hoje Invictus tem apenas <strong>1 card</strong> em Construção de Proposta — sinal de que o funil não separa «conta mapeada» de «opp ativa».</p>
+<div class="mermaid-wrap">
+<pre class="mermaid">
+flowchart LR
+  AP[Account Planning] --> D[Diagnóstico]
+  D --> O{Oportunidade}
+  O --> CP[Construção Proposta]
+  O --> POC[Construção POC]
+  POC --> CP
+  CP --> RA[Apresentação]
+  RA --> FUP[Follow Up]
+  FUP --> FECH[Fechado]
+  D --> DROP[Drop]
+  O --> DROP
+  D -.-> SABER[SABER em execução]
+  SABER --> D
+</pre>
+</div>
 
-<h2 id="poc">4 · POC não é Diagnóstico</h2>
+<!-- ═══ 4 · ETAPAS DETALHADAS ═══ -->
+<h2 id="etapas">4 · Etapa a etapa</h2>
 
-<p>No Billions, <strong>6 dos 41 cards</strong> estão em «Construção de POC». Na prática, a maioria ali <em>não</em> está construindo uma prova de conceito — são contas em exploração, diagnóstico ou follow-up que caíram na etapa errada.</p>
+<div class="stage">
+  <div class="stage-head"><h3>0 · Abertura do card</h3><span class="tag neu">Pré-funil</span></div>
+  <table>
+    <tr><th>Gatilho</th><td>Cliente entra na carteira ativa / migração de base</td></tr>
+    <tr><th>Dono</th><td>Sistema (migração) ou coord na weekly</td></tr>
+    <tr><th>Flow</th><td>Card criado em <code>account_planning</code></td></tr>
+    <tr><th>Ekyte</th><td>Task <code>[01][EXP] Expansão — {CLIENTE}</code> <strong>só quando</strong> coord + Farmer decidem atacar</td></tr>
+    <tr><th>Erro atual</th><td>Card sem task = conta mapeada, não oportunidade</td></tr>
+  </table>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>1 · Account Planning</h3><span class="tag neu">Base</span></div>
+  <table>
+    <tr><th>Objetivo</th><td>Mapear potencial: stack atual, gap hipotético, tier, health score</td></tr>
+    <tr><th>Dono</th><td>Coordenador (R) · Farmer valida prioridade (A)</td></tr>
+    <tr><th>Saída → Diagnóstico</th><td>Hipótese de produto + evidência mínima (check-in, Cockpit, call interna)</td></tr>
+    <tr><th>Saída → Drop</th><td>Sem fit de produto V4 ou conta em modo retenção</td></tr>
+    <tr><th>Campos Flow</th><td><code>produto</code> (família), <code>step</code> (Saber/Ter/Executar), <code>obs</code> com gap</td></tr>
+    <tr><th>SLA</th><td>14 dias parado → weekly: avançar, adiar safra ou drop</td></tr>
+    <tr><th>Não é</th><td>Oportunidade ativa · não entra na meta MRR</td></tr>
+  </table>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>2 · Diagnóstico</h3><span class="tag neu">Exploração</span></div>
+  <table>
+    <tr><th>Objetivo</th><td>Validar gap com cliente ou evidência forte — <strong>sem</strong> compromisso de piloto</td></tr>
+    <tr><th>Dono</th><td>ACC / coord (R) · Farmer se precisar de conversa de transição</td></tr>
+    <tr><th>Entregável</th><td>Mapa de oportunidade — não deck comercial</td></tr>
+    <tr><th>Saídas</th><td>→ Oportunidade · → POC (só se piloto real) · → Drop · ⇢ SABER em execução → volta</td></tr>
+    <tr><th>Sync</th><td>Ekyte «Diagnóstico» → Flow <code>diagnostico</code> (automático)</td></tr>
+    <tr><th>Não é</th><td>POC · «vamos ver» eterno</td></tr>
+  </table>
+</div>
+
+<div class="stage" id="oportunidade">
+  <div class="stage-head"><h3>3 · Oportunidade</h3><span class="tag new">Nova · coração do desenho</span></div>
+  <table>
+    <tr><th>Objetivo</th><td>Registrar: <em>esta conta vamos atacar comercialmente neste ciclo</em></td></tr>
+    <tr><th>Dono</th><td><strong>Farmer</strong> promove (R) · ACC confirma capacidade (C)</td></tr>
+    <tr><th>Motor</th><td><span class="tag new">Manual no Flow</span> — independente do Ekyte</td></tr>
+    <tr><th>Saídas</th><td>→ Construção Proposta · → Construção POC · → Drop · → volta Diagnóstico se produto mudou</td></tr>
+    <tr><th>KPI</th><td>A partir daqui conta para meta MRR, conversão e pipe quente</td></tr>
+    <tr><th>Campos novos</th><td><code>oportunidade_ativa</code> · <code>mes_safra</code> · <code>valor_estimado_booking</code> · <code>data_alvo_fechamento</code> · <code>motivo_oportunidade</code></td></tr>
+  </table>
+
+  <h4>Quando promover? (todos os 4 critérios)</h4>
+  <table>
+    <tr><th>Critério</th><th>Sim → Oportunidade</th><th>Não → permanece antes</th></tr>
+    <tr>
+      <td class="cli">Produto definido</td>
+      <td>Família e escopo fechados (ex.: CRM, SEO, SDR IA)</td>
+      <td>«Tem potencial» sem produto escolhido</td>
+    </tr>
+    <tr>
+      <td class="cli">Diagnóstico</td>
+      <td>Gap validado com cliente ou evidência interna</td>
+      <td>Só hipótese do AP, sem conversa</td>
+    </tr>
+    <tr>
+      <td class="cli">Intenção comercial</td>
+      <td>Farmer/ACC alinhou ataque no mês (safra)</td>
+      <td>Backlog de carteira sem prioridade</td>
+    </tr>
+    <tr>
+      <td class="cli">Responsável</td>
+      <td>Coord + executor sabem que vão construir proposta</td>
+      <td>Card existe só porque migrou da base</td>
+    </tr>
+  </table>
+
+  <h4>Checklist de saída do Diagnóstico</h4>
+  <ul class="checklist">
+    <li>Família de produto definida</li>
+    <li>Gap nomeado — cliente verbalizou ou há evidência documentada</li>
+    <li>Farmer incluiu na <strong>safra do mês</strong></li>
+    <li>Coord + executor sabem que vão para proposta ou POC</li>
+  </ul>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>4a · Construção de POC</h3><span class="tag warn">Ramo lateral</span></div>
+  <table>
+    <tr><th>Objetivo</th><td>Piloto com escopo, prazo e critério de sucesso — destravar objeção</td></tr>
+    <tr><th>Dono</th><td>Executor no Ekyte (R) · Farmer define monetização pós-piloto (A)</td></tr>
+    <tr><th>Entrada</th><td>Só de <strong>Oportunidade</strong> + checklist POC completo</td></tr>
+    <tr><th>Exemplos</th><td>30–40d Sales Enablement IA · landing teste · fluxo CRM mínimo</td></tr>
+    <tr><th>Não é</th><td>Diagnóstico · exploração · follow-up disfarçado</td></tr>
+  </table>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>4b · Construção de Proposta</h3><span class="tag ok">Tronco</span></div>
+  <table>
+    <tr><th>Objetivo</th><td>Material comercial pronto (Service Card / deck HTML)</td></tr>
+    <tr><th>Dono</th><td><strong>Farmer</strong> (R) · coord alinha narrativa (C)</td></tr>
+    <tr><th>Entrada</th><td>Oportunidade validada ou POC concluída com sucesso</td></tr>
+    <tr><th>Sync</th><td>Ekyte «Construção da Proposta» → Flow <code>construcao_proposta</code></td></tr>
+    <tr><th>SLA</th><td>7 dias em construção sem data de apresentação → escalar na weekly</td></tr>
+  </table>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>5–6 · Reunião / Apresentação → Follow Up → Fechado</h3><span class="tag ok">Fechamento</span></div>
+  <table>
+    <tr><th>Reunião agendada</th><td>Farmer apresenta (R) · coord participa se combinado · sync Ekyte «Reunião Marcada»</td></tr>
+    <tr><th>Apresentação</th><td>Deck apresentado ao decisor · sync «Reunião Realizada»</td></tr>
+    <tr><th>Follow Up</th><td>Plano com <strong>próximo passo + data + dono</strong> no comentário Ekyte</td></tr>
+    <tr><th>SLA Follow</th><td>&gt;14 dias sem movimento → replanejar ou drop na weekly</td></tr>
+    <tr><th>Fechado</th><td>Contrato assinado / booking lançado → <code>finalizado</code></td></tr>
+    <tr><th>Drop</th><td>Motivo registrado — não deixar card zumbi em AP</td></tr>
+  </table>
+</div>
+
+<!-- ═══ 5 · POC ═══ -->
+<h2 id="poc">5 · POC não é Diagnóstico</h2>
+
+<p>No Billions, <strong>6 dos 41 cards</strong> estão em «Construção de POC». Na prática, a maioria ali <em>não</em> está construindo prova de conceito — são contas em exploração, diagnóstico ou follow-up na etapa errada.</p>
 
 <div class="compare">
   <div class="compare-card diag">
@@ -244,69 +463,232 @@ blockquote strong{color:var(--txt)}
 
 <div class="note note-warn">
   <strong>Para o time:</strong> só mover para POC quem vai <em>construir</em> uma prova de conceito — com escopo, prazo e responsável.
-  Diagnóstico, exploração de produto e «vamos ver» ficam em Diagnóstico ou Account Planning.
   POC com card parado = etapa errada ou opp que deveria voltar.
 </div>
 
-<h3>Checklist antes de colocar em POC</h3>
-<ul>
+<h3>Checklist obrigatório antes de POC</h3>
+<ul class="checklist">
   <li>Escopo do piloto escrito (o que entrega, por quanto tempo)</li>
   <li>Responsável de execução nomeado no Ekyte</li>
   <li>Cliente ciente de que é piloto — não proposta comercial final</li>
   <li>Data de review para decidir monetização</li>
+  <li>Critério de sucesso mensurável</li>
   <li>Não é substituto de diagnóstico nem de AP</li>
 </ul>
 
-<h2 id="acoes">5 · Ações discretas para o time</h2>
+<!-- ═══ 6 · DE-PARA ═══ -->
+<h2 id="depara">6 · De-para Ekyte ↔ Flow</h2>
+
+<table>
+  <tr><th>Fase Ekyte</th><th>Flow</th><th>Motor</th></tr>
+  <tr><td class="cli">Account Planning</td><td><code>account_planning</code></td><td>Sync QGI</td></tr>
+  <tr><td class="cli">Diagnóstico</td><td><code>diagnostico</code></td><td>Sync QGI</td></tr>
+  <tr><td class="cli">—</td><td><code>oportunidade</code></td><td><span class="tag new">Manual Farmer/ACC</span></td></tr>
+  <tr><td class="cli">Construção de POC</td><td><code>construcao_poc</code></td><td>Sync + validação checklist</td></tr>
+  <tr><td class="cli">Reunião Marcada</td><td><code>reuniao_agendada</code></td><td>Sync QGI</td></tr>
+  <tr><td class="cli">Reunião Realizada</td><td><code>reuniao_agendada</code> ou <code>apresentacao_proposta</code></td><td>Sync / manual pós-call</td></tr>
+  <tr><td class="cli">Construção da Proposta</td><td><code>construcao_proposta</code></td><td>Sync QGI</td></tr>
+  <tr><td class="cli">Follow UP</td><td><code>follow_up</code></td><td>Sync QGI</td></tr>
+  <tr><td class="cli">—</td><td><code>finalizado</code> / <code>drop</code></td><td>Manual pós-desfecho</td></tr>
+</table>
+
+<div class="note">
+  <strong>Sync QGI:</strong> manter lógica task → etapa para jornada AP/reunião.
+  <strong>Não</strong> auto-rebaixar card que está em Oportunidade por causa de atraso no Ekyte.
+</div>
+
+<!-- ═══ 7 · RITUAIS ═══ -->
+<h2 id="rituais">7 · Rituais que sustentam o processo</h2>
+
+<div class="mermaid-wrap">
+<pre class="mermaid">
+sequenceDiagram
+  participant F as Farmer
+  participant P as Planilha safra
+  participant C as Coord/ACC
+  participant E as Ekyte
+  participant FL as Flow
+  Note over F,FL: Início do mês
+  F->>P: Define contas ataque
+  F->>FL: Promove cards → Oportunidade
+  Note over C,E: Jornada semanal
+  C->>E: Avança task + comentário
+  E->>FL: Sync QGI atualiza etapa
+  Note over F,C: Weekly expansão
+  F->>C: Round robin — 5 perguntas
+  C->>E: Corrige gap na hora
+  F->>FL: Ajusta Oportunidade / drop / POC
+</pre>
+</div>
+
+<h3>Weekly expansão — 5 perguntas por conta quente</h3>
+<ol>
+  <li>Diagnóstico validado ou ainda em AP?</li>
+  <li>Pitch marcado ou realizado? Data?</li>
+  <li>Proposta em construção (Farmer) ou apresentada?</li>
+  <li>Follow com prazo no comentário Ekyte?</li>
+  <li>Flow + safra + Ekyte batem?</li>
+</ol>
+
+<h3>Template de fala (30 seg por conta)</h3>
+<blockquote style="margin:12px 0">
+  <em>{CLIENTE}</em> · produto <em>{X}</em> · Ekyte <em>{fase}</em> · Flow <em>{etapa}</em><br>
+  Próximo passo: <em>{ação}</em> até <em>{data}</em> · dono <em>{nome}</em><br>
+  Trava: <em>{se houver}</em>
+</blockquote>
+
+<h3>SLAs operacionais</h3>
+<table>
+  <tr><th>Situação</th><th>SLA</th><th>Ação na weekly</th></tr>
+  <tr><td>Parado em etapa operacional</td><td>7 dias</td><td>Escalar executor / remarcar</td></tr>
+  <tr><td>Parado em Account Planning</td><td>14 dias</td><td>Avançar, adiar safra ou drop</td></tr>
+  <tr><td>Follow Up sem movimento</td><td>14 dias</td><td>Replanejar ou drop</td></tr>
+  <tr><td>Conta só na planilha</td><td>—</td><td>Abrir card Flow na hora</td></tr>
+  <tr><td>Conta só no Flow</td><td>—</td><td>Criar task Ekyte na hora</td></tr>
+</table>
+
+<!-- ═══ 8 · KPIs ═══ -->
+<h2 id="kpis">8 · KPIs — definições</h2>
+
+<table>
+  <tr><th>KPI</th><th>Numerador</th><th>Denominador / corte</th></tr>
+  <tr>
+    <td class="cli">Opps ativas do mês</td>
+    <td>Cards em <code>oportunidade</code> + downstream abertos</td>
+    <td><code>mes_safra</code> = mês corrente</td>
+  </tr>
+  <tr>
+    <td class="cli">Match Flow ↔ Ekyte</td>
+    <td>Contas quentes com task na fase equivalente</td>
+    <td>Contas em Oportunidade+ · meta &gt;90%</td>
+  </tr>
+  <tr>
+    <td class="cli">Conversão</td>
+    <td><code>finalizado</code> no mês</td>
+    <td>Entraram em Oportunidade no mês — <em>não</em> total de cards migrados</td>
+  </tr>
+  <tr>
+    <td class="cli">Parados</td>
+    <td>Dias na etapa ≥ SLA</td>
+    <td>Pipeline aberto</td>
+  </tr>
+  <tr>
+    <td class="cli">POC bem classificado</td>
+    <td>Cards POC com checklist 5/5</td>
+    <td>Total em <code>construcao_poc</code> · meta 100%</td>
+  </tr>
+</table>
+
+<!-- ═══ 9 · BACKLOG PRODUTO ═══ -->
+<h2 id="produto">9 · Backlog produto Cockpit</h2>
+
+<p class="sub">Ref.: task Ekyte <code>[05][ENG] Flow Cockpit Saber — Expansão e oportunidade (campos e fluxo)</code> · Rodrigo / Tech AI</p>
+
+<table>
+  <tr><th>Item</th><th>Detalhe</th><th>Prioridade</th></tr>
+  <tr>
+    <td class="cli">Nova etapa</td>
+    <td><code>oportunidade</code> entre <code>diagnostico</code> e <code>construcao_proposta</code></td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Flag + safra</td>
+    <td><code>oportunidade_ativa</code> · <code>mes_safra</code></td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Permissões</td>
+    <td>Farmer + coord promovem; drop comercial só Farmer</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Sync QGI</td>
+    <td>Manter Ekyte→Flow; não auto-rebaixar Oportunidade</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">UI</td>
+    <td>Badge «Opp ativa» · filtro rápido no dashboard expansão</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Campos comerciais</td>
+    <td><code>valor_estimado</code> · <code>data_alvo</code> · <code>motivo_oportunidade</code> · link proposta</td>
+    <td><span class="tag neu">P2</span></td>
+  </tr>
+  <tr>
+    <td class="cli">POC</td>
+    <td><code>poc_checklist_ok</code> ou sub-status antes de aceitar etapa</td>
+    <td><span class="tag neu">P2</span></td>
+  </tr>
+</table>
+
+<!-- ═══ 10 · AÇÕES ═══ -->
+<h2 id="acoes">10 · Ações para o time</h2>
 
 <ol class="action-list">
   <li>
     <strong>Criar etapa «Oportunidade» no Flow</strong>
-    Entre Diagnóstico pronto e Construção de Proposta. Campo ou flag que ACC/Farmer preenchem ao validar ataque do mês.
-    <div class="who">Responsável: produto Cockpit + Farmer · Squads: todos</div>
+    Entre Diagnóstico e Construção de Proposta. Campos que ACC/Farmer preenchem ao validar ataque do mês.
+    <div class="who">Responsável: produto Cockpit (Rodrigo) + Farmer · Squads: todos</div>
   </li>
   <li>
     <strong>Definir gatilho de promoção</strong>
-  Farmer ou ACC move manualmente para «Oportunidade» quando os 4 critérios da tabela acima forem atendidos — independente do Ekyte.
-    <div class="who">Responsável: coordenadores + Farmer · Não esperar task Ekyte para este movimento</div>
+    Farmer ou ACC move manualmente para «Oportunidade» quando os 4 critérios forem atendidos — independente do Ekyte.
+    <div class="who">Responsável: coordenadores + Farmer</div>
   </li>
   <li>
     <strong>Revisar cards em POC (Billions: 6)</strong>
-  Para cada card: é POC real ou deveria estar em Diagnóstico/Follow Up? Recategorizar nos próximos 7 dias.
+    Para cada card: é POC real ou deveria estar em Diagnóstico/Follow Up? Recategorizar em 7 dias.
     <div class="who">Responsável: ACC Billions + Sara</div>
   </li>
   <li>
     <strong>Comunicar regra POC ≠ Diagnóstico</strong>
-  Alinhar em reunião de squad: POC = construção de piloto com escopo; Diagnóstico = mapeamento sem entrega piloto.
+    POC = piloto com escopo; Diagnóstico = mapeamento sem entrega piloto.
     <div class="who">Responsável: Farmer · Canais: expansão gerência + GChat squad</div>
   </li>
   <li>
     <strong>Meta e pipe diário usam «Oportunidade+»</strong>
-  KPI de opps ativas, safra e conversão passam a contar só cards a partir da nova etapa — não todo card da base migrada.
-    <div class="who">Responsável: Farmer · Reflete no Pipe Diário na próxima rodada</div>
+    KPI de opps ativas, safra e conversão só a partir da nova etapa.
+    <div class="who">Responsável: Farmer · Reflete no Pipe Diário</div>
   </li>
   <li>
     <strong>Manter Ekyte como motor operacional</strong>
-  Não mudar a lógica de sync task → etapa para jornada AP/reunião. A novidade é o corte comercial <em>antes</em> de depender só do Ekyte.
-    <div class="who">Responsável: todos · Ekyte continua mandando no ritmo; Farmer manda na priorização</div>
+    Sync task → etapa para jornada AP/reunião. Novidade = corte comercial antes de depender só do Ekyte.
+    <div class="who">Responsável: todos</div>
   </li>
 </ol>
 
-<h2>6 · Resumo em uma frase</h2>
+<h2>11 · Resumo</h2>
 
 <div class="note note-ok" style="font-size:14px">
-  O Flow está bem estruturado e o Ekyte faz sentido como motor de jornada — falta só separar
-  <strong>«conta na base»</strong> de <strong>«oportunidade que vamos atacar»</strong>
-  e deixar claro que <strong>POC é piloto com entrega</strong>, não diagnóstico com outro nome.
+  O Flow continua espelhando a <strong>jornada Ekyte</strong> para governança operacional.
+  A novidade é uma <strong>etapa comercial explícita (Oportunidade)</strong> que o Farmer controla
+  <em>antes</em> de depender do ritmo das tasks — com <strong>POC como ramo raro e contratado</strong>,
+  não diagnóstico com outro nome.
 </div>
 
+<h3>Pontos em aberto para validação</h3>
+<ul class="sub">
+  <li>Oportunidade fica entre Diagnóstico e Proposta — ou em outro ponto?</li>
+  <li>Quem promove: só Farmer, ou ACC também sem OK?</li>
+  <li>POC entra só depois de Oportunidade, ou pode pular do Diagnóstico?</li>
+  <li>Campos novos no Cockpit — falta algum?</li>
+  <li>Alguma fase Ekyte deve parar de mover o Flow automaticamente?</li>
+  <li>Safra e Flow Oportunidade: obrigatório nos dois, ou um basta?</li>
+</ul>
+
 <footer>
-  Gerado 07/07/2026 · Marcelo Figueiredo · Farmer ABM<br>
-  Fontes: Cockpit expansion cards, Ekyte tasks, pipe-diario-data-jul.json ·
+  Atualizado 08/07/2026 · Marcelo Figueiredo · Farmer ABM<br>
+  Fontes: call Marcelo/Rodrigo · Cockpit expansion cards · Ekyte tasks · pipe-diario-data-jul.json ·
   <a href="report-status-expansao-gerente-jul.html">Status expansão carteira jul/26</a> ·
   <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/#geral" target="_blank">Pipe Diário ↗</a>
 </footer>
 
 </div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+</script>
 </body>
 </html>
