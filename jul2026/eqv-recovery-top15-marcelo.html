@@ -291,62 +291,6 @@ tr:hover td { background: rgba(255,255,255,.02); }
 }
 .cta-client-text { margin: 0; font-size: 13px; line-height: 1.65; color: #e5e5e5; font-style: italic; }
 
-.pitch-playbook {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
-}
-@media(max-width:800px){ .pitch-playbook { grid-template-columns: 1fr; } }
-.playbook-card {
-  background: var(--surf); border: 1px solid var(--bd); border-radius: var(--radius); padding: 20px 22px;
-}
-.playbook-card h3 {
-  margin: 0 0 10px; font-size: 14px; font-weight: 800; display: flex; align-items: center; gap: 8px;
-}
-.playbook-card.coo { border-top: 3px solid var(--inv); }
-.playbook-card.cfo { border-top: 3px solid var(--bil); }
-.playbook-card p { margin: 0; font-size: 13px; color: var(--mut); line-height: 1.6; }
-
-.pitch-flow { margin: 16px 0; }
-.pitch-step {
-  display: flex; gap: 16px; align-items: flex-start; padding: 16px 0;
-  border-bottom: 1px solid var(--bd);
-}
-.pitch-step:last-child { border-bottom: none; }
-.pitch-step-num {
-  flex-shrink: 0; min-width: 140px; font-size: 11px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: .04em; color: var(--brand-light);
-}
-.pitch-step p { margin: 0; font-size: 13px; color: #d4d4d4; line-height: 1.65; flex: 1; }
-
-.cta-master {
-  background: linear-gradient(135deg, rgba(229,9,21,.12), rgba(20,20,20,.9));
-  border: 1px solid rgba(229,9,21,.35); border-radius: var(--radius);
-  padding: 22px 24px; margin: 16px 0;
-}
-.cta-master-label {
-  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
-  color: #fca5a5; margin-bottom: 12px;
-}
-.cta-master-text {
-  margin: 0; font-size: 15px; line-height: 1.7; color: var(--txt);
-  border-left: 3px solid var(--brand); padding-left: 16px;
-}
-.cta-agenda {
-  margin-top: 14px; font-size: 12px; color: var(--mut);
-  background: rgba(0,0,0,.3); border-radius: 8px; padding: 10px 14px;
-}
-.cta-agenda strong { color: var(--txt); }
-
-.format-timeline {
-  display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0;
-}
-.format-block {
-  flex: 1; min-width: 140px; background: rgba(0,0,0,.3); border: 1px solid var(--bd);
-  border-radius: 10px; padding: 12px 14px; text-align: center;
-}
-.format-block .time { font-size: 20px; font-weight: 900; color: var(--brand-light); }
-.format-block .role { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); margin-top: 4px; }
-.format-block .desc { font-size: 11px; color: #d4d4d4; margin-top: 6px; }
-
 .alert-box {
   display: flex; align-items: flex-start; gap: 10px;
   background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.3);
@@ -389,7 +333,7 @@ footer a:hover { text-decoration: underline; }
   <text x="0" y="26" font-family="Inter, Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e50915">V4</text>
   <text x="52" y="26" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#a3a3a3" letter-spacing=".18em">COMPANY</text>
 </svg>
-    <span class="colli-badge">Colli&amp;Co · Farmer ABM</span>
+    <span class="colli-badge">Colli&amp;Co · Farmer</span>
   </div>
   <div class="topbar-chips">
     <a class="chip live" href="index.html">Pipe diário</a>
@@ -416,7 +360,6 @@ footer a:hover { text-decoration: underline; }
       </p>
       <div class="hero-nav">
         <a href="#resumo">Resumo</a>
-        <a href="#pitch">Pitch &amp; CTA</a>
         <a href="#pricing">Pricing recovery</a>
         <a href="#tabela">Ranking</a>
         <a href="#fichas">Fichas por cliente</a>
@@ -440,81 +383,6 @@ footer a:hover { text-decoration: underline; }
       <strong>Curadoria Farmer (2026-07-08):</strong><br>
       Excluídos: Hiper Colchões (BM), CASARÃO DAS FIBRAS, Clínica Gorga (BS), Nacional Auto Vidros (BS)<br>
       R Casagrande Negócios Imobiliários → Seronni plástica facial (BT)
-    </div>
-  </section>
-
-  <section id="pitch">
-    <h2 class="section-title">Pitch &amp; CTA · Conversa de Transição</h2>
-    <div class="glass-panel">
-      <strong>Conversa de Transição · 1h com C-Level V4</strong><br>
-      O cliente ganha 1 hora com o COO ou o CFO da V4 para trazer uma nova perspectiva ao negócio — com base no que já mapeamos na Estruturação Estratégica e no que vimos fazer sentido para o estágio dele.
-    </div>
-
-    <div class="format-timeline">
-      <div class="format-block">
-        <div class="time">5′</div>
-        <div class="role">Farmer + Coord</div>
-        <div class="desc">Abertura e contexto EE</div>
-      </div>
-      <div class="format-block" style="border-color:rgba(229,9,21,.4);background:rgba(229,9,21,.08)">
-        <div class="time">40′</div>
-        <div class="role">COO ou CFO V4</div>
-        <div class="desc">Nova perspectiva + tese EQV</div>
-      </div>
-      <div class="format-block">
-        <div class="time">15′</div>
-        <div class="role">Todos</div>
-        <div class="desc">Q&amp;A e próximo passo</div>
-      </div>
-    </div>
-
-    <div class="pitch-playbook">
-      <div class="playbook-card coo">
-        <h3><span class="squad-pill inv">COO</span> Quando priorizar</h3>
-        <p>Operação, jornada comercial, padronização, execução assistida — como escalar sem depender de heróis.</p>
-        <p style="margin-top:10px;font-size:11px;color:var(--mut)">Ideal para drop <strong>Timing</strong>, retomada operacional e maturidade GTM.</p>
-      </div>
-      <div class="playbook-card cfo">
-        <h3><span class="squad-pill bil">CFO</span> Quando priorizar</h3>
-        <p>ROI do que já foi investido na EE, cashback, estrutura de investimento líquido, previsibilidade de caixa no GTM.</p>
-        <p style="margin-top:10px;font-size:11px;color:var(--mut)">Ideal para drop <strong>Budget</strong>, reframe de ROI e investimento líquido.</p>
-      </div>
-    </div>
-
-    <div class="glass-panel">
-      <strong>Papel do Farmer:</strong> Conectar o diagnóstico EE já entregue ao convite — não é cold pitch, é retomada com autoridade e profundidade.<br><br>
-      <strong>Papel do C-Level:</strong> Ampliar a lente: maturidade GTM, previsibilidade de receita, trade-offs de investimento — perspectiva que o cliente não teve na EE operacional.
-    </div>
-
-    <h3 style="font-size:13px;font-weight:800;margin:24px 0 12px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em">Roteiro da call (5 etapas)</h3>
-    <div class="pitch-flow"><div class="pitch-step">
-  <div class="pitch-step-num">1. Abertura (Farmer)</div>
-  <p>Na EE a gente mapeou [dor específica do cliente]. Paramos no timing/budget — mas o diagnóstico continua válido. Por isso convidamos [COO/CFO] para uma conversa de 1h: nova perspectiva sobre o que já construímos juntos.</p>
-</div><div class="pitch-step">
-  <div class="pitch-step-num">2. Reconhecimento (Coord)</div>
-  <p>Reforçar entregáveis EE: personas, funil, auditoria comercial, gaps de CRM/mídia — provar que a fundação existe.</p>
-</div><div class="pitch-step">
-  <div class="pitch-step-num">3. Perspectiva C-Level</div>
-  <p>COO ou CFO conecta o mapa EE à tese EQV: GTM previsível e escalável não é gastar mais em mídia — é amadurecer a máquina de receita com acompanhamento + execução assistida.</p>
-</div><div class="pitch-step">
-  <div class="pitch-step-num">4. Proposta recovery</div>
-  <p>Cashback R$ 15k da EE → EQV âncora R$ 35k → líquido R$ 20k (ou 12× R$ 1.890). O cliente não recomeça do zero — retoma de onde parou.</p>
-</div><div class="pitch-step">
-  <div class="pitch-step-num">5. CTA</div>
-  <p>Agendar a call de 1h com COO ou CFO + decisor. Saída: sim para proposta formal / não agora com data de retorno / objeção mapeada.</p>
-</div></div>
-
-    <div class="cta-master">
-      <div class="cta-master-label">CTA modelo · WhatsApp / e-mail</div>
-      <p class="cta-master-text">Olá [Nome], tudo bem? Na Estruturação Estratégica mapeamos [gancho EE — ex.: funil comercial, posicionamento, CRM]. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso [COO/CFO] para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
-      <div class="cta-agenda">
-        <strong>Agenda Google:</strong> Título sugerido: [Cliente] × V4 · Conversa de Transição EQV · 1h com [COO/CFO]
-      </div>
-    </div>
-
-    <div class="glass-panel warn">
-      <strong>Regras do jogo</strong>
-      <ul style="margin:10px 0 0;padding-left:18px"><li>Só convidar contas com EE entregue (pitch realizado ou ≥ semana 2)</li><li>Farmer prepara briefing de 1 página para o C-Level antes da call</li><li>Escolher COO (operação/GTM) ou CFO (budget/ROI) conforme motivo do drop</li><li>Drop Budget → priorizar CFO na abertura; Drop Timing → COO</li><li>Não prometer resultado financeiro — prometer perspectiva e clareza de caminho</li></ul>
     </div>
   </section>
 
@@ -1488,7 +1356,7 @@ footer a:hover { text-decoration: underline; }
       <span>Colli&amp;Co · Empresa Que Vende · Recovery BPMN 2</span>
     </div>
     <div>
-      Atualizado 08/07/2026 14:00 · Marcelo Figueiredo<br>
+      Atualizado 08/07/2026 14:06 · Marcelo Figueiredo<br>
       <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/">GitHub Pages jul/2026</a>
     </div>
   </footer>
