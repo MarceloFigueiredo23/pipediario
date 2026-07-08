@@ -277,6 +277,76 @@ tr:hover td { background: rgba(255,255,255,.02); }
 }
 .pitch-box p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--txt); }
 
+.cta-client-box {
+  background: linear-gradient(135deg, rgba(96,165,250,.12), rgba(96,165,250,.04));
+  border: 1px solid rgba(96,165,250,.28); border-radius: 12px; padding: 16px 18px; margin: 16px 0;
+}
+.cta-client-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.cta-client-label {
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--info);
+}
+.cta-client-badge {
+  font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+  background: rgba(96,165,250,.2); color: #93c5fd; padding: 4px 10px; border-radius: 999px;
+}
+.cta-client-text { margin: 0; font-size: 13px; line-height: 1.65; color: #e5e5e5; font-style: italic; }
+
+.pitch-playbook {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
+}
+@media(max-width:800px){ .pitch-playbook { grid-template-columns: 1fr; } }
+.playbook-card {
+  background: var(--surf); border: 1px solid var(--bd); border-radius: var(--radius); padding: 20px 22px;
+}
+.playbook-card h3 {
+  margin: 0 0 10px; font-size: 14px; font-weight: 800; display: flex; align-items: center; gap: 8px;
+}
+.playbook-card.coo { border-top: 3px solid var(--inv); }
+.playbook-card.cfo { border-top: 3px solid var(--bil); }
+.playbook-card p { margin: 0; font-size: 13px; color: var(--mut); line-height: 1.6; }
+
+.pitch-flow { margin: 16px 0; }
+.pitch-step {
+  display: flex; gap: 16px; align-items: flex-start; padding: 16px 0;
+  border-bottom: 1px solid var(--bd);
+}
+.pitch-step:last-child { border-bottom: none; }
+.pitch-step-num {
+  flex-shrink: 0; min-width: 140px; font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--brand-light);
+}
+.pitch-step p { margin: 0; font-size: 13px; color: #d4d4d4; line-height: 1.65; flex: 1; }
+
+.cta-master {
+  background: linear-gradient(135deg, rgba(229,9,21,.12), rgba(20,20,20,.9));
+  border: 1px solid rgba(229,9,21,.35); border-radius: var(--radius);
+  padding: 22px 24px; margin: 16px 0;
+}
+.cta-master-label {
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+  color: #fca5a5; margin-bottom: 12px;
+}
+.cta-master-text {
+  margin: 0; font-size: 15px; line-height: 1.7; color: var(--txt);
+  border-left: 3px solid var(--brand); padding-left: 16px;
+}
+.cta-agenda {
+  margin-top: 14px; font-size: 12px; color: var(--mut);
+  background: rgba(0,0,0,.3); border-radius: 8px; padding: 10px 14px;
+}
+.cta-agenda strong { color: var(--txt); }
+
+.format-timeline {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0;
+}
+.format-block {
+  flex: 1; min-width: 140px; background: rgba(0,0,0,.3); border: 1px solid var(--bd);
+  border-radius: 10px; padding: 12px 14px; text-align: center;
+}
+.format-block .time { font-size: 20px; font-weight: 900; color: var(--brand-light); }
+.format-block .role { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); margin-top: 4px; }
+.format-block .desc { font-size: 11px; color: #d4d4d4; margin-top: 6px; }
+
 .alert-box {
   display: flex; align-items: flex-start; gap: 10px;
   background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.3);
@@ -346,6 +416,7 @@ footer a:hover { text-decoration: underline; }
       </p>
       <div class="hero-nav">
         <a href="#resumo">Resumo</a>
+        <a href="#pitch">Pitch &amp; CTA</a>
         <a href="#pricing">Pricing recovery</a>
         <a href="#tabela">Ranking</a>
         <a href="#fichas">Fichas por cliente</a>
@@ -369,6 +440,81 @@ footer a:hover { text-decoration: underline; }
       <strong>Curadoria Farmer (2026-07-08):</strong><br>
       Excluídos: Hiper Colchões (BM), CASARÃO DAS FIBRAS, Clínica Gorga (BS), Nacional Auto Vidros (BS)<br>
       R Casagrande Negócios Imobiliários → Seronni plástica facial (BT)
+    </div>
+  </section>
+
+  <section id="pitch">
+    <h2 class="section-title">Pitch &amp; CTA · Conversa de Transição</h2>
+    <div class="glass-panel">
+      <strong>Conversa de Transição · 1h com C-Level V4</strong><br>
+      O cliente ganha 1 hora com o COO ou o CFO da V4 para trazer uma nova perspectiva ao negócio — com base no que já mapeamos na Estruturação Estratégica e no que vimos fazer sentido para o estágio dele.
+    </div>
+
+    <div class="format-timeline">
+      <div class="format-block">
+        <div class="time">5′</div>
+        <div class="role">Farmer + Coord</div>
+        <div class="desc">Abertura e contexto EE</div>
+      </div>
+      <div class="format-block" style="border-color:rgba(229,9,21,.4);background:rgba(229,9,21,.08)">
+        <div class="time">40′</div>
+        <div class="role">COO ou CFO V4</div>
+        <div class="desc">Nova perspectiva + tese EQV</div>
+      </div>
+      <div class="format-block">
+        <div class="time">15′</div>
+        <div class="role">Todos</div>
+        <div class="desc">Q&amp;A e próximo passo</div>
+      </div>
+    </div>
+
+    <div class="pitch-playbook">
+      <div class="playbook-card coo">
+        <h3><span class="squad-pill inv">COO</span> Quando priorizar</h3>
+        <p>Operação, jornada comercial, padronização, execução assistida — como escalar sem depender de heróis.</p>
+        <p style="margin-top:10px;font-size:11px;color:var(--mut)">Ideal para drop <strong>Timing</strong>, retomada operacional e maturidade GTM.</p>
+      </div>
+      <div class="playbook-card cfo">
+        <h3><span class="squad-pill bil">CFO</span> Quando priorizar</h3>
+        <p>ROI do que já foi investido na EE, cashback, estrutura de investimento líquido, previsibilidade de caixa no GTM.</p>
+        <p style="margin-top:10px;font-size:11px;color:var(--mut)">Ideal para drop <strong>Budget</strong>, reframe de ROI e investimento líquido.</p>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <strong>Papel do Farmer:</strong> Conectar o diagnóstico EE já entregue ao convite — não é cold pitch, é retomada com autoridade e profundidade.<br><br>
+      <strong>Papel do C-Level:</strong> Ampliar a lente: maturidade GTM, previsibilidade de receita, trade-offs de investimento — perspectiva que o cliente não teve na EE operacional.
+    </div>
+
+    <h3 style="font-size:13px;font-weight:800;margin:24px 0 12px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em">Roteiro da call (5 etapas)</h3>
+    <div class="pitch-flow"><div class="pitch-step">
+  <div class="pitch-step-num">1. Abertura (Farmer)</div>
+  <p>Na EE a gente mapeou [dor específica do cliente]. Paramos no timing/budget — mas o diagnóstico continua válido. Por isso convidamos [COO/CFO] para uma conversa de 1h: nova perspectiva sobre o que já construímos juntos.</p>
+</div><div class="pitch-step">
+  <div class="pitch-step-num">2. Reconhecimento (Coord)</div>
+  <p>Reforçar entregáveis EE: personas, funil, auditoria comercial, gaps de CRM/mídia — provar que a fundação existe.</p>
+</div><div class="pitch-step">
+  <div class="pitch-step-num">3. Perspectiva C-Level</div>
+  <p>COO ou CFO conecta o mapa EE à tese EQV: GTM previsível e escalável não é gastar mais em mídia — é amadurecer a máquina de receita com acompanhamento + execução assistida.</p>
+</div><div class="pitch-step">
+  <div class="pitch-step-num">4. Proposta recovery</div>
+  <p>Cashback R$ 15k da EE → EQV âncora R$ 35k → líquido R$ 20k (ou 12× R$ 1.890). O cliente não recomeça do zero — retoma de onde parou.</p>
+</div><div class="pitch-step">
+  <div class="pitch-step-num">5. CTA</div>
+  <p>Agendar a call de 1h com COO ou CFO + decisor. Saída: sim para proposta formal / não agora com data de retorno / objeção mapeada.</p>
+</div></div>
+
+    <div class="cta-master">
+      <div class="cta-master-label">CTA modelo · WhatsApp / e-mail</div>
+      <p class="cta-master-text">Olá [Nome], tudo bem? Na Estruturação Estratégica mapeamos [gancho EE — ex.: funil comercial, posicionamento, CRM]. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso [COO/CFO] para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+      <div class="cta-agenda">
+        <strong>Agenda Google:</strong> Título sugerido: [Cliente] × V4 · Conversa de Transição EQV · 1h com [COO/CFO]
+      </div>
+    </div>
+
+    <div class="glass-panel warn">
+      <strong>Regras do jogo</strong>
+      <ul style="margin:10px 0 0;padding-left:18px"><li>Só convidar contas com EE entregue (pitch realizado ou ≥ semana 2)</li><li>Farmer prepara briefing de 1 página para o C-Level antes da call</li><li>Escolher COO (operação/GTM) ou CFO (budget/ROI) conforme motivo do drop</li><li>Drop Budget → priorizar CFO na abertura; Drop Timing → COO</li><li>Não prometer resultado financeiro — prometer perspectiva e clareza de caminho</li></ul>
     </div>
   </section>
 
@@ -562,6 +708,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Vocês já têm o mapa estratégico (personas, TAM, posicionamento premium). O EQV coloca a execução assistida no ar — conteúdo de autoridade + social que converte consulta — com cashback dos R$ 15k da EE.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com CFO</span>
+        <span class="cta-client-badge">CFO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos reposicionamento premium — harmonização glútea/facial público ab. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso CFO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Conversa de Transição com decisor (Fernandes) — validar budget pós-EE</li><li>Montar proposta EQV Conteúdo + Social (âncora R$ 35k · líquido R$ 20k)</li><li>Alinhar com Thiago (coord) entregáveis EE já aprovados</li><li>Agendar call recovery em até 7 dias</li></ol>
@@ -608,6 +761,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>O vendedor novo precisa de processo — não só campanha. EQV acelera o ramp com CRM, régua e acompanhamento comercial assistido, usando o diagnóstico da semana 3.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos lançamento newtech cloud — diferenciação técnica condomínios/b2b. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -656,6 +816,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Corrigimos o básico na EE (link, design, narrativa). EQV recovery com pacote enxuto de mídia + conteúdo — cashback EE reduz o investimento líquido para ~R$ 20k.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com CFO</span>
+        <span class="cta-client-badge">CFO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos reorientação social para humanização e benefícios reais. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso CFO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Validar se link Instagram foi corrigido</li><li>Proposta EXECUTAR enxuta (Mídia local + Social)</li><li>Checar capacidade financeira (fatura 10k na obs)</li><li>Retomar com Rafaela — FUP desde 30/04</li></ol>
@@ -702,6 +869,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Score comercial 18% não se resolve com mais lead — EQV coloca Sales Enablement + CRM no chão, com execução assistida sobre o que a EE já mapeou.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos funis distintos b2c e b2b com aquisição via tráfego pago. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -750,6 +924,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>A EE estruturou o posicionamento; o timing adiou a execução. EQV recovery traz conteúdo + social assistido para captar consultas — com cashback da EE.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos clínica estética premium — perfil similar lapidum/gorga. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Melissa buscar gravação EE no Drive</li><li>Conversa de Transição — entender o que mudou desde jan/26</li><li>Proposta EQV Conteúdo + Social (pacote clínica)</li><li>Validar decisor e capacidade TINY (parcelado 12×)</li></ol>
@@ -796,6 +977,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Vocês pediram tempo para o planejamento financeiro — faz sentido. O EQV entra com execução assistida enxuta no comercial B2B, sem o ticket cheio de EXECUTAR.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos industrial soldas b2b — tiny com ticket moderado. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -844,6 +1032,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>A proposta de R$ 16k ficou no budget — o EQV recovery com cashback EE aproxima o investimento líquido e mantém o foco comercial que a estruturação já desenhou.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com CFO</span>
+        <span class="cta-client-badge">CFO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos engenharia b2b — geração de projetos. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso CFO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Eder confirmar status do &#x27;retorno segunda&#x27;</li><li>Reframe ROI: projetos ganhos vs. fee EQV</li><li>Proposta EQV Comercial recovery</li><li>Validar ticker FRON no Cockpit</li></ol>
@@ -890,6 +1085,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>O timing adiou, mas o diagnóstico está pronto. EQV coloca social + mídia regional no ar com acompanhamento — ideal para distribuidora que precisa de presença e captação.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos distribuidora bebidas — varejo b2b regional. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -938,6 +1140,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Se a EE entregou o mapa de captação, o EQV recovery coloca mídia de leads com execução assistida — ticket enxuto para TINY.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos tiny — ticket limitado, validar entrega ee. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Confirmar se Remax Legacy = Legacy Corp (BT)</li><li>Validar % entrega EE antes do churn</li><li>Rafaela alinhar histórico com cliente</li><li>Proposta EQV enxuta só se EE ≥ 60% entregue</li></ol>
@@ -984,6 +1193,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>O timing adiou, mas o relacionamento está aquecido. EQV recovery coloca comercial assistido + mídia B2B no ar — vocês já conhecem a V4 por dentro.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos cliente já fornecedor/mobiliário da sede v4 campinas — relacionamento warm. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -1032,6 +1248,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Ótica com EE recente — EQV recovery foca em mídia local e conteúdo que traz gente à loja, com pacote acessível via cashback.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos ótica varejo — medium fora do sweet spot tiny/small. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Rafaela buscar calls EE no Drive</li><li>Conversa de Transição presencial/online</li><li>Proposta EQV Mídia local enxuta</li><li>Validar ticket R$ 6k vs. EQV recovery R$ 20k líquido</li></ol>
@@ -1078,6 +1301,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>O bloqueio foi nosso, não de vocês. Com a EE estabilizada, o EQV recovery retoma do ponto onde paramos — comercial assistido e cashback.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos drop interno — bloqueio operacional v4, não objeção cliente. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -1126,6 +1356,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Joalheria precisa de vitrine digital que vende. EQV recovery une conteúdo + mídia + CRM com execução assistida — cashback aproxima do ticket discutido.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com COO</span>
+        <span class="cta-client-badge">COO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos joalheria/e-commerce — varejo premium. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso COO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Jhonatan recuperar material EE (NDMF)</li><li>Validar decisor Alisson e status e-commerce</li><li>Proposta EQV Conteúdo + Mídia</li><li>Comparar R$ 27k original vs. recovery R$ 20k líquido</li></ol>
@@ -1172,6 +1409,13 @@ footer a:hover { text-decoration: underline; }
     <div class="pitch-box">
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>O plano de Sales Enablement + CRM já estava desenhado — só faltou o budget. EQV recovery com cashback EE viabiliza a execução assistida.</p>
+    </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com CFO</span>
+        <span class="cta-client-badge">CFO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos indústria adesivos b2b. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso CFO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
     </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
@@ -1220,6 +1464,13 @@ footer a:hover { text-decoration: underline; }
       <div class="pitch-label">Pitch recovery · Empresa Que Vende</div>
       <p>Atuarial vende confiança e expertise. EQV recovery coloca conteúdo técnico + prospecção assistida — ticket enxuto com cashback EE.</p>
     </div>
+    <div class="cta-client-box">
+      <div class="cta-client-head">
+        <span class="cta-client-label">CTA · Convite 1h com CFO</span>
+        <span class="cta-client-badge">CFO V4 na call</span>
+      </div>
+      <p class="cta-client-text">Olá decisor, tudo bem? Na Estruturação Estratégica mapeamos consultoria atuarial b2b — nicho técnico. O timing não permitiu seguir na execução — mas o diagnóstico continua fazendo sentido para o momento de vocês. Por isso, queremos te oferecer 1h com nosso CFO para uma nova perspectiva sobre o negócio, com base no que já construímos. Sem compromisso de contratação — é uma Conversa de Transição para ver se o Empresa Que Vende (consultoria + execução assistida) destrava o próximo passo. Podemos agendar essa semana?</p>
+    </div>
     <div class="section-block">
       <h4><span class="section-icon">→</span> Próximos passos</h4>
       <ol class="steps"><li>Jhonatan retomar pós-reunião 14/01</li><li>Entender objeção budget específica</li><li>Proposta EQV Comercial + Conteúdo técnico</li><li>Validar ticker LUME no Flow</li></ol>
@@ -1237,7 +1488,7 @@ footer a:hover { text-decoration: underline; }
       <span>Colli&amp;Co · Empresa Que Vende · Recovery BPMN 2</span>
     </div>
     <div>
-      Atualizado 08/07/2026 13:56 · Marcelo Figueiredo<br>
+      Atualizado 08/07/2026 14:00 · Marcelo Figueiredo<br>
       <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/">GitHub Pages jul/2026</a>
     </div>
   </footer>
