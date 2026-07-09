@@ -4,121 +4,298 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flow — Ajustes de Operação · Jul/2026</title>
+<link rel="canonical" href="https://marcelofigueiredo23.github.io/pipediario/jul2026/flow-ajustes-operacao-jul.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fff;--surf:#f8f9fb;--bd:#e2e5ea;--txt:#1a1d23;--mut:#5c6370;
-  --ok:#15803d;--late:#dc2626;--up:#b45309;--v4:#e11d2e;--accent:#2563eb;--inv:#4338ca;
+  --brand:#e50915;--brand-dim:rgba(229,9,21,.14);--brand-glow:rgba(229,9,21,.35);
+  --bg:#050505;--surf:rgba(20,20,20,.9);--surf2:#141414;
+  --glass:rgba(255,255,255,.04);--bd:rgba(255,255,255,.08);--bd-strong:rgba(255,255,255,.14);
+  --txt:#fafafa;--mut:#a3a3a3;
+  --ok:#22c55e;--late:#ef4444;--up:#fbbf24;--v4:#e50915;--accent:#60a5fa;--inv:#818cf8;
+  --radius:16px;--shadow:0 24px 80px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 "Segoe UI",system-ui,sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:36px 28px 72px}
-header{border-bottom:3px solid var(--v4);padding-bottom:18px;margin-bottom:24px}
-h1{font-size:26px;font-weight:800;margin:0 0 6px}
-.subtitle{color:var(--mut);font-size:14px}
-.nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
-.nav a{font-size:12px;color:var(--accent);text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:20px;background:var(--surf)}
-.nav a:hover{border-color:var(--v4);color:var(--v4)}
-h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--v4);margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
-h3{font-size:15px;font-weight:700;margin:18px 0 8px}
-h4{font-size:13px;font-weight:700;margin:14px 0 6px;color:var(--txt)}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  margin:0;background:var(--bg);color:var(--txt);
+  font:15px/1.6 Inter,system-ui,sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%,rgba(229,9,21,.16),transparent),
+    radial-gradient(circle at 100% 0%,rgba(229,9,21,.05),transparent 40%);
+}
+.topbar{
+  position:sticky;top:0;z-index:200;
+  backdrop-filter:blur(16px) saturate(1.2);
+  background:rgba(5,5,5,.88);
+  border-bottom:1px solid var(--bd);
+  padding:12px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.topbar-brand{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),#ff4d57);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:14px;color:#fff;box-shadow:0 0 24px var(--brand-glow);
+}
+.topbar-title{font-size:13px;font-weight:700;letter-spacing:-.02em}
+.topbar-title span{display:block;font-size:10px;font-weight:600;color:var(--mut);margin-top:2px}
+.topbar-links{display:flex;gap:8px;flex-wrap:wrap}
+.topbar-links a{
+  font-size:11px;font-weight:600;color:var(--mut);text-decoration:none;
+  padding:6px 12px;border-radius:999px;border:1px solid var(--bd);background:var(--glass);
+  transition:.15s;
+}
+.topbar-links a:hover{color:var(--txt);border-color:var(--brand);background:var(--brand-dim)}
+.layout{display:grid;grid-template-columns:220px 1fr;gap:28px;max-width:1280px;margin:0 auto;padding:24px}
+@media(max-width:960px){.layout{grid-template-columns:1fr;padding:16px}}
+.sidenav{
+  position:sticky;top:76px;align-self:start;
+  background:var(--surf);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:14px 10px;max-height:calc(100vh - 96px);overflow-y:auto;
+}
+@media(max-width:960px){.sidenav{display:none}}
+.sidenav-label{
+  font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mut);padding:4px 10px 10px;
+}
+.sidenav a{
+  display:block;font-size:12px;font-weight:500;color:var(--mut);text-decoration:none;
+  padding:7px 10px;border-radius:8px;margin:1px 0;transition:.12s;
+}
+.sidenav a:hover,.sidenav a.active{color:var(--txt);background:var(--glass)}
+.sidenav a.hl{color:#fca5a5;font-weight:600}
+.sidenav hr{border:none;border-top:1px solid var(--bd);margin:10px 0}
+.content{min-width:0}
+.hero{
+  position:relative;border-radius:var(--radius);padding:32px 28px 28px;margin-bottom:22px;
+  background:linear-gradient(135deg,rgba(229,9,21,.16) 0%,rgba(20,20,20,.95) 50%,var(--surf2) 100%);
+  border:1px solid var(--bd-strong);box-shadow:var(--shadow);overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;top:-40%;right:-8%;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,var(--brand-glow),transparent 70%);pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#fca5a5;margin-bottom:10px;
+}
+.hero-eyebrow::before{content:'';width:22px;height:3px;background:var(--brand);border-radius:2px}
+.hero h1{margin:0 0 10px;font-size:clamp(24px,3.5vw,34px);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.subtitle{color:var(--mut);font-size:13px;max-width:680px}
+.version-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.version-pills span{
+  font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;border:1px solid var(--bd);background:var(--glass);color:var(--mut);
+}
+.version-pills span.hot{border-color:rgba(229,9,21,.4);background:var(--brand-dim);color:#fecaca}
+.mobile-nav{display:none;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+@media(max-width:960px){.mobile-nav{display:flex}}
+.mobile-nav a{
+  font-size:10px;font-weight:600;color:var(--mut);text-decoration:none;
+  padding:5px 10px;border-radius:999px;border:1px solid var(--bd);background:var(--glass);
+}
+h2{
+  font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+  color:#fca5a5;margin:40px 0 14px;padding-bottom:8px;
+  border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;gap:10px;
+}
+h2::before{content:'';width:4px;height:16px;background:var(--brand);border-radius:2px}
+h3{font-size:16px;font-weight:700;margin:20px 0 10px;letter-spacing:-.02em}
+h4{font-size:13px;font-weight:700;margin:14px 0 6px}
+.section-card{
+  background:var(--surf);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:20px 22px;margin:14px 0;
+}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
 @media(max-width:600px){.kpis{grid-template-columns:1fr}}
-.kpi{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;text-align:center}
-.kpi .v{font-size:28px;font-weight:800;line-height:1.1}
-.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin-top:4px}
-.kpi.inv .v{color:var(--inv)}.kpi.bil .v{color:var(--up)}.kpi.exc .v{color:#be185d}
-.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 14px;font-size:13px;margin:12px 0}
-.note-warn{background:#fffbeb;border-color:#fde68a}
-.note-ok{background:#f0fdf4;border-color:#bbf7d0}
-.note-v4{background:#fef2f2;border-color:#fecaca}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
-@media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr}.wrap{padding:20px 14px}}
-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;background:#fff;border:1px solid var(--bd);border-radius:10px;overflow:hidden}
-th,td{padding:10px 12px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
-th{background:var(--surf);font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600}
+.kpi{
+  background:var(--glass);border:1px solid var(--bd);border-radius:14px;
+  padding:18px 16px;text-align:center;transition:.15s;
+}
+.kpi:hover{border-color:var(--bd-strong);transform:translateY(-1px)}
+.kpi .v{font-size:32px;font-weight:900;line-height:1;letter-spacing:-.03em}
+.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin-top:6px;font-weight:700}
+.kpi.inv .v{color:var(--inv)}.kpi.bil .v{color:var(--up)}.kpi.exc .v{color:#f472b6}
+.note{
+  border-radius:12px;padding:14px 16px;font-size:13px;margin:14px 0;
+  border:1px solid var(--bd);background:var(--glass);
+}
+.note-warn{border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
+.note-ok{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08)}
+.note-v4{border-color:rgba(229,9,21,.4);background:var(--brand-dim)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.table-wrap{overflow-x:auto;margin:12px 0;border-radius:12px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--surf2)}
+th,td{padding:11px 14px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+th{
+  background:rgba(255,255,255,.03);font-size:10px;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--mut);font-weight:700;white-space:nowrap;
+}
 tr:last-child td{border-bottom:none}
-.cli{font-weight:600;color:#111}
+tr:hover td{background:rgba(255,255,255,.02)}
+.cli{font-weight:600;color:var(--txt)}
 .sub{font-size:12px;color:var(--mut)}
-.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:9px;font-weight:700;text-transform:uppercase}
-.tag.ok{background:#dcfce7;color:var(--ok)}
-.tag.bad{background:#fee2e2;color:var(--late)}
-.tag.warn{background:#fef3c7;color:var(--up)}
-.tag.neu{background:#f1f5f9;color:var(--mut)}
-.tag.new{background:#ede9fe;color:var(--inv)}
-.tag.v4{background:#fee2e2;color:var(--v4)}
-.tag.dep{background:#f1f5f9;color:var(--mut);text-decoration:line-through}
-.flow-diagram{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:20px;margin:16px 0;font-size:13px;overflow-x:auto}
-.flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0}
-.flow-box{padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:#fff;font-size:12px;font-weight:600;white-space:nowrap}
-.flow-box.active{border-color:var(--ok);background:#f0fdf4;color:var(--ok)}
-.flow-box.gap{border-color:var(--up);background:#fffbeb;color:var(--up);border-style:dashed}
-.flow-box.branch{border-color:var(--accent);background:#eff6ff;color:var(--accent)}
-.flow-box.muted{opacity:.55;font-weight:500}
-.flow-box.hub{border-color:var(--v4);background:#fef2f2;color:var(--v4);border-width:2px}
+.tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+.tag.ok{background:rgba(34,197,94,.15);color:var(--ok)}
+.tag.bad{background:rgba(239,68,68,.15);color:#f87171}
+.tag.warn{background:rgba(251,191,36,.15);color:var(--up)}
+.tag.neu{background:var(--glass);color:var(--mut)}
+.tag.new{background:rgba(129,140,248,.15);color:var(--inv)}
+.tag.v4{background:var(--brand-dim);color:#fca5a5}
+.tag.dep{background:var(--glass);color:var(--mut);text-decoration:line-through;opacity:.7}
+.flow-diagram{
+  background:var(--glass);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:22px;margin:16px 0;font-size:13px;overflow-x:auto;
+}
+.flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0}
+.flow-box{
+  padding:9px 14px;border-radius:10px;border:1px solid var(--bd);
+  background:var(--surf2);font-size:12px;font-weight:600;white-space:nowrap;
+}
+.flow-box.active{border-color:rgba(34,197,94,.5);background:rgba(34,197,94,.1);color:var(--ok)}
+.flow-box.gap{border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.08);color:var(--up);border-style:dashed}
+.flow-box.branch{border-color:rgba(96,165,250,.5);background:rgba(96,165,250,.1);color:var(--accent)}
+.flow-box.muted{opacity:.5;font-weight:500}
+.flow-box.hub{border-color:var(--brand);background:var(--brand-dim);color:#fecaca;border-width:2px;box-shadow:0 0 20px var(--brand-glow)}
 .flow-arrow{color:var(--mut);font-size:16px}
-.layer-card{border:1px solid var(--bd);border-radius:12px;padding:14px 16px;background:#fff}
-.layer-card h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-.layer-card.legacy{border-top:3px solid var(--mut);opacity:.85}
-.layer-card.flow{border-top:3px solid var(--v4)}
-.layer-card p{margin:0;font-size:12px;color:var(--mut)}
-.stage{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:16px 18px;margin:12px 0}
+.stage{
+  background:var(--surf);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:18px 20px;margin:12px 0;
+}
 .stage-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px}
-.stage-head h3{margin:0;font-size:14px}
-.stage table{margin:8px 0 0;font-size:12px}
-.stage table th{font-size:9px}
-.mermaid-wrap{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:14px 0;overflow-x:auto}
-.action-list{margin:12px 0;padding:0;list-style:none}
-.action-list li{padding:12px 14px;border:1px solid var(--bd);border-radius:10px;margin-bottom:8px;font-size:13px;background:#fff}
-.action-list li strong{display:block;margin-bottom:4px;color:var(--txt)}
+.stage-head h3{margin:0;font-size:15px}
+.stage .table-wrap{margin:8px 0 0}
+.mermaid-wrap{
+  background:var(--glass);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:18px;margin:14px 0;overflow-x:auto;
+}
+.action-list{margin:12px 0;padding:0;list-style:none;counter-reset:action}
+.action-list li{
+  counter-increment:action;padding:14px 16px 14px 48px;border:1px solid var(--bd);
+  border-radius:12px;margin-bottom:10px;font-size:13px;background:var(--surf);position:relative;
+}
+.action-list li::before{
+  content:counter(action);position:absolute;left:14px;top:14px;
+  width:24px;height:24px;border-radius:8px;background:var(--brand-dim);
+  color:#fca5a5;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;
+}
+.action-list li strong{display:block;margin-bottom:4px;color:var(--txt);font-size:14px}
 .action-list li .who{font-size:11px;color:var(--mut);margin-top:6px}
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
 @media(max-width:700px){.compare{grid-template-columns:1fr}}
-.compare-card{border:1px solid var(--bd);border-radius:12px;padding:16px;background:#fff}
-.compare-card h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.compare-card{
+  border:1px solid var(--bd);border-radius:var(--radius);padding:18px;background:var(--surf);
+}
+.compare-card h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:800}
 .compare-card.hoje{border-top:3px solid var(--mut)}
-.compare-card.alvo{border-top:3px solid var(--v4)}
+.compare-card.alvo{border-top:3px solid var(--brand)}
 .compare-card.diag{border-top:3px solid var(--accent)}
 .compare-card.poc{border-top:3px solid var(--up)}
-.compare-card ul{margin:0;padding-left:18px;font-size:12px;color:var(--mut)}
-.compare-card li{margin:4px 0}
+.compare-card ul{margin:0;padding-left:18px;font-size:13px;color:var(--mut)}
+.compare-card li{margin:5px 0}
 .checklist{list-style:none;padding:0;margin:8px 0}
-.checklist li{padding:6px 0 6px 28px;position:relative;font-size:13px}
-.checklist li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border:2px solid var(--bd);border-radius:4px;background:#fff}
-.owner-lane{display:grid;grid-template-columns:120px 1fr;gap:0;margin:14px 0;border:1px solid var(--bd);border-radius:12px;overflow:hidden;font-size:12px}
-.owner-lane .lane{background:var(--surf);padding:12px 14px;font-weight:700;border-bottom:1px solid var(--bd);display:flex;align-items:center}
-.owner-lane .steps{padding:12px 14px;border-bottom:1px solid var(--bd);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.owner-lane .lane.farmer{color:var(--v4)}.owner-lane .lane.coord{color:var(--accent)}.owner-lane .lane.acc{color:var(--inv)}
-footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--bd);font-size:11px;color:var(--mut)}
+.checklist li{padding:8px 0 8px 30px;position:relative;font-size:13px}
+.checklist li::before{
+  content:'';position:absolute;left:0;top:10px;width:16px;height:16px;
+  border:2px solid var(--bd-strong);border-radius:5px;background:var(--glass);
+}
+.owner-lane{
+  display:grid;grid-template-columns:110px 1fr;gap:0;margin:14px 0;
+  border:1px solid var(--bd);border-radius:var(--radius);overflow:hidden;font-size:12px;
+}
+.owner-lane .lane{
+  background:rgba(255,255,255,.03);padding:12px 14px;font-weight:700;
+  border-bottom:1px solid var(--bd);display:flex;align-items:center;
+}
+.owner-lane .steps{
+  padding:12px 14px;border-bottom:1px solid var(--bd);
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+}
+.owner-lane .lane.farmer{color:#fca5a5}.owner-lane .lane.coord{color:var(--accent)}.owner-lane .lane.acc{color:var(--inv)}
+footer{
+  margin-top:48px;padding:20px 0;border-top:1px solid var(--bd);
+  font-size:12px;color:var(--mut);
+}
+footer a{color:#86efac;text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
 a{color:var(--accent)}
-ul{margin:6px 0;padding-left:18px}li{margin:4px 0;font-size:13px}
-blockquote{margin:16px 0;padding:14px 18px;border-left:4px solid var(--v4);background:var(--surf);border-radius:0 10px 10px 0;font-size:14px;color:var(--mut)}
+ul{margin:6px 0;padding-left:18px}li{margin:5px 0;font-size:13px}
+ol{margin:8px 0;padding-left:20px}ol li{margin:6px 0}
+blockquote{
+  margin:16px 0;padding:16px 20px;border-left:4px solid var(--brand);
+  background:var(--glass);border-radius:0 12px 12px 0;font-size:14px;color:var(--mut);
+}
 blockquote strong{color:var(--txt)}
-code{font-size:12px;background:var(--surf);padding:1px 6px;border-radius:4px;border:1px solid var(--bd)}
+code{
+  font-size:11px;font-family:ui-monospace,monospace;
+  background:rgba(255,255,255,.06);padding:2px 7px;border-radius:5px;
+  border:1px solid var(--bd);color:#e2e8f0;
+}
+#gaps-planilha + p + .note-warn + h3 + .table-wrap tr td:nth-child(3) .tag.bad,
+#gaps-planilha + p + .note-warn + h3 + .table-wrap .tag.bad{background:rgba(239,68,68,.12)}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <h1>Flow — Ajustes de Operação</h1>
-  <div class="subtitle">Nota interna · Farmer ABM · Jul/2026 · v3 — Flow como fonte única · call Marcelo / Rodrigo · 08/07</div>
-  <div class="nav">
-    <a href="#contexto">Contexto</a>
-    <a href="#visao">Visão única</a>
-    <a href="#proprietarios">Proprietários</a>
-    <a href="#funil">Funil</a>
-    <a href="#etapas">Etapas</a>
-    <a href="#oportunidade">Oportunidade</a>
-    <a href="#poc">POC</a>
-    <a href="#migracao">Migração</a>
-    <a href="#rituais">Rituais</a>
-    <a href="#kpis">KPIs</a>
-    <a href="#produto">Backlog Cockpit</a>
-    <a href="#acoes">Ações</a>
-    <a href="report-status-expansao-gerente-jul.html">Status expansão ↗</a>
+<header class="topbar">
+  <div class="topbar-brand">
+    <div class="brand-mark">V4</div>
+    <div class="topbar-title">Flow — Ajustes de Operação<span>Farmer ABM · Jul/2026</span></div>
+  </div>
+  <div class="topbar-links">
+    <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/" target="_blank">Pipe Diário</a>
+    <a href="status-expansao-gerente-jul.html">Status expansão</a>
   </div>
 </header>
+
+<div class="layout">
+<nav class="sidenav">
+  <div class="sidenav-label">Índice</div>
+  <a href="#contexto">1 · Contexto</a>
+  <a href="#visao">2 · Visão única</a>
+  <a href="#gaps-planilha" class="hl">2.1 · Gaps planilha</a>
+  <a href="#proprietarios">3 · Proprietários</a>
+  <a href="#funil">4 · Funil</a>
+  <a href="#etapas">5 · Etapas</a>
+  <a href="#poc">6 · POC</a>
+  <a href="#migracao">7 · Migração</a>
+  <a href="#rituais">8 · Rituais</a>
+  <a href="#kpis">9 · KPIs</a>
+  <a href="#produto">10 · Backlog</a>
+  <a href="#acoes">11 · Ações</a>
+  <hr>
+  <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/" target="_blank">↗ Pipe Diário</a>
+</nav>
+
+<main class="content">
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Nota interna · Produto Cockpit</div>
+    <h1>Flow como fonte única da expansão</h1>
+    <div class="subtitle">v3.1 — Flow único + gaps planilha · call Marcelo / Rodrigo · 08/07 · centralizar jornada de expansão e monetização no Cockpit, absorvendo safra e Ekyte expansão.</div>
+    <div class="version-pills">
+      <span class="hot">130 cards</span>
+      <span>3 squads</span>
+      <span>8 campos P0/P1</span>
+      <span>Jul/2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-nav">
+  <a href="#contexto">Contexto</a>
+  <a href="#gaps-planilha">Gaps</a>
+  <a href="#funil">Funil</a>
+  <a href="#produto">Backlog</a>
+  <a href="#acoes">Ações</a>
+</div>
 
 <div class="note note-v4">
   <strong>Tese da call:</strong> hoje o Flow é praticamente uma <em>cópia</em> do que acontece no Ekyte — visão duplicada, duas ferramentas, autorização em uma e não na outra.
@@ -184,7 +361,7 @@ code{font-size:12px;background:var(--surf);padding:1px 6px;border-radius:4px;bor
 </div>
 
 <h3>O que migra para dentro do Flow</h3>
-<table>
+<div class="table-wrap"><table>
   <tr><th>Hoje em…</th><th>Função</th><th>No Flow (alvo)</th></tr>
   <tr>
     <td class="cli">Ekyte</td>
@@ -231,12 +408,99 @@ code{font-size:12px;background:var(--surf);padding:1px 6px;border-radius:4px;bor
     <td>Desfecho (fechado / drop)</td>
     <td><code>finalizado</code> / <code>drop</code> · motivo registrado no card</td>
   </tr>
-</table>
+</table></div>
 
 <div class="note note-ok">
   <strong>Regra:</strong> se não está no Flow, a jornada de expansão <em>não existe</em> para fins de meta, weekly e pipe diário.
   O Ekyte continua para <strong>entrega de projeto</strong> (tickets, tarefas de operação) — não para rastrear o pipe comercial.
 </div>
+
+<!-- ═══ 2.1 · GAPS PLANILHA ═══ -->
+<h2 id="gaps-planilha">2.1 · Planilha safra — campos que usamos e o Flow ainda não cobre</h2>
+
+<p class="sub">Recorte: <strong>planilha CRM Base Ativa</strong> (safra jul/26) — só o que entra no pipe diário, meta Rome, conversão e report mensal. Não lista colunas da planilha que não operamos.</p>
+
+<div class="note note-warn">
+  <strong>Por que isso importa:</strong> hoje o pipe cruza Flow × planilha porque o card não traz status comercial, temperatura, obs. do coord nem fechamento por categoria.
+  Enquanto esses campos não existirem no Flow, a planilha continua obrigatória — mesmo com etapa <code>oportunidade</code> no funil.
+</div>
+
+<h3>Campos em falta ou incompletos</h3>
+<div class="table-wrap"><table>
+  <tr><th>Planilha</th><th>Como usamos</th><th>Flow hoje</th><th>Deveria ter no card</th><th>P</th></tr>
+  <tr>
+    <td class="cli">Data opp <span class="sub">(MM/AAAA)</span></td>
+    <td>Cohort da safra · opps ativas do mês · carry-over</td>
+    <td><code>competencia</code> existe, mas a maioria dos cards está <em>null</em></td>
+    <td><code>competencia</code> obrigatório ao promover → Oportunidade</td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Status comercial</td>
+    <td>Agendar Reunião · Em Follow · Aceito · Reunião Agendada · Fechado · Drop — pipe diário col. «Status planilha»</td>
+    <td>Só <code>etapa</code> (funil técnico) — gera desalinhamento visível (ex.: planilha Drop, Flow em Follow Up)</td>
+    <td><code>status_comercial</code> enum ou mapa etapa ↔ status na UI</td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Temperatura</td>
+    <td>Quente / Morno / Frio — priorização no pipe e ícone na conta</td>
+    <td><span class="tag bad">Ausente</span></td>
+    <td><code>temperatura</code> · enum Quente | Morno | Frio</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Obs. status lead <span class="sub">col. AO</span></td>
+    <td>Próximo passo do coord · bloco GChat · col. «Obs. status» no pipe</td>
+    <td><code>obs</code> genérico — mistura diagnóstico, histórico e status</td>
+    <td><code>obs_status_lead</code> — campo dedicado do coord (ou tipo em <code>obs</code>)</td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Data fechamento</td>
+    <td>Fechados do mês · conversão safra · meta Rome · desalinhamento planilha × Flow</td>
+    <td><span class="tag bad">Ausente</span> em <code>finalizado</code></td>
+    <td><code>data_fechamento</code> · preenchida ao fechar</td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Valor Executar / Saber / Ter</td>
+    <td>Cols 32–34 · ranking coord · meta EE · split R/S/T no fechamento</td>
+    <td><code>receitaBooking</code> + <code>receitaOnetime</code> + <code>step</code> — sem breakdown por categoria no fechamento</td>
+    <td><code>receita_executar</code> · <code>receita_saber</code> · <code>receita_ter</code> (ou breakdown no fechar)</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Motivo drop</td>
+    <td>Análise de perdas · EQV recovery · auditoria de desalinhamento</td>
+    <td><span class="tag bad">Ausente</span> em <code>drop</code></td>
+    <td><code>motivo_drop</code> · Budget | Timing | Interno | Outro</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Próximo passo <span class="sub">texto</span></td>
+    <td>Template weekly · round robin · pipe sem depender da planilha</td>
+    <td><code>proximoFollowup</code> só data — sem ação escrita</td>
+    <td><code>proximo_passo</code> + <code>data_alvo</code> (já no backlog §10)</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+</table></div>
+
+<h3>Já existe no Flow — não precisa duplicar da planilha</h3>
+<div class="table-wrap"><table>
+  <tr><th>Planilha</th><th>Campo Flow</th><th>Nota</th></tr>
+  <tr><td class="cli">Produto</td><td><code>produto</code></td><td>Alinhar nomenclatura com família V4</td></tr>
+  <tr><td class="cli">Farmer</td><td><code>farmer</code></td><td>—</td></tr>
+  <tr><td class="cli">Squad</td><td><code>gerencia</code></td><td>Invictus · Billions · Exclusive</td></tr>
+  <tr><td class="cli">Coordenação</td><td><code>coordenacao</code></td><td>Existe, mas muitos cards null — derivar de <code>projectTeam</code></td></tr>
+  <tr><td class="cli">Categoria R/S/T</td><td><code>step</code></td><td>Saber · Ter · Executar — estimativa, não fechamento</td></tr>
+  <tr><td class="cli">Valor estimado</td><td><code>receitaBooking</code> · <code>receitaOnetime</code></td><td>Substitui ticket na opp; fechamento real precisa do breakdown acima</td></tr>
+  <tr><td class="cli">Reunião</td><td><code>reuniaoData</code> · <code>reuniaoHorario</code></td><td>—</td></tr>
+  <tr><td class="cli">Link proposta</td><td><code>linkProposta</code></td><td>—</td></tr>
+  <tr><td class="cli">DRI / dono</td><td><code>driOportunidade</code></td><td>Parcial — evoluir para <code>proprietario_atual</code> por etapa (§3)</td></tr>
+</table></div>
+
+<p class="sub">Fonte do recorte: <code>parse_planilha</code> · pipe diário jul · <code>parse_vendidos_planilha</code> · modelo report oportunidades · col. AO = índice 40 no config.</p>
 
 <!-- ═══ 3 · PROPRIETÁRIOS ═══ -->
 <h2 id="proprietarios">3 · Etapas por proprietário — handoff horizontal</h2>
@@ -274,7 +538,7 @@ code{font-size:12px;background:var(--surf);padding:1px 6px;border-radius:4px;bor
 </div>
 
 <h3>Como funciona o handoff</h3>
-<table>
+<div class="table-wrap"><table>
   <tr><th>Momento</th><th>Ação no Flow</th><th>Resultado</th></tr>
   <tr>
     <td class="cli">Proprietário conclui etapa</td>
@@ -296,7 +560,7 @@ code{font-size:12px;background:var(--surf);padding:1px 6px;border-radius:4px;bor
     <td>Volta etapa com motivo (ex.: produto mudou)</td>
     <td>Proprietário anterior reassume</td>
   </tr>
-</table>
+</table></div>
 
 <div class="mermaid-wrap">
 <pre class="mermaid">
@@ -356,7 +620,7 @@ flowchart LR
 </div>
 
 <h3>Ordem das etapas + proprietário default</h3>
-<table>
+<div class="table-wrap"><table>
   <tr><th>#</th><th>Etapa Flow</th><th>Proprietário</th><th>Absorve do Ekyte / safra</th></tr>
   <tr><td>1</td><td><code>account_planning</code></td><td>Coordenador</td><td>AP expansão Ekyte</td></tr>
   <tr><td>2</td><td><code>diagnostico</code></td><td>ACC / Coord</td><td>Diagnóstico Ekyte</td></tr>
@@ -367,74 +631,74 @@ flowchart LR
   <tr><td>6</td><td><code>apresentacao_proposta</code></td><td><span class="tag v4">Farmer</span></td><td>Reunião Realizada Ekyte</td></tr>
   <tr><td>7</td><td><code>follow_up</code></td><td>Farmer / Coord</td><td>Follow UP Ekyte</td></tr>
   <tr><td>8</td><td><code>finalizado</code> / <code>drop</code></td><td>Farmer</td><td>Desfecho safra</td></tr>
-</table>
+</table></div>
 
 <!-- ═══ 5 · ETAPAS DETALHADAS ═══ -->
 <h2 id="etapas">5 · Etapa a etapa (no Flow)</h2>
 
 <div class="stage">
   <div class="stage-head"><h3>1 · Account Planning</h3><span class="tag neu">Proprietário: Coord</span></div>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Objetivo</th><td>Mapear potencial: stack, gap hipotético, tier, health</td></tr>
     <tr><th>Handoff →</th><td>Diagnóstico quando há hipótese de produto + evidência mínima</td></tr>
     <tr><th>Campos</th><td><code>produto</code>, <code>step</code>, <code>obs</code>, <code>proprietario_atual</code></td></tr>
     <tr><th>SLA</th><td>14 dias parado → weekly</td></tr>
-  </table>
+  </table></div>
 </div>
 
 <div class="stage">
   <div class="stage-head"><h3>2 · Diagnóstico</h3><span class="tag neu">Proprietário: ACC / Coord</span></div>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Objetivo</th><td>Validar gap — mapa de oportunidade, não deck comercial</td></tr>
     <tr><th>Handoff →</th><td>Oportunidade (gap validado) · POC (piloto real) · Drop</td></tr>
     <tr><th>Entregável</th><td>Registrado no card Flow — link call, check-in ou nota de diagnóstico</td></tr>
-  </table>
+  </table></div>
 </div>
 
 <div class="stage" id="oportunidade">
   <div class="stage-head"><h3>3 · Oportunidade</h3><span class="tag v4">Proprietário: Farmer</span></div>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Objetivo</th><td>Ataque comercial validado neste ciclo — <strong>substitui entrada na safra</strong></td></tr>
     <tr><th>Handoff →</th><td>Construção Proposta ou POC</td></tr>
     <tr><th>Campos</th><td><code>mes_safra</code>, <code>valor_estimado_booking</code>, <code>data_alvo_fechamento</code>, <code>motivo_oportunidade</code></td></tr>
     <tr><th>KPI</th><td>Conta para meta MRR a partir daqui</td></tr>
-  </table>
+  </table></div>
 
   <h4>Promover para Oportunidade (4 critérios)</h4>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Critério</th><th>Sim</th><th>Não</th></tr>
     <tr><td class="cli">Produto</td><td>Família e escopo fechados</td><td>Só «tem potencial»</td></tr>
     <tr><td class="cli">Diagnóstico</td><td>Gap validado com cliente ou evidência</td><td>Só hipótese do AP</td></tr>
     <tr><td class="cli">Intenção</td><td>Ataque alinhado no mês</td><td>Backlog sem prioridade</td></tr>
     <tr><td class="cli">Responsável</td><td>Próximo proprietário sabe que recebe o card</td><td>Card migrado sem dono</td></tr>
-  </table>
+  </table></div>
 </div>
 
 <div class="stage">
   <div class="stage-head"><h3>4a · Construção POC</h3><span class="tag warn">Proprietário: Executor</span></div>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Entrada</th><td>Só de Oportunidade + checklist POC</td></tr>
     <tr><th>Handoff →</th><td>Construção Proposta (piloto ok) ou Drop</td></tr>
-  </table>
+  </table></div>
 </div>
 
 <div class="stage">
   <div class="stage-head"><h3>4b · Construção Proposta</h3><span class="tag v4">Proprietário: Farmer</span></div>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Entregável</th><td>Service Card / deck · link no card Flow</td></tr>
     <tr><th>Handoff →</th><td>Reunião agendada</td></tr>
     <tr><th>SLA</th><td>7 dias sem data de apresentação → weekly</td></tr>
-  </table>
+  </table></div>
 </div>
 
 <div class="stage">
   <div class="stage-head"><h3>5–7 · Reunião → Apresentação → Follow Up → Fechado</h3></div>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Reunião agendada</th><td>Farmer + Coord · data no card Flow</td></tr>
     <tr><th>Apresentação</th><td>Farmer · registro pós-call no card</td></tr>
     <tr><th>Follow Up</th><td>Próximo passo + data + dono — <strong>no card Flow</strong>, não em comentário Ekyte</td></tr>
     <tr><th>Fechado / Drop</th><td>Farmer · booking ou motivo de drop</td></tr>
-  </table>
+  </table></div>
 </div>
 
 <!-- ═══ 6 · POC ═══ -->
@@ -469,7 +733,7 @@ flowchart LR
 <h2 id="migracao">7 · Migração — do modelo duplicado ao Flow único</h2>
 
 <h3>Fases da transição</h3>
-<table>
+<div class="table-wrap"><table>
   <tr><th>Fase</th><th>O quê</th><th>Quando</th></tr>
   <tr>
     <td class="cli">A · Agora</td>
@@ -490,16 +754,16 @@ flowchart LR
     <td class="cli">D · Desligar</td>
     <td>Parar sync QGI Ekyte→Flow · arquivar projeto Ekyte expansão · safra só no Flow</td>
     <td>Quando Flow &gt;90% adoção</td></tr>
-</table>
+</table></div>
 
 <h3>Mapa legado → Flow (referência de migração)</h3>
-<table>
+<div class="table-wrap"><table>
   <tr><th>Era Ekyte / safra</th><th>Vira no Flow</th><th>Sync QGI</th></tr>
   <tr><td class="cli">Task <code>[01][EXP]</code> + fases</td><td>Etapas + proprietário no card</td><td><span class="tag bad">Desligar</span></td></tr>
   <tr><td class="cli">Planilha safra jul</td><td><code>oportunidade</code> + <code>mes_safra</code></td><td>—</td></tr>
   <tr><td class="cli">Comentário «próximo passo» Ekyte</td><td>Campo <code>proximo_passo</code> no card</td><td><span class="tag bad">Desligar</span></td></tr>
   <tr><td class="cli">Pipe diário (match Flow↔Ekyte)</td><td>Pipe diário lê só Flow</td><td>Simplifica</td></tr>
-</table>
+</table></div>
 
 <div class="note note-warn">
   <strong>Interino:</strong> enquanto a migração não fecha, o sync QGI pode continuar — mas é <em>dívida</em>, não o desenho alvo.
@@ -543,7 +807,7 @@ sequenceDiagram
 <!-- ═══ 9 · KPIs ═══ -->
 <h2 id="kpis">9 · KPIs — só Flow</h2>
 
-<table>
+<div class="table-wrap"><table>
   <tr><th>KPI</th><th>Fonte</th><th>Notas</th></tr>
   <tr>
     <td class="cli">Opps ativas do mês</td>
@@ -570,7 +834,7 @@ sequenceDiagram
     <td>Checklist no card antes de <code>construcao_poc</code></td>
     <td>Meta 100%</td>
   </tr>
-</table>
+</table></div>
 <p class="sub"><span class="tag dep">Removido:</span> KPI «match Flow ↔ Ekyte» — deixa de fazer sentido quando Flow é fonte única.</p>
 
 <!-- ═══ 10 · BACKLOG ═══ -->
@@ -578,7 +842,7 @@ sequenceDiagram
 
 <p class="sub">Ref.: <code>[05][ENG] Flow Cockpit Saber — Expansão e oportunidade</code> · Rodrigo / Tech AI</p>
 
-<table>
+<div class="table-wrap"><table>
   <tr><th>Item</th><th>Detalhe</th><th>P</th></tr>
   <tr>
     <td class="cli">Jornada completa no Flow</td>
@@ -592,8 +856,23 @@ sequenceDiagram
   </tr>
   <tr>
     <td class="cli">Etapa Oportunidade</td>
-    <td><code>oportunidade</code> + <code>mes_safra</code> — substitui planilha</td>
+    <td><code>oportunidade</code> + <code>competencia</code> obrigatória — substitui planilha</td>
     <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Status comercial + obs. lead</td>
+    <td><code>status_comercial</code> + <code>obs_status_lead</code> — elimina col. AO da planilha</td>
+    <td><span class="tag bad">P0</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Fechamento estruturado</td>
+    <td><code>data_fechamento</code> + breakdown R/S/T + <code>motivo_drop</code></td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">Temperatura</td>
+    <td><code>temperatura</code> Quente/Morno/Frio — priorização no pipe</td>
+    <td><span class="tag warn">P1</span></td>
   </tr>
   <tr>
     <td class="cli">Handoff + notificação</td>
@@ -620,7 +899,7 @@ sequenceDiagram
     <td>Gate antes de aceitar etapa POC</td>
     <td><span class="tag neu">P2</span></td>
   </tr>
-</table>
+</table></div>
 
 <!-- ═══ 11 · AÇÕES ═══ -->
 <h2 id="acoes">11 · Ações</h2>
@@ -676,16 +955,31 @@ sequenceDiagram
 </ul>
 
 <footer>
-  Atualizado 08/07/2026 · v3 Flow único · Marcelo Figueiredo · Farmer ABM<br>
+  Atualizado 09/07/2026 · v3.1 visual dark · Marcelo Figueiredo · Farmer ABM<br>
   Fontes: call Marcelo/Rodrigo · Cockpit expansion cards ·
-  <a href="report-status-expansao-gerente-jul.html">Status expansão jul/26</a> ·
-  <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/#geral" target="_blank">Pipe Diário ↗</a>
+  <a href="status-expansao-gerente-jul.html">Status expansão jul/26</a> ·
+  <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/" target="_blank">Pipe Diário ↗</a>
 </footer>
 
+</main>
 </div>
+
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: { primaryColor: '#1a1a1a', primaryTextColor: '#fafafa', lineColor: '#666', secondaryColor: '#141414' },
+    securityLevel: 'loose'
+  });
+  const links = document.querySelectorAll('.sidenav a[href^="#"]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('h2[id]').forEach(h => obs.observe(h));
 </script>
 </body>
 </html>
