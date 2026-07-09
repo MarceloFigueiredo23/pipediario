@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ação das Plaquinhas — Visão Executiva | Farmer V4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --v4-black: #0a0a0a;
+      --v4-surface: #111318;
+      --v4-card: #181b22;
+      --v4-border: rgba(255,255,255,0.08);
+      --v4-red: #e31c23;
+      --v4-red-soft: rgba(227,28,35,0.15);
+      --text: #f4f4f5;
+      --muted: #9ca3af;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --gold: #d4a853;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: var(--v4-black);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      padding: 0.85rem 2rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--v4-border);
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--v4-red);
+      display: grid; place-items: center;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 0.75rem; color: #fff;
+    }
+    .brand h1 { font-family: Outfit, sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+    .brand p { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .meta-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 0.35rem 0.75rem; border-radius: 999px;
+      border: 1px solid var(--v4-border); color: var(--muted);
+    }
+    .pill.accent { border-color: var(--v4-red); color: var(--v4-red); background: var(--v4-red-soft); }
+    .pill.gold { border-color: var(--gold); color: var(--gold); background: rgba(212,168,83,0.12); }
+    main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .hero {
+      margin-bottom: 2rem;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--v4-card) 0%, #1a1210 55%, #1a0f10 100%);
+      border: 1px solid var(--v4-border);
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -60px; top: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,83,0.2) 0%, transparent 70%);
+    }
+    .hero h2 {
+      font-family: Outfit, sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      max-width: 800px; position: relative; z-index: 1;
+    }
+    .hero h2 em { color: var(--gold); font-style: normal; }
+    .hero .lead {
+      margin-top: 1rem; max-width: 720px; color: var(--muted);
+      font-size: 1.05rem; position: relative; z-index: 1;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .kpi {
+      background: var(--v4-card);
+      border: 1px solid var(--v4-border);
+      border-radius: 14px;
+      padding: 1.25rem 1.35rem;
+    }
+    .kpi-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 600; }
+    .kpi-value {
+      font-family: Outfit, sans-serif;
+      font-size: 1.85rem; font-weight: 800;
+      margin: 0.35rem 0 0.15rem;
+      letter-spacing: -0.03em;
+    }
+    .kpi-sub { font-size: 0.8rem; color: var(--muted); }
+    .kpi-value.red { color: var(--v4-red); }
+    .kpi-value.green { color: var(--success); }
+    .kpi-value.gold { color: var(--gold); }
+    section { margin-bottom: 2.5rem; }
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-head h3 {
+      font-family: Outfit, sans-serif;
+      font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;
+    }
+    .section-head p { font-size: 0.88rem; color: var(--muted); max-width: 560px; }
+    .rule-box {
+      background: var(--v4-card);
+      border: 1px solid var(--v4-border);
+      border-left: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .rule-box h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--gold); }
+    .rule-box ul { padding-left: 1.2rem; color: var(--muted); font-size: 0.9rem; }
+    .rule-box li { margin-bottom: 0.35rem; }
+    .rule-box strong { color: var(--text); }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--v4-border);
+      background: var(--v4-card);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    thead { background: rgba(255,255,255,0.03); }
+    th {
+      text-align: left; padding: 0.85rem 1rem;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); font-weight: 600; white-space: nowrap;
+    }
+    td { padding: 0.9rem 1rem; border-top: 1px solid var(--v4-border); vertical-align: middle; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .client-name { font-weight: 600; }
+    .lt-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(59,130,246,0.12);
+      color: var(--info);
+    }
+    .plaque-preview {
+      display: inline-flex; flex-direction: column; align-items: center;
+      min-width: 140px;
+      padding: 0.55rem 0.75rem;
+      border-radius: 8px;
+      background: linear-gradient(145deg, #1e1e24, #141418);
+      border: 1px solid rgba(212,168,83,0.35);
+      text-align: center;
+    }
+    .plaque-preview .years {
+      font-family: Outfit, sans-serif;
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .plaque-preview .sub {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .status {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.78rem; font-weight: 600;
+      padding: 0.25rem 0.6rem; border-radius: 999px;
+    }
+    .status.ok { background: rgba(34,197,94,0.12); color: var(--success); }
+    .status.warn { background: rgba(245,158,11,0.12); color: var(--warning); }
+    .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+    .card {
+      background: var(--v4-card);
+      border: 1px solid var(--v4-border);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .card h4 { font-family: Outfit, sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .card p, .card li { font-size: 0.88rem; color: var(--muted); }
+    .card ul { padding-left: 1.1rem; margin-top: 0.5rem; }
+    .card li { margin-bottom: 0.4rem; }
+    .roas-bar {
+      margin: 0.75rem 0;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .roas-bar span {
+      display: block; height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--v4-red), var(--success));
+    }
+    .scenario {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--v4-border);
+      font-size: 0.88rem;
+    }
+    .scenario:last-child { border-bottom: none; }
+    .scenario strong { color: var(--text); }
+    .scenario .roas-val {
+      font-family: Outfit, sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--success);
+    }
+    .footnote {
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--v4-border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footnote strong { color: var(--text); }
+    @media (max-width: 640px) {
+      main { padding: 1rem; }
+      .topbar { padding: 0.75rem 1rem; }
+      th, td { padding: 0.65rem 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">V4</div>
+      <div>
+        <h1>Ação das Plaquinhas</h1>
+        <p>ABM · Reconhecimento de parceria · Base ativa</p>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="pill accent">46 clientes</span>
+      <span class="pill gold">Visão anual</span>
+      <span class="pill">Jul/2026</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h2>Plaquinhas comemorativas — <em>quem, quanto tempo e qual retorno</em></h2>
+      <p class="lead">
+        Clientes estratégicos validados para receber plaquinha de reconhecimento de parceria.
+        Texto da placa em <strong style="color:#fff">visão anual</strong> (1 ano, 2 anos, 3 anos) — não em meses.
+        Momento ideal para visita presencial + plano de ação comercial.
+      </p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Clientes na ação</div>
+        <div class="kpi-value">46</div>
+        <div class="kpi-sub">Contas estratégicas validadas</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Investimento</div>
+        <div class="kpi-value red">R$ 7.360</div>
+        <div class="kpi-sub">46 × R$ 160/unidade</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Conversão esperada</div>
+        <div class="kpi-value">20%</div>
+        <div class="kpi-sub">9 vendas mínimas</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">ROAS conservador</div>
+        <div class="kpi-value green">12,2×</div>
+        <div class="kpi-sub">9 × TER (R$ 90k) ÷ R$ 7,36k</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Prazo produção</div>
+        <div class="kpi-value gold">~20d</div>
+        <div class="kpi-sub">Após aprovação do pedido</div>
+      </div>
+    </div>
+
+    <div class="rule-box">
+      <h4>Regra do texto na plaquinha</h4>
+      <ul>
+        <li><strong>Elegibilidade:</strong> mínimo <strong>12 meses</strong> de parceria — abaixo disso, aguardar marco (ex.: IPO, BMB, PSM, Primeset fora deste lote).</li>
+        <li><strong>Visão anual</strong> — não usar meses (ex.: LT 17 → placa de <strong>1 ano</strong>, não “17 meses”).</li>
+        <li><strong>12 a 23 meses</strong> → <strong>1 ANO DE PARCERIA</strong></li>
+        <li><strong>24 a 35 meses</strong> → <strong>2 ANOS DE PARCERIA</strong></li>
+        <li><strong>36 a 47 meses</strong> → <strong>3 ANOS DE PARCERIA</strong></li>
+        <li><strong>48 meses ou mais</strong> → <strong>4 ANOS DE PARCERIA</strong> (e assim por diante a cada 12 meses)</li>
+        <li>Referência visual: plaquinha dourada V4 + logo do cliente + tempo de parceria.</li>
+      </ul>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h3>Carteira — LT e texto da placa</h3>
+          <p>Dados levantados em 09–22/jun/2026 no grupo AÇÃO DAS PLAQUINHAS · atualização jul/2026. LT = meses de parceria na V4.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="clientes-table">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Reg.</th>
+              <th>LT (meses)</th>
+              <th>Texto na plaquinha</th>
+              <th>Preview</th>
+              <th>Monetização em aberto</th>
+              <th>Ação sugerida na entrega</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h3>ROI esperado da ação</h3>
+          <p>ABM + visita presencial no momento da entrega da placa. Premissas validadas com o time de expansão.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Premissas</h4>
+          <ul>
+            <li><strong>Custo:</strong> R$ 160/placa · 46 unidades = <strong>R$ 7.360</strong></li>
+            <li><strong>Taxa de conversão mínima:</strong> 20% sobre as 46 contas → <strong>9 vendas</strong></li>
+            <li><strong>Ticket médio de referência:</strong>
+              EXECUTAR R$ 7k/mês · SABER R$ 15k · TER R$ 10k</li>
+            <li><strong>42 contas</strong> com proposta ou plano de ação + diagnóstico rodando</li>
+            <li><strong>4 contas sem monetização em aberto:</strong> Frahm, Compass, Emaster e Roma — priorizar mapeamento antes da visita</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Cenários de retorno</h4>
+          <div class="scenario">
+            <div>
+              <strong>Pessimista</strong><br />
+              <span style="color:var(--muted)">9 vendas TER (R$ 10k cada)</span>
+            </div>
+            <span class="roas-val">12,2×</span>
+          </div>
+          <div class="roas-bar"><span style="width:55%"></span></div>
+          <div class="scenario">
+            <div>
+              <strong>Base</strong><br />
+              <span style="color:var(--muted)">9 vendas — 4 EXECUTAR + 5 TER</span>
+            </div>
+            <span class="roas-val">10,6×</span>
+          </div>
+          <div class="roas-bar"><span style="width:47%"></span></div>
+          <div class="scenario">
+            <div>
+              <strong>Otimista</strong><br />
+              <span style="color:var(--muted)">11 vendas TER (R$ 10k cada)</span>
+            </div>
+            <span class="roas-val">14,9×</span>
+          </div>
+          <div class="roas-bar"><span style="width:47%"></span></div>
+          <p style="margin-top:1rem;font-size:0.82rem;">
+            ROAS calculado sobre receita do <strong>primeiro mês</strong> (EXECUTAR) ou booking (SABER/TER).
+            Qualquer venda cobre o investimento — <strong>toda venda gera ROAS positivo</strong>.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Receita potencial (cenário base)</h4>
+          <ul>
+            <li>10 conversões × ticket médio ponderado ~R$ 8,5k = <strong>~R$ 85.000</strong> de impacto imediato</li>
+            <li>Se 1 for EXECUTAR: <strong>+R$ 7k MRR recorrente</strong> além do booking</li>
+            <li>Payback do investimento: <strong>&lt; 1 mês</strong> com uma única venda EXECUTAR</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Valor além do ROAS</h4>
+          <ul>
+            <li>Retenção e reconhecimento (playbook ABM — plaquinha 12m é padrão)</li>
+            <li>Terreno emocional para Conversa de Transição e expansão</li>
+            <li>Account Planning estruturado na visita de entrega</li>
+            <li>Referência: Criativ Brindes (ação similar já realizada pelo squad)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="footnote">
+      <strong>Fonte:</strong> Grupo Google Chat “AÇÃO DAS PLAQUINHAS” (09–22/jun/2026) · Playbook ABM Cap. 8 (plaquinha 12m).
+      Atualizar monetização de Frahm, Compass, Emaster e Roma antes do pedido. Produção estimada em ~20 dias após aprovação.
+    </div>
+  </main>
+
+  <script>
+    const CLIENTES = [
+      { nome: "Diroma",           lt: 12, monetizacao: "ok",  acao: "Entregar placa + avançar proposta em andamento" },
+      { nome: "Frahm",            lt: 32, monetizacao: "nao", acao: "Mapear oportunidade antes da visita — sem proposta em aberto" },
+      { nome: "Geomat",           lt: 12, monetizacao: "ok",  acao: "Entregar placa + diagnóstico/plano de ação" },
+      { nome: "Ducce Bike",       lt: 17, monetizacao: "ok",  acao: "Placa 1 ano + reunião comercial agendada" },
+      { nome: "Samech",           lt: 36, monetizacao: "ok",  acao: "Placa 3 anos + expansão EXECUTAR" },
+      { nome: "Associação Alternativa", lt: 12, monetizacao: "ok", acao: "Entregar placa + proposta ativa" },
+      { nome: "Fiberwan",         lt: 15, monetizacao: "ok",  acao: "Placa 1 ano + follow comercial" },
+      { nome: "Moedense",         lt: 17, monetizacao: "ok",  acao: "Placa 1 ano + plano de ação" },
+      { nome: "Compass",          lt: 36, monetizacao: "nao", acao: "Mapear oportunidade — sem proposta em aberto" },
+      { nome: "Carflix",          lt: 12, monetizacao: "ok",  acao: "Entregar placa + proposta em andamento" },
+      { nome: "Eduzz",            lt: 12, monetizacao: "ok",  acao: "Entregar placa + diagnóstico rodando" },
+      { nome: "Avanti",           lt: 12, monetizacao: "ok",  acao: "Entregar placa + plano de ação" },
+      { nome: "Toque Especial",   lt: 12, monetizacao: "ok",  acao: "Entregar placa + proposta ativa" },
+      { nome: "Freeway",          lt: 12, monetizacao: "ok",  acao: "Entregar placa + deck/proposta em curso" },
+      { nome: "Beauty Labs",      lt: 38, monetizacao: "ok",  acao: "Placa 3 anos + card Flow SDR Ia — ativar task Ekyte" },
+      { nome: "U Smiling",        lt: 32, monetizacao: "ok",  acao: "Placa 2 anos + plano de ação CRM/Social Media" },
+      { nome: "Emaster Elevadores", lt: 26, monetizacao: "nao", acao: "Mapear oportunidade antes da visita — sem proposta em aberto" },
+      { nome: "TS Teck",          lt: 18, monetizacao: "ok",  acao: "Placa 1 ano + reativar proposta Power BI/SDR Ia" },
+      { nome: "IOA Maringá",      lt: 33, monetizacao: "ok",  acao: "Placa 2 anos + plano de ação Power BI" },
+      { nome: "Roma Empreendimentos", lt: 12, monetizacao: "nao", acao: "Mapear oportunidade — conta sem CRM de expansão" },
+      { nome: "Grupo Colina",       lt: 36, monetizacao: "ok",  acao: "Placa 3 anos + plano de ação" },
+      { nome: "Brechó Capricho À Toa", lt: 24, monetizacao: "ok", acao: "Placa 2 anos + follow comercial" },
+      { nome: "Oxxy Bike",          lt: 24, monetizacao: "ok",  acao: "Placa 2 anos + follow comercial" },
+      { nome: "Oxxy Moto",          lt: 12, monetizacao: "ok",  acao: "Placa 1 ano + follow comercial" },
+      { nome: "Franelis",           lt: 23, anos: 2, monetizacao: "ok",  acao: "Placa 2 anos + follow SDR IA (pitch jun/26)" },
+      { nome: "Iga",                lt: 24, anos: 2, monetizacao: "ok",  acao: "Placa 2 anos + plano de ação" },
+      { nome: "AmbientAir",         lt: 12, anos: 1, monetizacao: "ok",  acao: "Placa 1 ano + follow comercial" },
+      { nome: "Ecostorage",         lt: 17, anos: 1, monetizacao: "ok",  acao: "Placa 1 ano + Website/E-com em pipeline" },
+      { nome: "Mezzo",              lt: 12, anos: 1, monetizacao: "ok",  acao: "Placa 1 ano + follow comercial" },
+      { nome: "Portier",            lt: 13, anos: 1, monetizacao: "ok",  acao: "Placa 1 ano + plano de ação CRM/Social" },
+      { nome: "Axsis",              lt: 12, anos: 1, monetizacao: "ok",  acao: "Placa 1 ano + follow comercial" },
+      { nome: "Novo Milênio",       lt: 12, anos: 1, regiao: "BR", monetizacao: "ok",  acao: "Placa 1 ano + apresentar Website/E-com" },
+      // — Brasileiros (lote jul/2026) —
+      { nome: "Escola do Grêmio",   lt: 50, regiao: "BR", monetizacao: "ok", acao: "Placa 4 anos + plano de ação" },
+      { nome: "CBN&D",              lt: 36, regiao: "BR", monetizacao: "ok", acao: "Placa 3 anos — marco 26/07" },
+      { nome: "Grupo Boticário (Empreendedoras da Beleza)", lt: 31, regiao: "BR", monetizacao: "ok", acao: "Placa 2 anos + follow comercial" },
+      { nome: "Construtora Vilela", lt: 24, regiao: "BR", monetizacao: "ok", acao: "Placa 2 anos — marco 31/07" },
+      { nome: "WF Engenharia",      lt: 12, regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano — entregue fim jun/26" },
+      { nome: "Global Sonic",       lt: 18, regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "VLO Entretelas",     lt: 14, regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "Mold Systems",       lt: 16, regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "Simple Education",   lt: 28, regiao: "BR", monetizacao: "ok", acao: "Placa 2 anos + plano de ação" },
+      { nome: "VCA Music (2Fun)",   lt: 34, regiao: "BR", monetizacao: "ok", acao: "Placa 2 anos + follow comercial" },
+      { nome: "Malbork",            lt: 32, regiao: "BR", monetizacao: "ok", acao: "Placa 2 anos + plano de ação" },
+      { nome: "Terra Fértil",       lt: 12, regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano — marco 14/07" },
+      { nome: "IPO",                lt: 6,  regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "BMB",                lt: 6,  regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "PSM Company",        lt: 6,  regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "Primeset",           lt: 6,  regiao: "BR", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      // — Americanos (lote jul/2026) —
+      { nome: "Green Insulation (EUA)", lt: 14, regiao: "US", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" },
+      { nome: "MaidPad (USA)",      lt: 18, regiao: "US", monetizacao: "ok", acao: "Placa 1 ano + follow comercial" }
+    ];
+
+    function anosPlaquinha(c) {
+      if (c.anos != null) return c.anos;
+      return Math.max(1, Math.floor(c.lt / 12));
+    }
+
+    function textoPlaquinha(c) {
+      const n = anosPlaquinha(c);
+      return n === 1 ? "1 ANO DE PARCERIA" : `${n} ANOS DE PARCERIA`;
+    }
+
+    function previewHtml(nome, c) {
+      const n = anosPlaquinha(c);
+      const label = n === 1 ? "1 ANO" : `${n} ANOS`;
+      return `<div class="plaque-preview">
+        <span class="sub">V4 × ${nome.split(" ")[0].toUpperCase()}</span>
+        <span class="years">${label}</span>
+        <span class="sub">de parceria</span>
+      </div>`;
+    }
+
+    const tbody = document.querySelector("#clientes-table tbody");
+    CLIENTES.forEach(c => {
+      const tr = document.createElement("tr");
+      const mon = c.monetizacao === "ok"
+        ? '<span class="status ok">Proposta ou plano ativo</span>'
+        : '<span class="status warn">Sem oportunidade mapeada</span>';
+      tr.innerHTML = `
+        <td class="client-name">${c.nome}</td>
+        <td><span class="lt-badge" style="background:rgba(212,168,83,0.12);color:var(--gold)">${c.regiao || "BR"}</span></td>
+        <td><span class="lt-badge">${c.lt}m</span></td>
+        <td><strong style="color:var(--gold)">${textoPlaquinha(c)}</strong></td>
+        <td>${previewHtml(c.nome, c)}</td>
+        <td>${mon}</td>
+        <td style="color:var(--muted);font-size:0.84rem">${c.acao}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  </script>
+</body>
+</html>
