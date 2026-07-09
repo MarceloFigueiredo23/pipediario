@@ -552,7 +552,7 @@ code{
   </tr>
   <tr>
     <td class="cli">Card parado</td>
-    <td>SLA por etapa · dono visível no dashboard</td>
+    <td>SLA <strong>7 dias</strong> por etapa · dono visível no dashboard</td>
     <td>Weekly cobra o <strong>proprietário da etapa atual</strong>, não «quem tem task no Ekyte»</td>
   </tr>
   <tr>
@@ -620,48 +620,56 @@ flowchart LR
 </div>
 
 <h3>Ordem das etapas + proprietário default</h3>
+<p class="sub">SLA uniforme: <strong>7 dias</strong> em cada etapa — parado além disso entra no weekly e escala para o proprietário.</p>
 <div class="table-wrap"><table>
-  <tr><th>#</th><th>Etapa Flow</th><th>Proprietário</th><th>Absorve do Ekyte / safra</th></tr>
-  <tr><td>1</td><td><code>account_planning</code></td><td>Coordenador</td><td>AP expansão Ekyte</td></tr>
-  <tr><td>2</td><td><code>diagnostico</code></td><td>ACC / Coord</td><td>Diagnóstico Ekyte</td></tr>
-  <tr><td>3</td><td><code>oportunidade</code></td><td><span class="tag v4">Farmer</span></td><td>Safra · opp validada</td></tr>
-  <tr><td>4a</td><td><code>construcao_poc</code></td><td>Executor</td><td>Construção POC Ekyte</td></tr>
-  <tr><td>4b</td><td><code>construcao_proposta</code></td><td><span class="tag v4">Farmer</span></td><td>Construção proposta Ekyte</td></tr>
-  <tr><td>5</td><td><code>reuniao_agendada</code></td><td>Farmer + Coord</td><td>Reunião Marcada Ekyte</td></tr>
-  <tr><td>6</td><td><code>apresentacao_proposta</code></td><td><span class="tag v4">Farmer</span></td><td>Reunião Realizada Ekyte</td></tr>
-  <tr><td>7</td><td><code>follow_up</code></td><td>Farmer / Coord</td><td>Follow UP Ekyte</td></tr>
-  <tr><td>8</td><td><code>finalizado</code> / <code>drop</code></td><td>Farmer</td><td>Desfecho safra</td></tr>
+  <tr><th>#</th><th>Etapa Flow</th><th>Proprietário</th><th>SLA</th><th>Absorve do Ekyte / safra</th></tr>
+  <tr><td>1</td><td><code>account_planning</code></td><td>Coordenador</td><td><span class="tag warn">7d</span></td><td>AP expansão Ekyte</td></tr>
+  <tr><td>2</td><td><code>diagnostico</code></td><td>ACC / Coord</td><td><span class="tag warn">7d</span></td><td>Diagnóstico Ekyte</td></tr>
+  <tr><td>3</td><td><code>oportunidade</code></td><td><span class="tag v4">Farmer</span></td><td><span class="tag warn">7d</span></td><td>Safra · opp validada</td></tr>
+  <tr><td>4a</td><td><code>construcao_poc</code></td><td>Executor</td><td><span class="tag warn">7d</span></td><td>Construção POC Ekyte</td></tr>
+  <tr><td>4b</td><td><code>construcao_proposta</code></td><td><span class="tag v4">Farmer</span></td><td><span class="tag warn">7d</span></td><td>Construção proposta Ekyte</td></tr>
+  <tr><td>5</td><td><code>reuniao_agendada</code></td><td>Farmer + Coord</td><td><span class="tag warn">7d</span></td><td>Reunião Marcada Ekyte</td></tr>
+  <tr><td>6</td><td><code>apresentacao_proposta</code></td><td><span class="tag v4">Farmer</span></td><td><span class="tag warn">7d</span></td><td>Reunião Realizada Ekyte</td></tr>
+  <tr><td>7</td><td><code>follow_up</code></td><td>Farmer / Coord</td><td><span class="tag warn">7d</span></td><td>Follow UP Ekyte</td></tr>
+  <tr><td>8</td><td><code>finalizado</code> / <code>drop</code></td><td>Farmer</td><td><span class="tag neu">—</span></td><td>Desfecho safra</td></tr>
 </table></div>
 
 <!-- ═══ 5 · ETAPAS DETALHADAS ═══ -->
 <h2 id="etapas">5 · Etapa a etapa (no Flow)</h2>
 
+<div class="note note-warn">
+  <strong>SLA uniforme:</strong> cada etapa ativa tem <strong>7 dias</strong> para handoff ou avanço registrado.
+  Parado além de 7d → entra no weekly · proprietário da etapa responde na hora.
+</div>
+
 <div class="stage">
-  <div class="stage-head"><h3>1 · Account Planning</h3><span class="tag neu">Proprietário: Coord</span></div>
+  <div class="stage-head"><h3>1 · Account Planning</h3><span class="tag neu">Proprietário: Coord</span><span class="tag warn">SLA 7d</span></div>
   <div class="table-wrap"><table>
     <tr><th>Objetivo</th><td>Mapear potencial: stack, gap hipotético, tier, health</td></tr>
     <tr><th>Handoff →</th><td>Diagnóstico quando há hipótese de produto + evidência mínima</td></tr>
     <tr><th>Campos</th><td><code>produto</code>, <code>step</code>, <code>obs</code>, <code>proprietario_atual</code></td></tr>
-    <tr><th>SLA</th><td>14 dias parado → weekly</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
   </table></div>
 </div>
 
 <div class="stage">
-  <div class="stage-head"><h3>2 · Diagnóstico</h3><span class="tag neu">Proprietário: ACC / Coord</span></div>
+  <div class="stage-head"><h3>2 · Diagnóstico</h3><span class="tag neu">Proprietário: ACC / Coord</span><span class="tag warn">SLA 7d</span></div>
   <div class="table-wrap"><table>
     <tr><th>Objetivo</th><td>Validar gap — mapa de oportunidade, não deck comercial</td></tr>
     <tr><th>Handoff →</th><td>Oportunidade (gap validado) · POC (piloto real) · Drop</td></tr>
     <tr><th>Entregável</th><td>Registrado no card Flow — link call, check-in ou nota de diagnóstico</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
   </table></div>
 </div>
 
 <div class="stage" id="oportunidade">
-  <div class="stage-head"><h3>3 · Oportunidade</h3><span class="tag v4">Proprietário: Farmer</span></div>
+  <div class="stage-head"><h3>3 · Oportunidade</h3><span class="tag v4">Proprietário: Farmer</span><span class="tag warn">SLA 7d</span></div>
   <div class="table-wrap"><table>
     <tr><th>Objetivo</th><td>Ataque comercial validado neste ciclo — <strong>substitui entrada na safra</strong></td></tr>
     <tr><th>Handoff →</th><td>Construção Proposta ou POC</td></tr>
     <tr><th>Campos</th><td><code>mes_safra</code>, <code>valor_estimado_booking</code>, <code>data_alvo_fechamento</code>, <code>motivo_oportunidade</code></td></tr>
     <tr><th>KPI</th><td>Conta para meta MRR a partir daqui</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
   </table></div>
 
   <h4>Promover para Oportunidade (4 critérios)</h4>
@@ -675,29 +683,56 @@ flowchart LR
 </div>
 
 <div class="stage">
-  <div class="stage-head"><h3>4a · Construção POC</h3><span class="tag warn">Proprietário: Executor</span></div>
+  <div class="stage-head"><h3>4a · Construção POC</h3><span class="tag warn">Proprietário: Executor</span><span class="tag warn">SLA 7d</span></div>
   <div class="table-wrap"><table>
     <tr><th>Entrada</th><td>Só de Oportunidade + checklist POC</td></tr>
     <tr><th>Handoff →</th><td>Construção Proposta (piloto ok) ou Drop</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
   </table></div>
 </div>
 
 <div class="stage">
-  <div class="stage-head"><h3>4b · Construção Proposta</h3><span class="tag v4">Proprietário: Farmer</span></div>
+  <div class="stage-head"><h3>4b · Construção Proposta</h3><span class="tag v4">Proprietário: Farmer</span><span class="tag warn">SLA 7d</span></div>
   <div class="table-wrap"><table>
     <tr><th>Entregável</th><td>Service Card / deck · link no card Flow</td></tr>
     <tr><th>Handoff →</th><td>Reunião agendada</td></tr>
-    <tr><th>SLA</th><td>7 dias sem data de apresentação → weekly</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
   </table></div>
 </div>
 
 <div class="stage">
-  <div class="stage-head"><h3>5–7 · Reunião → Apresentação → Follow Up → Fechado</h3></div>
+  <div class="stage-head"><h3>5 · Reunião agendada</h3><span class="tag neu">Proprietário: Farmer + Coord</span><span class="tag warn">SLA 7d</span></div>
   <div class="table-wrap"><table>
-    <tr><th>Reunião agendada</th><td>Farmer + Coord · data no card Flow</td></tr>
-    <tr><th>Apresentação</th><td>Farmer · registro pós-call no card</td></tr>
-    <tr><th>Follow Up</th><td>Próximo passo + data + dono — <strong>no card Flow</strong>, não em comentário Ekyte</td></tr>
-    <tr><th>Fechado / Drop</th><td>Farmer · booking ou motivo de drop</td></tr>
+    <tr><th>Objetivo</th><td>Data de apresentação confirmada no card Flow</td></tr>
+    <tr><th>Handoff →</th><td>Apresentação proposta (pós-call)</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
+  </table></div>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>6 · Apresentação proposta</h3><span class="tag v4">Proprietário: Farmer</span><span class="tag warn">SLA 7d</span></div>
+  <div class="table-wrap"><table>
+    <tr><th>Objetivo</th><td>Registro pós-call no card — objeções, interesse, próximo passo</td></tr>
+    <tr><th>Handoff →</th><td>Follow Up ou Fechado</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
+  </table></div>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>7 · Follow Up</h3><span class="tag neu">Proprietário: Farmer / Coord</span><span class="tag warn">SLA 7d</span></div>
+  <div class="table-wrap"><table>
+    <tr><th>Objetivo</th><td>Próximo passo + data + dono — <strong>no card Flow</strong>, não em comentário Ekyte</td></tr>
+    <tr><th>Handoff →</th><td>Fechado ou Drop (com motivo)</td></tr>
+    <tr><th>SLA</th><td><strong>7 dias</strong> parado → weekly</td></tr>
+  </table></div>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><h3>8 · Fechado / Drop</h3><span class="tag v4">Proprietário: Farmer</span></div>
+  <div class="table-wrap"><table>
+    <tr><th>Fechado</th><td>Booking registrado · <code>data_fechamento</code> · breakdown R/S/T</td></tr>
+    <tr><th>Drop</th><td><code>motivo_drop</code> obrigatório · card encerrado</td></tr>
+    <tr><th>SLA</th><td>Etapa terminal — sem prazo</td></tr>
   </table></div>
 </div>
 
@@ -796,7 +831,7 @@ sequenceDiagram
   <li>Quem é o <strong>proprietário atual</strong>?</li>
   <li>Próximo passo + data registrados no card?</li>
   <li>Proposta / reunião / follow — status?</li>
-  <li>Parado além do SLA? Quem escala?</li>
+  <li>Parado além de <strong>7 dias</strong> na etapa? Quem escala?</li>
 </ol>
 
 <blockquote style="margin:12px 0">
@@ -821,8 +856,8 @@ sequenceDiagram
   </tr>
   <tr>
     <td class="cli">Cards parados</td>
-    <td><code>etapaEnteredAt</code> + SLA por etapa</td>
-    <td>Cobra proprietário atual</td>
+    <td><code>etapaEnteredAt</code> + SLA <strong>7d</strong> por etapa</td>
+    <td>Cobra proprietário atual · entra no weekly após 7d</td>
   </tr>
   <tr>
     <td class="cli">Tempo por etapa</td>
@@ -872,6 +907,11 @@ sequenceDiagram
   <tr>
     <td class="cli">Temperatura</td>
     <td><code>temperatura</code> Quente/Morno/Frio — priorização no pipe</td>
+    <td><span class="tag warn">P1</span></td>
+  </tr>
+  <tr>
+    <td class="cli">SLA 7d por etapa</td>
+    <td>Alerta automático quando <code>etapaEnteredAt</code> &gt; 7 dias · fila no weekly</td>
     <td><span class="tag warn">P1</span></td>
   </tr>
   <tr>
@@ -955,7 +995,7 @@ sequenceDiagram
 </ul>
 
 <footer>
-  Atualizado 09/07/2026 · v3.1 visual dark · Marcelo Figueiredo · Farmer ABM<br>
+  Atualizado 09/07/2026 · v3.2 SLA 7d uniforme · Marcelo Figueiredo · Farmer ABM<br>
   Fontes: call Marcelo/Rodrigo · Cockpit expansion cards ·
   <a href="status-expansao-gerente-jul.html">Status expansão jul/26</a> ·
   <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/" target="_blank">Pipe Diário ↗</a>
