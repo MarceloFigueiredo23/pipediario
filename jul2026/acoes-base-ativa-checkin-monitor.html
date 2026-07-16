@@ -148,12 +148,18 @@ a{color:var(--info)}
     <!-- 1 -->
     <h2 id="resumo">1 · Em uma frase</h2>
     <div class="section-card">
-      <p>Rodamos a base com <strong>ritmo fixo</strong> (AP + Daily + Weekly + Pipe Diário cruzando Flow, Ekyte e planilha) e, desde junho, o <strong>Check-in Monitor</strong>. Nos 3 meses fechados: <strong>68 oportunidades</strong>, <strong>19 vendas</strong>, <strong>R$ 26k MRR</strong> e <strong>R$ 304k TCV</strong>.</p>
+      <p>Rodamos a base com <strong>ritmo fixo</strong> (AP + Daily + Weekly + Pipe Diário cruzando Flow, Ekyte e planilha) e, desde junho, o <strong>Check-in Monitor</strong>. Nos 3 meses fechados: <strong>68 oportunidades</strong>, <strong>19 vendas</strong> (SABER + TER + EXECUTAR), <strong>R$ 26k MRR</strong> e <strong>R$ 304k TCV</strong>.</p>
       <div class="kpis">
         <div class="kpi"><strong>68</strong><span>Oportunidades abertas<br>(abr+mai+jun)</span></div>
         <div class="kpi hl"><strong>19</strong><span>Vendas / assinaturas<br>(contratos fechados)</span></div>
         <div class="kpi"><strong>R$ 26k</strong><span>Fee mensal novo (MRR)<br>somado nos 3 meses</span></div>
         <div class="kpi"><strong>R$ 304k</strong><span>Valor total contratos (TCV)<br>somado nos 3 meses</span></div>
+      </div>
+      <div class="kpis" style="margin-top:0">
+        <div class="kpi"><strong>2</strong><span>SABER<br>(só diagnóstico)</span></div>
+        <div class="kpi"><strong>7</strong><span>TER<br>(só implementação)</span></div>
+        <div class="kpi"><strong>5</strong><span>EXECUTAR<br>(só recorrente)</span></div>
+        <div class="kpi"><strong>5</strong><span>Misto<br>(TER + EXECUTAR)</span></div>
       </div>
       <div class="note warn">
         <strong>Julho não está neste quadro.</strong> O mês ainda não fechou — reportar agora misturaria resultado parcial com mês completo. Julho aparece só nos cases do monitor (ações em curso).
@@ -561,6 +567,110 @@ a{color:var(--info)}
           </tbody>
         </table>
       </div>
+
+      <p style="margin-top:18px"><strong>Por categoria</strong> — SABER / TER / EXECUTAR (colunas da planilha; 1 assinatura pode misturar TER+EXECUTAR):</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th class="num">Só essa</th>
+              <th class="num">Em deals mistos</th>
+              <th class="num">Valor (coluna)</th>
+              <th>O que é</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SABER</strong></td>
+              <td class="num">2</td>
+              <td class="num">0</td>
+              <td class="num">R$ 16.230</td>
+              <td>Diagnóstico pontual (U Smiling · PG Química)</td>
+            </tr>
+            <tr>
+              <td><strong>TER</strong></td>
+              <td class="num">7</td>
+              <td class="num">5</td>
+              <td class="num">R$ 62.084</td>
+              <td>Implementação pontual (Web, SDR IA, Video, Captação…)</td>
+            </tr>
+            <tr>
+              <td><strong>EXECUTAR</strong></td>
+              <td class="num">5</td>
+              <td class="num">5</td>
+              <td class="num">R$ 26.002 <span style="font-weight:500;color:var(--mut)">(MRR)</span></td>
+              <td>Fee recorrente / aumento de escopo</td>
+            </tr>
+            <tr class="total">
+              <td>Total deals</td>
+              <td class="num" colspan="2">19 = 2 SABER + 7 TER + 5 EXECUTAR + 5 misto TER+EXEC</td>
+              <td class="num">TCV R$ 303.778</td>
+              <td>Não é só EXECUTAR — TER puxa volume e onetime</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th class="num">Só SABER</th>
+              <th class="num">Só TER</th>
+              <th class="num">Só EXECUTAR</th>
+              <th class="num">Misto TER+EXEC</th>
+              <th class="num">Saber R$</th>
+              <th class="num">Ter R$</th>
+              <th class="num">Exec MRR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abril</strong></td>
+              <td class="num">0</td>
+              <td class="num">1</td>
+              <td class="num">2</td>
+              <td class="num">3</td>
+              <td class="num">—</td>
+              <td class="num">R$ 29.706</td>
+              <td class="num">R$ 13.144</td>
+            </tr>
+            <tr>
+              <td><strong>Maio</strong></td>
+              <td class="num">2</td>
+              <td class="num">1</td>
+              <td class="num">2</td>
+              <td class="num">1</td>
+              <td class="num">R$ 16.230</td>
+              <td class="num">R$ 7.463</td>
+              <td class="num">R$ 6.816</td>
+            </tr>
+            <tr>
+              <td><strong>Junho</strong></td>
+              <td class="num">0</td>
+              <td class="num">5</td>
+              <td class="num">1</td>
+              <td class="num">1</td>
+              <td class="num">—</td>
+              <td class="num">R$ 24.915</td>
+              <td class="num">R$ 6.042</td>
+            </tr>
+            <tr class="total">
+              <td>Total</td>
+              <td class="num">2</td>
+              <td class="num">7</td>
+              <td class="num">5</td>
+              <td class="num">5</td>
+              <td class="num">R$ 16.230</td>
+              <td class="num">R$ 62.084</td>
+              <td class="num">R$ 26.002</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:8px">Fonte: colunas <em>Saber</em> / <em>Ter</em> / <em>Executar</em> da planilha CRM (Farmer Marcelo · status Fechado · data assinatura abr–jun). Abril concentrado em EXECUTAR + pacotes mistos SDR; maio com os 2 SABER do trimestre; junho puxado por TER puro (5 de 7).</p>
     </div>
 
     <div class="month-grid">
@@ -569,26 +679,26 @@ a{color:var(--info)}
         <p class="line"><strong>22</strong> opps · <strong>6</strong> vendas</p>
         <p class="line">MRR <strong>R$ 13,1k</strong> · TCV <strong>R$ 158k</strong></p>
         <p class="line">36% das opps do mês fecharam · drop 55%</p>
-        <p class="line" style="margin-top:8px">Billions: 4 vendas / R$ 11k MRR · Invictus: 2 vendas</p>
+        <p class="line" style="margin-top:8px">Mix: 2 só EXEC · 1 só TER · 3 misto TER+EXEC · 0 SABER</p>
       </div>
       <div class="month-card">
         <h3>Maio — volume estável</h3>
         <p class="line"><strong>20</strong> opps · <strong>6</strong> vendas</p>
         <p class="line">MRR <strong>R$ 6,8k</strong> · TCV <strong>R$ 65k</strong></p>
         <p class="line">20% fechamento · 6 opps ficaram abertas (carry)</p>
-        <p class="line" style="margin-top:8px">Billions: 4 vendas · Invictus: 2 · Exclusive: 0</p>
+        <p class="line" style="margin-top:8px">Mix: 2 SABER · 2 só EXEC · 1 só TER · 1 misto</p>
       </div>
       <div class="month-card">
         <h3>Junho — mais ataque</h3>
         <p class="line"><strong>26</strong> opps · <strong>7</strong> vendas</p>
         <p class="line">MRR <strong>R$ 6,0k</strong> · TCV <strong>R$ 81k</strong></p>
         <p class="line">Mais volume de opp; % fechamento da safra caiu (15%), mas drop também caiu (31%) — sobrou pipe aberto (14)</p>
-        <p class="line" style="margin-top:8px">Invictus: 4 vendas / R$ 5k MRR · Billions: 3 / R$ 1k</p>
+        <p class="line" style="margin-top:8px">Mix: 5 só TER · 1 só EXEC · 1 misto · 0 SABER</p>
       </div>
     </div>
 
     <div class="note info">
-      <strong>Leitura gerencial:</strong> de abril para junho o ataque cresceu (22 → 26 opps) e as vendas se mantiveram (~6–7/mês). O MRR mês a mês caiu (R$ 13k → R$ 6k) — estamos fechando volume, mas com ticket recorrente menor / mais pontual (TER). Junho deixou 14 opps em aberto para converter no mês seguinte. Meta Rome jun era R$ 30k MRR → atingimos ~20%.
+      <strong>Leitura gerencial:</strong> não é venda só de EXECUTAR. Das 19 assinaturas: <strong>2 SABER</strong>, <strong>7 TER puro</strong>, <strong>5 EXECUTAR puro</strong> e <strong>5 mistos</strong> (TER+fee). Abril puxou MRR; maio trouxe os diagnósticos; junho foi o mês mais TER (5/7) — por isso o fee recorrente caiu (R$ 13k → R$ 6k) mesmo com mais volume de venda. Meta Rome jun era R$ 30k MRR → ~20%.
     </div>
 
     <div class="section-card">
