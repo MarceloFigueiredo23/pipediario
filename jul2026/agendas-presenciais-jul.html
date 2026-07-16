@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendas Presenciais — Jul/2026 | Farmer V4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --v4-black: #0a0a0a;
+      --v4-surface: #111318;
+      --v4-card: #181b22;
+      --v4-border: rgba(255,255,255,0.08);
+      --v4-red: #e31c23;
+      --v4-red-soft: rgba(227,28,35,0.15);
+      --text: #f4f4f5;
+      --muted: #9ca3af;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --gold: #d4a853;
+      --invictus: #e31c23;
+      --billions: #3b82f6;
+      --exclusive: #d4a853;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: var(--v4-black);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      padding: 0.85rem 2rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--v4-border);
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--v4-red);
+      display: grid; place-items: center;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 0.75rem; color: #fff;
+    }
+    .brand h1 { font-family: Outfit, sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+    .brand p { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .meta-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 0.35rem 0.75rem; border-radius: 999px;
+      border: 1px solid var(--v4-border); color: var(--muted);
+    }
+    .pill.accent { border-color: var(--v4-red); color: var(--v4-red); background: var(--v4-red-soft); }
+    main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .hero {
+      margin-bottom: 2rem;
+      padding: 2.25rem 2rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--v4-card) 0%, #1a1210 55%, #1a0f10 100%);
+      border: 1px solid var(--v4-border);
+      position: relative; overflow: hidden;
+      animation: fadeUp 0.55s ease both;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -50px; top: -50px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(227,28,35,0.22) 0%, transparent 70%);
+    }
+    .hero h2 {
+      font-family: Outfit, sans-serif;
+      font-size: clamp(1.7rem, 3.8vw, 2.35rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      max-width: 760px; position: relative; z-index: 1;
+    }
+    .hero h2 em { color: var(--v4-red); font-style: normal; }
+    .hero .lead {
+      margin-top: 0.85rem; max-width: 680px; color: var(--muted);
+      font-size: 1rem; position: relative; z-index: 1;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .kpi {
+      background: var(--v4-card);
+      border: 1px solid var(--v4-border);
+      border-radius: 14px;
+      padding: 1.1rem 1.2rem;
+      animation: fadeUp 0.55s ease both;
+    }
+    .kpi:nth-child(1) { animation-delay: 0.05s; }
+    .kpi:nth-child(2) { animation-delay: 0.1s; }
+    .kpi:nth-child(3) { animation-delay: 0.15s; }
+    .kpi:nth-child(4) { animation-delay: 0.2s; }
+    .kpi-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 600; }
+    .kpi-value {
+      font-family: Outfit, sans-serif;
+      font-size: 1.75rem; font-weight: 800;
+      margin: 0.3rem 0 0.1rem;
+      letter-spacing: -0.03em;
+    }
+    .kpi-sub { font-size: 0.78rem; color: var(--muted); }
+    .kpi-value.red { color: var(--v4-red); }
+    .kpi-value.blue { color: var(--billions); }
+    .kpi-value.gold { color: var(--exclusive); }
+    section { margin-bottom: 2.75rem; animation: fadeUp 0.6s ease both; }
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem;
+      margin-bottom: 1.15rem;
+    }
+    .section-head h3 {
+      font-family: Outfit, sans-serif;
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 0.55rem;
+    }
+    .squad-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      display: inline-block;
+    }
+    .squad-dot.invictus { background: var(--invictus); }
+    .squad-dot.billions { background: var(--billions); }
+    .squad-dot.exclusive { background: var(--exclusive); }
+    .section-head p { font-size: 0.86rem; color: var(--muted); max-width: 520px; }
+    .badge {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0.28rem 0.6rem; border-radius: 6px;
+      border: 1px solid var(--v4-border); color: var(--muted);
+    }
+    .badge.dated { border-color: rgba(34,197,94,0.4); color: var(--success); background: rgba(34,197,94,0.1); }
+    .badge.flag-only { border-color: rgba(245,158,11,0.4); color: var(--warning); background: rgba(245,158,11,0.1); }
+    .timeline {
+      display: flex; flex-direction: column; gap: 0.65rem;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+    .timeline::before {
+      content: ""; position: absolute; left: 4px; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(180deg, var(--v4-red), transparent);
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 1rem;
+      align-items: stretch;
+      position: relative;
+    }
+    .date-col {
+      font-family: Outfit, sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+      padding-top: 1.15rem;
+      color: var(--v4-red);
+      position: relative;
+    }
+    .date-col::before {
+      content: "";
+      position: absolute; left: -1.25rem; top: 1.35rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--v4-red);
+      box-shadow: 0 0 0 3px rgba(227,28,35,0.25);
+    }
+    .date-col small {
+      display: block; font-size: 0.68rem; font-weight: 600;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+    .card {
+      background: var(--v4-card);
+      border: 1px solid var(--v4-border);
+      border-radius: 14px;
+      padding: 1.05rem 1.2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: rgba(255,255,255,0.16); transform: translateY(-1px); }
+    .card-top {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .card h4 {
+      font-family: Outfit, sans-serif;
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
+    }
+    .card .meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 0.55rem;
+    }
+    .chip {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.22rem 0.55rem; border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--v4-border);
+      color: var(--muted);
+    }
+    .chip.flag-safe { color: var(--success); border-color: rgba(34,197,94,0.35); }
+    .chip.flag-care { color: var(--warning); border-color: rgba(245,158,11,0.35); }
+    .chip.flag-critical { color: #fb7185; border-color: rgba(251,113,133,0.35); }
+    .chip.flag-danger { color: var(--danger); border-color: rgba(239,68,68,0.4); }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+    .note {
+      margin-top: 0.85rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed var(--v4-border);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .note strong { color: var(--text); font-weight: 600; }
+    .sources {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--v4-border);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .sources a { color: #fca5a5; text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+    .filters {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .filters button {
+      font-family: inherit; font-size: 0.78rem; font-weight: 600;
+      padding: 0.45rem 0.9rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--v4-border);
+      background: transparent; color: var(--muted);
+      transition: all 0.15s;
+    }
+    .filters button:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .filters button.active {
+      background: var(--v4-red-soft);
+      border-color: var(--v4-red);
+      color: #fff;
+    }
+    .squad-block[hidden] { display: none; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 640px) {
+      main { padding: 1.25rem; }
+      .row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .date-col { padding-top: 0; padding-left: 1rem; }
+      .date-col::before { left: 0; top: 0.35rem; }
+      .timeline { padding-left: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">V4</div>
+      <div>
+        <h1>Agendas presenciais</h1>
+        <p>ROPRE / check-in · por cliente e squad</p>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="pill accent">Jul/2026</span>
+      <span class="pill">Atualizado 16/07</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h2>Todas as agendas <em>presenciais</em> mapeadas na carteira</h2>
+      <p class="lead">
+        Invictus com data na Strategy Review (colunas AC/AD).
+        Billions e Exclusive com flag <strong style="color:#f4f4f5;font-weight:600">Check-in Presencial</strong> no Cockpit — sem data de agenda na planilha equivalente.
+      </p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Total presencial</div>
+        <div class="kpi-value red" id="kpi-total">20</div>
+        <div class="kpi-sub">3 squads</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Invictus</div>
+        <div class="kpi-value red">6</div>
+        <div class="kpi-sub">com data de ROPRE</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Billions</div>
+        <div class="kpi-value blue">7</div>
+        <div class="kpi-sub">flag Cockpit</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Exclusive</div>
+        <div class="kpi-value gold">7</div>
+        <div class="kpi-sub">flag Cockpit</div>
+      </div>
+    </div>
+
+    <div class="filters" role="tablist" aria-label="Filtrar por squad">
+      <button type="button" class="active" data-filter="all">Todos</button>
+      <button type="button" data-filter="invictus">Invictus</button>
+      <button type="button" data-filter="billions">Billions</button>
+      <button type="button" data-filter="exclusive">Exclusive</button>
+    </div>
+
+    <!-- INVICTUS -->
+    <section class="squad-block" data-squad="invictus">
+      <div class="section-head">
+        <div>
+          <h3><span class="squad-dot invictus"></span> Invictus</h3>
+          <p>Strategy Review · AC Data do ROPRE · AD ROPRE Presencial</p>
+        </div>
+        <span class="badge dated">6 com data</span>
+      </div>
+      <div class="timeline">
+        <div class="row">
+          <div class="date-col">17/07<small>sex</small></div>
+          <div class="card">
+            <div class="card-top">
+              <h4>Sotobi Máquinas</h4>
+            </div>
+            <div class="meta">
+              <span class="chip">Thainá Gomes</span>
+              <span class="chip flag-danger">Danger</span>
+              <span class="chip">Fee R$ 6.000</span>
+              <span class="chip">LT 31</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="date-col">21/07<small>ter</small></div>
+          <div class="card">
+            <div class="card-top"><h4>Visoflex Portas e Portões</h4></div>
+            <div class="meta">
+              <span class="chip">Jefferson Vieira</span>
+              <span class="chip flag-care">Care</span>
+              <span class="chip">Fee R$ 11.800</span>
+              <span class="chip">LT 5</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="date-col">23/07<small>qui</small></div>
+          <div class="card">
+            <div class="card-top"><h4>Alumtech</h4></div>
+            <div class="meta">
+              <span class="chip">Jefferson Vieira</span>
+              <span class="chip flag-care">Care</span>
+              <span class="chip">Fee R$ 9.650</span>
+              <span class="chip">LT 14</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="date-col">23/07<small>qui</small></div>
+          <div class="card">
+            <div class="card-top"><h4>Dalpack</h4></div>
+            <div class="meta">
+              <span class="chip">Jefferson Vieira</span>
+              <span class="chip flag-care">Care</span>
+              <span class="chip">Fee R$ 5.500</span>
+              <span class="chip">LT 8</span>
+              <span class="chip flag-safe">ROPRE aprovado</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="date-col">23/07<small>qui</small></div>
+          <div class="card">
+            <div class="card-top"><h4>LF2</h4></div>
+            <div class="meta">
+              <span class="chip">Jefferson Vieira</span>
+              <span class="chip flag-care">Care</span>
+              <span class="chip">Fee R$ 10.750</span>
+              <span class="chip">LT 21</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="date-col">24/07<small>sex</small></div>
+          <div class="card">
+            <div class="card-top"><h4>PG Química</h4></div>
+            <div class="meta">
+              <span class="chip">Thainá Gomes</span>
+              <span class="chip flag-safe">Safe</span>
+              <span class="chip">Fee R$ 5.000</span>
+              <span class="chip">LT 24</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILLIONS -->
+    <section class="squad-block" data-squad="billions">
+      <div class="section-head">
+        <div>
+          <h3><span class="squad-dot billions"></span> Billions</h3>
+          <p>Cockpit · coluna Check-in Presencial = Sim (sem data de agenda na Strategy Review)</p>
+        </div>
+        <span class="badge flag-only">7 · flag modalidade</span>
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <h4>Alugtec</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 6.000</span>
+            <span class="chip">LT 9</span>
+            <span class="chip">Últ. check-in 02/07</span>
+          </div>
+          <p class="note" style="margin-top:0.65rem;padding:0.65rem 0.75rem"><strong>Plano:</strong> reunião presencial de realinhamento em 02/07 (já ocorreu).</p>
+        </div>
+        <div class="card">
+          <h4>DPV Química</h4>
+          <div class="meta">
+            <span class="chip flag-critical">Critical</span>
+            <span class="chip">Fee R$ 8.375</span>
+            <span class="chip">LT 13</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Espaço Zabeu</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 9.868</span>
+            <span class="chip">LT 4</span>
+            <span class="chip">ROPRE não realizada</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Couselo</h4>
+          <div class="meta">
+            <span class="chip flag-critical">Critical</span>
+            <span class="chip">Fee R$ 5.000</span>
+            <span class="chip">LT 6</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>WK Carpetes</h4>
+          <div class="meta">
+            <span class="chip flag-danger">Danger</span>
+            <span class="chip">Fee R$ 6.602</span>
+            <span class="chip">LT 3</span>
+            <span class="chip">Coord. check-in 07/07</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Ofos</h4>
+          <div class="meta">
+            <span class="chip flag-critical">Critical</span>
+            <span class="chip">Fee R$ 7.028</span>
+            <span class="chip">LT 3</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Fibranetbr</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 6.734</span>
+            <span class="chip">LT 2</span>
+          </div>
+        </div>
+      </div>
+      <div class="note">
+        <strong>Calendar (extra):</strong> Sameach — ROPRE Q2 Presencial em <strong>23/07 10h</strong> (HQ Campinas). Conta Billions; flag Check-in Presencial ainda vazia no Cockpit.
+      </div>
+    </section>
+
+    <!-- EXCLUSIVE -->
+    <section class="squad-block" data-squad="exclusive">
+      <div class="section-head">
+        <div>
+          <h3><span class="squad-dot exclusive"></span> Exclusive</h3>
+          <p>Cockpit · coluna Check-in Presencial = Sim</p>
+        </div>
+        <span class="badge flag-only">7 · flag modalidade</span>
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <h4>Carflix</h4>
+          <div class="meta">
+            <span class="chip flag-danger">Danger</span>
+            <span class="chip">Fee R$ 28.000</span>
+            <span class="chip">LT 13</span>
+            <span class="chip">ROPRE marcada</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Brilho Maquiagem</h4>
+          <div class="meta">
+            <span class="chip flag-critical">Critical</span>
+            <span class="chip">Fee R$ 25.275</span>
+            <span class="chip">LT 13</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Avanti</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 25.500</span>
+            <span class="chip">LT 15</span>
+            <span class="chip">ROPRE marcada</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Eduzz</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 53.000</span>
+            <span class="chip">LT 14</span>
+            <span class="chip">Últ. check-in 07/07</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Umbro</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 27.333</span>
+            <span class="chip">LT 2</span>
+            <span class="chip">ROPRE marcada</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>New Balance</h4>
+          <div class="meta">
+            <span class="chip flag-care">Care</span>
+            <span class="chip">Fee R$ 27.333</span>
+            <span class="chip">LT 2</span>
+            <span class="chip">ROPRE marcada</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Grupo Dass</h4>
+          <div class="meta">
+            <span class="chip flag-safe">Safe</span>
+            <span class="chip">Enterprise</span>
+            <span class="chip">LT 2</span>
+            <span class="chip">Coord. check-in 03/07</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sources">
+      Fontes ·
+      <a href="https://docs.google.com/spreadsheets/d/1MrUklD9tulNHsxWmAh3fcUUBlBdY-IHzSUuEPAz32YQ/edit?gid=1492181759" target="_blank" rel="noopener">Strategy Review Invictus (AC/AD)</a>
+      ·
+      <a href="https://flow.collieassociados.com/health-score/cockpit" target="_blank" rel="noopener">Cockpit Health Score</a>
+      · Google Calendar (Sameach)
+      <br />Arquivo local: <code style="color:#d4a853">_dashboards/agendas-presenciais-jul.html</code>
+    </div>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll(".filters button");
+    const blocks = document.querySelectorAll(".squad-block");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const f = btn.dataset.filter;
+        blocks.forEach((block) => {
+          block.hidden = f !== "all" && block.dataset.squad !== f;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
