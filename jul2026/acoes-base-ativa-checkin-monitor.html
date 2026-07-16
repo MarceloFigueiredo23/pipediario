@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ações Base Ativa + Check-in Monitor · Gerência · 16/07/2026</title>
+<link rel="canonical" href="https://marcelofigueiredo23.github.io/pipediario/jul2026/acoes-base-ativa-checkin-monitor.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#e50915;--brand-dim:rgba(229,9,21,.1);
+  --bg:#f5f5f4;--surf:#fff;--bd:#e5e5e5;
+  --txt:#171717;--mut:#525252;--mut2:#737373;
+  --ok:#16a34a;--warn:#d97706;--info:#2563eb;--chat:#0f172a;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.65 Inter,system-ui,sans-serif}
+.topbar{
+  position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--bd);
+  padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.topbar-brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:32px;height:32px;border-radius:8px;background:var(--brand);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff;
+}
+.topbar-title{font-size:14px;font-weight:700}
+.topbar-title span{display:block;font-size:11px;font-weight:500;color:var(--mut);margin-top:1px}
+.topbar-meta{font-size:12px;color:var(--mut);text-align:right}
+.topbar-meta strong{display:block;color:var(--txt);font-weight:600}
+.layout{display:grid;grid-template-columns:200px 1fr;gap:28px;max-width:1100px;margin:0 auto;padding:24px}
+@media(max-width:900px){.layout{grid-template-columns:1fr;padding:16px}.sidenav{display:none}}
+.sidenav{
+  position:sticky;top:72px;align-self:start;background:var(--surf);border:1px solid var(--bd);
+  border-radius:var(--radius);padding:12px 8px;max-height:calc(100vh - 88px);overflow-y:auto;
+}
+.sidenav-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);padding:4px 10px 8px}
+.sidenav a{display:block;font-size:12px;font-weight:500;color:var(--mut);text-decoration:none;padding:6px 10px;border-radius:6px;margin:1px 0}
+.sidenav a:hover{color:var(--txt);background:var(--bg)}
+.content{min-width:0}
+.doc-header{
+  background:var(--surf);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:28px 28px 24px;margin-bottom:20px;border-left:4px solid var(--brand);
+}
+.doc-header .eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.doc-header h1{margin:0 0 8px;font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-.03em;line-height:1.15}
+.doc-header .subtitle{color:var(--mut);font-size:14px;max-width:720px;margin:0}
+.doc-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;padding-top:16px;border-top:1px solid var(--bd);font-size:12px;color:var(--mut)}
+.doc-meta strong{color:var(--txt);font-weight:600;display:block;font-size:13px}
+h2{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--txt);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--brand)}
+h3{font-size:16px;font-weight:700;margin:0 0 8px;letter-spacing:-.02em}
+p{margin:0 0 10px}
+.section-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--radius);padding:18px 20px;margin:12px 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+@media(max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:14px;text-align:center}
+.kpi strong{display:block;font-size:22px;font-weight:800;line-height:1.1}
+.kpi span{font-size:11px;color:var(--mut);display:block;margin-top:4px}
+.kpi.hl{border-color:var(--brand);background:var(--brand-dim)}
+.table-wrap{overflow-x:auto;border:1px solid var(--bd);border-radius:10px;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}
+th{background:var(--bg);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.tag.ok{background:#dcfce7;color:#166534}
+.tag.warn{background:#fef3c7;color:#92400e}
+.tag.hot{background:#fee2e2;color:#991b1b}
+.tag.muted{background:#f5f5f5;color:#525252}
+.tag.info{background:#dbeafe;color:#1e40af}
+.note{padding:12px 14px;border-radius:8px;font-size:13px;margin:12px 0;line-height:1.5;border:1px solid var(--bd);background:var(--bg);color:var(--mut)}
+.note strong{color:var(--txt)}
+.note.info{border-color:#93c5fd;background:#eff6ff}
+.note.ok{border-color:#86efac;background:#f0fdf4}
+.copy-box{
+  background:#fafafa;border:1px solid var(--bd);border-radius:10px;
+  padding:16px 18px;margin:10px 0;font-size:13px;line-height:1.7;color:var(--txt);
+}
+.case-grid{display:grid;gap:16px;margin:12px 0}
+.case{
+  background:var(--surf);border:1px solid var(--bd);border-radius:var(--radius);
+  overflow:hidden;border-left:4px solid var(--brand);
+}
+.case-head{padding:16px 18px 12px;border-bottom:1px solid var(--bd)}
+.case-head .meta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;font-size:12px;color:var(--mut)}
+.case-head a{color:var(--info);font-weight:600;text-decoration:none}
+.case-head a:hover{text-decoration:underline}
+.case-body{padding:14px 18px 18px}
+.gchat-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut2);margin:0 0 8px}
+.gchat{
+  background:var(--chat);color:#e2e8f0;border-radius:10px;padding:14px 16px;
+  font-size:12.5px;line-height:1.55;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.gchat .hl{color:#fca5a5}
+.month-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+@media(max-width:800px){.month-grid{grid-template-columns:1fr}}
+.month-card{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
+.month-card h3{font-size:14px;margin-bottom:6px}
+.month-card p{font-size:13px;color:var(--mut);margin:0}
+.doc-footer{margin-top:40px;padding:16px 0;border-top:1px solid var(--bd);font-size:11px;color:var(--mut2);text-align:center}
+a{color:var(--info)}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <div class="brand-mark">V4</div>
+    <div class="topbar-title">Ações Base Ativa<span>Report gerência · Farmer ABM + Check-in Monitor</span></div>
+  </div>
+  <div class="topbar-meta">
+    <strong>Marcelo Figueiredo</strong>
+    16/07/2026
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidenav" aria-label="Índice">
+    <div class="sidenav-label">Índice</div>
+    <a href="#resumo">1. Resumo</a>
+    <a href="#maquina">2. Máquina de ações</a>
+    <a href="#trimestre">3. Últimos 3 meses</a>
+    <a href="#cases">4. Cases do monitor</a>
+    <a href="#mensagem">5. Mensagem pronta</a>
+  </nav>
+
+  <main class="content">
+
+    <header class="doc-header">
+      <p class="eyebrow">Report Gerência · Expansão</p>
+      <h1>O que estamos fazendo na base ativa</h1>
+      <p class="subtitle">Cadência Farmer (AP, Daily, Weekly, Pipe Diário) + Check-in Monitor — e 3 oportunidades capturadas em check-ins em que o Farmer não estava presente.</p>
+      <div class="doc-meta">
+        <div><strong>Responsável</strong>Marcelo Figueiredo</div>
+        <div><strong>Recorte</strong>Mai – Jul/2026</div>
+        <div><strong>Destinatário</strong>Gerência Expansão</div>
+        <div><strong>Canal monitor</strong>GChat expansão</div>
+      </div>
+    </header>
+
+    <h2 id="resumo">1 · Resumo executivo</h2>
+    <div class="section-card">
+      <p>Na base ativa roda uma <strong>máquina de cadência</strong> (Account Planning + Daily Monetização + Weeklys + Pipe Diário) e, desde 24/jun, o <strong>Check-in Monitor</strong>: lê a transcrição do check-in e dispara alerta no GChat só quando o cliente verbalizou/concordou com expansão fora do escopo.</p>
+      <div class="kpis">
+        <div class="kpi"><strong>61</strong><span>Account Planning (agenda)</span></div>
+        <div class="kpi"><strong>34</strong><span>Weeklys monetização</span></div>
+        <div class="kpi hl"><strong>7</strong><span>Assinaturas jun</span></div>
+        <div class="kpi"><strong>3</strong><span>Cases monitor (abaixo)</span></div>
+      </div>
+      <div class="note info">
+        <strong>Ponto para a gerência:</strong> mesmo sem o Farmer na call, o monitor captura intenção comercial e entrega um alerta enxuto no GChat — com evidência do cliente, produto sugerido e próxima ação. Os 3 cases abaixo são check-ins reais em que Marcelo não participou.
+      </div>
+    </div>
+
+    <h2 id="maquina">2 · Máquina de ações</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Ação</th><th>Ritmo</th><th>O que faz</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Account Planning</strong></td><td>Semanal + review</td><td>AP com coords (Invictus / Billions / Exclusive) + Review AP &amp; CRM</td><td><span class="tag ok">Ativo</span></td></tr>
+          <tr><td><strong>Daily Monetização</strong></td><td>Diário</td><td>Priorização de contas e follow do pipe</td><td><span class="tag ok">Ativo</span></td></tr>
+          <tr><td><strong>Weekly Expansão</strong></td><td>Semanal</td><td>Weekly Saber, Billions/coords, Single Revenue, Gerência</td><td><span class="tag ok">Ativo</span></td></tr>
+          <tr><td><strong>Pipe Diário</strong></td><td>~08:30</td><td>HTML único: Calendar + Ekyte + Flow + planilha</td><td><span class="tag ok">Ativo</span></td></tr>
+          <tr><td><strong>Check-in Monitor</strong></td><td>Loop 20 min</td><td>Transcrição → classifica → alerta GChat só se expansão vendável</td><td><span class="tag ok">Ativo desde 24/jun</span></td></tr>
+          <tr><td><strong>Plano MRR Rome</strong></td><td>Mensal</td><td>Meta vs realizado + 5W1H por conta</td><td><span class="tag ok">Ativo</span></td></tr>
+          <tr><td><strong>Flow Expansion</strong></td><td>Contínuo</td><td>163 cards · 63 em AP · 130 ativos</td><td><span class="tag ok">Ativo</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="trimestre">3 · Como foi nos últimos 3 meses</h2>
+    <div class="month-grid">
+      <div class="month-card">
+        <h3>Mai/26 — Setup</h3>
+        <p>Cadência AP + weeklys estabilizada com coords. ~19 APs · 14 weeklys · 11 Dailies na agenda.</p>
+      </div>
+      <div class="month-card">
+        <h3>Jun/26 — Safra + Flow</h3>
+        <p>25 opps · 7 assinaturas · conv. reunião→venda ~32% · MRR R$ 6k · 14 carry → jul. Monitor liga em 24–25/jun. Flow Invictus com 85 cards.</p>
+      </div>
+      <div class="month-card">
+        <h3>Jul/26 — Operação</h3>
+        <p>Pipe Diário jul live. Monitor em loop. Foco: converter pipe + sinais do monitor em proposta (ex. Manchester CRM).</p>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Jun fechado:</strong> Rome MRR ~20% da meta R$ 30k — conversão de reunião boa, volume de MRR ainda abaixo. TCV da safra forte (efeito TER/onetime).
+    </div>
+
+    <h2 id="cases">4 · Cases reais — Check-in Monitor (Farmer ausente)</h2>
+    <div class="section-card">
+      <p>Três check-ins em que o Farmer <strong>não estava na call</strong>. O monitor leu a gravação, classificou a intenção do cliente e disparou o alerta enxuto no GChat. Abaixo: link da gravação + mensagem exatamente como saiu no grupo.</p>
+    </div>
+
+    <div class="case-grid">
+
+      <!-- AXSIS -->
+      <article class="case" id="axsi">
+        <div class="case-head">
+          <h3>AXSIS Consultoria em Supply Chain <span class="tag hot">AXSI</span> <span class="tag ok">Expansão</span></h3>
+          <div class="meta">
+            <span>📅 26/06/2026 (qui) · 11:00</span>
+            <span>·</span>
+            <span>Produto: Mídia Paga</span>
+            <span>·</span>
+            <a href="https://drive.google.com/file/d/1EQ6jkwjDrTfffmtQAZwJXHMS7UHsKTv8/view" target="_blank" rel="noopener">Abrir gravação Drive ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p class="gchat-label">Alerta GChat — case real</p>
+          <pre class="gchat">🟠 [AXSI] Mídia Paga · EXPANSÃO
+cliente_verbalizou · gap_expansao
+
+📅 26/06/2026 (qui) · 11:00
+🏢 AXSIS Consultoria em Supply Chain
+👤 Leandro Meira
+
+📦 Escopo atual: Social/LinkedIn + CRM Kommo (TER) — não cobre módulo Mídia Paga
+Sinal: Cliente quer evoluir mídia paga e pediu ampliação de escopo + valores de investimento
+Evidência (cliente): "a gente precisa entender qual é a ampliação do escopo que a gente tem com a V4" / "mídia paga, a gente queria evoluir"
+Contexto: Funil Kommo contratado mas subutilizado; time alinha produtos ABC antes de campanhas
+Produto: EXECUTAR Mídia Paga · Diagnóstico Mídia Meta+Google
+Ação: preparar transição — Melissa apresentará custos
+Flow: sem card verificado
+Confiança: alta</pre>
+        </div>
+      </article>
+
+      <!-- MANCHESTER -->
+      <article class="case" id="mnch">
+        <div class="case-head">
+          <h3>Manchester Distribuidora <span class="tag hot">MNCH</span> <span class="tag ok">Expansão</span></h3>
+          <div class="meta">
+            <span>📅 15/07/2026 (qua) · 11:00</span>
+            <span>·</span>
+            <span>Produto: CRM</span>
+            <span>·</span>
+            <a href="https://drive.google.com/file/d/1TH2soRgwB-TMD0eOvVpfnCONPxFtabAS/view?usp=drive_web" target="_blank" rel="noopener">Abrir gravação Drive ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p class="gchat-label">Alerta GChat — case real</p>
+          <pre class="gchat">🔴 [MNCH] CRM / Funil · EXPANSÃO
+Cliente concordou · Fora do escopo — pode vender
+
+📅 15/07/2026 (qua) · 11:00
+🏢 Manchester Distribuidora
+👤 Breno Calixto
+
+📦 Escopo atual: EXECUTAR Mídia Paga (byline) — não cobre CRM
+Sinal: GT apresentou Kommo+Brevo/HubSpot; cliente aceita retomar CRM em ~2 semanas após capacitar time
+Evidência (cliente): "às vezes daqui umas duas semanas assim a gente volta a falar disso, de um CRM"
+Contexto: Robson pitchou stack; Breno postergou ~2 sem; pausaram tráfego por capacidade comercial
+Produto: Diagnóstico CRM Marketing Pro · TER CRM (Kommo+Brevo)
+Ação: preparar transição — nutrir CRM em ~2 semanas
+Flow: sem card
+Confiança: media</pre>
+        </div>
+      </article>
+
+      <!-- ALQU -->
+      <article class="case" id="alqu">
+        <div class="case-head">
+          <h3>ALQUIPHARMA / Alquilab Pharma <span class="tag hot">ALQU</span> <span class="tag warn">Sinal capturado</span></h3>
+          <div class="meta">
+            <span>📅 08/07/2026 (ter) · 18:00</span>
+            <span>·</span>
+            <span>Produto: Mídia / budget</span>
+            <span>·</span>
+            <a href="https://drive.google.com/file/d/13m6VX62JxIOf475GivxyApFuKcnEgKQW/view" target="_blank" rel="noopener">Abrir gravação Drive ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p class="gchat-label">Alerta GChat — case real (mensagem enviada)</p>
+          <pre class="gchat">🟡 [ALQU] Mídia Paga / Budget · EXPANSÃO
+Cliente concordou · Upsell / escala no contrato
+
+📅 08/07/2026 (ter) · 18:00
+🏢 ALQUIPHARMA / Alquilab Pharma
+👤 Bruno Yago Montenegro
+
+📦 Escopo atual: assessoria_byline (EXECUTAR) + Mídia Meta/Google — cobertura parcial (escala de verba)
+Sinal: Cliente autorizou aumento de orçamento de mídia após ROAS positivo no Q2
+Evidência (cliente): "Bruno Yago Montenegro autorizou o aumento do investimento mediante entrega de resultados"
+Contexto: GT questionou teto R$3k/mês; cliente deu OK para escalar campanhas
+Produto: EXECUTAR Mídia Paga
+Ação: nutrir — validar aumento de verba com coord
+Flow: sem card
+Confiança: alta</pre>
+          <div class="note" style="margin-top:12px;margin-bottom:0">
+            <strong>Governança do monitor:</strong> após revisão, a regra foi calibrada — escala de <em>verba de ads do cliente</em> (dentro do EXECUTAR) deixa de virar alerta GChat; só sobe oportunidade quando há produto/fee V4 fora do escopo. O case continua útil: o monitor pegou o sinal na hora, mesmo sem o Farmer na call.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <h2 id="mensagem">5 · Mensagem enxuta para o gerente</h2>
+    <div class="section-card">
+      <div class="copy-box">Estamos na base com cadência fixa: Account Planning semanal com os coords, Daily de Monetização, Weeklys de Expansão e Pipe Diário todo dia (Flow + Ekyte + agenda).
+
+Nos últimos 3 meses isso manteve ~20 APs/mês. Em jun: 7 assinaturas (conv. reunião→venda ~32%), MRR R$ 6k — abaixo da meta Rome, com 14 opps carry para jul.
+
+Desde 24/jun o Check-in Monitor lê as transcrições e só escala no GChat quando o cliente pede/aceita algo fora do escopo — mesmo sem o Farmer na call. Exemplos reais: AXSIS (mídia paga, 26/06), Alquilab (sinal de budget, 08/07) e Manchester CRM (15/07, alerta 16/07). Gravações e texto do alerta estão no report.</div>
+    </div>
+
+    <footer class="doc-footer">
+      Fontes: Google Calendar · Cockpit Expansion · Pipe Diário · Check-in Monitor (alerts + GChat spaces/AAQAql8AjBE) · Drive gravações · Corte 16/07/2026
+      <br>
+      <a href="https://marcelofigueiredo23.github.io/pipediario/jul2026/" target="_blank" rel="noopener">Pipe Diário jul ↗</a>
+      ·
+      <a href="./status-expansao-gerente-jul.html">Status Expansão Gerente ↗</a>
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>
