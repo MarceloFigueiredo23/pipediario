@@ -125,8 +125,8 @@ a{color:var(--info)}
   <nav class="sidenav" aria-label="Índice">
     <div class="sidenav-label">Índice</div>
     <a href="#resumo">1. Em uma frase</a>
-    <a href="#meses">2. Resultado por mês</a>
-    <a href="#maquina">3. O que fazemos todo dia</a>
+    <a href="#rotina">2. Ritmo e rotina</a>
+    <a href="#meses">3. Resultado por mês</a>
     <a href="#cases">4. Cases do monitor</a>
   </nav>
 
@@ -134,8 +134,8 @@ a{color:var(--info)}
 
     <header class="doc-header">
       <p class="eyebrow">Report Gerência · Expansão base ativa</p>
-      <h1>O que estamos fazendo — e quanto gerou</h1>
-      <p class="subtitle">Resultado comercial dos <strong>3 últimos meses já fechados</strong> (abril, maio e junho/2026). Julho ainda está em andamento e <strong>não entra</strong> nos números abaixo. No final: 3 oportunidades capturadas pelo Check-in Monitor em calls sem o Farmer.</p>
+      <h1>Como está a rotina na base — e o que gerou</h1>
+      <p class="subtitle">O foco deste report é o <strong>ritmo de trabalho</strong> (Flow, Ekyte, Pipe Diário, Account Planning, Weekly). Depois: números dos <strong>3 meses fechados</strong> (abr–jun) e cases do Check-in Monitor. Julho ainda aberto — fora do consolidado.</p>
       <div class="doc-meta">
         <div><strong>Responsável</strong>Marcelo Figueiredo</div>
         <div><strong>Meses fechados</strong>Abr + Mai + Jun/2026</div>
@@ -147,7 +147,7 @@ a{color:var(--info)}
     <!-- 1 -->
     <h2 id="resumo">1 · Em uma frase</h2>
     <div class="section-card">
-      <p>Nos 3 meses fechados atacamos <strong>68 oportunidades</strong> na base, fechamos <strong>19 vendas</strong> (contratos assinados) e geramos <strong>R$ 26 mil/mês de fee recorrente (MRR)</strong> + <strong>R$ 304 mil de valor total de contrato (TCV)</strong>.</p>
+      <p>Rodamos a base com <strong>ritmo fixo</strong> (AP + Daily + Weekly + Pipe Diário cruzando Flow, Ekyte e planilha) e, desde junho, o <strong>Check-in Monitor</strong>. Nos 3 meses fechados: <strong>68 oportunidades</strong>, <strong>19 vendas</strong>, <strong>R$ 26k MRR</strong> e <strong>R$ 304k TCV</strong>.</p>
       <div class="kpis">
         <div class="kpi"><strong>68</strong><span>Oportunidades abertas<br>(abr+mai+jun)</span></div>
         <div class="kpi hl"><strong>19</strong><span>Vendas / assinaturas<br>(contratos fechados)</span></div>
@@ -159,8 +159,137 @@ a{color:var(--info)}
       </div>
     </div>
 
-    <!-- 2 -->
-    <h2 id="meses">2 · Resultado geral por mês (só meses fechados)</h2>
+    <!-- 2 · ROTINA (principal) -->
+    <h2 id="rotina">2 · Ritmo e rotina — como a operação roda</h2>
+    <div class="section-card">
+      <p>A expansão na base não é “ligar para cliente quando sobra tempo”. Tem <strong>ritmo fixo</strong>, com ferramentas que se cruzam todo dia. Em uma linha:</p>
+      <div class="note info" style="margin-bottom:0">
+        <strong>Coord/squad entrega e escuta o cliente → Farmer prioriza e vende o próximo produto → tudo registrado e cruzado no Pipe Diário (Flow + Ekyte + planilha + agenda).</strong>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Onde mora cada coisa hoje</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Ferramenta</th><th>Pra que usamos</th><th>Quem mexe</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Flow (Cockpit Expansion)</strong></td>
+              <td>Jornada comercial da opp: Account Planning → diagnóstico → proposta → reunião → follow → fechado/drop. É o CRM da expansão.</td>
+              <td>Farmer + sync com o que anda no Ekyte</td>
+            </tr>
+            <tr>
+              <td><strong>Ekyte</strong></td>
+              <td>Tasks e fases da expansão por conta (ex.: Follow UP, Diagnóstico). É onde o squad/coord costuma movimentar o “fazendo”.</td>
+              <td>Coord / AM / executor do squad</td>
+            </tr>
+            <tr>
+              <td><strong>Planilha safra</strong></td>
+              <td>Compromisso do mês: quais opps entram no ataque, status (Follow, Aceito, Fechado, Drop), observação e meta Rome.</td>
+              <td>Farmer</td>
+            </tr>
+            <tr>
+              <td><strong>Pipe Diário</strong></td>
+              <td>Painel único (~08:30): cruza agenda do dia + o que mudou no Flow + o que andou no Ekyte + planilha. Evita olhar 4 lugares soltos.</td>
+              <td>Automático · Farmer lê e age</td>
+            </tr>
+            <tr>
+              <td><strong>Agenda (Calendar)</strong></td>
+              <td>Rituais (Daily, Weekly, AP) + reuniões com cliente (proposta, kick-off, check-in).</td>
+              <td>Farmer + squad</td>
+            </tr>
+            <tr>
+              <td><strong>Check-in Monitor</strong></td>
+              <td>Lê gravação do check-in do cliente; se o cliente pedir algo fora do contrato, alerta no GChat — mesmo sem o Farmer na call.</td>
+              <td>Automático (loop 20 min)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-bottom:0">
+        <strong>Direção em curso:</strong> centralizar a jornada comercial no <strong>Flow</strong> (fonte única). Hoje ainda convivemos com Ekyte + planilha; o Pipe Diário é o “tradutor” que junta os três para não perder opp.
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Ritmo do dia (Seg–Sex)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Quando</th><th>O que acontece</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>~08:30</strong></td>
+              <td><strong>Pipe Diário atualiza</strong> — reuniões do dia, o que mudou no Flow/Ekyte desde ontem, pipe quente por squad (Invictus / Billions / Exclusive).</td>
+            </tr>
+            <tr>
+              <td><strong>Manhã</strong></td>
+              <td><strong>Daily Monetização</strong> — alinhar o que está quente: follow, proposta, reunião. Prioridade do dia sai daí + do Pipe.</td>
+            </tr>
+            <tr>
+              <td><strong>Ao longo do dia</strong></td>
+              <td>Reuniões com cliente · follow no WhatsApp/GChat · atualizar status na <strong>planilha</strong> e etapa no <strong>Flow</strong> (e/ou fase no <strong>Ekyte</strong> quando o squad move).</td>
+            </tr>
+            <tr>
+              <td><strong>Contínuo</strong></td>
+              <td><strong>Check-in Monitor</strong> — a cada ~20 min (8h–19h) processa check-ins novos; se for expansão vendável, sobe alerta no GChat.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Ritmo da semana</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Ritual</th><th>Com quem</th><th>Pra que</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Account Planning</strong></td>
+              <td>Cada coordenador (Invictus / Billions / Exclusive)</td>
+              <td>Olhar a carteira, escolher contas, produto e próximo passo — mínimo 1×/semana por frente</td>
+            </tr>
+            <tr>
+              <td><strong>Review AP &amp; CRM</strong></td>
+              <td>Slot recorrente na agenda</td>
+              <td>Higienizar cards / status e não deixar opp “fantasma”</td>
+            </tr>
+            <tr>
+              <td><strong>Weekly Expansão</strong></td>
+              <td>Saber, Billions/coords, Single Revenue, Gerência</td>
+              <td>Revisar pipe, travas e priorização com o time</td>
+            </tr>
+            <tr>
+              <td><strong>Plano MRR Rome</strong></td>
+              <td>Ciclo mensal</td>
+              <td>Meta de fee vs. realizado + plano conta a conta (5W1H)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Fluxo de uma oportunidade (do zero à venda)</h3>
+      <ol style="margin:8px 0 0;padding-left:20px;font-size:13px;color:var(--mut);line-height:1.7">
+        <li><strong>Account Planning</strong> com o coord → nasce a tese (cliente X, produto Y).</li>
+        <li>Abre / move card no <strong>Flow</strong> e registra na <strong>planilha safra</strong> do mês.</li>
+        <li>Squad avança task no <strong>Ekyte</strong> (diagnóstico, follow, etc.) enquanto o Farmer conduz proposta/reunião.</li>
+        <li><strong>Pipe Diário</strong> mostra se a conta andou, se está sem Flow, se tem reunião hoje.</li>
+        <li>Check-in do cliente pode gerar <strong>sinal novo</strong> via Monitor → Farmer entra na conversa comercial.</li>
+        <li>Assinou → status Fechado (planilha + Flow) · não seguiu → Drop · não decidiu → fica em aberto (carry).</li>
+      </ol>
+    </div>
+
+    <!-- 3 -->
+    <h2 id="meses">3 · Resultado geral por mês (só meses fechados)</h2>
     <div class="section-card">
       <p><strong>Visão do funil</strong> — o que abrimos e o que aconteceu com cada opp:</p>
       <div class="table-wrap">
@@ -334,24 +463,6 @@ a{color:var(--info)}
         </table>
       </div>
       <p class="note" style="margin-bottom:0">Exclusive ainda sem assinatura no período — 1–3 opps/mês, sem conversão em venda.</p>
-    </div>
-
-    <!-- 3 -->
-    <h2 id="maquina">3 · O que fazemos todo dia / toda semana</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Ação</th><th>Quando</th><th>Pra que serve (em português)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Account Planning</strong></td><td>Toda semana + review</td><td>Sentar com o coordenador, olhar a carteira e decidir qual cliente atacar e com qual produto</td></tr>
-          <tr><td><strong>Daily Monetização</strong></td><td>Todo dia útil</td><td>Alinhar o que está quente no funil e o próximo passo de cada opp</td></tr>
-          <tr><td><strong>Weekly Expansão</strong></td><td>Toda semana</td><td>Ritual com squad / gerência para revisar pipe e travas</td></tr>
-          <tr><td><strong>Pipe Diário</strong></td><td>~08:30</td><td>Painel único do dia (agenda + Ekyte + Flow + planilha) — ninguém depende de planilha solta</td></tr>
-          <tr><td><strong>Check-in Monitor</strong></td><td>Automático (20 min)</td><td>Lê a gravação do check-in do cliente; se ele pedir algo fora do contrato, alerta no GChat — mesmo sem o Farmer na call</td></tr>
-          <tr><td><strong>Plano MRR Rome</strong></td><td>Todo mês</td><td>Meta de fee vs. o que fechamos, com plano conta a conta</td></tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- 4 -->
