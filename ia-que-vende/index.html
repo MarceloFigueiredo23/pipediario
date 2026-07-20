@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Nome do evento a definir — Visão interna | V4 Company</title>
-  <!-- deploy: 2026-07-20-1710 · convidados NPS · nome TBD -->
+  <!-- deploy: 2026-07-20-1712 · cadência 3 msgs + vídeo Leonardo -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -555,6 +555,69 @@
       color: var(--muted);
     }
 
+    /* MENSAGENS */
+    .mensagens { background: var(--cream); }
+    .cadencia {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .cadencia span {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .msg-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+    .msg-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      overflow: hidden;
+    }
+    .msg-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--ink);
+      color: #fff;
+    }
+    .msg-head strong {
+      font-family: Syne, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .msg-head em {
+      font-style: normal;
+      font-size: 0.78rem;
+      opacity: 0.75;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .msg-body {
+      padding: 1.25rem;
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .msg-tip {
+      padding: 0 1.25rem 1.15rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
     .validate {
       background:
         linear-gradient(160deg, var(--v4-red) 0%, var(--v4-red-deep) 100%);
@@ -963,6 +1026,81 @@
     </div>
   </section>
 <!-- CONVIDADOS:END -->
+
+  <section class="mensagens" id="mensagens">
+    <div class="wrap">
+      <p class="sec-label">Cadência de convite</p>
+      <h2>3 mensagens de follow</h2>
+      <p class="sec-sub">
+        Leonardo grava o vídeo do convite. Use a mensagem 1 com o vídeo; se não houver resposta, dispare as follows.
+        Tom: exclusivo, curto, fácil de responder. Até 2 pessoas por empresa.
+      </p>
+      <div class="cadencia">
+        <span>D0 — Convite + vídeo</span>
+        <span>D+3 — Follow 1</span>
+        <span>D+7 — Follow 2 (último)</span>
+      </div>
+      <div class="msg-grid">
+        <article class="msg-card">
+          <div class="msg-head">
+            <strong>Mensagem 1 — Convite</strong>
+            <em>Dia 0 · com vídeo do Leonardo</em>
+          </div>
+          <div class="msg-body">Oi, [Nome]! Tudo bem?
+
+Separei um convite especial pra você.
+
+No dia 25/08, das 18h30 às 20h30, vamos receber um grupo fechado na Flagship da V4 para um happy hour com queijos &amp; vinhos + duas conversas bem práticas:
+• Revenue com Vinicius Colli (CRO)
+• IA com Luís Felipe Santos + Leonardo Esteves
+
+O Leonardo gravou um vídeo rápido te contando o que vai rolar 👇
+[ANEXAR / COLAR VÍDEO]
+
+São só 30 lugares e cada empresa pode trazer até 2 pessoas.
+
+Posso contar com você?
+Se sim, me confirma:
+1) Seu nome + cargo
+2) Se vem acompanhado(a) (nome da 2ª pessoa)
+
+Qualquer dúvida, me chama.</div>
+          <p class="msg-tip">Enviar no WhatsApp com o vídeo do Leonardo anexado. Personalizar [Nome].</p>
+        </article>
+
+        <article class="msg-card">
+          <div class="msg-head">
+            <strong>Mensagem 2 — Follow 1</strong>
+            <em>D+3 · sem resposta</em>
+          </div>
+          <div class="msg-body">Oi, [Nome]! Passando pra retomar o convite do dia 25/08 na Flagship.
+
+É um encontro fechado (30 pessoas): revenue com o Colli + talk de IA com Luís e Leonardo, no clima de queijos &amp; vinhos.
+
+As vagas estão fechando e queria garantir sua presença antes de liberar pra lista de espera.
+
+Consegue me dar um “sim” ou “não” só pra eu organizar? Se vier, pode trazer +1 da empresa.</div>
+          <p class="msg-tip">Objetivo: resposta binária. Não reenviar o vídeo inteiro — só se o cliente pedir.</p>
+        </article>
+
+        <article class="msg-card">
+          <div class="msg-head">
+            <strong>Mensagem 3 — Follow 2 (último)</strong>
+            <em>D+7 · última tentativa</em>
+          </div>
+          <div class="msg-body">[Nome], última mensagem sobre o encontro do dia 25/08 (18h30–20h30) na Flagship.
+
+Se fizer sentido pra você, ainda consigo segurar 1 lugar (e +1 da empresa).
+Se a agenda não der, sem problema — só me avisa pra eu liberar a vaga.
+
+Fica o convite aberto: Colli (revenue) + Luís &amp; Leonardo (IA) + networking com clientes selecionados.
+
+Me confirma? Sim / não já resolve.</div>
+          <p class="msg-tip">Encerrar cadência aqui. Sem novo follow automático — só se o cliente engajar depois.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <section class="validate" id="validacao">
     <h2>Precisamos da sua validação</h2>
