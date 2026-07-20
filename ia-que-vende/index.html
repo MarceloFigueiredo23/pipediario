@@ -6,8 +6,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>IA que Vende — Visão interna | V4 Company</title>
-  <!-- deploy: 2026-07-20-1658 · Colli revenue · Luis+Leo IA · sem brinde -->
+  <title>Nome do evento a definir — Visão interna | V4 Company</title>
+  <!-- deploy: 2026-07-20-1704 · nome TBD · perguntas finais -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -480,41 +480,55 @@
         linear-gradient(160deg, var(--v4-red) 0%, var(--v4-red-deep) 100%);
       color: #fff;
       text-align: center;
-      padding: 4.5rem 1.5rem;
+      padding: 4.5rem 1.5rem 3.5rem;
     }
     .validate h2 { margin-bottom: 0.75rem; }
-    .validate p {
+    .validate > p {
       opacity: 0.9;
-      max-width: 34rem;
-      margin: 0 auto 1.75rem;
+      max-width: 36rem;
+      margin: 0 auto 2rem;
       font-size: 1.05rem;
     }
-    .validate-actions {
+    .questions {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
+      flex-direction: column;
+      gap: 0.85rem;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 1.4rem;
-      border-radius: 999px;
+    .q-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 1rem;
+      padding: 1.15rem 1.25rem;
+      backdrop-filter: blur(8px);
+    }
+    .q-card .q-num {
+      font-size: 0.7rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      border: 2px solid transparent;
-      cursor: default;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 0.35rem;
     }
-    .btn-white {
-      background: #fff;
-      color: var(--v4-red-deep);
+    .q-card strong {
+      display: block;
+      font-family: Syne, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
     }
-    .btn-ghost {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,0.45);
+    .q-card .q-hint {
+      margin-top: 0.35rem;
+      font-size: 0.88rem;
+      opacity: 0.75;
+    }
+    .validate-note {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
     }
 
     footer {
@@ -561,7 +575,7 @@
   <header class="hero">
     <div class="hero-inner">
       <p class="eyebrow">Flagship V4 · Happy Hour exclusivo</p>
-      <h1>IA que Vende</h1>
+      <h1>NOME DO EVENTO<br />A DEFINIR</h1>
       <p class="hero-lead">
         Evento interno de relacionamento com 30 convidados em <strong>25 de agosto de 2026</strong>, das <strong>18h30 às 20h30</strong>: queijos, vinhos e duas conversas — <strong>revenue</strong> e <strong>IA</strong> — na Flagship da V4 Company.
       </p>
@@ -794,7 +808,7 @@
         <aside class="status-card">
           <h3>Status da organização</h3>
           <ul class="status-list">
-            <li><span class="dot ok"></span><span><strong>Nome:</strong> IA que Vende</span></li>
+            <li><span class="dot warn"></span><span><strong>Nome:</strong> a definir</span></li>
             <li><span class="dot ok"></span><span><strong>Palestrantes:</strong> Vinicius Colli (Revenue) + Luís &amp; Leonardo (IA conjunto)</span></li>
             <li><span class="dot ok"></span><span><strong>Público:</strong> 30 convidados</span></li>
             <li><span class="dot ok"></span><span><strong>Comida:</strong> Happy Hour Select cotado</span></li>
@@ -829,19 +843,38 @@
   </section>
 
   <section class="validate" id="validacao">
-    <h2>Pronto para validar com a companhia</h2>
+    <h2>Precisamos da sua validação</h2>
     <p>
-      Pedido: aprovar conceito, palestrantes, pacote de experiência e teto de orçamento parcial (~R$ 4,0k + crachá/pendências)
-      para o evento em <strong>25/08/2026 · 18h30–20h30</strong> na Flagship, e fecharmos a lista de convidados.
+      Conceito, lineup e orçamento parcial (~R$ 4,0k + crachá) para <strong>25/08/2026 · 18h30–20h30</strong> na Flagship.
+      Responda as perguntas abaixo para fecharmos o briefing.
     </p>
-    <div class="validate-actions">
-      <span class="btn btn-white">Conceito · IA que Vende</span>
-      <span class="btn btn-ghost">30 pax · 25/08 · 18h30–20h30</span>
+    <div class="questions">
+      <div class="q-card">
+        <div class="q-num">Pergunta 01</div>
+        <strong>Qual nome do evento?</strong>
+        <p class="q-hint">Sugestão ou aprovação do nome oficial.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-num">Pergunta 02</div>
+        <strong>As pautas são relevantes?</strong>
+        <p class="q-hint">Revenue (Vinicius Colli) + IA em conjunto (Luís + Leonardo).</p>
+      </div>
+      <div class="q-card">
+        <div class="q-num">Pergunta 03</div>
+        <strong>Quais sugestões tem para colocar?</strong>
+        <p class="q-hint">Conteúdo, formato, convidados, experiência, fornecedores…</p>
+      </div>
+      <div class="q-card">
+        <div class="q-num">Pergunta 04</div>
+        <strong>Datas e horários estão de acordo?</strong>
+        <p class="q-hint">25/08/2026 · 18h30–20h30 · Flagship V4.</p>
+      </div>
     </div>
+    <p class="validate-note">Documento interno · responda na thread / mensagem de retorno</p>
   </section>
 
   <footer>
-    V4 Company · Documento interno de validação · IA que Vende · 2026
+    V4 Company · Documento interno de validação · Nome do evento a definir · 2026
   </footer>
 </body>
 </html>
