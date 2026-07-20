@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>IA que Vende — Visão interna | V4 Company</title>
-  <!-- deploy: 2026-07-20-1502 · 10 gfs · 18h30-20h30 -->
+  <!-- deploy: 2026-07-20-1658 · Colli revenue · Luis+Leo IA · sem brinde -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -158,10 +158,11 @@
     .speakers { background: #fff; }
     .speaker-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.35fr;
       gap: 1.5rem;
+      align-items: stretch;
     }
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
       .speaker-grid { grid-template-columns: 1fr; }
     }
     .speaker-card {
@@ -177,6 +178,29 @@
       transition: transform 0.25s ease;
     }
     .speaker-card:hover { transform: translateY(-4px); }
+    .speaker-card.duo {
+      align-items: stretch;
+    }
+    .duo-photos {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .duo-person {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+      flex: 1;
+      min-width: 120px;
+    }
+    .duo-person h4 {
+      font-family: Syne, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
     .speaker-photo {
       width: 160px;
       height: 160px;
@@ -184,6 +208,10 @@
       object-fit: cover;
       border: 4px solid #fff;
       box-shadow: 0 12px 32px rgba(227, 28, 35, 0.25);
+    }
+    .speaker-card.duo .speaker-photo {
+      width: 132px;
+      height: 132px;
     }
     .speaker-tag {
       font-size: 0.7rem;
@@ -201,7 +229,14 @@
     .speaker-card p {
       color: var(--muted);
       font-size: 0.95rem;
-      max-width: 28ch;
+      max-width: 36ch;
+    }
+    .speaker-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0.7;
+      margin-top: -0.35rem;
     }
 
     /* PROGRAM */
@@ -528,20 +563,20 @@
       <p class="eyebrow">Flagship V4 · Happy Hour exclusivo</p>
       <h1>IA que Vende</h1>
       <p class="hero-lead">
-        Evento interno de relacionamento com 30 convidados em <strong>25 de agosto de 2026</strong>, das <strong>18h30 às 20h30</strong>: queijos, vinhos e duas conversas — conteúdo com IA e inteligência artificial aplicada — na Flagship da V4 Company.
+        Evento interno de relacionamento com 30 convidados em <strong>25 de agosto de 2026</strong>, das <strong>18h30 às 20h30</strong>: queijos, vinhos e duas conversas — <strong>revenue</strong> e <strong>IA</strong> — na Flagship da V4 Company.
       </p>
       <div class="hero-meta">
         <span class="pill">30 convidados</span>
         <span class="pill">25 de agosto de 2026</span>
         <span class="pill">18h30–20h30</span>
         <span class="pill">Flagship V4</span>
-        <span class="pill">Orçamento parcial ~R$ 5.220</span>
+        <span class="pill">Orçamento parcial ~R$ 4.030</span>
       </div>
       <div class="kpi-row">
         <div class="kpi"><strong>30</strong><span>convidados</span></div>
-        <div class="kpi"><strong>2</strong><span>palestras</span></div>
+        <div class="kpi"><strong>2</strong><span>blocos de conteúdo</span></div>
         <div class="kpi"><strong>10</strong><span>garrafas de vinho</span></div>
-        <div class="kpi"><strong>~5,2k</strong><span>parcial (comida+vinho+brinde)</span></div>
+        <div class="kpi"><strong>~4,0k</strong><span>parcial (comida+vinho)</span></div>
       </div>
     </div>
   </header>
@@ -550,19 +585,29 @@
     <div class="wrap">
       <p class="sec-label">Palestrantes</p>
       <h2>Quem sobe no palco</h2>
-      <p class="sec-sub">Duas falas curtas, tom happy hour — conteúdo aplicável sem formatão de congresso.</p>
+      <p class="sec-sub">Dois blocos curtos: revenue com o CRO e um talk conjunto de IA — tom happy hour, sem formatão.</p>
       <div class="speaker-grid">
         <article class="speaker-card">
-          <img class="speaker-photo" src="assets/leonardo.png?v=20260720" alt="Leonardo Esteves" />
-          <p class="speaker-tag">Pauta 01 · Conteúdo com IA</p>
-          <h3>Leonardo Esteves</h3>
-          <p>Como criar conteúdos com IA — vídeos, fotos e materiais que performam.</p>
+          <img class="speaker-photo" src="assets/vinicius.png?v=20260720c" alt="Vinicius Colli" />
+          <p class="speaker-tag">Pauta 01 · Revenue</p>
+          <h3>Vinicius Colli</h3>
+          <p class="speaker-role">CRO · V4 Company</p>
+          <p>Como pensar receita com método — o que move o ponteiro de revenue na prática.</p>
         </article>
-        <article class="speaker-card">
-          <img class="speaker-photo" src="assets/luis.png?v=20260720" alt="Luís Felipe Santos" />
-          <p class="speaker-tag">Pauta 02 · Inteligência Artificial</p>
-          <h3>Luís Felipe Santos</h3>
-          <p>IA na prática — o que muda no dia a dia comercial e de operação.</p>
+        <article class="speaker-card duo">
+          <p class="speaker-tag">Pauta 02 · Inteligência Artificial · Talk conjunto</p>
+          <div class="duo-photos">
+            <div class="duo-person">
+              <img class="speaker-photo" src="assets/luis.png?v=20260720c" alt="Luís Felipe Santos" />
+              <h4>Luís Felipe Santos</h4>
+            </div>
+            <div class="duo-person">
+              <img class="speaker-photo" src="assets/leonardo.png?v=20260720c" alt="Leonardo Esteves" />
+              <h4>Leonardo Esteves</h4>
+            </div>
+          </div>
+          <h3>IA na prática</h3>
+          <p>Luis e Leonardo juntos: IA aplicada no negócio + criação de conteúdos (vídeos, fotos e materiais) que performam.</p>
         </article>
       </div>
     </div>
@@ -578,7 +623,7 @@
           <div class="t-time">18h30</div>
           <div class="t-body">
             <strong>Credenciamento + welcome</strong>
-            <span>Crachá, brinde (caderno + caneta), primeira taça</span>
+            <span>Crachá + primeira taça</span>
           </div>
         </div>
         <div class="t-item">
@@ -591,15 +636,15 @@
         <div class="t-item">
           <div class="t-time">18h55</div>
           <div class="t-body">
-            <strong>Palestra 1 — Conteúdo com IA · Leonardo Esteves</strong>
+            <strong>Palestra 1 — Revenue · Vinicius Colli (CRO)</strong>
             <span>~20–25 min + perguntas rápidas</span>
           </div>
         </div>
         <div class="t-item">
           <div class="t-time">19h25</div>
           <div class="t-body">
-            <strong>Palestra 2 — IA · Luís Felipe Santos</strong>
-            <span>~20–25 min + perguntas rápidas</span>
+            <strong>Palestra 2 — IA · Luís Felipe Santos + Leonardo Esteves</strong>
+            <span>Talk conjunto · ~25–30 min + perguntas rápidas</span>
           </div>
         </div>
         <div class="t-item">
@@ -625,7 +670,7 @@
     <div class="wrap">
       <p class="sec-label">Experiência</p>
       <h2>O que o convidado recebe</h2>
-      <p class="sec-sub">Pacote fechado para 30 pessoas — comida, bebida e brinde já com valores.</p>
+      <p class="sec-sub">Pacote para 30 pessoas — comida e bebida cotados; crachá a cotar (sem brinde).</p>
       <div class="cards-3">
         <article class="info-card">
           <h3>Happy Hour Select</h3>
@@ -655,13 +700,13 @@
           <p class="price-tag">≈ R$ 1.032 (seleção recomendada)</p>
         </article>
         <article class="info-card">
-          <h3>Brinde</h3>
+          <h3>Crachá</h3>
           <ul>
-            <li>Caderno + caneta</li>
-            <li>30 unidades</li>
-            <li>Frete incluso</li>
+            <li>Credencial para 30 convidados</li>
+            <li>Sem brinde (caderno/caneta removidos)</li>
+            <li>Valor a cotar</li>
           </ul>
-          <p class="price-tag">R$ 1.190</p>
+          <p class="price-tag">Pendente de cotação</p>
         </article>
       </div>
     </div>
@@ -734,12 +779,12 @@
               <td class="amt">R$ 1.032</td>
             </tr>
             <tr>
-              <td>Brindes — caderno + caneta (frete incluso)</td>
-              <td class="amt">R$ 1.190</td>
+              <td>Crachás — 30 unidades</td>
+              <td class="amt">a cotar</td>
             </tr>
             <tr class="total">
               <td>Subtotal cotado</td>
-              <td class="amt">R$ 5.222</td>
+              <td class="amt">R$ 4.032</td>
             </tr>
             <tr class="pending">
               <td colspan="2">Ainda falta cotar: crachás · água/não-alcoólico · AV/som · staff/limpeza Flagship · contingência ~10%</td>
@@ -750,13 +795,13 @@
           <h3>Status da organização</h3>
           <ul class="status-list">
             <li><span class="dot ok"></span><span><strong>Nome:</strong> IA que Vende</span></li>
-            <li><span class="dot ok"></span><span><strong>Palestrantes:</strong> Leonardo Esteves (Conteúdo com IA) + Luís Felipe (IA)</span></li>
+            <li><span class="dot ok"></span><span><strong>Palestrantes:</strong> Vinicius Colli (Revenue) + Luís &amp; Leonardo (IA conjunto)</span></li>
             <li><span class="dot ok"></span><span><strong>Público:</strong> 30 convidados</span></li>
             <li><span class="dot ok"></span><span><strong>Comida:</strong> Happy Hour Select cotado</span></li>
             <li><span class="dot ok"></span><span><strong>Data:</strong> 25 de agosto de 2026</span></li>
             <li><span class="dot ok"></span><span><strong>Horário:</strong> 18h30–20h30</span></li>
             <li><span class="dot ok"></span><span><strong>Vinhos:</strong> 10 garrafas (R$ 1.032)</span></li>
-            <li><span class="dot ok"></span><span><strong>Brinde:</strong> caderno + caneta R$ 1.190</span></li>
+            <li><span class="dot ok"></span><span><strong>Brinde:</strong> removido — só crachá</span></li>
             <li><span class="dot warn"></span><span><strong>Lista de convidados:</strong> a fechar</span></li>
             <li><span class="dot miss"></span><span><strong>Crachás / AV / staff:</strong> pendente</span></li>
             <li><span class="dot miss"></span><span><strong>Centro de custo / aprovação:</strong> pendente</span></li>
@@ -786,7 +831,7 @@
   <section class="validate" id="validacao">
     <h2>Pronto para validar com a companhia</h2>
     <p>
-      Pedido: aprovar conceito, palestrantes, pacote de experiência e teto de orçamento parcial (~R$ 5,2k + pendências)
+      Pedido: aprovar conceito, palestrantes, pacote de experiência e teto de orçamento parcial (~R$ 4,0k + crachá/pendências)
       para o evento em <strong>25/08/2026 · 18h30–20h30</strong> na Flagship, e fecharmos a lista de convidados.
     </p>
     <div class="validate-actions">
