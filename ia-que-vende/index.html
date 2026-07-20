@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Nome do evento a definir — Visão interna | V4 Company</title>
-  <!-- deploy: 2026-07-20-1704 · nome TBD · perguntas finais -->
+  <!-- deploy: 2026-07-20-1710 · convidados NPS · nome TBD -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -475,6 +475,86 @@
     .local-box p { color: var(--muted); font-size: 0.95rem; }
 
     /* CTA / VALIDATE */
+
+    /* CONVIDADOS */
+    .convidados { background: #fff; }
+    .convite-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 720px) {
+      .convite-kpis { grid-template-columns: 1fr 1fr; }
+    }
+    .ck {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 0.9rem;
+      padding: 0.95rem 1rem;
+    }
+    .ck strong {
+      display: block;
+      font-family: Syne, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--v4-red);
+    }
+    .ck span { font-size: 0.8rem; color: var(--muted); }
+    .guest-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--cream);
+    }
+    .guest-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      min-width: 640px;
+    }
+    .guest-table th {
+      text-align: left;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.85rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+    }
+    .guest-table td {
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    .guest-table tr:last-child td { border-bottom: none; }
+    .guest-table tr:hover td { background: rgba(227, 28, 35, 0.04); }
+    .guest-table .num { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+    .guest-table .name { font-weight: 600; max-width: 28rem; }
+    .tier-pill {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .tier-ent { background: #1a1a1a; color: #fff; }
+    .tier-lg { background: var(--v4-red); color: #fff; }
+    .tier-md { background: #ffd0d2; color: #8a1014; }
+    .tier-sm { background: #eee; color: #555; }
+    .tier-other { background: #f0ebe8; color: #666; }
+    .guest-note {
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
     .validate {
       background:
         linear-gradient(160deg, var(--v4-red) 0%, var(--v4-red-deep) 100%);
@@ -580,7 +660,8 @@
         Evento interno de relacionamento com 30 convidados em <strong>25 de agosto de 2026</strong>, das <strong>18h30 às 20h30</strong>: queijos, vinhos e duas conversas — <strong>revenue</strong> e <strong>IA</strong> — na Flagship da V4 Company.
       </p>
       <div class="hero-meta">
-        <span class="pill">30 convidados</span>
+        <span class="pill">30 presença · ~60 convites</span>
+        <span class="pill">Até 2 pessoas / empresa</span>
         <span class="pill">25 de agosto de 2026</span>
         <span class="pill">18h30–20h30</span>
         <span class="pill">Flagship V4</span>
@@ -816,7 +897,8 @@
             <li><span class="dot ok"></span><span><strong>Horário:</strong> 18h30–20h30</span></li>
             <li><span class="dot ok"></span><span><strong>Vinhos:</strong> 10 garrafas (R$ 1.032)</span></li>
             <li><span class="dot ok"></span><span><strong>Brinde:</strong> removido — só crachá</span></li>
-            <li><span class="dot warn"></span><span><strong>Lista de convidados:</strong> a fechar</span></li>
+            <li><span class="dot ok"></span><span><strong>Lista sugestão convidados:</strong> 68 empresas (sem Tiny/ICP)</span></li>
+            <li><span class="dot warn"></span><span><strong>Lista de convidados:</strong> a fechar / confirmar</span></li>
             <li><span class="dot miss"></span><span><strong>Crachás / AV / staff:</strong> pendente</span></li>
             <li><span class="dot miss"></span><span><strong>Centro de custo / aprovação:</strong> pendente</span></li>
           </ul>
@@ -841,6 +923,46 @@
       </div>
     </div>
   </section>
+
+<!-- CONVIDADOS:START -->
+  <section class="convidados" id="convidados">
+    <div class="wrap">
+      <p class="sec-label">Sugestão de convidados</p>
+      <h2>Lista priorizada (Tier · LT · Nota)</h2>
+      <p class="sec-sub">
+        Meta de presença: <strong>30 pessoas</strong>. Como o no-show é comum, sugerimos convidar
+        <strong>no mínimo o dobro (~60 vagas)</strong>. Cada empresa pode levar até <strong>2 pessoas</strong>.
+        Fonte: checklist NPS promotores (notas 9–10). Excluídos: <strong>ICP</strong> e <strong>Tiny</strong>.
+      </p>
+      <div class="convite-kpis">
+        <div class="ck"><strong>68</strong><span>empresas sugeridas</span></div>
+        <div class="ck"><strong>até 136</strong><span>pessoas (2 por empresa)</span></div>
+        <div class="ck"><strong>30</strong><span>meta de presença</span></div>
+        <div class="ck"><strong>~60</strong><span>meta de convites</span></div>
+      </div>
+      <div class="guest-table-wrap">
+        <table class="guest-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cliente</th>
+              <th>Tier</th>
+              <th>LT</th>
+              <th>Última nota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class='num'>1</td><td class='name'>DURCON EQUIPAMENTOS INDUSTRIAIS LIMITADA</td><td><span class='tier-pill tier-ent'>Enterprise</span></td><td class='num'>17</td><td class='num'>10</td></tr><tr><td class='num'>2</td><td class='name'>EDUZZ TECH LTDA</td><td><span class='tier-pill tier-ent'>Enterprise</span></td><td class='num'>4</td><td class='num'>10</td></tr><tr><td class='num'>3</td><td class='name'>KELLDRIN INDUSTRIAL LTDA</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>26</td><td class='num'>10</td></tr><tr><td class='num'>4</td><td class='name'>BINARIO TECNOLOGIA DISTRIBUIDORA LTDA</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>21</td><td class='num'>10</td></tr><tr><td class='num'>5</td><td class='name'>MSYS VISTORIAS LTDA</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>17</td><td class='num'>10</td></tr><tr><td class='num'>6</td><td class='name'>D P V PRODUTOS QUIMICOS LIMITADA</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>11</td><td class='num'>10</td></tr><tr><td class='num'>7</td><td class='name'>SORVETES JUNDIA INDUSTRIA E COMERCIO LTDA</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>9</td><td class='num'>10</td></tr><tr><td class='num'>8</td><td class='name'>ELEVATE INCORPORADORA E CONSTRUTORA LTDA</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>6</td><td class='num'>10</td></tr><tr><td class='num'>9</td><td class='name'>G. L. BILL &amp; CIA. LTDA.</td><td><span class='tier-pill tier-lg'>Large</span></td><td class='num'>55</td><td class='num'>9</td></tr><tr><td class='num'>10</td><td class='name'>SKELT COSMETICOS.</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>40</td><td class='num'>10</td></tr><tr><td class='num'>11</td><td class='name'>ALD Distribuidora</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>32</td><td class='num'>10</td></tr><tr><td class='num'>12</td><td class='name'>CLARA RESIDENCIAL SENIOR LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>32</td><td class='num'>10</td></tr><tr><td class='num'>13</td><td class='name'>AERO TD ESCOLA DE AVIACAO CIVIL LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>22</td><td class='num'>10</td></tr><tr><td class='num'>14</td><td class='name'>Alloytech Comercio LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>22</td><td class='num'>10</td></tr><tr><td class='num'>15</td><td class='name'>DUCCE BIKE INDUSTRIA E COMERCIO LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>19</td><td class='num'>10</td></tr><tr><td class='num'>16</td><td class='name'>CARFLIX INTERMEDIACAO DE VEICULOS AUTOMOTORES S.A.</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>15</td><td class='num'>10</td></tr><tr><td class='num'>17</td><td class='name'>DERMOCOSMETIC COMERCIO DE PRODUTOS DE BELEZA LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>15</td><td class='num'>10</td></tr><tr><td class='num'>18</td><td class='name'>ROMA EMPREENDIMENTOS E TURISMO LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>15</td><td class='num'>10</td></tr><tr><td class='num'>19</td><td class='name'>HYDRONLUBZ INDUSTRIA E COMERCIO DE EQUIPAMENTOS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>14</td><td class='num'>10</td></tr><tr><td class='num'>20</td><td class='name'>MI5 DISTRIBUIDORA DE PECAS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>12</td><td class='num'>10</td></tr><tr><td class='num'>21</td><td class='name'>ESCRITORIO VICENTINI &amp; ANDRADE SOCIEDADE DE ADVOGADOS S/S</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>11</td><td class='num'>10</td></tr><tr><td class='num'>22</td><td class='name'>SILMAX COMERCIAL DE PRODUTOS MEDICOS E ALIMENTICIOS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>11</td><td class='num'>10</td></tr><tr><td class='num'>23</td><td class='name'>SUPRIMEDICO - COMERCIO DE ARTIGOS E EQUIPAMENTOS MEDICOS E HOSPITALARES LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>10</td><td class='num'>10</td></tr><tr><td class='num'>24</td><td class='name'>MENDES &amp; CIA TRANSPORTES E SOLUCOES LOGISTICAS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>9</td><td class='num'>10</td></tr><tr><td class='num'>25</td><td class='name'>PSM. COM PROFESSIONAL SERVICES MANAGEMENT INFORMATICA LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>9</td><td class='num'>10</td></tr><tr><td class='num'>26</td><td class='name'>VISOFLEX PORTAS E PORTOES LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>8</td><td class='num'>10</td></tr><tr><td class='num'>27</td><td class='name'>INSTITUTO PANAMERICANO DE OFTALMOLOGIA LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>6</td><td class='num'>10</td></tr><tr><td class='num'>28</td><td class='name'>L. M. SANTOS ARTIGOS MEDICOS E ORTOPEDICOS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>5</td><td class='num'>10</td></tr><tr><td class='num'>29</td><td class='name'>INDUSTRIA E COMERCIO DE BEBIDAS MDM LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>2</td><td class='num'>10</td></tr><tr><td class='num'>30</td><td class='name'>IMMUNIZE DESENVOLVIMENTO DE SISTEMA E CONSULTORIA LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>28</td><td class='num'>9</td></tr><tr><td class='num'>31</td><td class='name'>AVANTI INTERMEDIACOES DE NEGOCIOS EMPRESARIAIS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>27</td><td class='num'>9</td></tr><tr><td class='num'>32</td><td class='name'>PORTIER COSMETICOS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>16</td><td class='num'>9</td></tr><tr><td class='num'>33</td><td class='name'>GEOMAT SOCIEDADE E COMERCIO LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>14</td><td class='num'>9</td></tr><tr><td class='num'>34</td><td class='name'>V.L.O TEXTIL INDUSTRIA E COMERCIO IMPORTACAO E EXPORTACAO LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>13</td><td class='num'>9</td></tr><tr><td class='num'>35</td><td class='name'>ACCENTURE PARTICIPACOES LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>10</td><td class='num'>9</td></tr><tr><td class='num'>36</td><td class='name'>BELLA GULA FRANQUIAS LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>8</td><td class='num'>9</td></tr><tr><td class='num'>37</td><td class='name'>GENESIS CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>7</td><td class='num'>9</td></tr><tr><td class='num'>38</td><td class='name'>FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA</td><td><span class='tier-pill tier-md'>Medium</span></td><td class='num'>5</td><td class='num'>9</td></tr><tr><td class='num'>39</td><td class='name'>SOTOBI MAQUINAS E ACESSORIOS PARA FABRICAS DE BLOCOS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>33</td><td class='num'>10</td></tr><tr><td class='num'>40</td><td class='name'>PG QUIMICA LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>26</td><td class='num'>10</td></tr><tr><td class='num'>41</td><td class='name'>ALUGTEC LOCACAO DE MAQUINAS E EQUIPAMENTOS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>12</td><td class='num'>10</td></tr><tr><td class='num'>42</td><td class='name'>REVINTE PISOS E REVESTIMENTOS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>11</td><td class='num'>10</td></tr><tr><td class='num'>43</td><td class='name'>PORTPEDRAS - MARMORES E GRANITOS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>10</td><td class='num'>10</td></tr><tr><td class='num'>44</td><td class='name'>C L CORREA NASCIMENTO</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>8</td><td class='num'>10</td></tr><tr><td class='num'>45</td><td class='name'>ID NEGOCIOS EMPRESARIAIS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>5</td><td class='num'>10</td></tr><tr><td class='num'>46</td><td class='name'>OTIMA MATERIAIS DE EXPEDIENTE LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>5</td><td class='num'>10</td></tr><tr><td class='num'>47</td><td class='name'>KUBIK CONTAINERS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>40</td><td class='num'>9</td></tr><tr><td class='num'>48</td><td class='name'>IOA Maringá</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>36</td><td class='num'>9</td></tr><tr><td class='num'>49</td><td class='name'>Brecho Capricho à toa</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>32</td><td class='num'>9</td></tr><tr><td class='num'>50</td><td class='name'>DUO3 SOLUCOES EM TECNOLOGIA DA INFORMACAO LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>29</td><td class='num'>9</td></tr><tr><td class='num'>51</td><td class='name'>DISPARA AI TECNOLOGIA DA INFORMACAO LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>25</td><td class='num'>9</td></tr><tr><td class='num'>52</td><td class='name'>ALQUIPHARMA FARMACIA DE MANIPULACAO LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>23</td><td class='num'>9</td></tr><tr><td class='num'>53</td><td class='name'>PREVENT AUDIO COMERCIO DE APARELHOS AUDITIVOS LTDA</td><td><span class='tier-pill tier-sm'>Small</span></td><td class='num'>5</td><td class='num'>9</td></tr><tr><td class='num'>54</td><td class='name'>DSO MARKETING E PUBLICIDADE LTDA</td><td><span class='tier-pill tier-other'>Non-ICP</span></td><td class='num'>57</td><td class='num'>10</td></tr><tr><td class='num'>55</td><td class='name'>VCA MUSIC LTDA.</td><td><span class='tier-pill tier-other'>Non-ICP</span></td><td class='num'>35</td><td class='num'>10</td></tr><tr><td class='num'>56</td><td class='name'>IOA STYLE IMPERATRIZ LTDA</td><td><span class='tier-pill tier-other'>Non-ICP</span></td><td class='num'>41</td><td class='num'>9</td></tr><tr><td class='num'>57</td><td class='name'>SAMEACH INDUSTRIA E COMERCIO DE ACESSORIOS LTDA</td><td><span class='tier-pill tier-other'>Non-ICP</span></td><td class='num'>40</td><td class='num'>9</td></tr><tr><td class='num'>58</td><td class='name'>MALBORK CORRETORA DE SEGUROS LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>39</td><td class='num'>10</td></tr><tr><td class='num'>59</td><td class='name'>FTM TRANSPORTES EIRELI</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>33</td><td class='num'>10</td></tr><tr><td class='num'>60</td><td class='name'>FABIO LUCHESI</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>28</td><td class='num'>10</td></tr><tr><td class='num'>61</td><td class='name'>NORDPLAST INDUSTRIA E COMERCIO DE MATERIAIS PLASTICOS LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>21</td><td class='num'>10</td></tr><tr><td class='num'>62</td><td class='name'>TS TECK - COMERCIO E LOCACAO DE EQUIPAMENTOS LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>21</td><td class='num'>10</td></tr><tr><td class='num'>63</td><td class='name'>BIOCERRADO SAUDE E BELEZA LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>15</td><td class='num'>10</td></tr><tr><td class='num'>64</td><td class='name'>FIBRANETBR TECNOLOGIA LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>4</td><td class='num'>10</td></tr><tr><td class='num'>65</td><td class='name'>MICHELLE BARTOLOMEI LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>3</td><td class='num'>10</td></tr><tr><td class='num'>66</td><td class='name'>BNU TECNOLOGIA EM INSTALACOES ELETRICAS E SEGURANCA LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>18</td><td class='num'>9</td></tr><tr><td class='num'>67</td><td class='name'>O3NT PRODUTOS DE HIGIENE E BEM ESTAR LTDA</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>9</td><td class='num'>9</td></tr><tr><td class='num'>68</td><td class='name'>TAWA VEICULOS ESPECIAIS</td><td><span class='tier-pill tier-other'>Sem preenchimento</span></td><td class='num'>9</td><td class='num'>9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="guest-note">
+        Ordenação: Tier (Enterprise → Large → Medium → Small) → Nota → LT.
+        Excluídos desta lista: SJ ODONTOLOGIA LTDA (Tiny).
+      </p>
+    </div>
+  </section>
+<!-- CONVIDADOS:END -->
 
   <section class="validate" id="validacao">
     <h2>Precisamos da sua validação</h2>
@@ -868,6 +990,11 @@
         <div class="q-num">Pergunta 04</div>
         <strong>Datas e horários estão de acordo?</strong>
         <p class="q-hint">25/08/2026 · 18h30–20h30 · Flagship V4.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-num">Pergunta 05</div>
+        <strong>Lista de convidados faz sentido?</strong>
+        <p class="q-hint">Priorização por Tier + LT + Nota (sem ICP/Tiny). Até 2 pessoas por empresa.</p>
       </div>
     </div>
     <p class="validate-note">Documento interno · responda na thread / mensagem de retorno</p>
