@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IA que Vende — Visão interna | V4 Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --v4-red: #e31c23;
+      --v4-red-bright: #ff2a1a;
+      --v4-red-deep: #a10f14;
+      --v4-red-mid: #c4181e;
+      --ink: #14090a;
+      --muted: #6b5557;
+      --line: rgba(20, 9, 10, 0.1);
+      --cream: #f7f3f1;
+      --white: #ffffff;
+      --ok: #1a7a45;
+      --warn: #b86a00;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Outfit, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .badge-interno {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1rem;
+    }
+    .badge-interno span { color: #ff8a8a; }
+
+    /* HERO */
+    .hero {
+      background:
+        radial-gradient(ellipse 90% 80% at 70% 20%, var(--v4-red-mid) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 90% at 10% 90%, #6b080c 0%, transparent 50%),
+        linear-gradient(160deg, var(--v4-red) 0%, var(--v4-red-deep) 55%, #6b080c 100%);
+      color: #fff;
+      padding: 4.5rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "V4";
+      position: absolute;
+      right: -4%;
+      bottom: -18%;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: clamp(12rem, 28vw, 22rem);
+      line-height: 0.8;
+      opacity: 0.08;
+      pointer-events: none;
+      letter-spacing: -0.06em;
+    }
+    .hero-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 1.5rem;
+      height: 2px;
+      background: #fff;
+    }
+    .hero h1 {
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+      margin-bottom: 1.25rem;
+    }
+    .hero-lead {
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      max-width: 36rem;
+      opacity: 0.92;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    .sec-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--v4-red);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .sec-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 40rem;
+      margin-bottom: 2.25rem;
+    }
+
+    /* SPEAKERS */
+    .speakers { background: #fff; }
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 720px) {
+      .speaker-grid { grid-template-columns: 1fr; }
+    }
+    .speaker-card {
+      background: var(--cream);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      border: 1px solid var(--line);
+      transition: transform 0.25s ease;
+    }
+    .speaker-card:hover { transform: translateY(-4px); }
+    .speaker-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 12px 32px rgba(227, 28, 35, 0.25);
+    }
+    .speaker-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--v4-red);
+    }
+    .speaker-card h3 {
+      font-family: Syne, sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .speaker-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 28ch;
+    }
+
+    /* PROGRAM */
+    .program { background: var(--cream); }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 2px solid rgba(227, 28, 35, 0.25);
+      margin-left: 0.5rem;
+      padding-left: 1.5rem;
+    }
+    .t-item {
+      position: relative;
+      padding: 1.15rem 0 1.15rem 0;
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .t-item::before {
+      content: "";
+      position: absolute;
+      left: -1.5rem;
+      top: 1.45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--v4-red);
+      transform: translateX(-55%);
+      box-shadow: 0 0 0 4px rgba(227, 28, 35, 0.15);
+    }
+    .t-time {
+      font-weight: 700;
+      color: var(--v4-red);
+      font-size: 0.95rem;
+    }
+    .t-body strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+    .t-body span { color: var(--muted); font-size: 0.92rem; }
+    .note-slot {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      background: #fff8e8;
+      border: 1px solid #f0d9a0;
+      border-radius: 0.75rem;
+      color: #7a5600;
+      font-size: 0.92rem;
+    }
+
+    /* INCLUSO */
+    .incluso { background: #fff; }
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+    }
+    @media (max-width: 860px) {
+      .cards-3 { grid-template-columns: 1fr; }
+    }
+    .info-card {
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.5rem;
+      background: var(--cream);
+    }
+    .info-card h3 {
+      font-family: Syne, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+    .info-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .info-card li {
+      font-size: 0.92rem;
+      color: var(--ink);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .info-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--v4-red);
+    }
+    .info-card .price-tag {
+      margin-top: 1.1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* WINES */
+    .vinhos { background: var(--ink); color: #fff; }
+    .vinhos .sec-label { color: #ff8a8a; }
+    .vinhos .sec-sub { color: rgba(255,255,255,0.65); }
+    .wine-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin-top: 0.5rem;
+    }
+    .wine-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .wine-table td {
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+    }
+    .wine-table tr:last-child td { border-bottom: none; }
+    .wine-table .qty { font-weight: 700; color: #ffb4b4; }
+    .wine-table .val { font-weight: 600; white-space: nowrap; }
+    .wine-note {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* BUDGET */
+    .budget { background: var(--cream); }
+    .budget-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .budget-grid { grid-template-columns: 1fr; }
+    }
+    .budget-table {
+      width: 100%;
+      background: #fff;
+      border-radius: 1.1rem;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .budget-table table { width: 100%; border-collapse: collapse; }
+    .budget-table td {
+      padding: 0.95rem 1.15rem;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    .budget-table tr:last-child td { border-bottom: none; }
+    .budget-table .amt {
+      text-align: right;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .budget-table .total td {
+      background: var(--v4-red);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .budget-table .pending td {
+      background: #fff8e8;
+      color: #7a5600;
+      font-size: 0.88rem;
+    }
+    .status-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+    }
+    .status-card h3 {
+      font-family: Syne, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .status-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .status-list li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.92rem;
+    }
+    .dot {
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 50%;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+    }
+    .dot.ok { background: var(--ok); }
+    .dot.warn { background: var(--warn); }
+    .dot.miss { background: #bbb; }
+
+    /* LOCAL */
+    .local { background: #fff; }
+    .local-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      background: var(--cream);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 720px) {
+      .local-box { grid-template-columns: 1fr; }
+    }
+    .local-box h3 {
+      font-family: Syne, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .local-box p { color: var(--muted); font-size: 0.95rem; }
+
+    /* CTA / VALIDATE */
+    .validate {
+      background:
+        linear-gradient(160deg, var(--v4-red) 0%, var(--v4-red-deep) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 4.5rem 1.5rem;
+    }
+    .validate h2 { margin-bottom: 0.75rem; }
+    .validate p {
+      opacity: 0.9;
+      max-width: 34rem;
+      margin: 0 auto 1.75rem;
+      font-size: 1.05rem;
+    }
+    .validate-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 2px solid transparent;
+      cursor: default;
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--v4-red-deep);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 720px) {
+      .kpi-row { grid-template-columns: 1fr 1fr; }
+    }
+    .kpi {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem;
+      text-align: left;
+    }
+    .kpi strong {
+      display: block;
+      font-family: Syne, sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+    }
+    .kpi span {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="badge-interno">Uso interno · Validação companhia · <span>Não é convite externo</span></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Flagship V4 · Happy Hour exclusivo</p>
+      <h1>IA que Vende</h1>
+      <p class="hero-lead">
+        Evento interno de relacionamento com 30 convidados em <strong>25 de agosto de 2026</strong> (horário a confirmar): queijos, vinhos e duas conversas — vendas e inteligência artificial — na Flagship da V4 Company.
+      </p>
+      <div class="hero-meta">
+        <span class="pill">30 convidados</span>
+        <span class="pill">25 de agosto de 2026</span>
+        <span class="pill">Horário a confirmar</span>
+        <span class="pill">Flagship V4</span>
+        <span class="pill">Orçamento parcial ~R$ 6.090</span>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi"><strong>30</strong><span>convidados</span></div>
+        <div class="kpi"><strong>2</strong><span>palestras</span></div>
+        <div class="kpi"><strong>18</strong><span>garrafas de vinho</span></div>
+        <div class="kpi"><strong>~6,1k</strong><span>parcial (comida+vinho+brinde)</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="speakers" id="palestrantes">
+    <div class="wrap">
+      <p class="sec-label">Palestrantes</p>
+      <h2>Quem sobe no palco</h2>
+      <p class="sec-sub">Duas falas curtas, tom happy hour — conteúdo aplicável sem formatão de congresso.</p>
+      <div class="speaker-grid">
+        <article class="speaker-card">
+          <img class="speaker-photo" src="assets/nunes.png" alt="Nunes" />
+          <p class="speaker-tag">Pauta 01 · Vendas</p>
+          <h3>Nunes</h3>
+          <p>Conversa sobre vendas — como acelerar aquisição e fechar com método.</p>
+        </article>
+        <article class="speaker-card">
+          <img class="speaker-photo" src="assets/luis.png" alt="Luís Felipe Santos" />
+          <p class="speaker-tag">Pauta 02 · Inteligência Artificial</p>
+          <h3>Luís Felipe Santos</h3>
+          <p>IA na prática — o que muda no dia a dia comercial e de operação.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="program" id="programacao">
+    <div class="wrap">
+      <p class="sec-label">Programação (rascunho)</p>
+      <h2>Fluxo da noite</h2>
+      <p class="sec-sub">Data prevista: <strong>25 de agosto de 2026</strong>. Horário de início ainda a confirmar com a Flagship — grades abaixo são referência.</p>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-time">18h30</div>
+          <div class="t-body">
+            <strong>Credenciamento + welcome</strong>
+            <span>Crachá, brinde (caderno + caneta), primeira taça</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">18h50</div>
+          <div class="t-body">
+            <strong>Abertura V4</strong>
+            <span>Contexto do encontro e apresentação dos palestrantes</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">19h00</div>
+          <div class="t-body">
+            <strong>Palestra 1 — Vendas · Nunes</strong>
+            <span>~25–30 min + perguntas rápidas</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">19h40</div>
+          <div class="t-body">
+            <strong>Palestra 2 — IA · Luís Felipe Santos</strong>
+            <span>~25–30 min + perguntas rápidas</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">20h20</div>
+          <div class="t-body">
+            <strong>Networking · Queijos &amp; Vinhos</strong>
+            <span>Mesa Happy Hour Select + seleção de vinhos</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">21h30</div>
+          <div class="t-body">
+            <strong>Encerramento</strong>
+            <span>Foto / agradecimento / follow-up comercial</span>
+          </div>
+        </div>
+      </div>
+      <p class="note-slot">Data prevista: <strong>25/08/2026</strong>. Pendente: confirmar horário e disponibilidade da Flagship nesse dia.</p>
+    </div>
+  </section>
+
+  <section class="incluso" id="experiencia">
+    <div class="wrap">
+      <p class="sec-label">Experiência</p>
+      <h2>O que o convidado recebe</h2>
+      <p class="sec-sub">Pacote fechado para 30 pessoas — comida, bebida e brinde já com valores.</p>
+      <div class="cards-3">
+        <article class="info-card">
+          <h3>Happy Hour Select</h3>
+          <ul>
+            <li>4 tipos de queijos</li>
+            <li>Lombo condimentado artesanal</li>
+            <li>Salame italiano</li>
+            <li>Pães de queijo</li>
+            <li>Terrine de gorgonzola c/ tomatinhos</li>
+            <li>Pão italiano + mousse de alho + torradas</li>
+            <li>Bruschettas Caprese e peperoni</li>
+            <li>Biscoito de arroz</li>
+            <li>Brigadeiro de colher + bolo caseirinho</li>
+            <li>Tela comestível</li>
+          </ul>
+          <p class="price-tag">R$ 100 / pessoa → R$ 3.000</p>
+        </article>
+        <article class="info-card">
+          <h3>Seleção de vinhos</h3>
+          <ul>
+            <li>18 garrafas (~2,5–3 taças/pessoa)</li>
+            <li>Rosé para queijos e abertura</li>
+            <li>Branco para Caprese / gorgonzola</li>
+            <li>Tintos para embutidos e lombo</li>
+            <li>Harmonização alinhada à carta</li>
+          </ul>
+          <p class="price-tag">≈ R$ 1.906 (seleção recomendada)</p>
+        </article>
+        <article class="info-card">
+          <h3>Brinde</h3>
+          <ul>
+            <li>Caderno + caneta</li>
+            <li>30 unidades</li>
+            <li>Frete incluso</li>
+          </ul>
+          <p class="price-tag">R$ 1.190</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vinhos" id="vinhos">
+    <div class="wrap">
+      <p class="sec-label">Carta de vinhos</p>
+      <h2>Seleção recomendada</h2>
+      <p class="sec-sub">Escolhida para casar com o cardápio Happy Hour Select (queijos + embutidos + bruschettas).</p>
+      <table class="wine-table">
+        <thead>
+          <tr>
+            <th>Vinho</th>
+            <th>Por quê</th>
+            <th>Qtd</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Imperial Ordem da Rosa Rosé</strong><br />Portugal · R$ 79</td>
+            <td>Queijos amarelos / pasta mole · ideal happy hour</td>
+            <td class="qty">6</td>
+            <td class="val">R$ 474</td>
+          </tr>
+          <tr>
+            <td><strong>Martha’s Douro Branco</strong><br />Portugal · R$ 114</td>
+            <td>Abertura, Caprese, gorgonzola</td>
+            <td class="qty">4</td>
+            <td class="val">R$ 456</td>
+          </tr>
+          <tr>
+            <td><strong>Começo Setúbal Tinto</strong><br />Portugal · R$ 79</td>
+            <td>Queijos cremosos · volume da noite</td>
+            <td class="qty">4</td>
+            <td class="val">R$ 316</td>
+          </tr>
+          <tr>
+            <td><strong>Asso Rosso IGT Toscano</strong><br />Itália · R$ 165</td>
+            <td>Embutidos, salame, lombo, peperoni</td>
+            <td class="qty">4</td>
+            <td class="val">R$ 660</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Total vinhos</strong></td>
+            <td class="qty">18</td>
+            <td class="val">R$ 1.906</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="wine-note">Alternativa: trocar Asso por Tartufo Nero (R$ 139) para reduzir ~R$ 100. Opção Clericot com branco na abertura (drink da carta).</p>
+    </div>
+  </section>
+
+  <section class="budget" id="orcamento">
+    <div class="wrap">
+      <p class="sec-label">Orçamento</p>
+      <h2>Investimento para validar</h2>
+      <p class="sec-sub">Parcial já cotado. Itens em amarelo ainda precisam de fornecedor / Flagship.</p>
+      <div class="budget-grid">
+        <div class="budget-table">
+          <table>
+            <tr>
+              <td>Comida — Happy Hour Select (30 × R$ 100)</td>
+              <td class="amt">R$ 3.000</td>
+            </tr>
+            <tr>
+              <td>Vinhos — 18 garrafas (seleção recomendada)</td>
+              <td class="amt">R$ 1.906</td>
+            </tr>
+            <tr>
+              <td>Brindes — caderno + caneta (frete incluso)</td>
+              <td class="amt">R$ 1.190</td>
+            </tr>
+            <tr class="total">
+              <td>Subtotal cotado</td>
+              <td class="amt">R$ 6.096</td>
+            </tr>
+            <tr class="pending">
+              <td colspan="2">Ainda falta cotar: crachás · água/não-alcoólico · AV/som · staff/limpeza Flagship · contingência ~10%</td>
+            </tr>
+          </table>
+        </div>
+        <aside class="status-card">
+          <h3>Status da organização</h3>
+          <ul class="status-list">
+            <li><span class="dot ok"></span><span><strong>Nome:</strong> IA que Vende</span></li>
+            <li><span class="dot ok"></span><span><strong>Palestrantes:</strong> Nunes (Vendas) + Luís Felipe (IA)</span></li>
+            <li><span class="dot ok"></span><span><strong>Público:</strong> 30 convidados</span></li>
+            <li><span class="dot ok"></span><span><strong>Comida:</strong> Happy Hour Select cotado</span></li>
+            <li><span class="dot ok"></span><span><strong>Vinhos:</strong> seleção da carta definida</span></li>
+            <li><span class="dot ok"></span><span><strong>Brinde:</strong> caderno + caneta R$ 1.190</span></li>
+            <li><span class="dot ok"></span><span><strong>Data prevista:</strong> 25 de agosto de 2026</span></li>
+            <li><span class="dot warn"></span><span><strong>Horário:</strong> a confirmar com a Flagship</span></li>
+            <li><span class="dot warn"></span><span><strong>Lista de convidados:</strong> a fechar</span></li>
+            <li><span class="dot miss"></span><span><strong>Crachás / AV / staff:</strong> pendente</span></li>
+            <li><span class="dot miss"></span><span><strong>Centro de custo / aprovação:</strong> pendente</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="local" id="local">
+    <div class="wrap">
+      <p class="sec-label">Local</p>
+      <h2>Flagship V4 Company</h2>
+      <div class="local-box">
+        <div>
+          <h3>Espaço</h3>
+          <p>Formato íntimo para 30 pessoas — credenciamento, palco/fala curta e mesa de queijos &amp; vinhos.</p>
+        </div>
+        <div>
+          <h3>Pendências com o espaço</h3>
+          <p>Disponibilidade de data · layout · regras de álcool/fornecedor externo · som/AV · limpeza/staff · horário limite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="validate" id="validacao">
+    <h2>Pronto para validar com a companhia</h2>
+    <p>
+      Pedido: aprovar conceito, palestrantes, pacote de experiência e teto de orçamento parcial (~R$ 6,1k + pendências),
+      para confirmarmos horário na Flagship em <strong>25/08/2026</strong> e fecharmos a lista de convidados.
+    </p>
+    <div class="validate-actions">
+      <span class="btn btn-white">Conceito · IA que Vende</span>
+      <span class="btn btn-ghost">30 pax · Flagship · 25/08/2026</span>
+    </div>
+  </section>
+
+  <footer>
+    V4 Company · Documento interno de validação · IA que Vende · 2026
+  </footer>
+</body>
+</html>
