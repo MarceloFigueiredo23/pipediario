@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM Base Ativa + E.E · Jul/2026 | V4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,500;75..100,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens-relatorios-v4.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    .chart-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:18px; margin:18px 0 28px; }
+    .chart-card { background:var(--surface-glass); border:1px solid var(--line); border-radius:var(--radius-table); padding:18px 20px; backdrop-filter:blur(var(--blur)); }
+    .chart-card h3 { margin:0 0 4px; font-size:1.05rem; font-stretch:85%; }
+    .chart-card .sub { color:var(--text-muted); font-size:.85rem; margin-bottom:12px; }
+    .chart-wrap { position:relative; height:280px; }
+    .chart-wrap.tall { height:320px; }
+    .fca-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0 28px; }
+    .fca { border-radius:18px; padding:16px 18px; border:1px solid var(--line); background:var(--surface-glass-soft); }
+    .fca h4 { margin:0 0 10px; font-stretch:85%; letter-spacing:.02em; }
+    .fca.fatos { border-color:rgba(255,138,128,.45); }
+    .fca.causas { border-color:rgba(255,209,102,.45); }
+    .fca.acoes { border-color:rgba(99,212,113,.45); }
+    .fca ul { margin:0; padding-left:18px; color:var(--text-muted); }
+    .fca li { margin-bottom:8px; }
+    .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .tag { display:inline-block; padding:2px 10px; border-radius:999px; background:var(--surface-glass-strong); font-size:.75rem; }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:980px) {
+      .chart-grid, .fca-grid, .two { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">
+        <img src="./assets/v4-company-logo-branca-oficial.svg" alt="V4 Company">
+      </span>
+      CRM Funil · Base Ativa + E.E · Jul/2026
+    </div>
+    <nav class="nav-pills">
+      <a href="#veredito">Veredito</a>
+      <a href="#base-ativa">Base Ativa</a>
+      <a href="#ee">E.E</a>
+      <a href="#fca">FCA</a>
+      <a href="#metodo">Método</a>
+    </nav>
+  </header>
+
+  <main class="report-shell">
+    <section class="hero" id="veredito">
+      <div class="hero-card hero-watermark" data-watermark="V4">
+        <div class="eyebrow">Planilha CRM · gid Base Ativa + E.E · período 07/2026</div>
+        <h1>Funil de ponta a ponta · Julho 2026.</h1>
+        <p>Base Ativa: 33 opps criadas · 10 fechadas na cohorte (30.3%) · 12 assinaturas no mês · TCV R$ 214.331,96. E.E: 25 pitches · 7 monetizados na cohorte (28.0%) · 6 fechamentos no mês · TCV R$ 194.153,41.</p>
+      </div>
+      <aside class="verdict glass">
+        <div>
+          <div class="eyebrow">Conversão Farmer · Base Ativa (cohorte)</div>
+          <strong>30.3%</strong>
+          <span>Marcelo · 10/33 fechados · TTC médio assinaturas 9.2d · E.E pitch→win 28.0% (Sara+Marcelo).</span>
+        </div>
+        <div class="pill">Fonte: planilha CRM · gerado 01/08/2026 10:52</div>
+      </aside>
+    </section>
+
+    <div class="cards">
+      <div class="metric">
+        <div class="metric-label">BA · Opps criadas</div>
+        <div class="metric-number">33</div>
+        <small>Data da oportunidade em 07/2026</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">BA · Assinaturas mês</div>
+        <div class="metric-number safe">12</div>
+        <small>TCV R$ 214.331,96</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">E.E · Pitches</div>
+        <div class="metric-number">25</div>
+        <small>Data do pitch em 07/2026</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">E.E · Fechamentos mês</div>
+        <div class="metric-number safe">6</div>
+        <small>TCV R$ 194.153,41</small>
+      </div>
+    </div>
+
+    <section class="callout">
+      <div class="eyebrow">Leitura executiva</div>
+      <h2>Base Ativa fecha rápido (TTC 9.2d); E.E ainda tem 9 em Follow na cohorte de pitch.</h2>
+      <p>Não misturar os dois funis: Base Ativa = expansão da carteira ativa (ticket Saber/Ter/Executar na aba). E.E = Estruturação Estratégica (pitch pós-diagnóstico). Totais abaixo vêm só da planilha exportada em 01/08/2026 10:52.</p>
+    </section>
+
+    <!-- ===================== BASE ATIVA ===================== -->
+    <section id="base-ativa">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Base Ativa ✅</div>
+          <h2>Funil ponta a ponta · cohorte 07/2026.</h2>
+        </div>
+        <p>Etapa = coluna “Agendar Reunião”. Wins do mês usam Data Assinatura (inclui carry-over de meses anteriores).</p>
+      </div>
+
+      <div class="cards">
+        <div class="metric"><div class="metric-label">Diagnóstico / Auditoria</div><div class="metric-number">5</div><small>Na cohorte</small></div>
+        <div class="metric"><div class="metric-label">Agendar Reunião</div><div class="metric-number">0</div><small>Na cohorte</small></div>
+        <div class="metric"><div class="metric-label">Reunião Agendada</div><div class="metric-number">4</div><small>Na cohorte</small></div>
+        <div class="metric"><div class="metric-label">Aceito / Realizado</div><div class="metric-number">2</div><small>Na cohorte</small></div>
+        <div class="metric"><div class="metric-label">Em Follow</div><div class="metric-number">4</div><small>Na cohorte</small></div>
+        <div class="metric"><div class="metric-label">Fechado</div><div class="metric-number safe">10</div><small>Conv. 30.3%</small></div>
+        <div class="metric"><div class="metric-label">Drops</div><div class="metric-number danger">8</div><small>24.2% da cohorte</small></div>
+        <div class="metric"><div class="metric-label">Executar $ (mês)</div><div class="metric-number">R$ 29.797,04</div><small>Saber R$ 0,00 · Ter R$ 19.734,00</small></div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Volume por etapa do funil (linha)</h3>
+          <div class="sub">Cohorte Base Ativa criada em 07/2026 · cada ponto = qtd na etapa atual</div>
+          <div class="chart-wrap tall"><canvas id="chartBaFunil"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Opps por squad</h3>
+          <div class="sub">Distribuição da cohorte · Farmer Marcelo</div>
+          <div class="chart-wrap"><canvas id="chartBaSquad"></canvas></div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Time to close · assinaturas jul</h3>
+          <div class="sub">Dias entre Data da oportunidade e Data Assinatura</div>
+          <div class="chart-wrap"><canvas id="chartBaTtc"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Drops por motivo</h3>
+          <div class="sub">Só cohorte jul · campo Motivo de DROP</div>
+          <div class="chart-wrap"><canvas id="chartBaDrop"></canvas></div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Conversão Farmer</div>
+          <h2>Taxa de conversão · Base Ativa.</h2>
+        </div>
+        <p>Win = etapa Fechado na cohorte criada em jul.</p>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Farmer</th><th>Opps</th><th>Wins</th><th>Drops</th><th>Abertas</th><th>Conv.</th><th>TCV wins</th></tr></thead>
+          <tbody>
+            <tr><td>Marcelo</td><td class='num'>33</td><td class='num'>10</td><td class='num'>8</td><td class='num'>15</td><td class='num'>30.3</td><td class='num'>R$ 187.401,64</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two">
+        <div>
+          <div class="section-head"><div><div class="eyebrow">Squad</div><h2>Quem mais vendeu.</h2></div></div>
+          <div class="table-card">
+            <table>
+              <thead><tr><th>Squad</th><th>Wins</th><th>TCV</th><th>Saber</th><th>Ter</th><th>Executar</th></tr></thead>
+              <tbody>
+                <tr><td>Billions</td><td class='num'>8</td><td class='num'>R$ 90.315,96</td><td class='num'>R$ 0,00</td><td class='num'>R$ 17.354,00</td><td class='num'>R$ 8.691,04</td></tr>
+<tr><td>Exclusive</td><td class='num'>1</td><td class='num'>R$ 84.000,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 14.000,00</td></tr>
+<tr><td>Invictus</td><td class='num'>3</td><td class='num'>R$ 40.016,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 2.380,00</td><td class='num'>R$ 7.106,00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="section-head"><div><div class="eyebrow">Coordenador</div><h2>Wins por coordenação.</h2></div></div>
+          <div class="table-card">
+            <table>
+              <thead><tr><th>Coord</th><th>Wins</th><th>TCV</th><th>Executar</th><th>Ter</th><th>Saber</th></tr></thead>
+              <tbody>
+                <tr><td>Neres</td><td class='num'>1</td><td class='num'>R$ 84.000,00</td><td class='num'>R$ 14.000,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Ueliton Pereira</td><td class='num'>2</td><td class='num'>R$ 39.016,00</td><td class='num'>R$ 6.106,00</td><td class='num'>R$ 2.380,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Guilherme</td><td class='num'>1</td><td class='num'>R$ 31.400,00</td><td class='num'>R$ 2.200,00</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Fabio</td><td class='num'>1</td><td class='num'>R$ 25.930,32</td><td class='num'>R$ 4.321,72</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Nayara Silva</td><td class='num'>4</td><td class='num'>R$ 18.385,64</td><td class='num'>R$ 1.369,32</td><td class='num'>R$ 7.354,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Nayara</td><td class='num'>1</td><td class='num'>R$ 9.600,00</td><td class='num'>R$ 800,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Ariel</td><td class='num'>1</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Jefferson Vieira</td><td class='num'>1</td><td class='num'>R$ 1.000,00</td><td class='num'>R$ 1.000,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Saber · Ter · Executar</div>
+          <h2>Ticket por categoria nos fechamentos do mês.</h2>
+        </div>
+        <p>Campos Saber / Ter / Executar da planilha (R$).</p>
+      </div>
+      <div class="chart-card" style="margin-bottom:24px">
+        <h3>Receita por categoria (assinaturas jul)</h3>
+        <div class="sub">Barras empilhadas Saber + Ter + Executar · agrupado pela categoria dominante do deal</div>
+        <div class="chart-wrap"><canvas id="chartBaCat"></canvas></div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Time to close</div>
+          <h2>Criação → assinatura.</h2>
+        </div>
+        <p>Todas as linhas com Data Assinatura em 07/2026.</p>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Cliente</th><th>Squad</th><th>Coord</th><th>Criada</th><th>Assinou</th><th>TTC</th><th>Categoria</th><th>TCV</th><th>Produtos</th></tr></thead>
+          <tbody>
+            <tr><td>Maidpad</td><td>Invictus</td><td>Ueliton Pereira</td><td>31/07/2026</td><td>31/07/2026</td><td class='num'>0d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 36.636,00</td><td>—</td></tr><tr><td>DI9 INVEST</td><td>Billions</td><td>Nayara</td><td>30/07/2026</td><td>31/07/2026</td><td class='num'>1d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 9.600,00</td><td>—</td></tr><tr><td>VISOFLEX PORTAS E PORTOES LTDA</td><td>Invictus</td><td>Jefferson Vieira</td><td>30/06/2026</td><td>01/07/2026</td><td class='num'>1d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 1.000,00</td><td>SDR IA</td></tr><tr><td>Reveservice - Revestimentos</td><td>Billions</td><td>Nayara Silva</td><td>06/07/2026</td><td>07/07/2026</td><td class='num'>1d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 8.031,84</td><td>Integração CRM</td></tr><tr><td>DESTRA GESTAO DA QUALIDADE S/S - 04.556.8…</td><td>Billions</td><td>Nayara Silva</td><td>03/07/2026</td><td>04/07/2026</td><td class='num'>1d</td><td><span class='tag'>Ter</span></td><td class='num'>R$ 5.000,00</td><td>Outro</td></tr><tr><td>Criativa Planejados</td><td>Invictus</td><td>Ueliton Pereira</td><td>21/07/2026</td><td>24/07/2026</td><td class='num'>3d</td><td><span class='tag'>Ter</span></td><td class='num'>R$ 2.380,00</td><td>CRM SALES</td></tr><tr><td>IOA Maringá</td><td>Billions</td><td>Nayara Silva</td><td>10/07/2026</td><td>15/07/2026</td><td class='num'>5d</td><td><span class='tag'>Ter + Executar</span></td><td class='num'>R$ 4.200,00</td><td>Outro</td></tr><tr><td>CARFLIX 7/10</td><td>Exclusive</td><td>Neres</td><td>21/07/2026</td><td>27/07/2026</td><td class='num'>6d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 84.000,00</td><td>Aumento de escopo</td></tr><tr><td>SINQ</td><td>Billions</td><td>Guilherme</td><td>23/07/2026</td><td>30/07/2026</td><td class='num'>7d</td><td><span class='tag'>Ter + Executar</span></td><td class='num'>R$ 31.400,00</td><td>Sales enablement, CRM SALES, SDR IA</td></tr><tr><td>Well Services</td><td>Billions</td><td>Nayara Silva</td><td>10/07/2026</td><td>17/07/2026</td><td class='num'>7d</td><td><span class='tag'>Ter</span></td><td class='num'>R$ 1.153,80</td><td>Outro</td></tr><tr><td>Prata Nobre</td><td>Billions</td><td>Ariel</td><td>22/07/2026</td><td>30/07/2026</td><td class='num'>8d</td><td><span class='tag'>Ter</span></td><td class='num'>R$ 5.000,00</td><td>CRM SALES</td></tr><tr><td>Samech</td><td>Billions</td><td>Fabio</td><td>13/05/2026</td><td>23/07/2026</td><td class='num'>71d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 25.930,32</td><td>SDR IA</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Cohorte completa</div>
+          <h2>Todas as oportunidades criadas em jul.</h2>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Cliente</th><th>Etapa</th><th>Squad</th><th>Coord</th><th>Data opp</th><th>Assinatura</th><th>Motivo DROP</th><th>Saber</th><th>Ter</th><th>Executar</th></tr></thead>
+          <tbody>
+            <tr><td>BERRYGOOD COMERCIO, IMPORTACAO E DISTRIBU…</td><td>Drop</td><td>Invictus</td><td>Melissa Pessoa</td><td>02/07/2026</td><td>—</td><td>Timing</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>AXSIS CONSULTORIA EM SUPPLY CHAIN LTDA.</td><td>Em Follow</td><td>Invictus</td><td>Melissa Pessoa</td><td>02/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 3.000,00</td></tr><tr><td>FIBRALINK SERVICOS DE TECNOLOGIA DA INFOR…</td><td>Drop</td><td>Invictus</td><td>Thaina Gomes</td><td>02/07/2026</td><td>—</td><td>Budget</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>TAWÁ VEÍCULOS</td><td>Drop</td><td>Invictus</td><td>Thaina Gomes</td><td>02/07/2026</td><td>—</td><td>Ops</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>PERNAMBUCO QUIMICA S A</td><td>Auditoria / Diagnóstico</td><td>Invictus</td><td>Thaina Gomes</td><td>02/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>PORTIER COSMETICOS</td><td>Auditoria / Diagnóstico</td><td>Invictus</td><td>Melissa Pessoa</td><td>02/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>ALD Arcotherm(ALD Distribuidora)</td><td>Auditoria / Diagnóstico</td><td>Exclusive</td><td>Melissa Pessoa</td><td>02/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>SEMENTES PAULISTA</td><td>Drop</td><td>Billions</td><td>Ariel Avellar</td><td>03/07/2026</td><td>—</td><td>Timing</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>COMPASS LOGISTICA LTDA</td><td>Reunião Agendada</td><td>Billions</td><td>Ariel Pinguelli</td><td>03/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>DURCON EQUIPAMENTOS INDUSTRIAIS LIMITADA</td><td>Drop</td><td>Billions</td><td>Ariel Avellar</td><td>03/07/2026</td><td>—</td><td>Timing</td><td class='num'>R$ 0,00</td><td class='num'>R$ 15.000,00</td><td class='num'>R$ 1.560,00</td></tr><tr><td>DESTRA GESTAO DA QUALIDADE S/S - 04.556.8…</td><td>Fechado / Monetizado</td><td>Billions</td><td>Nayara Silva</td><td>03/07/2026</td><td>04/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Reveservice - Revestimentos</td><td>Fechado / Monetizado</td><td>Billions</td><td>Nayara Silva</td><td>06/07/2026</td><td>07/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 669,32</td></tr><tr><td>IOA Maringá</td><td>Fechado / Monetizado</td><td>Billions</td><td>Nayara Silva</td><td>10/07/2026</td><td>15/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 1.200,00</td><td class='num'>R$ 700,00</td></tr><tr><td>Centro Visão</td><td>Drop</td><td>Billions</td><td>Guilherme</td><td>10/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Elysion SPA</td><td>Drop</td><td>Billions</td><td>Ariel</td><td>10/07/2026</td><td>—</td><td>Ops</td><td class='num'>R$ 0,00</td><td class='num'>R$ 3.000,00</td><td class='num'>R$ 2.500,00</td></tr><tr><td>Well Services</td><td>Fechado / Monetizado</td><td>Billions</td><td>Nayara Silva</td><td>10/07/2026</td><td>17/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 1.154,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Branquinho Santana</td><td>Aceito / Realizado</td><td>Billions</td><td>Nayara</td><td>16/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 10.000,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>VISOFLEX PORTAS E PORTOES LTDA</td><td>Reunião Agendada</td><td>Invictus</td><td>Jefferson Vieira</td><td>16/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>AUDDAS INTERMEDIACAO DE NEGOCIOS LTDA</td><td>Reunião Agendada</td><td>Invictus</td><td>Jefferson Vieira</td><td>16/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>EXCLUSIVA HOME DECOR</td><td>Auditoria / Diagnóstico</td><td>Invictus</td><td>Jefferson Vieira</td><td>16/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>SIGO ERP (DUO3)</td><td>Auditoria / Diagnóstico</td><td>Invictus</td><td>Jefferson Vieira</td><td>16/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Creazione</td><td>Drop</td><td>Billions</td><td>Nayara</td><td>20/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 2.000,00</td><td class='num'>R$ 0,00</td></tr><tr><td>CARFLIX 7/10</td><td>Fechado / Monetizado</td><td>Exclusive</td><td>Neres</td><td>21/07/2026</td><td>27/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 14.000,00</td></tr><tr><td>Criativa Planejados</td><td>Fechado / Monetizado</td><td>Invictus</td><td>Ueliton Pereira</td><td>21/07/2026</td><td>24/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 2.380,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Prata Nobre</td><td>Fechado / Monetizado</td><td>Billions</td><td>Ariel</td><td>22/07/2026</td><td>30/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Espaço Zabeu</td><td>Aceito / Realizado</td><td>Billions</td><td>Fabio</td><td>23/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 3.000,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Silmax</td><td>Reunião Agendada</td><td>Billions</td><td>Ariel</td><td>23/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>SINQ</td><td>Fechado / Monetizado</td><td>Billions</td><td>Guilherme</td><td>23/07/2026</td><td>30/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 2.200,00</td></tr><tr><td>Bella Gulla</td><td>Em Follow</td><td>Invictus</td><td>Clarindo</td><td>27/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 32.000,00</td></tr><tr><td>Sol Interiores</td><td>Em Follow</td><td>Billions</td><td>Nayara</td><td>28/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Gigaclima</td><td>Em Follow</td><td>Billions</td><td>Nayara</td><td>29/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 800,00</td></tr><tr><td>DI9 INVEST</td><td>Fechado / Monetizado</td><td>Billions</td><td>Nayara</td><td>30/07/2026</td><td>31/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 800,00</td></tr><tr><td>Maidpad</td><td>Fechado / Monetizado</td><td>Invictus</td><td>Ueliton Pereira</td><td>31/07/2026</td><td>31/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.106,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== E.E ===================== -->
+    <section id="ee">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">E.E ✅ · Estruturação Estratégica</div>
+          <h2>Funil de pitch · cohorte 07/2026.</h2>
+        </div>
+        <p>Etapa = coluna Status. Fechamentos do mês = Data do fechamento em 07/2026 com Status Monetizado.</p>
+      </div>
+
+      <div class="cards">
+        <div class="metric"><div class="metric-label">Pitches</div><div class="metric-number">25</div><small>Sara + Marcelo</small></div>
+        <div class="metric"><div class="metric-label">Monetizados (cohorte)</div><div class="metric-number safe">7</div><small>Conv. 28.0%</small></div>
+        <div class="metric"><div class="metric-label">Follow</div><div class="metric-number">9</div><small>Ainda abertos</small></div>
+        <div class="metric"><div class="metric-label">Aceito</div><div class="metric-number">2</div><small>Na cohorte</small></div>
+        <div class="metric"><div class="metric-label">Drops</div><div class="metric-number danger">6</div><small>24.0% da cohorte</small></div>
+        <div class="metric"><div class="metric-label">Fechamentos mês</div><div class="metric-number safe">6</div><small>TTC méd. 13.8d</small></div>
+        <div class="metric"><div class="metric-label">Saber $ (mês)</div><div class="metric-number">R$ 39.757,71</div><small>Ter R$ 4.000,00</small></div>
+        <div class="metric"><div class="metric-label">Executar $ (mês)</div><div class="metric-number">R$ 19.715,95</div><small>TCV R$ 194.153,41</small></div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Volume por status E.E (linha)</h3>
+          <div class="sub">Cohorte com Data do pitch em 07/2026</div>
+          <div class="chart-wrap tall"><canvas id="chartEeFunil"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Pitches por squad</h3>
+          <div class="sub">Distribuição da cohorte E.E</div>
+          <div class="chart-wrap"><canvas id="chartEeSquad"></canvas></div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Time to close · pitch → fechamento</h3>
+          <div class="sub">Wins com Data do fechamento em jul</div>
+          <div class="chart-wrap"><canvas id="chartEeTtc"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Drops E.E por motivo</h3>
+          <div class="sub">Cohorte pitch jul</div>
+          <div class="chart-wrap"><canvas id="chartEeDrop"></canvas></div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Conversão Farmer</div>
+          <h2>Taxa de conversão · E.E.</h2>
+        </div>
+        <p>Win = Status Monetizado ou Já monetizado na cohorte de pitch jul.</p>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Farmer</th><th>Pitches</th><th>Wins</th><th>Drops</th><th>Abertas</th><th>Conv.</th><th>TCV wins</th></tr></thead>
+          <tbody>
+            <tr><td>Sara</td><td class='num'>17</td><td class='num'>5</td><td class='num'>4</td><td class='num'>8</td><td class='num'>29.4</td><td class='num'>R$ 164.523,67</td></tr>
+<tr><td>Marcelo</td><td class='num'>8</td><td class='num'>2</td><td class='num'>2</td><td class='num'>4</td><td class='num'>25.0</td><td class='num'>R$ 78.686,64</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two">
+        <div>
+          <div class="section-head"><div><div class="eyebrow">Squad</div><h2>Fechamentos E.E por squad.</h2></div></div>
+          <div class="table-card">
+            <table>
+              <thead><tr><th>Squad</th><th>Wins</th><th>TCV</th><th>Saber</th><th>Ter</th><th>Executar</th></tr></thead>
+              <tbody>
+                <tr><td>Exclusive</td><td class='num'>4</td><td class='num'>R$ 150.630,72</td><td class='num'>R$ 28.518,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 15.002,12</td></tr>
+<tr><td>Billions</td><td class='num'>2</td><td class='num'>R$ 43.522,69</td><td class='num'>R$ 11.239,71</td><td class='num'>R$ 4.000,00</td><td class='num'>R$ 4.713,83</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="section-head"><div><div class="eyebrow">Coordenador</div><h2>Wins por coordenação.</h2></div></div>
+          <div class="table-card">
+            <table>
+              <thead><tr><th>Coord</th><th>Wins</th><th>TCV</th><th>Executar</th><th>Ter</th><th>Saber</th></tr></thead>
+              <tbody>
+                <tr><td>Eder Vasconcelos</td><td class='num'>3</td><td class='num'>R$ 121.000,98</td><td class='num'>R$ 10.063,83</td><td class='num'>R$ 0,00</td><td class='num'>R$ 28.518,00</td></tr>
+<tr><td>Rafaela Tolomeu</td><td class='num'>1</td><td class='num'>R$ 29.629,74</td><td class='num'>R$ 4.938,29</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Aline Pereira</td><td class='num'>1</td><td class='num'>R$ 28.282,98</td><td class='num'>R$ 4.713,83</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr>
+<tr><td>Gustavo Gazzola</td><td class='num'>1</td><td class='num'>R$ 15.239,71</td><td class='num'>R$ 0,00</td><td class='num'>R$ 4.000,00</td><td class='num'>R$ 11.239,71</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card" style="margin-bottom:24px">
+        <h3>Receita por categoria (fechamentos E.E jul)</h3>
+        <div class="sub">Saber / Ter / Executar nos deals com Data do fechamento em 07/2026</div>
+        <div class="chart-wrap"><canvas id="chartEeCat"></canvas></div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Time to close</div>
+          <h2>Pitch → fechamento.</h2>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Cliente</th><th>Squad</th><th>Coord</th><th>Farmer</th><th>Pitch</th><th>Fechamento</th><th>TTC</th><th>Categoria</th><th>TCV</th></tr></thead>
+          <tbody>
+            <tr><td>Isoluz Mats Eletricos (BS)</td><td>Billions</td><td>Gustavo Gazzola</td><td>Sara</td><td>29/07/2026</td><td>30/07/2026</td><td class='num'>1d</td><td><span class='tag'>Saber + Ter</span></td><td class='num'>R$ 15.239,71</td></tr><tr><td>G.E.W.T. (BM)</td><td>Exclusive</td><td>Rafaela Tolomeu</td><td>Marcelo</td><td>14/07/2026</td><td>21/07/2026</td><td class='num'>7d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 29.629,74</td></tr><tr><td>Academia imigrantes Ltda (BS)</td><td>Exclusive</td><td>Aline Pereira</td><td>Sara</td><td>20/07/2026</td><td>31/07/2026</td><td class='num'>11d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 28.282,98</td></tr><tr><td>Modular Estruturas</td><td>Billions</td><td>Eder Vasconcelos</td><td>Sara</td><td>10/07/2026</td><td>24/07/2026</td><td class='num'>14d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 28.282,98</td></tr><tr><td>BR Distribuidora de Piercing (BS)</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>03/07/2026</td><td>24/07/2026</td><td class='num'>21d</td><td><span class='tag'>Executar</span></td><td class='num'>R$ 64.200,00</td></tr><tr><td>Stylus Manaus (BS)</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>02/07/2026</td><td>31/07/2026</td><td class='num'>29d</td><td><span class='tag'>Saber</span></td><td class='num'>R$ 28.518,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Cohorte completa</div>
+          <h2>Todos os pitches E.E de jul.</h2>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Cliente</th><th>Status</th><th>Squad</th><th>Coord</th><th>Farmer</th><th>Pitch</th><th>Fechamento</th><th>Motivo DROP</th><th>Saber</th><th>Ter</th><th>Executar</th></tr></thead>
+          <tbody>
+            <tr><td>Stylus Manaus (BS)</td><td>Monetizado</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>02/07/2026</td><td>31/07/2026</td><td>Sem motivo</td><td class='num'>R$ 28.518,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>MIRA</td><td>Drop</td><td>Exclusive</td><td>Rafaela Tolomeu</td><td>Marcelo</td><td>02/07/2026</td><td>06/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 8.109,38</td><td class='num'>R$ 0,00</td></tr><tr><td>BR Distribuidora de Piercing (BS)</td><td>Monetizado</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>03/07/2026</td><td>24/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.350,00</td></tr><tr><td>Unik Benefícios (BS)</td><td>Drop</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>06/07/2026</td><td>—</td><td>Budget</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.172,87</td></tr><tr><td>Tchau Entrega (BS)</td><td>Aceito</td><td>Exclusive</td><td>Rafaela Tolomeu</td><td>Marcelo</td><td>06/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 4.350,00</td></tr><tr><td>KFG Torres</td><td>Drop</td><td>Invictus</td><td>Ruan Silva</td><td>Sara</td><td>07/07/2026</td><td>—</td><td>Budget</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.602,01</td></tr><tr><td>Modular Estruturas</td><td>Monetizado</td><td>Billions</td><td>Eder Vasconcelos</td><td>Sara</td><td>10/07/2026</td><td>24/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 4.713,83</td></tr><tr><td>Fui Aluguel de Motos (BS)</td><td>Drop</td><td>Exclusive</td><td>Aline Pereira</td><td>Sara</td><td>10/07/2026</td><td>—</td><td>Timing</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.502,01</td></tr><tr><td>AGM DISTRIBUIDORA (BS)</td><td>Follow</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>13/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.183,18</td></tr><tr><td>G.E.W.T. (BM)</td><td>Monetizado</td><td>Exclusive</td><td>Rafaela Tolomeu</td><td>Marcelo</td><td>14/07/2026</td><td>21/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 4.938,29</td></tr><tr><td>CYber Guru</td><td>Follow</td><td>Exclusive</td><td>Rafaela Tolomeu</td><td>Marcelo</td><td>14/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.500,00</td></tr><tr><td>PEDRINI E AZEVEDO ADVOCACIA (BS)</td><td>Drop</td><td>Invictus</td><td>Ruan Silva</td><td>Sara</td><td>15/07/2026</td><td>—</td><td>Timing</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.000,00</td><td class='num'>R$ 2.900,00</td></tr><tr><td>Kronos (BM)</td><td>Já monetizado</td><td>Exclusive</td><td>Aline Pereira</td><td>Marcelo</td><td>15/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 8.176,15</td></tr><tr><td>Ecofitness Aldeia (BS)</td><td>Follow</td><td>Exclusive</td><td>Aline Pereira</td><td>Sara</td><td>16/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 2.900,00</td></tr><tr><td>Dakarautomotivecenter (BS)</td><td>Follow</td><td>Billions</td><td>Nayara Ventura</td><td>Sara</td><td>17/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 9.127,41</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.172,87</td></tr><tr><td>Moteis Fortaleza (BM)</td><td>Follow</td><td>Billions</td><td>Matheus Jordan</td><td>Sara</td><td>17/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 16.226,39</td></tr><tr><td>Rosto Brasil LTDA. (BT)</td><td>Drop</td><td>Exclusive</td><td>Rafaela Tolomeu</td><td>Marcelo</td><td>17/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 7.000,00</td></tr><tr><td>Loteria Caimbá (BS)</td><td>Follow</td><td>Exclusive</td><td>Aline Pereira</td><td>Marcelo</td><td>17/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 4.500,00</td></tr><tr><td>Academia imigrantes Ltda (BS)</td><td>Monetizado</td><td>Exclusive</td><td>Aline Pereira</td><td>Sara</td><td>20/07/2026</td><td>31/07/2026</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 4.713,83</td></tr><tr><td>Adriano Martins Cardoso (BS)</td><td>Aceito</td><td>Exclusive</td><td>Aline Pereira</td><td>Sara</td><td>20/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 5.499,47</td></tr><tr><td>Global Cotton (BM)</td><td>Follow</td><td>Invictus</td><td>Thaina Cruz</td><td>Marcelo</td><td>23/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 8.175,15</td></tr><tr><td>Protesol tendas (BS)</td><td>Follow</td><td>Invictus</td><td>Ruan Silva</td><td>Sara</td><td>25/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 3.900,00</td></tr><tr><td>Triboltech (BS)</td><td>Semana 05</td><td>Invictus</td><td>Ruan Silva</td><td>Sara</td><td>28/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td><td class='num'>R$ 6.602,01</td></tr><tr><td>Estação Delta Emergência &amp; Facilities (BM)</td><td>Follow</td><td>Exclusive</td><td>Eder Vasconcelos</td><td>Sara</td><td>28/07/2026</td><td>—</td><td>Sem motivo</td><td class='num'>R$ 14.523,23</td><td class='num'>R$ 0,00</td><td class='num'>R$ 0,00</td></tr><tr><td>Isoluz Mats Eletricos (BS)</td><td>Monetizado</td><td>Billions</td><td>Gustavo Gazzola</td><td>Sara</td><td>29/07/2026</td><td>30/07/2026</td><td>Sem motivo</td><td class='num'>R$ 11.239,71</td><td class='num'>R$ 4.000,00</td><td class='num'>R$ 0,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== FCA ===================== -->
+    <section id="fca">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Metodologia FCA</div>
+          <h2>Fatos · Causas · Ações.</h2>
+        </div>
+        <p>Fatos = contagens da planilha. Causas = só o que os motivos/distribuição sustentam. Sem inventar % de mercado ou hipóteses fora do dado.</p>
+      </div>
+
+      <h3 style="margin:8px 0 4px;font-stretch:85%">Base Ativa</h3>
+      <div class="fca-grid">
+        <div class="fca fatos"><h4>Fatos</h4><ul><li>Cohorte criada em 07/2026: 33 oportunidades (100% Farmer Marcelo).</li>
+<li>Da cohorte: 10 Fechado (30.3%), 8 Drop (24.2%), 15 ainda abertas (45.5%).</li>
+<li>Assinaturas no mês (qualquer data de criação): 12 deals · TCV R$ 214.331,96.</li>
+<li>Time to close médio (assinaturas jul): 9.2 dias.</li>
+<li>Mix de wins por categoria $: Executar=6, Ter=4, Ter + Executar=2.</li>
+<li>Wins por squad: Billions=8, Invictus=3, Exclusive=1.</li>
+<li>Motivos de DROP na cohorte: Timing=3, Sem motivo=2, Ops=2, Budget=1.</li></ul></div>
+        <div class="fca causas"><h4>Causas</h4><ul><li>Motivo de DROP mais frequente na cohorte: Timing (3 de 8 drops · 37.5%).</li>
+<li>15 opps (45.5%) ainda no meio do funil (Auditoria, Reunião, Follow, Aceito): ciclo jul ainda em andamento em 01/08.</li>
+<li>Nenhum win da cohorte/mês com ticket Saber isolado ou dominante nos campos Saber/Ter/Executar da planilha Base Ativa.</li>
+<li>Ciclo curto (TTC médio 9.2d) concentra fechamento em deals rápidos: risco de pipeline ‘fácil’ vs. deals consultivos mais longos ainda abertos.</li></ul></div>
+        <div class="fca acoes"><h4>Ações</h4><ul><li>Preencher Motivo de DROP em 100% dos drops (hoje parte vem só com Timing/Budget/Ops).</li>
+<li>Destravar as 4 Reunião Agendada + 5 Auditoria da cohorte jul antes de abrir volume novo.</li>
+<li>Separar no pipe wins Executar (MRR) vs Ter (onetime) para leitura de run-rate vs caixa.</li>
+<li>Replicar padrão de TTC curto dos fechamentos jul em Account Planning com coords Billions (maior volume de wins).</li></ul></div>
+      </div>
+
+      <h3 style="margin:8px 0 4px;font-stretch:85%">E.E · Estruturação Estratégica</h3>
+      <div class="fca-grid">
+        <div class="fca fatos"><h4>Fatos</h4><ul><li>Pitches E.E com Data do pitch em 07/2026: 25.</li>
+<li>Farmers: Sara=17, Marcelo=8.</li>
+<li>Status atual da cohorte pitch: Monetizado/Já=7 (28.0%), Drop=6 (24.0%), Follow=9, Aceito=2, Semana*=1.</li>
+<li>Fechamentos com Data do fechamento em jul (status Monetizado): 6 · TCV R$ 194.153,41.</li>
+<li>TTC médio pitch→fechamento (wins jul): 13.8 dias.</li>
+<li>Wins por farmer (status na cohorte): Sara=5, Marcelo=2.</li>
+<li>Mix categoria $ nos wins com fechamento jul: Executar=4, Saber=1, Saber + Ter=1.</li>
+<li>Motivos DROP na cohorte pitch: Sem motivo=2, Timing=2, Budget=2.</li></ul></div>
+        <div class="fca causas"><h4>Causas</h4><ul><li>9 pitches (36.0%) ainda em Follow: gargalo de fechamento pós-pitch, não de volume de agenda.</li>
+<li>DROP dominante na cohorte: Sem motivo (2/6).</li>
+<li>Conversão status Monetizado/Já na cohorte: Sara 5/17 (29.4%); Marcelo 2/8 (25.0%).</li></ul></div>
+        <div class="fca acoes"><h4>Ações</h4><ul><li>Rotina diária de Follow E.E: priorizar os 9 em Follow da cohorte jul com data de próximo contato.</li>
+<li>Padronizar Motivo de DROP (Budget/Timing/Ops) em todo Drop E.E.</li>
+<li>Nos wins Saber (ex.: Stylus, Isoluz), agenda obrigatória de Conversa de Transição → pitch Executar em até 14 dias.</li>
+<li>Espelhar wins Sara (volume) e deals Exclusive Marcelo no Account Planning dos coords com maior pitch aberto.</li></ul></div>
+      </div>
+    </section>
+
+    <section id="metodo">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Método</div>
+          <h2>Como os números foram cortados.</h2>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Regra</th><th>Definição</th></tr></thead>
+          <tbody>
+            <tr><td>Fonte Base Ativa</td><td>Aba CRM gid 2033462344 · arquivo planilha-crm-base-ativa-latest.csv</td></tr>
+            <tr><td>Fonte E.E</td><td>Aba E.E gid 759150030 · arquivo planilha-crm-ee-latest.csv</td></tr>
+            <tr><td>Cohorte BA</td><td>Data da oportunidade em 07/2026</td></tr>
+            <tr><td>Cohorte E.E</td><td>Data do pitch em 07/2026</td></tr>
+            <tr><td>Win BA mês</td><td>Data Assinatura em 07/2026 e etapa Fechado</td></tr>
+            <tr><td>Win E.E mês</td><td>Data do fechamento em 07/2026 e Status Monetizado</td></tr>
+            <tr><td>Conversão Farmer</td><td>Wins da cohorte ÷ opps/pitches da cohorte</td></tr>
+            <tr><td>TTC</td><td>Dias entre criação/pitch e assinatura/fechamento</td></tr>
+            <tr><td>Saber / Ter / Executar</td><td>Campos monetários da planilha (não inventados)</td></tr>
+            <tr><td>FCA</td><td>Cohorte = Data da oportunidade / Data do pitch em 07/2026. Wins do mês = Data Assinatura / Data do fechamento em 07/2026. Valores Saber/Ter/Executar e TCV lidos da planilha. FCA só com fatos contáveis; causas só a partir de motivos e distribuição observada.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="footer-note">V4 Farmer · CRM Funil Jul/2026 · gerado 01/08/2026 10:52 · sem proxy de VGV Cockpit.</p>
+  </main>
+
+  <script>
+    const D = {"baFunil": {"labels": ["Auditoria / Diagnóstico", "Reunião Agendada", "Aceito / Realizado", "Em Follow", "Fechado / Monetizado", "Drop"], "values": [5, 4, 2, 4, 10, 8]}, "eeFunil": {"labels": ["Semana 05", "Aceito", "Follow", "Monetizado", "Já monetizado", "Drop"], "values": [1, 2, 9, 6, 1, 6]}, "baSquad": {"labels": ["Billions", "Invictus", "Exclusive"], "values": [18, 13, 2]}, "eeSquad": {"labels": ["Exclusive", "Invictus", "Billions"], "values": [16, 5, 4]}, "baCat": {"labels": ["Executar", "Ter + Executar", "Ter"], "saber": [0.0, 0.0, 0.0], "ter": [0.0, 6200.0, 13534.0], "executar": [26897.04, 2900.0, 0.0], "tcv": [165198.16, 35600.0, 13533.8]}, "eeCat": {"labels": ["Executar", "Saber", "Saber + Ter"], "saber": [0.0, 28518.0, 11239.71], "ter": [0.0, 0.0, 4000.0], "executar": [19715.95, 0.0, 0.0], "tcv": [150395.7, 28518.0, 15239.71]}, "baTtc": {"labels": ["Maidpad", "DI9 INVEST", "VISOFLEX PORTAS E ", "Reveservice - Reve", "DESTRA GESTAO DA Q", "Criativa Planejado", "IOA Maringá", "CARFLIX 7/10", "SINQ", "Well Services", "Prata Nobre", "Samech"], "values": [0, 1, 1, 1, 1, 3, 5, 6, 7, 7, 8, 71]}, "eeTtc": {"labels": ["Isoluz Mats Eletri", "G.E.W.T. (BM)", "Academia imigrante", "Modular Estruturas", "BR Distribuidora d", "Stylus Manaus (BS)"], "values": [1, 7, 11, 14, 21, 29]}, "baDrop": {"labels": ["Timing", "Sem motivo", "Ops", "Budget"], "values": [3, 2, 2, 1]}, "eeDrop": {"labels": ["Sem motivo", "Timing", "Budget"], "values": [2, 2, 2]}};
+    const grid = 'rgba(255,255,255,0.12)';
+    const tick = '#fff';
+    const gold = '#FFD48A';
+    const yellow = '#FFF200';
+    const white = 'rgba(255,255,255,0.85)';
+    const danger = '#FF8A80';
+    const safe = '#63D471';
+
+    Chart.defaults.color = tick;
+    Chart.defaults.borderColor = grid;
+    Chart.defaults.font.family = '"IBM Plex Sans", sans-serif';
+
+    function lineChart(id, labels, values, label) {
+      new Chart(document.getElementById(id), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label,
+            data: values,
+            borderColor: yellow,
+            backgroundColor: 'rgba(255,242,0,0.12)',
+            fill: true,
+            tension: 0.35,
+            pointRadius: 5,
+            pointBackgroundColor: gold,
+            borderWidth: 3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: true },
+            tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${c.raw}` } }
+          },
+          scales: {
+            x: { ticks: { maxRotation: 45, minRotation: 0 }, grid: { color: grid } },
+            y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: grid }, title: { display: true, text: 'Qtd oportunidades' } }
+          }
+        }
+      });
+    }
+
+    function barChart(id, labels, values, color) {
+      new Chart(document.getElementById(id), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{ label: 'Qtd', data: values, backgroundColor: color, borderRadius: 8 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: grid } }
+          }
+        }
+      });
+    }
+
+    function stackedMoney(id, pack) {
+      new Chart(document.getElementById(id), {
+        type: 'bar',
+        data: {
+          labels: pack.labels,
+          datasets: [
+            { label: 'Saber', data: pack.saber, backgroundColor: gold, borderRadius: 6 },
+            { label: 'Ter', data: pack.ter, backgroundColor: white, borderRadius: 6 },
+            { label: 'Executar', data: pack.executar, backgroundColor: yellow, borderRadius: 6 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (c) => `${c.dataset.label}: R$ ${Number(c.raw).toLocaleString('pt-BR', {minimumFractionDigits: 2})}`
+              }
+            }
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false } },
+            y: { stacked: true, beginAtZero: true, grid: { color: grid }, title: { display: true, text: 'R$' } }
+          }
+        }
+      });
+    }
+
+    lineChart('chartBaFunil', D.baFunil.labels, D.baFunil.values, 'Opps na etapa');
+    lineChart('chartEeFunil', D.eeFunil.labels, D.eeFunil.values, 'Pitches no status');
+    barChart('chartBaSquad', D.baSquad.labels, D.baSquad.values, gold);
+    barChart('chartEeSquad', D.eeSquad.labels, D.eeSquad.values, gold);
+    barChart('chartBaTtc', D.baTtc.labels, D.baTtc.values, safe);
+    barChart('chartEeTtc', D.eeTtc.labels, D.eeTtc.values, safe);
+    barChart('chartBaDrop', D.baDrop.labels, D.baDrop.values, danger);
+    barChart('chartEeDrop', D.eeDrop.labels, D.eeDrop.values, danger);
+    if (D.baCat.labels.length) stackedMoney('chartBaCat', D.baCat);
+    if (D.eeCat.labels.length) stackedMoney('chartEeCat', D.eeCat);
+  </script>
+</body>
+</html>
