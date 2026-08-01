@@ -261,9 +261,13 @@ h3 {
 }
 
 .metric-number {
-  margin-top: 12px;
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 0.92;
+  margin-top: 10px;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.1;
+  font-stretch: 85%;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .metric small {
