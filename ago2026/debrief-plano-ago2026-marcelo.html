@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debrief Jul + Plano Ago/2026 · Marcelo | V4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,500;75..100,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens-relatorios-v4.css">
+  <style>
+    .chart-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:18px; margin:18px 0 28px; }
+    .chart-card { background:var(--surface-glass); border:1px solid var(--line); border-radius:var(--radius-table); padding:18px 20px; backdrop-filter:blur(var(--blur)); }
+    .chart-card h3 { margin:0 0 4px; font-size:1.05rem; font-stretch:85%; }
+    .chart-card .sub { color:var(--text-muted); font-size:.85rem; margin-bottom:12px; }
+    .fca-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0 28px; }
+    .fca { border-radius:18px; padding:16px 18px; border:1px solid var(--line); background:var(--surface-glass-soft); }
+    .fca h4 { margin:0 0 10px; font-stretch:85%; letter-spacing:.02em; }
+    .fca.continuar { border-color:rgba(99,212,113,.5); }
+    .fca.parar { border-color:rgba(255,138,128,.5); }
+    .fca.testar { border-color:rgba(255,209,102,.5); }
+    .fca ul { margin:0; padding-left:18px; color:var(--text-muted); }
+    .fca li { margin-bottom:8px; }
+    .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .tag { display:inline-block; padding:2px 10px; border-radius:999px; background:var(--surface-glass-strong); font-size:.75rem; }
+    .tag.ok { background:rgba(99,212,113,.2); }
+    .tag.warn { background:rgba(255,209,102,.2); }
+    .tag.bad { background:rgba(255,138,128,.22); }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cards .metric { min-width:0; overflow:hidden; }
+    .cards .metric-number {
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.15;
+      font-stretch: 85%;
+      letter-spacing: -0.02em;
+      overflow-wrap: anywhere;
+    }
+    .prio { display:grid; gap:10px; margin:12px 0 24px; }
+    .prio-item {
+      display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:start;
+      padding:14px 16px; border-radius:16px; border:1px solid var(--line); background:var(--surface-glass-soft);
+    }
+    .prio-item .n {
+      width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+      background:var(--accent-yellow); color:#3B0000; font-weight:700; font-size:.85rem;
+    }
+    .prio-item.sec .n { background:rgba(255,255,255,.2); color:#fff; }
+    .prio-item h4 { margin:0 0 4px; font-size:1rem; font-stretch:85%; }
+    .prio-item p { margin:0; color:var(--text-muted); font-size:.9rem; }
+    .case-box {
+      margin:16px 0 28px; padding:20px 22px; border-radius:22px;
+      border:1px solid rgba(255,242,0,.35); background:rgba(255,242,0,.08);
+    }
+    .case-box h3 { margin:0 0 8px; font-stretch:85%; }
+    .case-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:14px; }
+    .case-metrics div { padding:12px; border-radius:14px; background:var(--surface-glass); border:1px solid var(--line); }
+    .case-metrics strong { display:block; font-size:1.15rem; margin-top:4px; font-stretch:85%; }
+    .src { font-size:.78rem; color:var(--text-muted); margin-top:6px; }
+    @media (max-width:980px) {
+      .chart-grid, .fca-grid, .two, .case-metrics { grid-template-columns:1fr; }
+      .prio-item { grid-template-columns:auto 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">
+        <img src="./assets/v4-company-logo-branca-oficial.svg" alt="V4 Company">
+      </span>
+      Debrief Jul + Plano Ago · Marcelo
+    </div>
+    <nav class="nav-pills">
+      <a href="#veredito">Veredito</a>
+      <a href="#ritmo">Ritmo</a>
+      <a href="#debrief">Debrief</a>
+      <a href="#maidpad">Maidpad SEO</a>
+      <a href="#frente">Frente</a>
+      <a href="#cst">Continuar / Parar / Testar</a>
+      <a href="#paralelo">Paralelo</a>
+    </nav>
+  </header>
+
+  <main class="report-shell">
+    <section class="hero" id="veredito">
+      <div class="hero-card hero-watermark" data-watermark="V4">
+        <div class="eyebrow">Um único HTML · Daily Monetização 03/08 + CRM Jul + Agenda Google</div>
+        <h1>Debrief de julho e plano de ação de agosto.</h1>
+        <p>Unidade monetizou <strong>R$ 408.485</strong> em 18 wins. Ticket médio R$ 22.694. Carflix = 20,6% do TCV. Case de mix alto a replicar: <strong>Maidpad SEO GEO</strong> (R$ 6.106 × 6 = R$ 36.636).</p>
+      </div>
+      <aside class="verdict glass">
+        <div>
+          <div class="eyebrow">Foco do mês (frente)</div>
+          <strong>Ticket + funil + ritmo</strong>
+          <span>Debrief → reunião de alinhamento → SEO/gestão especializada → menos dependência de 1 whale → destravar diagnóstico→reunião → follow semanal.</span>
+        </div>
+        <div class="pill">Gerado 03/08/2026 · arquivo local (sem multi-repo)</div>
+      </aside>
+    </section>
+
+    <div class="cards">
+      <div class="metric">
+        <div class="metric-label">TCV Jul (BA + E.E)</div>
+        <div class="metric-number safe">R$ 408.485</div>
+        <small>18 wins · TM R$ 22.694</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Visitas presenciais Jul</div>
+        <div class="metric-number">4</div>
+        <small>Aceitas/organizadas no calendário</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Visitas Ago (MTD 03/08)</div>
+        <div class="metric-number">0</div>
+        <small>Nenhuma ROPRE/presencial no calendário ainda</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Check-ins no calendário Jul</div>
+        <div class="metric-number">29</div>
+        <small>6 accepted · 20 sem RSVP · 3 declined</small>
+      </div>
+    </div>
+
+    <!-- ===================== RITMO ===================== -->
+    <section id="ritmo">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Histórico operacional · Jul/2026 (+ Ago MTD)</div>
+          <h2>Visitas, AP, Weekly e check-ins.</h2>
+        </div>
+        <p>Fonte: Google Calendar (primary Marcelo). “Esse mês” = ago MTD ainda no dia 3. Histórico completo usa julho fechado.</p>
+      </div>
+
+      <div class="cards">
+        <div class="metric">
+          <div class="metric-label">Account Planning (real)</div>
+          <div class="metric-number">6</div>
+          <small>Jul · Billions (Sara) 3× · Exclusive Rafaela 3×</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Expansão Invictus</div>
+          <div class="metric-number">5</div>
+          <small>Jul · rituais de squad/coord (02, 09, 16, 23, 30)</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Weekly</div>
+          <div class="metric-number">8</div>
+          <small>Jul · Saber, Single Revenue, Billions, Coord SABER, CTVS</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Daily Monetização</div>
+          <div class="metric-number">12</div>
+          <small>Jul · + 2 em ago MTD</small>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="table-card">
+          <h3 style="margin:0 0 10px;font-stretch:85%">Visitas presenciais · você esteve</h3>
+          <p class="src">Calendário: RSVP accepted ou evento criado por você. Diferente das 20 agendas “presencial” mapeadas na carteira (flag/ROPRE por conta).</p>
+          <table>
+            <thead><tr><th>Data</th><th>Agenda</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>21/07</td><td>PRESENCIAL (bloco 13h–17h)</td><td><span class="tag ok">Organizador</span></td></tr>
+              <tr><td>22/07</td><td>Espaço Zabeu · ROPRE Q2 Presencial</td><td><span class="tag ok">Accepted</span></td></tr>
+              <tr><td>23/07</td><td>Samech · ROPRE Q2 Presencial (Campinas)</td><td><span class="tag ok">Accepted</span></td></tr>
+              <tr><td>24/07</td><td>SINQ Atelier · ROPRE Q2</td><td><span class="tag ok">Accepted</span></td></tr>
+            </tbody>
+          </table>
+          <p class="src">Ago MTD (até 03/08): 0 visitas presenciais no calendário.</p>
+        </div>
+        <div class="table-card">
+          <h3 style="margin:0 0 10px;font-stretch:85%">Reuniões com coordenação / squad</h3>
+          <table>
+            <thead><tr><th>Tipo</th><th>Jul</th><th>Detalhe</th></tr></thead>
+            <tbody>
+              <tr><td>AP Billions (Sara)</td><td class="num">3</td><td>06, 13, 20/07 · 17h</td></tr>
+              <tr><td>AP Exclusive (Rafaela) + Sara</td><td class="num">3</td><td>06, 13, 20/07 · 14h45</td></tr>
+              <tr><td>Expansão Invictus</td><td class="num">5</td><td>02, 09, 16, 23, 30/07</td></tr>
+              <tr><td>Weekly Expansão Billions</td><td class="num">1</td><td>09/07</td></tr>
+              <tr><td>Weekly Coordenação SABER</td><td class="num">1</td><td>10/07</td></tr>
+              <tr><td>Weekly Expansão Saber</td><td class="num">2</td><td>06, 13/07</td></tr>
+              <tr><td>Weekly Single Revenue</td><td class="num">2</td><td>07, 14/07</td></tr>
+            </tbody>
+          </table>
+          <p class="src">Há também o ritual diário “Review de ACCOUNT PLANNING &amp; CRM” (slot recorrente 8h). Não conta como AP com coord.</p>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Check-ins</div>
+          <h2>Quantos check-ins você entrou no radar.</h2>
+        </div>
+        <p>Convites no seu calendário com “CHECK-IN” em jul. RSVP incompleto: muitos ficam em needsAction mesmo com participação.</p>
+      </div>
+      <div class="cards">
+        <div class="metric">
+          <div class="metric-label">Convites Jul</div>
+          <div class="metric-number">29</div>
+          <small>Search CHECK-IN no Calendar</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Accepted</div>
+          <div class="metric-number safe">6</div>
+          <small>Id Negócios, Sotóbi, VLOCA, Jundiá, Axsis, KCE</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Sem RSVP</div>
+          <div class="metric-number">20</div>
+          <small>Inclui IOA, PG, Fibralink, AeroTD…</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Declined</div>
+          <div class="metric-number danger">3</div>
+          <small>Via Journey, The Way, Vest Care</small>
+        </div>
+      </div>
+      <p class="src">BigQuery (org): 128 check-ins com transcrição em jul. Seu recorte comercial é o calendário (29), não a base inteira. Ago MTD: Fibralink / Eduzz / IOA no calendário (ainda sem accepted firme no dump de 03/08).</p>
+    </section>
+
+    <!-- ===================== DEBRIEF ===================== -->
+    <section id="debrief">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Debrief · números Jul</div>
+          <h2>Squad, conversão, ticket e dependência.</h2>
+        </div>
+        <p>Fonte: planilha CRM BA + E.E · mesmo corte do funil publicado.</p>
+      </div>
+
+      <div class="cards">
+        <div class="metric">
+          <div class="metric-label">Conv. BA s/ reunião</div>
+          <div class="metric-number">41,7%</div>
+          <small>10/24 · TTC méd. 9,2d</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Conv. E.E s/ pitch</div>
+          <div class="metric-number">28,0%</div>
+          <small>7 monetizados na cohorte · 6 fech. mês</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Gargalo BA</div>
+          <div class="metric-number warn">5 + 4</div>
+          <small>Diagnóstico + Reunião Agendada ainda abertos</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Dependência Carflix</div>
+          <div class="metric-number danger">20,6%</div>
+          <small>R$ 84k de R$ 408k · TM sem Carflix R$ 19.087</small>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="table-card">
+          <h3 style="margin:0 0 10px;font-stretch:85%">Wins por squad (BA assinaturas)</h3>
+          <table>
+            <thead><tr><th>Squad</th><th>Wins</th><th>TCV</th><th>Executar×booking</th></tr></thead>
+            <tbody>
+              <tr><td>Billions</td><td class="num">8</td><td class="num">R$ 90.316</td><td class="num">R$ 74.162</td></tr>
+              <tr><td>Exclusive</td><td class="num">1</td><td class="num">R$ 84.000</td><td class="num">R$ 84.000</td></tr>
+              <tr><td>Invictus</td><td class="num">3</td><td class="num">R$ 40.016</td><td class="num">R$ 42.636</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-card">
+          <h3 style="margin:0 0 10px;font-stretch:85%">Wins por squad (E.E fechamentos)</h3>
+          <table>
+            <thead><tr><th>Squad</th><th>Wins</th><th>TCV</th><th>Saber</th></tr></thead>
+            <tbody>
+              <tr><td>Exclusive</td><td class="num">4</td><td class="num">R$ 150.631</td><td class="num">R$ 28.518</td></tr>
+              <tr><td>Billions</td><td class="num">2</td><td class="num">R$ 43.523</td><td class="num">R$ 11.240</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="table-card" style="margin-top:16px">
+        <h3 style="margin:0 0 10px;font-stretch:85%">Funil BA · cohorte criada em jul</h3>
+        <table>
+          <thead><tr><th>Etapa</th><th>Qtd</th><th>Leitura</th></tr></thead>
+          <tbody>
+            <tr><td>Auditoria / Diagnóstico</td><td class="num">5</td><td><span class="tag warn">Gargalo pré-reunião</span></td></tr>
+            <tr><td>Reunião Agendada</td><td class="num">4</td><td><span class="tag warn">Destravar esta semana</span></td></tr>
+            <tr><td>Aceito / Em Follow</td><td class="num">6</td><td>Em ciclo</td></tr>
+            <tr><td>Fechado</td><td class="num">10</td><td><span class="tag ok">Conv. 41,7% s/ reunião</span></td></tr>
+            <tr><td>Drop</td><td class="num">8</td><td>Timing 3 · Ops 2 · Budget 1 · Sem motivo 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== MAIDPAD ===================== -->
+    <section id="maidpad">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Case de mix de maior valor</div>
+          <h2>Maidpad · SEO GEO.</h2>
+        </div>
+        <p>Único case de SEO pedido neste debrief. Não misturar com outros clientes.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>O que foi vendido</h3>
+        <p style="margin:0;color:var(--text-muted)">Produto <strong style="color:#fff">SEO GEO</strong> na Base Ativa · Squad Invictus · Coord Ueliton Pereira · Farmer Marcelo. Criação e assinatura no mesmo dia (31/07). Pagamento: <strong style="color:#fff">Boleto</strong>.</p>
+        <div class="case-metrics">
+          <div><span class="src">Fee mensal</span><strong>R$ 6.106</strong></div>
+          <div><span class="src">Booking</span><strong>6 meses</strong></div>
+          <div><span class="src">TCV</span><strong>R$ 36.636</strong></div>
+          <div><span class="src">TTC</span><strong>0 dia</strong></div>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="chart-card">
+          <h3>Por que isso é o padrão a repetir</h3>
+          <div class="sub">Versus produto de entrada R$ 700–800</div>
+          <ul style="margin:0;padding-left:18px;color:var(--text-muted)">
+            <li>Fee Executar que paga estrutura (não “entrada”).</li>
+            <li>Booking 6× gera TCV relevante sem depender de whale.</li>
+            <li>Categoria alinhada à diretriz da Daily: SEO / gestão especializada.</li>
+            <li>Ciclo curto (0d) quando a tese está madura com o coord.</li>
+          </ul>
+        </div>
+        <div class="chart-card">
+          <h3>Como usar no plano de ago</h3>
+          <div class="sub">Narrativa na reunião de alinhamento</div>
+          <ul style="margin:0;padding-left:18px;color:var(--text-muted)">
+            <li>Em todo AP: “qual conta tem fit SEO GEO tipo Maidpad?”</li>
+            <li>Meta: pelo menos <strong style="color:#fff">2 wins SEO/gestão</strong> com fee ≥ R$ 3k no mês.</li>
+            <li>Não contar como sucesso fechar só TER/entrada se o pipe estiver cheio de diagnóstico SEO.</li>
+            <li>Registrar Fm Pagamento no fechamento (Maidpad = Boleto).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FRENTE ===================== -->
+    <section id="frente">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Frente · agora</div>
+          <h2>Plano de ação ago (prioridade).</h2>
+        </div>
+        <p>Ordem sugerida para a reunião de alinhamento e a execução da semana.</p>
+      </div>
+
+      <div class="prio">
+        <div class="prio-item">
+          <div class="n">1</div>
+          <div>
+            <h4>Debrief + plano de ação do mês</h4>
+            <p>Segmentar por squad, coordenação, tipo de cliente e ticket. Fechar metas de visita presencial e meta de ticket médio (TM sem whale).</p>
+          </div>
+          <span class="tag">Esta semana</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">2</div>
+          <div>
+            <h4>Reunião de alinhamento do desempenho</h4>
+            <p>Levar conversão BA/E.E, visitas (4 em jul / 0 ago), AP/Weekly, check-ins e o case Maidpad. Sair com dono + data por ação.</p>
+          </div>
+          <span class="tag">Esta semana</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">3</div>
+          <div>
+            <h4>Mix de maior valor (SEO / gestão)</h4>
+            <p>Priorizar tese Maidpad: SEO GEO e gestão especializada. Evitar encher o mês com fee R$ 700–800.</p>
+          </div>
+          <span class="tag">Pipe diário</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">4</div>
+          <div>
+            <h4>Reduzir dependência de 1 conta grande</h4>
+            <p>Carflix foi 20,6% do TCV. Meta: diversificar wins ≥ R$ 15k TCV em ≥ 2 squads.</p>
+          </div>
+          <span class="tag">Meta mês</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">5</div>
+          <div>
+            <h4>Destravar gargalo diagnóstico → reunião</h4>
+            <p>5 em Auditoria + 4 Reunião Agendada na cohorte jul. Rotina: cada AP sai com data de reunião ou motivo de drop preenchido.</p>
+          </div>
+          <span class="tag">Operação BA</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">6</div>
+          <div>
+            <h4>Rotina semanal de follow do plano</h4>
+            <p>Toda sexta (ou na Daily de segunda): % visitas feitas, wins SEO/gestão, opps travadas no diagnóstico, TM da semana.</p>
+          </div>
+          <span class="tag">Cadência</span>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <h3 style="margin:0 0 10px;font-stretch:85%">Metas operacionais sugeridas · ago</h3>
+        <table>
+          <thead><tr><th>Indicador</th><th>Jul (fato)</th><th>Meta ago</th><th>Como medir</th></tr></thead>
+          <tbody>
+            <tr><td>Visitas presenciais (você)</td><td class="num">4</td><td class="num">≥ 4</td><td>Calendar ROPRE/PRESENCIAL accepted</td></tr>
+            <tr><td>AP com coord (real)</td><td class="num">6 + 5 Invictus</td><td class="num">≥ 8</td><td>AP Billions/Exclusive/Invictus no calendário</td></tr>
+            <tr><td>Wins SEO / gestão (fee ≥ 3k)</td><td class="num">1 (Maidpad)</td><td class="num">≥ 2</td><td>Planilha CRM produtos</td></tr>
+            <tr><td>Opps paradas em Diagnóstico</td><td class="num">5</td><td class="num">≤ 2 ao fim do mês</td><td>Cohorte BA</td></tr>
+            <tr><td>% TCV da maior conta</td><td class="num">20,6%</td><td class="num">≤ 15%</td><td>Maior win ÷ TCV mês</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== CST ===================== -->
+    <section id="cst">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Retrospectiva</div>
+          <h2>Continuar · Parar · Continuar testando.</h2>
+        </div>
+        <p>Com base na Daily 03/08 + números Jul + ritmo de agenda.</p>
+      </div>
+
+      <div class="fca-grid">
+        <div class="fca continuar">
+          <h4>Continuar</h4>
+          <ul>
+            <li>Vender <strong style="color:#fff">SEO GEO / gestão</strong> no padrão Maidpad (fee alto + booking).</li>
+            <li>Manter <strong style="color:#fff">TTC curto</strong> na BA quando a tese com o coord está pronta.</li>
+            <li><strong style="color:#fff">Daily Monetização</strong> + AP semanal com Billions/Exclusive.</li>
+            <li><strong style="color:#fff">Presencial ROPRE</strong> com pauta comercial (Samech / Zabeu / SINQ).</li>
+            <li>Expansão Invictus semanal como ritual de coordenação.</li>
+            <li>Preencher forma de pagamento no win (já corrigido nos 8 gaps).</li>
+          </ul>
+        </div>
+        <div class="fca parar">
+          <h4>Parar</h4>
+          <ul>
+            <li>Celebrar mês “cheio” se o TCV depender de <strong style="color:#fff">1 whale</strong> (Carflix 20,6%).</li>
+            <li>Empurrar produto de entrada <strong style="color:#fff">R$ 700–800</strong> como estratégia principal.</li>
+            <li>Deixar opp em <strong style="color:#fff">Diagnóstico / Reunião Agendada</strong> sem data nem Motivo DROP.</li>
+            <li>Postura só reativa depois de 2 meses fracos (Daily).</li>
+            <li>Contar ritual “Review AP &amp; CRM” 8h como se fosse AP com coord.</li>
+          </ul>
+        </div>
+        <div class="fca testar">
+          <h4>Continuar testando</h4>
+          <ul>
+            <li>Playbook <strong style="color:#fff">diagnóstico → proposta SEO EXECUTAR</strong> (réplica Maidpad).</li>
+            <li>Meta explícita de <strong style="color:#fff">visitas/mês</strong> no follow semanal.</li>
+            <li>Diversificar wins ≥ R$ 15k TCV em 2+ squads.</li>
+            <li>Check-in seletivo: accepted nos que têm tese de expansão; limpar declined/noise.</li>
+            <li>Cadência sexta: painel visitas / SEO wins / gargalo BA / TM da semana.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PARALELO ===================== -->
+    <section id="paralelo">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Segundo plano · paralelo</div>
+          <h2>Não bloqueia o debrief.</h2>
+        </div>
+        <p>Ficam rodando sem travar a frente do mês.</p>
+      </div>
+      <div class="prio">
+        <div class="prio-item sec">
+          <div class="n">P1</div>
+          <div>
+            <h4>Verificar pagamentos (Pix × cartão)</h4>
+            <p>Checar discrepâncias em recorrentes Pix vs cartão. Não é pré-requisito da reunião de alinhamento.</p>
+          </div>
+          <span class="tag">Paralelo</span>
+        </div>
+        <div class="prio-item sec">
+          <div class="n">P2</div>
+          <div>
+            <h4>Case Carflix (com Isaac)</h4>
+            <p>Documentar monetização Carflix para replicar ticket alto. Paralelo ao case Maidpad SEO (já na frente).</p>
+          </div>
+          <span class="tag">Paralelo</span>
+        </div>
+        <div class="prio-item sec">
+          <div class="n">P3</div>
+          <div>
+            <h4>Responder Gustavo</h4>
+            <p>Estruturas de projeto: analisar viabilidade e responder. Entra no backlog do debrief, sem segurar o plano.</p>
+          </div>
+          <span class="tag">Paralelo</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Método / fontes</div>
+          <h2>De onde veio cada número.</h2>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Bloco</th><th>Fonte</th></tr></thead>
+          <tbody>
+            <tr><td>TCV, funil, squad, Maidpad</td><td>Planilha CRM BA + E.E · dump jul · `_relatorios/2026-07/crm-funil-jul2026-data.json`</td></tr>
+            <tr><td>Visitas presenciais (você)</td><td>Google Calendar · search presencial/ROPRE · RSVP accepted / organizador</td></tr>
+            <tr><td>Agendas presencial na carteira (20)</td><td>Report separado `agendas-presenciais-jul.html` (flag/data por conta — não é “eu fui”)</td></tr>
+            <tr><td>AP / Weekly / Daily / Check-in</td><td>Google Calendar primary · jul/2026 + ago MTD até 03/08</td></tr>
+            <tr><td>Check-ins org-wide (128)</td><td>BigQuery calls · tipo Checkin · jul (contexto; não = participação sua)</td></tr>
+            <tr><td>Prioridades frente/paralelo</td><td>Daily Monetização 03/08 (PDF Gemini) + sua priorização neste chat</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="footer-note">V4 Farmer · Marcelo · Debrief Jul + Plano Ago/2026 · gerado 03/08/2026 · 1 arquivo HTML local · sem multi-repo.</p>
+  </main>
+</body>
+</html>
