@@ -52,6 +52,11 @@
     .case-metrics div { padding:12px; border-radius:14px; background:var(--surface-glass); border:1px solid var(--line); }
     .case-metrics strong { display:block; font-size:1.15rem; margin-top:4px; font-stretch:85%; }
     .src { font-size:.78rem; color:var(--text-muted); margin-top:6px; }
+    .chart-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0; }
+    .chart-card { background:var(--surface-glass); border:1px solid var(--line); border-radius:var(--radius-table); padding:16px 18px; }
+    .chart-card h3 { margin:0 0 4px; font-size:1.05rem; font-stretch:85%; }
+    .chart-card .sub { color:var(--text-muted); font-size:.85rem; margin-bottom:10px; }
+    @media (max-width:980px) { .chart-grid { grid-template-columns:1fr; } }
     @media (max-width:980px) {
       .fca-grid, .two, .case-metrics { grid-template-columns:1fr; }
       .prio-item { grid-template-columns:auto 1fr; }
@@ -77,6 +82,7 @@
       <a href="#cst">Continuar / Parar / Testar</a>
       <a href="#ee">E.E</a>
       <a href="#ee-projecao">Funil E.E</a>
+      <a href="#ee-cenarios">Cenários E.E</a>
     </nav>
   </header>
 
@@ -712,6 +718,115 @@
         <p>Só o estoque FA, na taxa histórica, referencia ~4.8 wins. Jul fechou 6. Para empatar/superar jul é obrigatório gerar pitches novos (Semana* + kick-offs Entradas 07), não só limpar Follow. Conta prática: <strong>≥ 25 pitches</strong> + conv. cohorte <strong>≥ 28,0%</strong> (melhor se aproximar dos 36,4% abr–jul) + priorizar <strong>MEDIUM</strong> no kick-off das Entradas 07.</p>
       </div>
 
+
+      <div class="section-head" style="margin-top:28px" id="ee-cenarios">
+        <div>
+          <div class="eyebrow">Projeção E.E ago · por ticket médio</div>
+          <h2>Pessimista · Realista · Otimista.</h2>
+        </div>
+        <p>Fórmula: <strong>wins = pitches × conv</strong> · <strong>TCV = wins × TM</strong>. Âncoras históricas (não inventadas). Jul fato: 6 wins · R$ 194.153 · TM R$ 32.359 · 25 pitches.</p>
+      </div>
+
+      <div class="cards">
+        <div class="metric">
+          <div class="metric-label">Pessimista</div>
+          <div class="metric-number danger">R$ 183.298</div>
+          <small>5,6 wins · TM R$ 32.732</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Realista</div>
+          <div class="metric-number warn">R$ 294.466</div>
+          <small>9,1 wins · TM R$ 32.359</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Otimista</div>
+          <div class="metric-number safe">R$ 531.564</div>
+          <small>11,2 wins · TM R$ 47.461</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Chão (só Follow/Aceito)</div>
+          <div class="metric-number">R$ 155.323</div>
+          <small>~4,8 wins × TM jul · sem pitch novo</small>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <h3 style="margin:0 0 10px;font-stretch:85%">Faixa projetada ago</h3>
+        <table>
+          <thead><tr><th>Cenário</th><th>Pitches</th><th>Conv.</th><th>Wins</th><th>TM</th><th>TCV</th><th>vs jul TCV</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag bad">Pessimista</span></td>
+              <td class="num">20</td>
+              <td class="num">28,0%</td>
+              <td class="num">5,6</td>
+              <td class="num">R$ 32.732</td>
+              <td class="num"><strong>R$ 183.298</strong></td>
+              <td class="num">-5,6% vs jul</td>
+            </tr>
+            <tr>
+              <td><span class="tag warn">Realista</span></td>
+              <td class="num">25</td>
+              <td class="num">36,4%</td>
+              <td class="num">9,1</td>
+              <td class="num">R$ 32.359</td>
+              <td class="num"><strong>R$ 294.466</strong></td>
+              <td class="num">+51,7% vs jul</td>
+            </tr>
+            <tr>
+              <td><span class="tag ok">Otimista</span></td>
+              <td class="num">28</td>
+              <td class="num">40,0%</td>
+              <td class="num">11,2</td>
+              <td class="num">R$ 47.461</td>
+              <td class="num"><strong>R$ 531.564</strong></td>
+              <td class="num">+173,8% vs jul</td>
+            </tr>
+            <tr><td>Jul (fato)</td><td class="num">25</td><td class="num">28%*</td><td class="num">6</td><td class="num">R$ 32.359</td><td class="num"><strong>R$ 194.153</strong></td><td class="num">base</td></tr>
+          </tbody>
+        </table>
+        <p class="src">*Conv. cohorte jul 28% (com Follow aberto). Entre concluídos jul = 50%. Realista usa 36,4% abr–jul. Otimista usa 48,6% MEDIUM. Chão FA ≈ 4,8 wins se não abrir pitch novo.</p>
+      </div>
+
+      <div class="chart-grid" style="margin-top:16px">
+          <div class="chart-card">
+            <h3>Pessimista · R$ 183.298</h3>
+            <div class="sub">5.6 wins · TM R$ 32.732</div>
+            <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:.9rem">
+              <li>Pitches: <strong style="color:#fff">20</strong></li>
+              <li>Conv.: <strong style="color:#fff">28,0%</strong> (cohorte jul (ainda com Follow aberto))</li>
+              <li>TM: 85% do TM hist. SMALL (R$ 38.508)</li>
+              <li>Abaixo do patamar jul em volume; mix mais SMALL; conv. igual jul.</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <h3>Realista · R$ 294.466</h3>
+            <div class="sub">9.1 wins · TM R$ 32.359</div>
+            <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:.9rem">
+              <li>Pitches: <strong style="color:#fff">25</strong></li>
+              <li>Conv.: <strong style="color:#fff">36,4%</strong> (abr–jul geral (99 pitches))</li>
+              <li>TM: TM dos 6 fechamentos jul (R$ 32.359)</li>
+              <li>Repete volume de pitches de jul com taxa abr–jul (melhor que 28% da cohorte aberta).</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <h3>Otimista · R$ 531.564</h3>
+            <div class="sub">11.2 wins · TM R$ 47.461</div>
+            <ul style="margin:0;padding-left:18px;color:var(--text-muted);font-size:.9rem">
+              <li>Pitches: <strong style="color:#fff">28</strong></li>
+              <li>Conv.: <strong style="color:#fff">40,0%</strong> (taxa MEDIUM em jul (5 pitches · 2 wins) · stretch viável)</li>
+              <li>TM: 55% TM MEDIUM hist. + 45% TM jul</li>
+              <li>Um pouco mais de pitch que jul + mix puxado a MEDIUM (Entradas 07) + conv. de tier MEDIUM jul.</li>
+            </ul>
+          </div>
+      </div>
+
+      <div class="callout" style="margin-top:16px">
+        <div class="eyebrow">Como ler</div>
+        <h2>Realista já supera jul em TCV se mantiver 25 pitches e conv. abr–jul.</h2>
+        <p>Pessimista (~R$ 183.298) fica perto/abaixo de jul. Otimista (~R$ 531.564) exige mix MEDIUM de verdade no kick-off das Entradas 07 + fechar o estoque Follow/Aceito. Sem pitch novo, o chão é ~R$ 155.323.</p>
+      </div>
+
       <div class="prio" style="margin-top:12px">
         <div class="prio-item">
           <div class="n">1</div>
@@ -768,6 +883,7 @@
             <tr><td>Entradas New 07</td><td>Entradas [Aquisição] gid=756369191 · Data de Ganho 07/2026</td></tr>
             <tr><td>Pipe E.E aberto + gap planilha</td><td>`planilha-crm-ee-latest.csv` × entradas · `ee-visao-ago2026-data.json`</td></tr>
             <tr><td>Projeção E.E por tier</td><td>`ee-funil-tier-ago2026.json` · pitches abr–jul × estoque Follow/Aceito</td></tr>
+            <tr><td>Cenários E.E (P/R/O)</td><td>`ee-cenarios-ago2026.json` · pitches × conv × TM</td></tr>
             <tr><td>Visitas / AP / check-in</td><td>Google Calendar · SINQ corrigido pelo Farmer</td></tr>
             <tr><td>Prioridades</td><td>Daily Monetização 03/08</td></tr>
           </tbody>
