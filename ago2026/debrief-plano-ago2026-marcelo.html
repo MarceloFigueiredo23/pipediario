@@ -76,6 +76,7 @@
       <a href="#frente">Frente</a>
       <a href="#cst">Continuar / Parar / Testar</a>
       <a href="#ee">E.E</a>
+      <a href="#ee-projecao">Funil E.E</a>
     </nav>
   </header>
 
@@ -633,11 +634,119 @@
         <p class="src">Prioridade de mapeamento (sem Executar na entrada): Rhama Analysis, Wollp, MBFlex Express Márcio Beccari, Castanheira, Dental Muller, R.Chagas Ltda, Splendor Elétrica e iluminações, Mantiqueira Recauchutadora, Mundi Sport, Clínica polivida, Biju Mania. Já com Executar: J.N Vinatex - Ravi tecidos, Clube do Sonho (não forçar EQV cedo).</p>
       </div>
 
-      <div class="callout">
-        <div class="eyebrow">Como usar na previsão de ago (sem inventar)</div>
-        <h2>Patamar jul = referência. Pipe aberto = estoque. Entradas 07 = fila de mapeamento no kick-off.</h2>
-        <p>Jul: <strong>25 pitches</strong> · conv. <strong>28,0%</strong> · <strong>6 wins</strong> (R$ 194.153,41). Agora: <strong>12 Follow/Aceito</strong> · <strong>2 pitch(es) em ago</strong>. Nas <strong>14 entradas fora</strong>: mapear EQV / estruturação e/ou SABER · TER no kick-off (não contar como win até existir pitch/opp na planilha).</p>
+
+      <div class="section-head" style="margin-top:28px" id="ee-projecao">
+        <div>
+          <div class="eyebrow">Visão de funil · projeção por tier</div>
+          <h2>Como projetar ago sem inventar número.</h2>
+        </div>
+        <p>Taxas = Monetizado ÷ pitches (Marcelo/Sara, Data do pitch abr–jul). Projeção de referência só multiplica o estoque <strong>Follow/Aceito</strong> (já teve pitch). Semana* e Entradas 07 são topo: só entram na conta depois de virar pitch.</p>
       </div>
+
+      <div class="cards">
+        <div class="metric">
+          <div class="metric-label">Conv. abr–jul (geral)</div>
+          <div class="metric-number safe">36,4%</div>
+          <small>36/99 pitches</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Conv. jul (cohorte)</div>
+          <div class="metric-number">28,0%</div>
+          <small>Ainda tem Follow aberto · puxa a taxa pra baixo</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Conv. jul decididos</div>
+          <div class="metric-number">53,8%</div>
+          <small>Monetizado ÷ (Monetizado+Drop)</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Melhor tier hist.</div>
+          <div class="metric-number safe">MEDIUM</div>
+          <small>48,6% conv · TM ~R$ 59.817</small>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <h3 style="margin:0 0 10px;font-stretch:85%">Histórico por tier (abr–jul) · o que o dado sustenta</h3>
+        <table>
+          <thead><tr><th>Tier</th><th>Pitches</th><th>Conv.</th><th>TM win</th><th>Pitches jul</th><th>Conv. jul</th><th>Mix wins</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SMALL</strong></td><td class="num">49</td><td class="num">36,7%</td><td class="num">R$ 38.508</td><td class="num">17</td><td class="num">23,5%</td><td>Executar 7, Saber 4, Misto 5, Ter 2</td></tr><tr><td><strong>MEDIUM</strong></td><td class="num">35</td><td class="num">48,6%</td><td class="num">R$ 59.817</td><td class="num">5</td><td class="num">40,0%</td><td>Executar 4, Misto 12, Saber 1</td></tr><tr><td><strong>TINY</strong></td><td class="num">9</td><td class="num">11,1%</td><td class="num">—</td><td class="num">2</td><td class="num">50,0%</td><td>Executar 1</td></tr><tr><td><strong>LARGE</strong></td><td class="num">2</td><td class="num">0,0%</td><td class="num">—</td><td class="num">0</td><td class="num">0%</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="src">MEDIUM converte mais e com ticket maior. SMALL é volume. TINY tem amostra fraca (11%). LARGE quase sem pitch no histórico: não dá para “projetar” LARGE com taxa própria.</p>
+      </div>
+
+      <div class="two" style="margin-top:16px">
+        <div class="table-card">
+          <h3 style="margin:0 0 10px;font-stretch:85%">Estoque agora → referência de wins</h3>
+          <table>
+            <thead><tr><th>Tier</th><th>Follow/Aceito</th><th>Taxa hist.</th><th>TCV estoque</th><th>Wins ref.</th><th>TCV ref.</th></tr></thead>
+            <tbody>
+              <tr><td>SMALL</td><td class="num">8</td><td class="num">36,7%</td><td class="num">R$ 398.794</td><td class="num">2,9</td><td class="num">R$ 146.357</td></tr><tr><td>MEDIUM</td><td class="num">3</td><td class="num">48,6%</td><td class="num">R$ 258.291</td><td class="num">1,5</td><td class="num">R$ 125.529</td></tr><tr><td>sem_tier</td><td class="num">1</td><td class="num">36,4%</td><td class="num">R$ 33.000</td><td class="num">0,4</td><td class="num">R$ 12.012</td></tr>
+              <tr><td><strong>Total</strong></td><td class="num"><strong>12</strong></td><td class="num">—</td><td class="num"><strong>R$ 690.084</strong></td><td class="num"><strong>4,8</strong></td><td class="num"><strong>R$ 283.899</strong></td></tr>
+            </tbody>
+          </table>
+          <p class="src">Faixa de referência a partir de taxas observadas. Não inventa demanda nova. Estoque aplicado: somente Follow + Aceito (já tiveram pitch).</p>
+        </div>
+        <div class="table-card">
+          <h3 style="margin:0 0 10px;font-stretch:85%">Topo do funil (ainda sem taxa)</h3>
+          <table>
+            <thead><tr><th>Fonte</th><th>Qtd</th><th>Próximo gate</th></tr></thead>
+            <tbody>
+              <tr><td>Semana* abertas</td><td class="num">18</td><td>Virar pitch com data</td></tr>
+              <tr><td>Entradas 07 fora p/ mapear</td><td class="num">13</td><td>Kick-off → EQV / SABER·TER → pitch</td></tr>
+              <tr><td>··· MEDIUM</td><td class="num">8</td><td>Prioridade (melhor hist. de conv.)</td></tr>
+              <tr><td>··· SMALL</td><td class="num">4</td><td>Volume + EQV enxuto / SABER·TER</td></tr>
+              <tr><td>··· TINY</td><td class="num">1</td><td>Só pontual SABER·TER</td></tr>
+              <tr><td>Patamar pitches jul</td><td class="num">25</td><td>Piso operacional de ago</td></tr>
+            </tbody>
+          </table>
+          <p class="src">Não multiplicamos Semana*/Entradas por 28%: ainda não são pitch. Contam como capacidade de topo.</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:16px">
+        <div class="eyebrow">Para agosto ser melhor que julho</div>
+        <h2>Estoque FA sozinho referencia ~4,8 wins · jul fechou 6.</h2>
+        <p>Só o estoque FA, na taxa histórica, referencia ~4.8 wins. Jul fechou 6. Para empatar/superar jul é obrigatório gerar pitches novos (Semana* + kick-offs Entradas 07), não só limpar Follow. Conta prática: <strong>≥ 25 pitches</strong> + conv. cohorte <strong>≥ 28,0%</strong> (melhor se aproximar dos 36,4% abr–jul) + priorizar <strong>MEDIUM</strong> no kick-off das Entradas 07.</p>
+      </div>
+
+      <div class="prio" style="margin-top:12px">
+        <div class="prio-item">
+          <div class="n">1</div>
+          <div>
+            <h4>Fechar estoque Follow/Aceito</h4>
+            <p><strong style="color:#fff">Fato:</strong> 12 opps · TCV est. R$ 690.084. <strong style="color:#fff">Como:</strong> Ritual 2x/semana: Aceito → assinatura; Follow >14d → data ou DROP com motivo. <span style="opacity:.85">~4,8 wins se repetir taxa hist, por tier (não é meta)</span></p>
+          </div>
+          <span class="tag">Alavanca</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">2</div>
+          <div>
+            <h4>Subir conversão pós-pitch (jul = 28%)</h4>
+            <p><strong style="color:#fff">Fato:</strong> Abr–jul geral 36.4% · decididos jul (Monetizado÷Monetizado+Drop) 53.8%. <strong style="color:#fff">Como:</strong> Follow com proposta + próximo passo datado; recuperar no-show na mesma semana. <span style="opacity:.85">Cada +4 pp em 25 pitches ≈ +1 win (aritmética do funil jul, não forecast)</span></p>
+          </div>
+          <span class="tag">Alavanca</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">3</div>
+          <div>
+            <h4>Gerar pitch a partir de Semana* + Entradas 07</h4>
+            <p><strong style="color:#fff">Fato:</strong> Semana* abertas 18 · Entradas New 07 fora p/ mapear 13. <strong style="color:#fff">Como:</strong> Kick-off com tese EQV/SABER·TER; meta operacional = manter ≥25 pitches/mês (patamar jul). <span style="opacity:.85">Sem pitch novo, o topo do funil morre em 1 ciclo</span></p>
+          </div>
+          <span class="tag">Alavanca</span>
+        </div>
+        <div class="prio-item">
+          <div class="n">4</div>
+          <div>
+            <h4>Priorizar tier com melhor histórico</h4>
+            <p><strong style="color:#fff">Fato:</strong> Ver tabela por tier (abr–jul). <strong style="color:#fff">Como:</strong> Agenda de pitch/EQV primeiro em tiers com mais amostra e melhor conv.; TINY só pontual SABER/TER. <span style="opacity:.85">Mesmo volume de pitch, mix de tier melhor sobe TCV e conv.</span></p>
+          </div>
+          <span class="tag">Alavanca</span>
+        </div>
+      </div>
+
     </section>
 
 
@@ -658,6 +767,7 @@
             <tr><td>Funil E.E jul</td><td>`crm-funil-jul2026-data.json` · pitches / conv. / wins por produto</td></tr>
             <tr><td>Entradas New 07</td><td>Entradas [Aquisição] gid=756369191 · Data de Ganho 07/2026</td></tr>
             <tr><td>Pipe E.E aberto + gap planilha</td><td>`planilha-crm-ee-latest.csv` × entradas · `ee-visao-ago2026-data.json`</td></tr>
+            <tr><td>Projeção E.E por tier</td><td>`ee-funil-tier-ago2026.json` · pitches abr–jul × estoque Follow/Aceito</td></tr>
             <tr><td>Visitas / AP / check-in</td><td>Google Calendar · SINQ corrigido pelo Farmer</td></tr>
             <tr><td>Prioridades</td><td>Daily Monetização 03/08</td></tr>
           </tbody>
