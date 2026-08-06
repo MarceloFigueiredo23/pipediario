@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "titulo": "Lead Score Expansão Base Ativa — Metodologia Oficial",
+    "versao": "1.1.0",
+    "gerado_em": "2026-08-06",
+    "changelog_1_1": "Visão explícita NPS + break-even Cockpit na carteira (seção, filtros, cards, tabela)",
+    "autor_calibracao": "Marcelo Figueiredo · Farmer",
+    "framework_gpi": "REACH™ / Growth Propensity Index — Rafael Clarindo (Colli&Co)",
+    "validacao_empirica": "150 monetizações × Cockpit LOCF × REACH (lead_score_retrospectiva.json)",
+    "implementacao": "_scripts/reach-score.py → compute_lead_score()"
+  },
+  "score": {
+    "escala_interna": "0–100 (raw)",
+    "escala_oficial": "0–1 (normalized = raw / 100)",
+    "classificacoes": [
+      {
+        "slug": "atacar_agora",
+        "label": "Atacar agora",
+        "faixa": ">= 0.65",
+        "acao": "Priorizar no Account Planning e conduzir Conversa de Transição / proposta"
+      },
+      {
+        "slug": "avaliar_nutrir",
+        "label": "Avaliar e nutrir",
+        "faixa": "> 0.50 e < 0.65",
+        "acao": "Nutrir relacionamento, validar dor e maturar pipeline antes de proposta"
+      },
+      {
+        "slug": "recuperar",
+        "label": "Recuperar",
+        "faixa": "<= 0.50",
+        "acao": "Service recovery com Coordenador — ABM de entrega antes de expansão"
+      }
+    ]
+  },
+  "formula": {
+    "regra": "Score = capacidade (fee/tier) + propensão (timing/step) + maturidade pipeline + GPI banda + resultados + horizonte; gate se service recovery; flag Danger penaliza mas não bloqueia baleia histórica",
+    "componentes": {
+      "fee_tier": {
+        "peso": 25,
+        "fonte": ["tier Cockpit", "fee (FII)", "score_monet CRM"],
+        "reach": "C — Capacidade",
+        "clarindo": "Rentabilidade / break-even"
+      },
+      "timing_step": {
+        "peso": 22,
+        "fonte": ["Temperatura CRM", "Step monetização V0–V4X"],
+        "timing_map": {"quente": 16, "morno": 9, "frio": 2, "fechado": 14},
+        "reach": "A — Ações",
+        "clarindo": "Oportunidades mapeadas"
+      },
+      "reach_gpi": {
+        "peso": 20,
+        "fonte": ["GPI total (compute_reach)"],
+        "banda_map": {"expandir_80+": 20, "nutrir_60-79": 15, "preparar_40-59": 10, "nao_forcar_<40": 5},
+        "reach": "R+E+A+C+H — motor GPI",
+        "clarindo": "Complemento transversal"
+      },
+      "pipeline_maduro": {
+        "peso": 18,
+        "fonte": ["Flow Expansion etapa", "abordado_flow", "plano_acao", "relacionamento CRM"],
+        "etapa_map": {
+          "reuniao_agendada": 18,
+          "apresentacao_proposta": 16,
+          "follow_up": 14,
+          "construcao_proposta": 12,
+          "construcao_poc": 10,
+          "diagnostico": 8,
+          "account_planning": 4
+        },
+        "reach": "R — Relacionamento",
+        "clarindo": "Oportunidades mapeadas"
+      },
+      "resultados": {
+        "peso": 10,
+        "fonte": ["Resultados ORBI/CRM", "HS entrega Cockpit"],
+        "reach": "E — Entrega",
+        "clarindo": "Entrega + Saúde do projeto"
+      },
+      "lt_horizonte": {
+        "peso": 5,
+        "fonte": ["LT meses", "proximo_produto CRM"],
+        "nota": "Peso reduzido pós-calibração — LT sozinho não separa grande vs micro deal",
+        "reach": "H — Horizonte",
+        "clarindo": "White space"
+      },
+      "gate_danger": {
+        "peso": -15,
+        "condicao": "flag Danger ou Critical",
+        "nota": "Penalizar, não bloquear — 6 baleias históricas fecharam com Critical/Danger"
+      },
+      "gate_service_recovery": {
+        "condicao": "portfolio REACH = service_recovery (R alto + C baixo)",
+        "efeito": "Cap raw em 49 pts — só ABM de entrega"
+      }
+    }
+  },
+  "depara_clarindo_reach": [
+    {
+      "categoria_clarindo": "Saúde do projeto",
+      "reach_pilar": "E",
+      "fontes": ["algorithm_health_avg_score", "algorithm_flag"],
+      "componente_lead_score": ["resultados", "gate_danger"]
+    },
+    {
+      "categoria_clarindo": "Entrega",
+      "reach_pilar": "E",
+      "fontes": ["flag", "hs", "resultados CRM"],
+      "componente_lead_score": ["resultados"]
+    },
+    {
+      "categoria_clarindo": "CSAT",
+      "reach_pilar": "E",
+      "fontes": ["nps", "nps_promotor"],
+      "componente_lead_score": ["reach_gpi via score_e"]
+    },
+    {
+      "categoria_clarindo": "Rentabilidade / break-even",
+      "reach_pilar": "C",
+      "fontes": ["fee", "tier", "score_monet"],
+      "componente_lead_score": ["fee_tier"]
+    },
+    {
+      "categoria_clarindo": "Oportunidades mapeadas",
+      "reach_pilar": "A + R",
+      "fontes": ["Flow Expansion", "timing", "step", "gerar_oportunidade"],
+      "componente_lead_score": ["timing_step", "pipeline_maduro"]
+    },
+    {
+      "categoria_clarindo": "White space",
+      "reach_pilar": "H",
+      "fontes": ["lt", "proximo_produto", "gap régua LT"],
+      "componente_lead_score": ["lt_horizonte", "reach_gpi"]
+    }
+  ],
+  "depara_reach_componentes": {
+    "R": ["pipeline_maduro"],
+    "E": ["resultados", "gate_danger"],
+    "A": ["timing_step"],
+    "C": ["fee_tier"],
+    "H": ["lt_horizonte", "reach_gpi"]
+  },
+  "evidencia_retrospectiva": {
+    "amostra": 150,
+    "deals_grande_20k": 20,
+    "deals_micro_5k": 71,
+    "mediana_reach_grande": 24.0,
+    "mediana_reach_micro": 27,
+    "conclusao": "GPI sozinho não separa ticket — fee/tier + pipeline + timing são os discriminadores confirmados"
+  },
+  "uso_operacional": {
+    "motor_gpi": "compute_reach() → gpi (0–100)",
+    "motor_lead_score": "compute_lead_score() → normalized (0–1)",
+    "priorizacao_ap": "Ordenar carteira por lead_score.normalized DESC, depois fee DESC",
+    "integracao_abm": "abm_priority_score() continua usando GPI; Lead Score é camada de expansão comercial"
+  }
+}
