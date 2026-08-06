@@ -194,6 +194,36 @@ td.num { font-variant-numeric: tabular-nums; }
   display: block; margin-top: 14px; font-style: normal; font-size: 12.5px;
   color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
 }
+.audit-cta {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; align-items: center;
+  margin: 16px 0 20px; padding: 26px 28px; border-radius: var(--radius-card);
+  border: 1px solid rgba(255,138,150,0.5);
+  background: linear-gradient(135deg, rgba(232,29,47,0.28), rgba(26,6,8,0.5));
+  box-shadow: var(--shadow);
+}
+.audit-cta h3 { margin: 8px 0 10px; font-size: clamp(22px, 3vw, 30px); }
+.audit-cta p { margin: 0; color: var(--text-muted); font-size: 14.5px; line-height: 1.45; }
+.btn-audit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 22px; border-radius: var(--radius-pill);
+  background: var(--brand); color: #fff; text-decoration: none;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.18); box-shadow: var(--shadow);
+}
+.btn-audit:hover { filter: brightness(1.08); }
+.btn-audit span { opacity: 0.85; font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+.audit-frame {
+  margin-top: 16px; border-radius: var(--radius-table); overflow: hidden;
+  border: 1px solid var(--line); background: #0a0a0a; box-shadow: var(--shadow);
+}
+.audit-frame iframe {
+  display: block; width: 100%; height: min(72vh, 720px); border: 0; background: #0a0a0a;
+}
+.kpi-strip {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 16px 0;
+}
+.kpi-strip .metric { padding: 16px; }
+.kpi-strip .metric-number { font-size: clamp(22px, 3vw, 30px); }
 footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
 @media (max-width: 900px) {
   .cards, .cards.cols-3, .cards.cols-2, .diag-grid { grid-template-columns: 1fr; }
@@ -204,6 +234,7 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
   table { min-width: 640px; }
   .table-card { overflow-x: auto; }
   .hero-logo { position: static; width: 140px; margin-bottom: 12px; display: block; }
+  .audit-cta, .kpi-strip { grid-template-columns: 1fr; }
 }
   </style>
 </head>
@@ -217,9 +248,8 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
     <nav class="nav-pills">
       <a href="#geral">Geral</a>
       <a href="#trajetoria">Jornada</a>
-      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#auditoria">Auditoria</a>
       <a href="#alavancas">Alavancas</a>
-      <a href="#resultado">Conta</a>
       <a href="#expansao">Fechamento</a>
       <a href="#proximo">Próximo</a>
       <a href="#metodo">Fontes</a>
@@ -240,6 +270,12 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
           squad, diagnóstico que cava dor, especialista na sala, ticket de gestão.
         </p>
         <div class="pill" style="margin-top:22px;">Ago/2024 – Ago/2026 · Invictus · Executar + SEO GEO</div>
+        <p style="margin-top:18px;">
+          <a class="btn-audit" href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener">
+            Abrir auditoria completa
+            <span>auditoria-maidpad.vercel.app</span>
+          </a>
+        </p>
       </div>
     </section>
 
@@ -303,8 +339,8 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
         <div class="tl-item">
           <time>Jul/2026</time>
           <div>
-            <strong>ROPRE + NPS 9</strong>
-            <span>ROPRE apresentado e concluído (28/07). NPS 9 em 20/07. Relacionamento quente o suficiente para tese de canal novo.</span>
+            <strong>ROPRE + NPS 9 + auditoria SEO/GEO</strong>
+            <span>ROPRE concluído (28/07). NPS 9. Coleta técnica (PageSpeed + SEMrush US/BR) vira deck: <a href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent-gold);font-weight:700;">auditoria-maidpad.vercel.app</a>.</span>
           </div>
         </div>
         <div class="tl-item">
@@ -317,8 +353,8 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
         <div class="tl-item">
           <time>31/07 · 11h</time>
           <div>
-            <strong>Apresentação GEO · auditoria + plano 90 dias</strong>
-            <span>Bruno apresenta gaps técnicos, performance mobile, estratégia de conteúdo e GEO (visibilidade em IA). Cases Cassela (+848% impressões) e Marina Express (cliques 2×). Cyro topa 6 meses e conteúdo já, sem esperar o site novo.</span>
+            <strong>Apresentação da auditoria · plano 90 dias · proposta Growth</strong>
+            <span>Bruno apresenta o deck completo (técnico, on-page, GEO, keywords, cases V4, proposta US$ 1.200). Cyro topa 6 meses e conteúdo já, sem esperar o site novo.</span>
           </div>
         </div>
         <div class="tl-item">
@@ -331,62 +367,160 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
       </div>
     </section>
 
-    <section id="diagnostico">
+    <section id="auditoria">
       <div class="section-head">
         <div>
-          <div class="eyebrow">Diagnóstico na mesa</div>
-          <h2>O que a auditoria mostrou (e por que doeu).</h2>
+          <div class="eyebrow">Peça comercial · jul/2026</div>
+          <h2>Auditoria SEO + GEO que entrou na sala.</h2>
         </div>
-        <p>Fonte: anotações da Apresentação GEO 31/07 (Meet + Gemini notes).</p>
+        <p>Deck completo apresentado ao Cyro. Case do time = jornada + esta auditoria + fechamento.</p>
+      </div>
+
+      <div class="audit-cta">
+        <div>
+          <div class="eyebrow">Deck oficial</div>
+          <h3>MaidPad · Auditoria de SEO e Visibilidade nas IAs (GEO)</h3>
+          <p>
+            24 slides: escopo, resumo executivo, técnico, performance, on-page, schema,
+            conteúdo, SERP, GEO, keywords, cases V4, prioridades, plano 90 dias e proposta SEO Growth.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <a class="btn-audit" href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener">
+            Ver auditoria completa
+            <span>Abrir em nova aba</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="kpi-strip">
+        <div class="metric">
+          <div class="metric-label">Mobile</div>
+          <div class="metric-number">39/100</div>
+          <small>LCP 17,3s · TBT 730ms · FCP 8,4s</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Desktop</div>
+          <div class="metric-number">85/100</div>
+          <small>LCP 1,3s · gap enorme vs mobile</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Keywords US</div>
+          <div class="metric-number">57</div>
+          <small>~3.786 visitas/mês · quase só marca</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">GEO · score IA</div>
+          <div class="metric-number">32/100</div>
+          <small>Baixa · 17 menções · preso a “MaidPad login”</small>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:8px;">
+        <div>
+          <div class="eyebrow">Resumo executivo (do deck)</div>
+          <h2 style="font-size: clamp(22px, 3.2vw, 32px);">Fundação técnica ausente; orgânico preso na marca.</h2>
+        </div>
       </div>
 
       <div class="diag-grid">
         <div class="diag-card">
-          <h3>Lacunas técnicas</h3>
+          <h3>SEO técnico · crítico</h3>
           <ul>
-            <li>Sem robots.txt, sitemap XML e LLM.txt</li>
-            <li>Sem dados estruturados (Schema)</li>
-            <li>Títulos e descriptions genéricos ou ausentes</li>
-            <li>Mobile 39/100 · LCP 17,3s (longe do mobile-first)</li>
+            <li>robots.txt · ausente (404)</li>
+            <li>sitemap.xml · ausente (404)</li>
+            <li>llms.txt · ausente (404)</li>
+            <li>9 páginas mapeadas · 6/9 sem canonical · lang vazio</li>
           </ul>
         </div>
         <div class="diag-card">
-          <h3>Lacunas de descoberta</h3>
+          <h3>On-page + schema</h3>
           <ul>
-            <li>57 palavras-chave concentradas em marca</li>
-            <li>Sem blog / páginas institucionais fortes</li>
-            <li>GEO: citado em IA quase só pelo nome MaidPad</li>
-            <li>Pouca presença em termos categoriais (ex.: software de gestão de limpeza)</li>
+            <li>Home com title/H1/meta OK; 6/9 sem meta description</li>
+            <li>4/9 sem H1 · 3/9 sem title relevante</li>
+            <li>Zero Schema JSON-LD (falta SoftwareApplication, FAQ, Organization)</li>
+            <li>Meta home mistura PT no site EN (CTR fraco no US)</li>
+          </ul>
+        </div>
+        <div class="diag-card">
+          <h3>Conteúdo + intenção</h3>
+          <ul>
+            <li>Landing enxuta · 0 blog · 0 páginas de serviço por caso de uso</li>
+            <li>0,7 links internos/página no corpo · 5/9 sem link interno</li>
+            <li>Intenção: 56% navegacional · 0% informacional</li>
+            <li>Top tráfego: “maidpad”, “maid pad”, “maidpad login”</li>
+          </ul>
+        </div>
+        <div class="diag-card">
+          <h3>GEO · visibilidade em IAs</h3>
+          <ul>
+            <li>Score 32/100 (Baixa) vs concorrentes · SEMrush AI</li>
+            <li>ChatGPT 5 · Gemini 5 · AI Overview 2 menções</li>
+            <li>Tópico marca/login sobe para 87: só quem já conhece</li>
+            <li>Falta categoria: “melhor app para cleaning business”</li>
           </ul>
         </div>
       </div>
 
       <div class="quote-card">
         <p>
-          “A estratégia de Generative Engine Optimization depende de construir
-          autoridade nos mecanismos tradicionais. Hoje a MaidPad aparece nas IAs
-          quase só quando alguém busca o nome da marca, não a categoria.”
+          “É um SaaS em landing page, sem fundação de indexação e com performance
+          mobile crítica. A marca aparece bem no Google, mas quase só para quem
+          já procura pelo nome MaidPad.”
         </p>
-        <cite>Bruno Sergio · Apresentação GEO · 31/07/2026</cite>
+        <cite>Auditoria SEO/GEO · jul/2026 · slide Análise crítica</cite>
       </div>
 
       <div class="cards cols-3" style="margin-top:18px;">
         <div class="metric">
-          <div class="metric-label">Plano 90 dias</div>
-          <div class="metric-number" style="font-size:26px;">Técnico + conteúdo</div>
-          <small>Sitemap, schema, KW research, blog topo/fundo, auditoria de backlinks</small>
+          <div class="metric-label">Prioridade 1</div>
+          <div class="metric-number" style="font-size:24px;">Fundação</div>
+          <small>robots + sitemap + llms.txt · performance mobile · schema</small>
         </div>
         <div class="metric">
-          <div class="metric-label">Conteúdo</div>
-          <div class="metric-number" style="font-size:26px;">4 → 6 arts/mês</div>
-          <small>Começa antes do site novo · páginas comparativas vs concorrentes</small>
+          <div class="metric-label">Prioridade 2</div>
+          <div class="metric-number" style="font-size:24px;">Conteúdo</div>
+          <small>6 posts/mês · páginas de intenção · linkagem interna</small>
         </div>
         <div class="metric">
-          <div class="metric-label">Cases na sala</div>
-          <div class="metric-number" style="font-size:26px;">Cassela · Marina</div>
-          <small>+848% impressões · cliques dobrados (referência V4)</small>
+          <div class="metric-label">Proposta na sala</div>
+          <div class="metric-number" style="font-size:24px;">SEO Growth</div>
+          <small>US$ 1.200/mês · 6 ou 12 meses · fechou em R$ 6.106 × 6</small>
         </div>
       </div>
+
+      <div class="section-head" style="margin-top:28px;">
+        <div>
+          <div class="eyebrow">Cases V4 na apresentação</div>
+          <h2 style="font-size: clamp(22px, 3.2vw, 32px);">Evidência de método (não só gap).</h2>
+        </div>
+        <p>Usados do deck · Growth Pack dos cases apresentados.</p>
+      </div>
+      <div class="cards cols-2">
+        <div class="metric">
+          <div class="metric-label">Case 01 · fev–jun/2026</div>
+          <div class="metric-number" style="font-size:28px;">+848% impressões</div>
+          <small>3,9k → 36,9k · cliques +56% · KW 33 → 174 · Top 10: 3 → 22 · AS 9 → 15</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Case 02 · out/25–jun/26</div>
+          <div class="metric-number" style="font-size:28px;">+84% cliques</div>
+          <small>Impressões +91% · KW 47 → 203 · Top 3: 5 → 17 · autoridade +67%</small>
+        </div>
+      </div>
+
+      <div class="audit-frame" aria-label="Prévia da auditoria MaidPad">
+        <iframe
+          src="https://auditoria-maidpad.vercel.app/"
+          title="Auditoria SEO GEO MaidPad"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+      <p class="muted" style="margin:10px 0 0;font-size:12.5px;">
+        Se o embed não carregar no seu browser, use o botão
+        <a href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent-gold);font-weight:700;">abrir auditoria completa</a>.
+      </p>
     </section>
 
     <section id="alavancas">
@@ -592,7 +726,8 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
           <tbody>
             <tr><td>Projeto MAID · fee · LT · NPS · MQL · flag</td><td>Cockpit · documentId gy16eb0cq4nhs5rz8xa199r8 · leitura 06/08/2026</td></tr>
             <tr><td>Deal SEO GEO · TCV · booking · boleto · TTC 0d</td><td>CRM Base Ativa · dump jul/2026 · funil BA</td></tr>
-            <tr><td>Apresentação GEO · diagnóstico · decisão 6 meses</td><td>Google Calendar 31/07 11h · anotações Gemini da call · Cyro Muniz</td></tr>
+            <tr><td>Auditoria SEO/GEO (deck)</td><td><a href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent-gold);">auditoria-maidpad.vercel.app</a> · jul/2026 · PageSpeed + SEMrush US/BR</td></tr>
+            <tr><td>Apresentação · decisão 6 meses</td><td>Google Calendar 31/07 11h · anotações Gemini · Cyro Muniz</td></tr>
             <tr><td>Time</td><td>Coord Ueliton · AM Thaily · GP Rafael · SEO Bruno Sergio · Farmer Marcelo</td></tr>
             <tr><td>Break-even</td><td>Link planilha no Cockpit (results_breakeven_spreadsheet_link) · sem status “atingido” marcado</td></tr>
             <tr><td>Marca</td><td>maidpad.com · logo + theme-color #8168DF</td></tr>
