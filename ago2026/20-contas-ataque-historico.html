@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19 contas · gaps to produtos · ago/2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,500;75..100,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens-relatorios-v4.css">
+  <style>
+    .pill-safe,.pill-warn,.pill-danger,.pill-info,.pill-mute {
+      display:inline-block; padding:.2rem .55rem; border-radius:999px; font-size:.72rem; font-weight:700;
+      border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.08); margin:.1rem;
+    }
+    .pill-safe { color: var(--safe); } .pill-warn { color: var(--care); }
+    .pill-danger { color: var(--danger); } .pill-info { color: #9ad0ff; }
+    .pill-mute { color: var(--text-muted); }
+    .filters { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0; }
+    .filters select, .filters input {
+      background: rgba(0,0,0,.25); color:#fff; border:1px solid var(--line);
+      border-radius:999px; padding:.45rem .85rem; font:inherit;
+    }
+    .table-card { overflow-x:auto; }
+    .table-card.tight table { font-size:.85rem; }
+    .bad { color: var(--danger); font-weight:700; }
+    .badn { color: var(--danger); }
+    .acc-card {
+      background: var(--surface-glass-soft); border:1px solid var(--line);
+      border-radius: var(--radius-card); padding:1.25rem 1.35rem; margin:1rem 0 1.5rem;
+      backdrop-filter: blur(var(--blur));
+    }
+    .acc-head { display:flex; justify-content:space-between; gap:1rem; }
+    .acc-pills { display:flex; gap:.35rem; flex-wrap:wrap; }
+    .mini-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.7rem; margin:.8rem 0 1rem; }
+    @media (max-width:900px) { .mini-grid,.two-col { grid-template-columns:1fr 1fr; } }
+    .mini { background:rgba(0,0,0,.18); border:1px solid var(--line); border-radius:16px; padding:.7rem .8rem; }
+    .mini-l { color:var(--accent-gold); font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; }
+    .mini-n { font-size:1.05rem; font-weight:700; margin-top:.2rem; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .prod-main { font-size:1.15rem; font-weight:700; color: var(--accent-yellow); }
+    .gap-list li { margin:.45rem 0; }
+    .tracker { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
+    .tracker label { display:flex; gap:.45rem; align-items:center; background:rgba(0,0,0,.18); border-radius:12px; padding:.45rem .65rem; border:1px solid var(--line); }
+    .track-input { grid-column:1/-1; background:rgba(0,0,0,.25); border:1px solid var(--line); color:#fff; border-radius:12px; padding:.55rem .7rem; font:inherit; }
+    .btn,.btn-ghost { display:inline-block; margin:.2rem .35rem .2rem 0; padding:.45rem .8rem; border-radius:999px; background:rgba(255,255,255,.14); border:1px solid var(--line); text-decoration:none; font-size:.85rem; font-weight:700; }
+    .btn-ghost { background:transparent; }
+    .muted { color: var(--text-muted); }
+    .track-dot { width:.7rem; height:.7rem; border-radius:50%; display:inline-block; background:rgba(255,255,255,.2); }
+    .track-dot.on { background: var(--safe); }
+    h4 { margin:1rem 0 .4rem; color: var(--accent-gold); font-size:.95rem; }
+    .track-cell { text-align:center; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"><img src="./assets/v4-company-logo-branca-oficial.svg" alt="V4 Company"></span>
+      Gaps · travas · produtos
+    </div>
+    <nav class="nav-pills">
+      <a href="#geral">Geral</a>
+      <a href="#matriz">Matriz</a>
+      <a href="#estrut">Estruturacao</a>
+      <a href="#seo">SEO B2B</a>
+      <a href="#site">Sites</a>
+      <a href="#placa">Placar</a>
+      <a href="#fichas">Fichas</a>
+    </nav>
+  </header>
+
+  <main class="report-shell">
+    <section class="hero" id="geral">
+      <div class="hero-card hero-watermark" data-watermark="V4">
+        <div class="eyebrow">Farmer · 19 contas · funil Cockpit live · sem Diag. Midia · sem Carflix</div>
+        <h1>Produto amarrado na trava: volume sem venda = Estruturacao; B2B sem SEO = SEO.</h1>
+        <p>Cruzamos leads/MQL/SQL/vendas do Cockpit com BE, flag, escopo de produtos e pipe Expansion. Cada conta ganha um mapa gap to produto para montar proposta com tese clara.</p>
+      </div>
+      <aside class="verdict glass">
+        <div>
+          <div class="eyebrow">Fit Estruturacao Comercial</div>
+          <strong>6</strong>
+          <span>AINE, BLC, NORD, FTTR1, TSTE, FBLS · volume MQL/SQL + conversao &lt;20%.</span>
+        </div>
+        <div class="pill">SEO B2B: 8 contas</div>
+      </aside>
+    </section>
+
+    <div class="cards">
+      <div class="metric"><div class="metric-label">Fit Estruturacao</div><div class="metric-number">6</div><small>MQL/SQL bom + venda fraca.</small></div>
+      <div class="metric"><div class="metric-label">Fit SEO B2B</div><div class="metric-number">8</div><small>B2B sem SEO no escopo.</small></div>
+      <div class="metric"><div class="metric-label">Pipe aberto</div><div class="metric-number">R$ 918.164</div><small>Cards Expansion abertos.</small></div>
+      <div class="metric"><div class="metric-label">Fechar pipe agora</div><div class="metric-number">3</div><small>Tese Lead Score (sem Carflix).</small></div>
+<div class="metric"><div class="metric-label">Sites criticos/altos</div><div class="metric-number">4</div><small>EGS, NORD, SII, AIN.</small></div>
+    </div>
+
+    <section class="callout">
+      <div class="eyebrow">Regras desta analise</div>
+      <h2>Estruturacao Comercial quando o topo do funil funciona e a venda trava.</h2>
+      <p><strong>Estruturacao:</strong> MQL &ge; 50 ou SQL &ge; 20, e SQL to Venda &lt; 20% (ou MQL to Venda &lt; 20% com SQL &ge; 20). <strong>SEO:</strong> modelo B2B e sem SEO contratado. <strong>Fora:</strong> Diagnostico Midia Meta+Google (ja e operacao ativa).</p>
+    </section>
+
+    <section id="matriz">
+      <div class="section-head"><div>
+        <div class="eyebrow">Matriz</div>
+        <h2>Gap / trava to produto to quem encaixa.</h2>
+      </div>
+      <p>Visao maxima de correlacao. Uma conta pode ter varias travas; a ficha prioriza.</p></div>
+      <div class="table-card"><table>
+        <thead><tr><th>Gap</th><th>Trava</th><th>Produto</th><th>Contas</th><th>Regra</th></tr></thead>
+        <tbody><tr><td><strong>Volume MQL/SQL bom + SQL→Venda &lt; 20%</strong></td><td>Fechamento / processo comercial</td><td>Estruturação Comercial (Sales Enablement) + CRM Vendas</td><td>AINE, BLC, NORD, FTTR1, TSTE, FBLS</td><td class='muted'>MQL≥50 ou SQL≥20 e (SQL→Sale&lt;20% ou MQL→Sale&lt;20% com SQL≥20)</td></tr><tr><td><strong>B2B sem SEO contratado</strong></td><td>Demanda orgânica / inbound de longo prazo</td><td>SEO TER ou EXECUTAR SEO</td><td>MSYS, DBIC, NORD, KELL, AIN, SICA, TSTE, BRIL</td><td class='muted'>model=B2B e deliveries_product_seo vazio</td></tr><tr><td><strong>Muitos leads, MQL≈0</strong></td><td>Qualificação / tracking / CRM</td><td>CRM Marketing + Rastreamento Completo</td><td>AIN, EEAA</td><td class='muted'>leads≥100 e MQL=0</td></tr><tr><td><strong>MQL alto, SQL baixo (&lt;15% MQL→SQL)</strong></td><td>Qualificação / SDR / critérios</td><td>SDR IA + CRM Marketing + playbook MQL/SQL</td><td>BLC</td><td class='muted'>MQL≥80 e MQL→SQL&lt;15%</td></tr><tr><td><strong>ops_media false</strong></td><td>Mídia fora do ar / escopo</td><td>Reativar Mídia Paga EXECUTAR · Copy/Designer</td><td>—</td><td class='muted'>algorithm_ops_paid_media_bool=false</td></tr><tr><td><strong>BE não + results baixo</strong></td><td>ROI da operação atual</td><td>Website/Landing/Rastreamento/Social (eleva conversão) · sem Diag. Mídia</td><td>MSYS, FBLS</td><td class='muted'>BE não e results≤5</td></tr><tr><td><strong>Goal VENDAS/SQL longe do meta + volume ok</strong></td><td>Throughput comercial</td><td>Estruturação Comercial · aumento escopo closer/SDR</td><td>MSYS, AINE, BLC, NORD, FTTR1, TSTE, FBLS</td><td class='muted'>goal alinhado vendas/sql e atingimento &lt;30%</td></tr><tr><td><strong>E-commerce / ROAS sem site forte</strong></td><td>Conversão da loja</td><td>Web Design / E-com + Designer + Régua abandono</td><td>ALUM, VCMU, FBLS</td><td class='muted'>modelo Ecommerce ou white space site</td></tr><tr><td><strong>CSAT detrator / Danger</strong></td><td>Confiança / entrega</td><td>Escuta + TER leve · alinhar Coord antes de ticket alto</td><td>AINE, DBIC, SII, AIN, FTTR1, TSTE, BRIL</td><td class='muted'>NPS≤6 ou flag Danger/Critical</td></tr><tr><td><strong>Pipe maduro em follow-up</strong></td><td>Decisão / fechamento do deal</td><td>Fechar o que já está no Expansion (não abrir nova tese)</td><td>KELL, AIN, SICA, TSTE, FBLS</td><td class='muted'>card em follow_up / apresentacao_proposta</td></tr><tr><td><strong>Site fraco / ausente / SPA</strong></td><td>Conversao + SEO tecnico da home</td><td>Web Design / LP + SEO on-page</td><td>AIN, SII, EGS, NORD, ALUM, VCMU, FBLS</td><td class='muted'>score&lt;65 ou sem site / 403</td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="estrut">
+      <div class="section-head"><div>
+        <div class="eyebrow">Estruturacao Comercial</div>
+        <h2>Volume entra, venda nao fecha.</h2>
+      </div>
+      <p>Produto: Estruturacao Comercial / Sales Enablement + CRM Vendas (Bundle 03). Ja no pipe de TSTE e WACO.</p></div>
+      <div class="table-card"><table>
+        <thead><tr><th>Ticker</th><th>Conta</th><th>MQL</th><th>SQL</th><th>Vendas</th><th>SQL to Venda</th><th>MQL to Venda</th><th>Time vendas</th><th>Produto</th></tr></thead>
+        <tbody><tr><td><strong>AINE</strong></td><td>Avanti</td><td>290</td><td>93</td><td>1</td><td class='bad'>1%</td><td class='bad'>0%</td><td>15</td><td>Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>BLC</strong></td><td>Beauty Labs</td><td>1948</td><td>197</td><td>114</td><td class='bad'>58%</td><td class='bad'>6%</td><td>43</td><td>Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>NORD</strong></td><td>Nordplast</td><td>279</td><td>62</td><td>16</td><td class='bad'>26%</td><td class='bad'>6%</td><td>2</td><td>Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>FTTR1</strong></td><td>FTM Transportes</td><td>161</td><td>112</td><td>11</td><td class='bad'>10%</td><td class='bad'>7%</td><td>4</td><td>Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>TSTE</strong></td><td>TS Teck</td><td>62</td><td>25</td><td>0</td><td class='bad'>0%</td><td class='bad'>0%</td><td>2</td><td>Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>FBLS</strong></td><td>Primeset (Luchesi)</td><td>187</td><td>145</td><td>26</td><td class='bad'>18%</td><td class='bad'>14%</td><td>12</td><td>Estruturação Comercial + CRM Vendas</td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="seo">
+      <div class="section-head"><div>
+        <div class="eyebrow">SEO B2B</div>
+        <h2>Demanda organica para contas B2B sem SEO.</h2>
+      </div>
+      <p>TER SEO ou EXECUTAR SEO. Combinar com Site quando white space pedir.</p></div>
+      <div class="table-card"><table>
+        <thead><tr><th>Ticker</th><th>Conta</th><th>Segmento</th><th>Ticket</th><th>SEO hoje</th><th>Pipe</th><th>Como oferecer</th></tr></thead>
+        <tbody><tr><td><strong>MSYS</strong></td><td>MSYS Vistorias</td><td>Venda de Serviços</td><td>Low ticket</td><td>nao</td><td>Em diagnóstico</td><td>SEO TER/EXECUTAR · amarrar com SEO (TER ou EXECUTAR)</td></tr><tr><td><strong>DBIC</strong></td><td>Ducce Bike</td><td>Venda de Produtos</td><td>Hight ticket</td><td>nao</td><td>Sem card</td><td>SEO TER/EXECUTAR · amarrar com SEO (TER ou EXECUTAR)</td></tr><tr><td><strong>NORD</strong></td><td>Nordplast</td><td>Indústria e Fabricação</td><td>Hight ticket</td><td>nao</td><td>Sem card</td><td>SEO TER/EXECUTAR · amarrar com Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>KELL</strong></td><td>Kelldrin</td><td>Indústria e Fabricação</td><td>Low ticket</td><td>nao</td><td>3 follow-ups</td><td>SEO TER/EXECUTAR · amarrar com Priorizar pipe: Aumento de Escopo Social Media, Execução de 4 Perfis do Instagram, SEO / GEO</td></tr><tr><td><strong>AIN</strong></td><td>Auddas</td><td>Consultoria</td><td>Hight ticket</td><td>nao</td><td>Construção proposta</td><td>SEO TER/EXECUTAR · amarrar com CRM Marketing + Rastreamento</td></tr><tr><td><strong>SICA</strong></td><td>Sameach</td><td>Indústria e Fabricação</td><td>Low ticket</td><td>nao</td><td>Construção proposta AV</td><td>SEO TER/EXECUTAR · amarrar com Priorizar pipe: Captação Audiovisual</td></tr><tr><td><strong>TSTE</strong></td><td>TS Teck</td><td>Indústria e Fabricação</td><td>Hight ticket</td><td>nao</td><td>Apresentação proposta</td><td>SEO TER/EXECUTAR · amarrar com Estruturação Comercial + CRM Vendas</td></tr><tr><td><strong>BRIL</strong></td><td>Brilho Maquiagem</td><td>Beleza e Cosméticos</td><td>Low ticket</td><td>nao</td><td>AP TikTok Shop</td><td>SEO TER/EXECUTAR · amarrar com SEO (TER ou EXECUTAR)</td></tr></tbody>
+      </table></div>
+    </section>
+
+
+    <section id="site">
+      <div class="section-head"><div>
+        <div class="eyebrow">Auditoria de sites</div>
+        <h2>Quase todos tem site. O gap e qualidade SEO/conversao, nao ausencia.</h2>
+      </div>
+      <p>Fetch HTTP da home (sem render JS). Score 0–100 por title, meta, H1, viewport, canonical, form/WhatsApp, schema e alts. Escopo Cockpit <code>deliveries_product_site</code> quase todo null (so WACO recorrente).</p></div>
+      <div class="cards">
+        <div class="metric"><div class="metric-label">Com site</div><div class="metric-number">17</div><small>de 19 contas auditadas.</small></div>
+        <div class="metric"><div class="metric-label">Parcial / bloqueado</div><div class="metric-number">1</div><small>Nordplast 403 WAF.</small></div>
+        <div class="metric"><div class="metric-label">Sem site claro</div><div class="metric-number">1</div><small>So Grêmio Sinop.</small></div>
+        <div class="metric"><div class="metric-label">Prioridade site</div><div class="metric-number">4</div><small>EGS, NORD, SII, AIN.</small></div>
+      </div>
+      <section class="callout">
+        <div class="eyebrow">Como monetizar</div>
+        <h2>Site ruim = Web Design / LP. Site bom + B2B sem SEO = SEO. Sem site = Web Design.</h2>
+        <p><strong>Criticos/altos:</strong> Auddas (home vazia/SPA), Sol Interiors (LP magra), Grêmio (sem institucional), Nordplast (403). <strong>Medios:</strong> Oxxy/Alumtech, VCA, Primeset, MSYS, FTM, Aero. <strong>Nao empurrar Web Design</strong> em Emaster, Ducce, Sameach, Avanti, Brilho, TS Teck (base ok: vender SEO/GEO ou outra trava).</p>
+      </section>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Conta</th><th>Site</th><th>URL</th><th>Score</th><th>Sev.</th><th>Gaps</th><th>Produto sugerido</th></tr></thead>
+        <tbody>
+<tr data-ticker='MSYS'><td><strong>MSYS</strong><br><span class='muted'>MSYS Vistorias</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://msysimob.com.br/" target="_blank" rel="noopener">msysimob.com.br/</a></td><td class=''>79</td><td><span class="pill-info">medio</span></td><td style='max-width:18rem;font-size:.82rem'>Sem canonical<br>Sem formulario/WhatsApp evidente na home<br>Sem schema JSON-LD na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Site ok para marca; gaps de SEO/CTA limitam inbound e conversao de midia.</span></td></tr><tr data-ticker='AINE'><td><strong>AINE</strong><br><span class='muted'>Avanti</span><br></td><td>Sim</td><td><a href="https://avantinegocios.com.br/" target="_blank" rel="noopener">avantinegocios.com.br/</a></td><td class=''>94</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'>Sem schema JSON-LD na home</td><td><strong>SEO (on-page) + possivel Web Design pontual</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='BLC'><td><strong>BLC</strong><br><span class='muted'>Beauty Labs</span><br></td><td>Sim</td><td><a href="https://www.skelt.com.br/" target="_blank" rel="noopener">www.skelt.com.br/</a></td><td class=''>80</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'>Sem H1<br>Sem formulario/WhatsApp evidente na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='ALUM'><td><strong>ALUM</strong><br><span class='muted'>Alumtech</span><br></td><td>Sim</td><td><a href="https://oxxy.com.br/" target="_blank" rel="noopener">oxxy.com.br/</a></td><td class=''>59</td><td><span class="pill-info">medio</span></td><td style='max-width:18rem;font-size:.82rem'>Title curto<br>Meta description fraca<br>Multiplos H1 (2)<br>Sem formulario/WhatsApp evidente na home<br>Muitas imagens sem alt</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Site ok para marca; gaps de SEO/CTA limitam inbound e conversao de midia.</span></td></tr><tr data-ticker='EGS'><td><strong>EGS</strong><br><span class='muted'>Escola Grêmio Sinop</span><br></td><td>Nao</td><td><span class="muted">—</span></td><td class='bad'>0</td><td><span class="pill-danger">critico</span></td><td style='max-width:18rem;font-size:.82rem'>Sem site institucional</td><td><strong>Web Design / Site institucional + SEO local</strong><br><span class='muted'>Sem ativo web institucional: midia cai em social/LP solta.</span></td></tr><tr data-ticker='DBIC'><td><strong>DBIC</strong><br><span class='muted'>Ducce Bike</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://duccebike.com/" target="_blank" rel="noopener">duccebike.com/</a></td><td class=''>100</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'><span class="muted">Sem gaps graves</span></td><td><strong>SEO / GEO (conteudo + on-page)</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='NORD'><td><strong>NORD</strong><br><span class='muted'>Nordplast</span><br><span class="pill-info">SEO B2B</span></td><td>Parcial</td><td><a href="https://nordplast.com.br/" target="_blank" rel="noopener">nordplast.com.br/</a></td><td class='bad'>35</td><td><span class="pill-warn">alto</span></td><td style='max-width:18rem;font-size:.82rem'>Site bloqueia bots (403)<br>Nao foi possivel auditar on-page<br>Presenca institucional fraca em busca organica tipica</td><td><strong>Web Design (revisao site) + SEO B2B on-page · validar acesso com Coord</strong><br><span class='muted'>Dominio existe mas auditoria bloqueada; validar com humano e amarrar SEO.</span></td></tr><tr data-ticker='KELL'><td><strong>KELL</strong><br><span class='muted'>Kelldrin</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://kelldrin.com.br/" target="_blank" rel="noopener">kelldrin.com.br/</a></td><td class=''>84</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'>Sem H1<br>CTA pouco claro na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='SII'><td><strong>SII</strong><br><span class='muted'>Sol Interiors</span><br></td><td>Sim</td><td><a href="https://sol-interiors.com/lander" target="_blank" rel="noopener">sol-interiors.com/lander</a></td><td class='bad'>36</td><td><span class="pill-warn">alto</span></td><td style='max-width:18rem;font-size:.82rem'>Title fraco/padrao<br>Meta description fraca/ausente<br>Sem H1<br>Sem canonical<br>Sem formulario/WhatsApp evidente na home</td><td><strong>Manutencao LP / Web Design pontual (se site fraco) · nao priorizar site cheio antes de qualidade de lead</strong><br><span class='muted'>Home nao entrega SEO/conversao no HTML. Refazer home ou SSR + tracking.</span></td></tr><tr data-ticker='AIN'><td><strong>AIN</strong><br><span class='muted'>Auddas</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://auddas.com.br/" target="_blank" rel="noopener">auddas.com.br/</a></td><td class='bad'>21</td><td><span class="pill-danger">critico</span></td><td style='max-width:18rem;font-size:.82rem'>Sem title<br>Sem meta description<br>Sem viewport mobile<br>Sem H1<br>Sem canonical</td><td><strong>Web Design (home) + SEO on-page</strong><br><span class='muted'>Base tecnica quebrada: title/viewport/H1. Site nao sustenta midia nem organico.</span></td></tr><tr data-ticker='SICA'><td><strong>SICA</strong><br><span class='muted'>Sameach</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://samechvedacoes.com.br/" target="_blank" rel="noopener">samechvedacoes.com.br/</a></td><td class=''>100</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'><span class="muted">Sem gaps graves</span></td><td><strong>SEO / GEO</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='FTTR1'><td><strong>FTTR1</strong><br><span class='muted'>FTM Transportes</span><br></td><td>Sim</td><td><a href="https://ftmtransportes.com.br/" target="_blank" rel="noopener">ftmtransportes.com.br/</a></td><td class=''>76</td><td><span class="pill-info">medio</span></td><td style='max-width:18rem;font-size:.82rem'>Sem meta description<br>Sem schema JSON-LD na home<br>Muitas imagens sem alt</td><td><strong>SEO (on-page) + possivel Web Design pontual</strong><br><span class='muted'>Site ok para marca; gaps de SEO/CTA limitam inbound e conversao de midia.</span></td></tr><tr data-ticker='VCMU'><td><strong>VCMU</strong><br><span class='muted'>VCA Music</span><br></td><td>Sim</td><td><a href="https://vcamusic.com.br/" target="_blank" rel="noopener">vcamusic.com.br/</a></td><td class=''>59</td><td><span class="pill-info">medio</span></td><td style='max-width:18rem;font-size:.82rem'>Title curto<br>Meta description fraca<br>Sem canonical<br>Sem formulario/WhatsApp evidente na home<br>Sem schema JSON-LD na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Site ok para marca; gaps de SEO/CTA limitam inbound e conversao de midia.</span></td></tr><tr data-ticker='AERO'><td><strong>AERO</strong><br><span class='muted'>Aero TD</span><br></td><td>Sim</td><td><a href="https://aerotd.com.br/" target="_blank" rel="noopener">aerotd.com.br/</a></td><td class=''>78</td><td><span class="pill-info">medio</span></td><td style='max-width:18rem;font-size:.82rem'>Meta description fraca<br>Sem H1<br>Muitas imagens sem alt</td><td><strong>SEO (on-page) + possivel Web Design pontual</strong><br><span class='muted'>Site ok para marca; gaps de SEO/CTA limitam inbound e conversao de midia.</span></td></tr><tr data-ticker='EEAA'><td><strong>EEAA</strong><br><span class='muted'>Emaster Elevadores</span><br></td><td>Sim</td><td><a href="https://www.emasterelevadores.com.br/" target="_blank" rel="noopener">www.emasterelevadores.com.br/</a></td><td class=''>100</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'><span class="muted">Sem gaps graves</span></td><td><strong>SEO / GEO (manutencao + conteudo) se B2B; senao otimizacao pontual</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='TSTE'><td><strong>TSTE</strong><br><span class='muted'>TS Teck</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://tsteckequipamentos.com.br/" target="_blank" rel="noopener">tsteckequipamentos.com.br/</a></td><td class=''>94</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'>CTA pouco claro na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='WACO'><td><strong>WACO</strong><br><span class='muted'>The Way</span><br></td><td>Sim</td><td><a href="https://thewayconcierge.com/" target="_blank" rel="noopener">thewayconcierge.com/</a></td><td class=''>94</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'>CTA pouco claro na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr><tr data-ticker='FBLS'><td><strong>FBLS</strong><br><span class='muted'>Primeset (Luchesi)</span><br></td><td>Sim</td><td><a href="https://www.primeset.com.br/" target="_blank" rel="noopener">www.primeset.com.br/</a></td><td class=''>61</td><td><span class="pill-info">medio</span></td><td style='max-width:18rem;font-size:.82rem'>Title curto<br>Sem H1<br>Sem canonical<br>Sem formulario/WhatsApp evidente na home<br>Sem schema JSON-LD na home</td><td><strong>Landing Page / conversao + Rastreamento</strong><br><span class='muted'>Site ok para marca; gaps de SEO/CTA limitam inbound e conversao de midia.</span></td></tr><tr data-ticker='BRIL'><td><strong>BRIL</strong><br><span class='muted'>Brilho Maquiagem</span><br><span class="pill-info">SEO B2B</span></td><td>Sim</td><td><a href="https://www.brilho.com.br/" target="_blank" rel="noopener">www.brilho.com.br/</a></td><td class=''>94</td><td><span class="pill-safe">baixo</span></td><td style='max-width:18rem;font-size:.82rem'>Sem schema JSON-LD na home</td><td><strong>SEO (on-page) + possivel Web Design pontual</strong><br><span class='muted'>Base de site saudavel. Monetizar com SEO/conteudo ou manter; nao empurrar Web Design cego.</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="placa">
+      <div class="section-head"><div>
+        <div class="eyebrow">Placar</div>
+        <h2>Funil + trava + produto + tracking.</h2>
+      </div></div>
+      <div class="filters">
+        <select id="f-squad"><option value="">Todos squads</option><option>Invictus</option><option>Billions</option><option>Exclusive</option></select>
+        <select id="f-fit"><option value="">Todos fits</option><option value="estrut">So Estruturacao</option><option value="seo">So SEO B2B</option><option value="both">Estruturacao + SEO</option></select>
+        <input id="f-search" type="search" placeholder="Buscar…">
+        <button class="btn" id="btn-export" type="button">Exportar tracking</button>
+      </div>
+      <div class="table-card"><table id="placa-table">
+        <thead><tr>
+          <th>#</th><th>Conta</th><th>Lead</th><th>Modelo</th>
+          <th>Leads</th><th>MQL</th><th>SQL</th><th>Vendas</th><th>SQL to V</th><th>MQL to V</th>
+          <th>BE</th><th>Flag</th><th>Trava</th><th>Produto</th>
+          <th>Montada</th><th>Enviada</th><th>Reuniao</th><th>Fechado</th><th>Links</th>
+        </tr></thead>
+        <tbody>
+      <tr data-ticker="MSYS" data-squad="Invictus"
+          data-estrut="0" data-seo="1">
+        <td>1</td>
+        <td><strong>MSYS</strong><br><span class="muted">MSYS Vistorias</span><br><span class="pill-info">SEO B2B</span></td>
+        <td>0.74</td>
+        <td>B2B</td>
+        <td>89</td><td>60</td><td>33</td><td>21</td>
+        <td class="">64%</td>
+        <td class="">35%</td>
+        <td>BE não</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>Inbound orgânico / autoridade de busca</td>
+        <td><strong>SEO (TER ou EXECUTAR)</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-MSYS">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1jembi06An23OhPgwjeQyVo0FpHeNaONhGxXYfveUMFw/edit?usp=sharing" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="AINE" data-squad="Exclusive"
+          data-estrut="1" data-seo="0">
+        <td>2</td>
+        <td><strong>AINE</strong><br><span class="muted">Avanti</span><br><span class="pill-warn">Estrut. Comercial</span></td>
+        <td>0.71</td>
+        <td>B2C</td>
+        <td>322</td><td>290</td><td>93</td><td>1</td>
+        <td class="bad">1%</td>
+        <td class="bad">0%</td>
+        <td>BE ok</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>Fechamento / processo comercial</td>
+        <td><strong>Estruturação Comercial + CRM Vendas</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-AINE">ficha</a> · <a href="https://flow.collieassociados.com/break-evens/20" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="BLC" data-squad="Billions"
+          data-estrut="1" data-seo="0">
+        <td>4</td>
+        <td><strong>BLC</strong><br><span class="muted">Beauty Labs</span><br><span class="pill-warn">Estrut. Comercial</span></td>
+        <td>0.63</td>
+        <td>B2C</td>
+        <td>2602</td><td>1948</td><td>197</td><td>114</td>
+        <td class="">58%</td>
+        <td class="bad">6%</td>
+        <td>BE ok</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>Fechamento / processo comercial</td>
+        <td><strong>Estruturação Comercial + CRM Vendas</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-BLC">ficha</a> · <a href="[DERMOS] Projeção Breakeven Inside Sales" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="ALUM" data-squad="Invictus"
+          data-estrut="0" data-seo="0">
+        <td>5</td>
+        <td><strong>ALUM</strong><br><span class="muted">Alumtech</span><br></td>
+        <td>0.60</td>
+        <td>B2C</td>
+        <td>0</td><td>0</td><td>0</td><td>18</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ok</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>Conversão da loja</td>
+        <td><strong>Web Design / E-com + Designer + Régua abandono</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-ALUM">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1vEHURtKhLBY_g945O2Rhn0b4mWWr-U_bUikBTlaarZo/edit?gid=626168004#gid=626168004" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="EGS" data-squad="Invictus"
+          data-estrut="0" data-seo="0">
+        <td>6</td>
+        <td><strong>EGS</strong><br><span class="muted">Escola Grêmio Sinop</span><br></td>
+        <td>0.60</td>
+        <td>B2C</td>
+        <td>0</td><td>0</td><td>0</td><td>0</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ok</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>—</td>
+        <td><strong>Social Media · CRM Marketing TER · Website pontual</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-EGS">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1kteu6C0XY_FLs63dKNljiaIJd6Fxjrl_d5iHcdFnPZQ/edit?usp=sharing" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="DBIC" data-squad="Billions"
+          data-estrut="0" data-seo="1">
+        <td>7</td>
+        <td><strong>DBIC</strong><br><span class="muted">Ducce Bike</span><br><span class="pill-info">SEO B2B</span></td>
+        <td>0.60</td>
+        <td>B2B</td>
+        <td>83</td><td>6</td><td>5</td><td>1</td>
+        <td class="">20%</td>
+        <td class="bad">17%</td>
+        <td>BE não</td>
+        <td><span class="pill-danger">Danger</span></td>
+        <td>Inbound orgânico / autoridade de busca</td>
+        <td><strong>SEO (TER ou EXECUTAR)</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-DBIC">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1EwFeNXi6fc3ENs7aI-9ZjQoRu3aXb4Vl5koXlQ17je8/edit?gid=1493982768#gid=1493982768" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="NORD" data-squad="Billions"
+          data-estrut="1" data-seo="1">
+        <td>8</td>
+        <td><strong>NORD</strong><br><span class="muted">Nordplast</span><br><span class="pill-warn">Estrut. Comercial</span><span class="pill-info">SEO B2B</span></td>
+        <td>0.58</td>
+        <td>B2B</td>
+        <td>77</td><td>279</td><td>62</td><td>16</td>
+        <td class="">26%</td>
+        <td class="bad">6%</td>
+        <td>BE ok</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>Fechamento / processo comercial</td>
+        <td><strong>Estruturação Comercial + CRM Vendas</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-NORD">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1t-Q4SGjLVuBY2yePVr7lEiVjjUVWTpk4hzp9UEv8MGg/edit?gid=1776592745#gid=1776592745" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="KELL" data-squad="Billions"
+          data-estrut="0" data-seo="1">
+        <td>9</td>
+        <td><strong>KELL</strong><br><span class="muted">Kelldrin</span><br><span class="pill-info">SEO B2B</span></td>
+        <td>0.57</td>
+        <td>B2B</td>
+        <td>0</td><td>0</td><td>0</td><td>0</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ok</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>Fechamento do card atual</td>
+        <td><strong>Priorizar pipe: Aumento de Escopo Social Media, Execução de 4 Perfis do Instagram, SEO / GEO</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-KELL">ficha</a> · —</td>
+      </tr>
+      <tr data-ticker="SII" data-squad="Billions"
+          data-estrut="0" data-seo="0">
+        <td>10</td>
+        <td><strong>SII</strong><br><span class="muted">Sol Interiors</span><br></td>
+        <td>0.55</td>
+        <td>B2C</td>
+        <td>0</td><td>0</td><td>0</td><td>1</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ok</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>NPS 6 / flag Safe</td>
+        <td><strong>Escuta + alinhar Coord · TER leve só depois</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-SII">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1hI8Fi-beplNXnj3zkcuEEuyywxvldAJ0bid_uXmoLF0/edit?gid=1808023792#gid=1808023792" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="AIN" data-squad="Invictus"
+          data-estrut="0" data-seo="1">
+        <td>11</td>
+        <td><strong>AIN</strong><br><span class="muted">Auddas</span><br><span class="pill-info">SEO B2B</span></td>
+        <td>0.52</td>
+        <td>B2B</td>
+        <td>346</td><td>0</td><td>0</td><td>0</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ok</td>
+        <td><span class="pill-danger">Danger</span></td>
+        <td>Qualificação / CRM / tracking</td>
+        <td><strong>CRM Marketing + Rastreamento</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-AIN">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1m80MGGQlW3GAN2kYdWTOMWzEnlAQB-BRTIZWdxlhDXg/edit?usp=sharing" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="SICA" data-squad="Billions"
+          data-estrut="0" data-seo="1">
+        <td>12</td>
+        <td><strong>SICA</strong><br><span class="muted">Sameach</span><br><span class="pill-info">SEO B2B</span></td>
+        <td>0.52</td>
+        <td>B2B</td>
+        <td>237</td><td>11</td><td>11</td><td>2</td>
+        <td class="bad">18%</td>
+        <td class="bad">18%</td>
+        <td>BE ok</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>Fechamento do card atual</td>
+        <td><strong>Priorizar pipe: Captação Audiovisual</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-SICA">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1sS4wo-v10egcfRyc7D_XhetRbmz-Rl-QaHbGnuuyBDU/edit?gid=1192649677#gid=1192649677" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="FTTR1" data-squad="Invictus"
+          data-estrut="1" data-seo="0">
+        <td>13</td>
+        <td><strong>FTTR1</strong><br><span class="muted">FTM Transportes</span><br><span class="pill-warn">Estrut. Comercial</span></td>
+        <td>0.51</td>
+        <td>B2C</td>
+        <td>66</td><td>161</td><td>112</td><td>11</td>
+        <td class="bad">10%</td>
+        <td class="bad">7%</td>
+        <td>BE ok</td>
+        <td><span class="pill-danger">Danger</span></td>
+        <td>Fechamento / processo comercial</td>
+        <td><strong>Estruturação Comercial + CRM Vendas</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-FTTR1">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1E8NOTV75rIbpFEkm689odeYci5QzI6Y-mIGvn4DDJ5s/edit?gid=1022088438#gid=1022088438" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="VCMU" data-squad="Invictus"
+          data-estrut="0" data-seo="0">
+        <td>14</td>
+        <td><strong>VCMU</strong><br><span class="muted">VCA Music</span><br></td>
+        <td>0.51</td>
+        <td>B2C</td>
+        <td>0</td><td>0</td><td>0</td><td>764</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ausente</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>Conversão da loja</td>
+        <td><strong>Web Design / E-com + Designer + Régua abandono</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-VCMU">ficha</a> · —</td>
+      </tr>
+      <tr data-ticker="AERO" data-squad="Invictus"
+          data-estrut="0" data-seo="0">
+        <td>15</td>
+        <td><strong>AERO</strong><br><span class="muted">Aero TD</span><br></td>
+        <td>0.49</td>
+        <td>B2C</td>
+        <td>201</td><td>70</td><td>7</td><td>7</td>
+        <td class="">100%</td>
+        <td class="bad">10%</td>
+        <td>BE ok</td>
+        <td><span class="pill-safe">Safe</span></td>
+        <td>—</td>
+        <td><strong>Web Design / manutenção site · depois aumento escopo</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-AERO">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1cvd5Z9N2xsSTM0MaIoxKBv5HY7MXaxmwpMgKm9ZABI8/edit?usp=sharing" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="EEAA" data-squad="Billions"
+          data-estrut="0" data-seo="0">
+        <td>16</td>
+        <td><strong>EEAA</strong><br><span class="muted">Emaster Elevadores</span><br></td>
+        <td>0.48</td>
+        <td>B2C</td>
+        <td>412</td><td>0</td><td>0</td><td>0</td>
+        <td class="">—</td>
+        <td class="">—</td>
+        <td>BE ok</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>Qualificação / CRM / tracking</td>
+        <td><strong>CRM Marketing + Rastreamento</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-EEAA">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1ygQuQFI2HpVPR3adU8BD8xaDfzKGQiw14P9MxCqMW88/edit?gid=1446020924#gid=1446020924" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="TSTE" data-squad="Billions"
+          data-estrut="1" data-seo="1">
+        <td>17</td>
+        <td><strong>TSTE</strong><br><span class="muted">TS Teck</span><br><span class="pill-warn">Estrut. Comercial</span><span class="pill-info">SEO B2B</span></td>
+        <td>0.42</td>
+        <td>B2B</td>
+        <td>6</td><td>62</td><td>25</td><td>0</td>
+        <td class="bad">0%</td>
+        <td class="bad">0%</td>
+        <td>BE ok</td>
+        <td><span class="pill-danger">Critical</span></td>
+        <td>Fechamento / processo comercial</td>
+        <td><strong>Estruturação Comercial + CRM Vendas</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-TSTE">ficha</a> · <a href="[TS TECK] Projeção Breakeven Inside Sales" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="WACO" data-squad="Exclusive"
+          data-estrut="0" data-seo="0">
+        <td>18</td>
+        <td><strong>WACO</strong><br><span class="muted">The Way</span><br></td>
+        <td>0.46</td>
+        <td>B2C</td>
+        <td>36</td><td>7</td><td>7</td><td>5</td>
+        <td class="">71%</td>
+        <td class="">71%</td>
+        <td>BE ok</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>—</td>
+        <td><strong>Sales Enablement + CRM Vendas · Estruturação Comercial</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-WACO">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1JA0JEzg1ZJ3qzFHJAhsb-5Vt4d_rf1SOUsmh7T2d0e0/edit?gid=1952875642#gid=1952875642" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="FBLS" data-squad="Invictus"
+          data-estrut="1" data-seo="0">
+        <td>19</td>
+        <td><strong>FBLS</strong><br><span class="muted">Primeset (Luchesi)</span><br><span class="pill-warn">Estrut. Comercial</span></td>
+        <td>0.38</td>
+        <td>B2C</td>
+        <td>4</td><td>187</td><td>145</td><td>26</td>
+        <td class="bad">18%</td>
+        <td class="bad">14%</td>
+        <td>BE não</td>
+        <td><span class="pill-warn">Care</span></td>
+        <td>Fechamento / processo comercial</td>
+        <td><strong>Estruturação Comercial + CRM Vendas</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-FBLS">ficha</a> · <a href="https://docs.google.com/spreadsheets/d/1GuNZ7M2GlskDATp10FOwZZgR_A7WX73VyJ4jI-oUVXc/edit?usp=sharing" target="_blank" rel="noopener">BE</a></td>
+      </tr>
+      <tr data-ticker="BRIL" data-squad="Exclusive"
+          data-estrut="0" data-seo="1">
+        <td>20</td>
+        <td><strong>BRIL</strong><br><span class="muted">Brilho Maquiagem</span><br><span class="pill-info">SEO B2B</span></td>
+        <td>0.36</td>
+        <td>B2B</td>
+        <td>170</td><td>51</td><td>0</td><td>0</td>
+        <td class="">—</td>
+        <td class="bad">0%</td>
+        <td>BE não</td>
+        <td><span class="pill-danger">Danger</span></td>
+        <td>Inbound orgânico / autoridade de busca</td>
+        <td><strong>SEO (TER ou EXECUTAR)</strong></td>
+        <td class="track-cell" data-k="proposta_feita"></td>
+        <td class="track-cell" data-k="proposta_enviada"></td>
+        <td class="track-cell" data-k="reuniao"></td>
+        <td class="track-cell" data-k="fechado"></td>
+        <td><a href="#acc-BRIL">ficha</a> · <a href="https://flow.collieassociados.com/break-evens/121" target="_blank" rel="noopener">BE</a></td>
+      </tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="fichas">
+      <div class="section-head"><div>
+        <div class="eyebrow">Fichas</div>
+        <h2>Historico + mapa de produtos por trava.</h2>
+      </div></div>
+      
+    <article class="acc-card" id="acc-MSYS" data-ticker="MSYS">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2B · Venda de Serviços · Lead 0.74</div>
+        <h3>MSYS · MSYS Vistorias</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">89</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">60</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">33</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">21</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">55%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">64%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">35%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">2</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Inbound orgânico / autoridade de busca</strong></p>
+          <p class="prod-main">SEO (TER ou EXECUTAR)</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Venda de Serviços · SEO contratado: não</span></li><li><strong>Landing / Rastreamento / Social / Website (sem Diag. Mídia)</strong> · trava: ROI da operação<br><span class='muted'>BE não + results baixo · BE não · results 3.0</span></li><li><strong>Estruturação Comercial</strong> · trava: Throughput comercial<br><span class='muted'>Meta de vendas/faturamento &lt;30% com volume · Goal Faturamento · atingimento 8.2% · MQL 60</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1jembi06An23OhPgwjeQyVo0FpHeNaONhGxXYfveUMFw/edit?usp=sharing" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1sTipzZCsKx5_LWd9fvAj5Kh484auswelmr04UTF9IG4/edit?usp=sharing" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE não · Results 3 · NPS 10</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 7522.8/91363.52 · Fee R$ 5.869 · Pipe R$ 35.214</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-10</td><td>diagnostico</td><td>CRM</td><td>Executar</td><td>R$ 0</td></tr><tr><td>2026-06-10</td><td>diagnostico</td><td>BI</td><td>Executar</td><td>R$ 35.214</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="MSYS">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-AINE" data-ticker="AINE">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Exclusive · B2C · Financeiro · Lead 0.71</div>
+        <h3>AINE · Avanti</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-warn">Fit Estruturacao Comercial</span> 
+          <span class="pill-mute">Nutrir / escuta</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">322</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">290</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">93</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">1</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">32%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n badn">1%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">0%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">15</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento / processo comercial</strong></p>
+          <p class="prod-main">Estruturação Comercial + CRM Vendas</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Estruturação Comercial + CRM Vendas</strong> · trava: Fechamento / processo comercial<br><span class='muted'>Volume MQL/SQL bom + conversão de venda &lt;20% · MQL 290 · SQL 93 · Vendas 1 · SQL→Venda 1.1% · MQL→Venda 0.3%</span></li><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 6 / flag Safe<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://flow.collieassociados.com/break-evens/20" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="Plano de Mídia 2.0 | Avanti " target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 10 · NPS 6</p>
+          <p>Ops midia: True · SEO: nao · CRM: Recorrente · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 61000/1000000 · Fee R$ 25.500 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-10</td><td>account_planning</td><td>Site</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="AINE">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-BLC" data-ticker="BLC">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2C · Beleza e Cosméticos · Lead 0.63</div>
+        <h3>BLC · Beauty Labs</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-warn">Fit Estruturacao Comercial</span> 
+          <span class="pill-safe">Escalar ROI</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">2602</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">1948</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">197</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">114</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">10%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">58%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">6%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">43</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento / processo comercial</strong></p>
+          <p class="prod-main">Estruturação Comercial + CRM Vendas</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Estruturação Comercial + CRM Vendas</strong> · trava: Fechamento / processo comercial<br><span class='muted'>Volume MQL/SQL bom + conversão de venda &lt;20% · MQL 1948 · SQL 197 · Vendas 114 · SQL→Venda 57.9% · MQL→Venda 5.9%</span></li><li><strong>SDR IA + CRM Marketing</strong> · trava: Qualificação SDR / critérios MQL→SQL<br><span class='muted'>MQL alto com SQL baixo · MQL 1948 · SQL 197 · MQL→SQL 10.1%</span></li></ul>
+          <div class="link-row"><a class="btn" href="[DERMOS] Projeção Breakeven Inside Sales" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="CREAMY [Growth Pack 3.0] " target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 8 · NPS 10</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: Recorrente · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 79080.34/450000 · Fee R$ 23.615 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li>SDR IA - Reativação · 2026-06-01 · R$ 0</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-01</td><td>finalizado</td><td>SDR IA - Reativação</td><td>Ter</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="BLC">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-ALUM" data-ticker="ALUM">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2C · Automotivo · Lead 0.60</div>
+        <h3>ALUM · Alumtech</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-safe">Escalar ROI</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">18</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">1</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Conversão da loja</strong></p>
+          <p class="prod-main">Web Design / E-com + Designer + Régua abandono</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Web Design / E-com + Designer + Régua abandono</strong> · trava: Conversão da loja<br><span class='muted'>Modelo e-commerce / white space site · Modelo Ecommerce · white space —</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1vEHURtKhLBY_g945O2Rhn0b4mWWr-U_bUikBTlaarZo/edit?gid=626168004#gid=626168004" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="Oxxy Motos Growth Pack 3.0" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 8 · NPS 9</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 32835/120000 · Fee R$ 9.650 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-18</td><td>account_planning</td><td>assessoria_byline</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="ALUM">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-EGS" data-ticker="EGS">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2C · Educacional · Lead 0.60</div>
+        <h3>EGS · Escola Grêmio Sinop</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-safe">Escalar ROI</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">—</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>—</strong></p>
+          <p class="prod-main">Social Media · CRM Marketing TER · Website pontual</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li class='muted'>Sem gap automatizado.</li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1kteu6C0XY_FLs63dKNljiaIJd6Fxjrl_d5iHcdFnPZQ/edit?usp=sharing" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1nkJnZA7mhEizKagXYFAB2vxEigphx4oQMWu06qkTUPo/edit?gid=1989022000#gid=1989022000" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 10 · NPS 8</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: VENDAS · 11/35 · Fee R$ 3.490 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td colspan="5" class="muted">Sem cards Expansion.</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="EGS">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-DBIC" data-ticker="DBIC">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2B · Venda de Produtos · Lead 0.60</div>
+        <h3>DBIC · Ducce Bike</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-danger">Danger</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">83</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">6</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">5</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">1</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">83%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">20%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">17%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">1</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Inbound orgânico / autoridade de busca</strong></p>
+          <p class="prod-main">SEO (TER ou EXECUTAR)</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Venda de Produtos · SEO contratado: não</span></li><li><strong>Reativar Mídia Paga EXECUTAR · Copy/Designer</strong> · trava: ops_media false<br><span class='muted'>Mídia operacional off · Cockpit algorithm_ops_paid_media_bool = false</span></li><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 10 / flag Danger<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1EwFeNXi6fc3ENs7aI-9ZjQoRu3aXb4Vl5koXlQ17je8/edit?gid=1493982768#gid=1493982768" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1EwFeNXi6fc3ENs7aI-9ZjQoRu3aXb4Vl5koXlQ17je8/edit?gid=1989022000#gid=1989022000" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE não · Results 9 · NPS 10</p>
+          <p>Ops midia: False · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 0/54686.15 · Fee R$ 3.000 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td colspan="5" class="muted">Sem cards Expansion.</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="DBIC">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-NORD" data-ticker="NORD">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2B · Indústria e Fabricação · Lead 0.58</div>
+        <h3>NORD · Nordplast</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-warn">Fit Estruturacao Comercial</span> <span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">77</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">279</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">62</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">16</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">22%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">26%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">6%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">2</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento / processo comercial</strong></p>
+          <p class="prod-main">Estruturação Comercial + CRM Vendas</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Estruturação Comercial + CRM Vendas</strong> · trava: Fechamento / processo comercial<br><span class='muted'>Volume MQL/SQL bom + conversão de venda &lt;20% · MQL 279 · SQL 62 · Vendas 16 · SQL→Venda 25.8% · MQL→Venda 5.7%</span></li><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Indústria e Fabricação · SEO contratado: não</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1t-Q4SGjLVuBY2yePVr7lEiVjjUVWTpk4hzp9UEv8MGg/edit?gid=1776592745#gid=1776592745" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1gzQPyiWotJLTla1XqEDo7KVg6QqYmV_elx5ZNlKp4Z0/edit?gid=1422566774#gid=1422566774" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 1 · NPS 9</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 48290/320000 · Fee R$ 7.000 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td colspan="5" class="muted">Sem cards Expansion.</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="NORD">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-KELL" data-ticker="KELL">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2B · Indústria e Fabricação · Lead 0.57</div>
+        <h3>KELL · Kelldrin</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-info">Fechar pipe</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">10</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento do card atual</strong></p>
+          <p class="prod-main">Priorizar pipe: Aumento de Escopo Social Media, Execução de 4 Perfis do Instagram, SEO / GEO</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Priorizar pipe: Aumento de Escopo Social Media, Execução de 4 Perfis do Instagram, SEO / GEO</strong> · trava: Fechamento do card atual<br><span class='muted'>Pipe já maduro · Card em FU / apresentação / construção</span></li><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Indústria e Fabricação · SEO contratado: não</span></li></ul>
+          <div class="link-row"><a class="btn btn-ghost" href="[Kelldrin] Growth Pack 3.0 " target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 10 · NPS 10</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Seguidores · 554/2520 · Fee R$ 15.730 · Pipe R$ 421.950</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-01</td><td>follow_up</td><td>Execução de 4 Perfis do Instagram</td><td>Executar</td><td>R$ 18.750</td></tr><tr><td>2026-06-01</td><td>follow_up</td><td>Aumento de Escopo Social Media</td><td>Executar</td><td>R$ 366.000</td></tr><tr><td>2026-06-01</td><td>follow_up</td><td>SEO / GEO</td><td>Executar</td><td>R$ 37.200</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="KELL">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-SII" data-ticker="SII">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2C · Construção Civil e Infraestrutura · Lead 0.55</div>
+        <h3>SII · Sol Interiors</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-mute">Nutrir / escuta</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">1</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">1</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>NPS 6 / flag Safe</strong></p>
+          <p class="prod-main">Escuta + alinhar Coord · TER leve só depois</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 6 / flag Safe<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1hI8Fi-beplNXnj3zkcuEEuyywxvldAJ0bid_uXmoLF0/edit?gid=1808023792#gid=1808023792" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1FdXD19caVEiEJxmIrDX4-stAhe18ku-bBxKxAl6E9u4/edit?gid=1422566774#gid=1422566774" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 10 · NPS 6</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 4000/11882 · Fee R$ 7.631 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li>SDR IA · 2026-06-03 · R$ 14.500</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-03</td><td>finalizado</td><td>SDR IA</td><td>Ter</td><td>R$ 14.500</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="SII">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-AIN" data-ticker="AIN">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2B · Consultoria · Lead 0.52</div>
+        <h3>AIN · Auddas</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-info">Fechar pipe</span>
+          <span class="pill-danger">Danger</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">346</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">3</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Qualificação / CRM / tracking</strong></p>
+          <p class="prod-main">CRM Marketing + Rastreamento</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>CRM Marketing + Rastreamento</strong> · trava: Qualificação / CRM / tracking<br><span class='muted'>Leads sem MQL · Leads 346 · MQL 0</span></li><li><strong>Priorizar pipe: SDR IA</strong> · trava: Fechamento do card atual<br><span class='muted'>Pipe já maduro · Card em FU / apresentação / construção</span></li><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Consultoria · SEO contratado: não</span></li><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 7 / flag Danger<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1m80MGGQlW3GAN2kYdWTOMWzEnlAQB-BRTIZWdxlhDXg/edit?usp=sharing" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="[Growth Pack 3.0] Auddas - 2.0" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 0 · NPS 7</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: MQL · 0/22 · Fee R$ 6.178 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-18</td><td>reuniao_agendada</td><td>assessoria_byline</td><td>Executar</td><td>R$ 0</td></tr><tr><td>2026-08-07</td><td>construcao_proposta</td><td>SDR IA</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="AIN">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-SICA" data-ticker="SICA">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2B · Indústria e Fabricação · Lead 0.52</div>
+        <h3>SICA · Sameach</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-info">Fechar pipe</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">237</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">11</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">11</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">2</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">100%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n badn">18%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">18%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">5</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento do card atual</strong></p>
+          <p class="prod-main">Priorizar pipe: Captação Audiovisual</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Priorizar pipe: Captação Audiovisual</strong> · trava: Fechamento do card atual<br><span class='muted'>Pipe já maduro · Card em FU / apresentação / construção</span></li><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Indústria e Fabricação · SEO contratado: não</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1sS4wo-v10egcfRyc7D_XhetRbmz-Rl-QaHbGnuuyBDU/edit?gid=1192649677#gid=1192649677" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="[Growth Pack 3.0] - Samech" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 3 · NPS 10</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 4192/53951.63 · Fee R$ 6.500 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li>SDR IA · 2026-06-01 · R$ 2.593.026</li><li>SDR IA · 2026-07-24 · R$ 25.932</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-01</td><td>finalizado</td><td>SDR IA</td><td>Ter</td><td>R$ 2.593.026</td></tr><tr><td>2026-06-01</td><td>construcao_poc</td><td>SEO/GEO o novo site</td><td>Executar</td><td>R$ 0</td></tr><tr><td>2026-07-12</td><td>account_planning</td><td>Automacao comercial + governanca de leads</td><td>Ter</td><td>R$ 0</td></tr><tr><td>2026-07-24</td><td>finalizado</td><td>SDR IA</td><td>Executar</td><td>R$ 25.932</td></tr><tr><td>2026-08-05</td><td>construcao_proposta</td><td>Captação Audiovisual</td><td>Ter</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="SICA">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-FTTR1" data-ticker="FTTR1">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2C · Logística e Transporte · Lead 0.51</div>
+        <h3>FTTR1 · FTM Transportes</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-warn">Fit Estruturacao Comercial</span> 
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-danger">Danger</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">66</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">161</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">112</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">11</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">70%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n badn">10%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">7%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">4</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento / processo comercial</strong></p>
+          <p class="prod-main">Estruturação Comercial + CRM Vendas</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Estruturação Comercial + CRM Vendas</strong> · trava: Fechamento / processo comercial<br><span class='muted'>Volume MQL/SQL bom + conversão de venda &lt;20% · MQL 161 · SQL 112 · Vendas 11 · SQL→Venda 9.8% · MQL→Venda 6.8%</span></li><li><strong>Reativar Mídia Paga EXECUTAR · Copy/Designer</strong> · trava: ops_media false<br><span class='muted'>Mídia operacional off · Cockpit algorithm_ops_paid_media_bool = false</span></li><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 10 / flag Danger<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1E8NOTV75rIbpFEkm689odeYci5QzI6Y-mIGvn4DDJ5s/edit?gid=1022088438#gid=1022088438" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1YE_ZsKR8IV49RIoGQfKSDTOgwIDr4Is658HElCFHIkU/edit?gid=617612824#gid=617612824" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 6 · NPS 10</p>
+          <p>Ops midia: False · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 11333/75000 · Fee R$ 8.110 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-18</td><td>reuniao_agendada</td><td>assessoria_byline</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="FTTR1">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-VCMU" data-ticker="VCMU">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2C · Marketing e Publicidade · Lead 0.51</div>
+        <h3>VCMU · VCA Music</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-mute">Nutrir / escuta</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">764</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">—</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Conversão da loja</strong></p>
+          <p class="prod-main">Web Design / E-com + Designer + Régua abandono</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Web Design / E-com + Designer + Régua abandono</strong> · trava: Conversão da loja<br><span class='muted'>Modelo e-commerce / white space site · Modelo Ecommerce · white space —</span></li></ul>
+          <div class="link-row"><a class="btn btn-ghost" href="10. Growth Pack" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ausente · Results 10 · NPS 9</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: ROAS · 7.09/7 · Fee R$ 5.000 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-18</td><td>account_planning</td><td>assessoria_byline</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="VCMU">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-AERO" data-ticker="AERO">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2C · Educacional · Lead 0.49</div>
+        <h3>AERO · Aero TD</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-safe">Escalar ROI</span>
+          <span class="pill-safe">Safe</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">201</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">70</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">7</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">7</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">10%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">100%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">10%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">2</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>—</strong></p>
+          <p class="prod-main">Web Design / manutenção site · depois aumento escopo</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li class='muted'>Sem gap automatizado.</li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1cvd5Z9N2xsSTM0MaIoxKBv5HY7MXaxmwpMgKm9ZABI8/edit?usp=sharing" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="[Growth Pack] AeroTD" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 10 · NPS 10</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 70400/140000 · Fee R$ 13.000 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-18</td><td>account_planning</td><td>assessoria_byline</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="AERO">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-EEAA" data-ticker="EEAA">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2C · Automotivo · Lead 0.48</div>
+        <h3>EEAA · Emaster Elevadores</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">412</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">—</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">8</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Qualificação / CRM / tracking</strong></p>
+          <p class="prod-main">CRM Marketing + Rastreamento</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>CRM Marketing + Rastreamento</strong> · trava: Qualificação / CRM / tracking<br><span class='muted'>Leads sem MQL · Leads 412 · MQL 0</span></li><li><strong>Reativar Mídia Paga EXECUTAR · Copy/Designer</strong> · trava: ops_media false<br><span class='muted'>Mídia operacional off · Cockpit algorithm_ops_paid_media_bool = false</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1ygQuQFI2HpVPR3adU8BD8xaDfzKGQiw14P9MxCqMW88/edit?gid=1446020924#gid=1446020924" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/14N3AllH3nW4o_N70e9a9yRYz_1SAs6roXfZGb7rO8no/edit?gid=1422566774#gid=1422566774" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 9 · NPS 8</p>
+          <p>Ops midia: False · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Lead · 230/1247 · Fee R$ 8.820 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td colspan="5" class="muted">Sem cards Expansion.</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="EEAA">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-TSTE" data-ticker="TSTE">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Billions · B2B · Indústria e Fabricação · Lead 0.42</div>
+        <h3>TSTE · TS Teck</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-warn">Fit Estruturacao Comercial</span> <span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-danger">Critical</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">6</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">62</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">25</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">40%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n badn">0%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">0%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">2</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento / processo comercial</strong></p>
+          <p class="prod-main">Estruturação Comercial + CRM Vendas</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Estruturação Comercial + CRM Vendas</strong> · trava: Fechamento / processo comercial<br><span class='muted'>Volume MQL/SQL bom + conversão de venda &lt;20% · MQL 62 · SQL 25 · Vendas 0 · SQL→Venda 0.0% · MQL→Venda 0.0%</span></li><li><strong>Priorizar pipe: Chatwoot + RD Station, Estruturação Comercial</strong> · trava: Fechamento do card atual<br><span class='muted'>Pipe já maduro · Card em FU / apresentação / construção</span></li><li><strong>Reativar Mídia Paga EXECUTAR · Copy/Designer</strong> · trava: ops_media false<br><span class='muted'>Mídia operacional off · Cockpit algorithm_ops_paid_media_bool = false</span></li><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 10 / flag Critical<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Indústria e Fabricação · SEO contratado: não</span></li></ul>
+          <div class="link-row"><a class="btn" href="[TS TECK] Projeção Breakeven Inside Sales" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="[Growth Pack] - TS Teck" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 1 · NPS 10</p>
+          <p>Ops midia: False · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: Faturamento · 4430/10000 · Fee R$ 5.373 · Pipe R$ 32.000</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-01</td><td>apresentacao_proposta</td><td>Estruturação Comercial</td><td>Saber</td><td>R$ 32.000</td></tr><tr><td>2026-07-01</td><td>follow_up</td><td>Chatwoot + RD Station</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="TSTE">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-WACO" data-ticker="WACO">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Exclusive · B2C · Serviços Médicos e Saúde · Lead 0.46</div>
+        <h3>WACO · The Way</h3>
+        <div class="acc-pills" style="margin-top:.4rem">
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">36</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">7</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">7</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">5</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">100%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">71%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n ">71%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">2</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>—</strong></p>
+          <p class="prod-main">Sales Enablement + CRM Vendas · Estruturação Comercial</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li class='muted'>Sem gap automatizado.</li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1JA0JEzg1ZJ3qzFHJAhsb-5Vt4d_rf1SOUsmh7T2d0e0/edit?gid=1952875642#gid=1952875642" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1JA0JEzg1ZJ3qzFHJAhsb-5Vt4d_rf1SOUsmh7T2d0e0/edit?gid=200641778#gid=200641778" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE ok · Results 6 · NPS 8</p>
+          <p>Ops midia: True · SEO: Recorrente · CRM: Recorrente · SDR: nao · Site: Recorrente</p>
+          <p class="muted">Goal: VENDAS · 2/13 · Fee R$ 12.926 · Pipe R$ 0</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-10</td><td>account_planning</td><td>Estruturação Comercial</td><td>Executar</td><td>R$ 0</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="WACO">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-FBLS" data-ticker="FBLS">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Invictus · B2C · Venda de Produtos · Lead 0.38</div>
+        <h3>FBLS · Primeset (Luchesi)</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-warn">Fit Estruturacao Comercial</span> 
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-warn">Care</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">4</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">187</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">145</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">26</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">78%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n badn">18%</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">14%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">12</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Fechamento / processo comercial</strong></p>
+          <p class="prod-main">Estruturação Comercial + CRM Vendas</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>Estruturação Comercial + CRM Vendas</strong> · trava: Fechamento / processo comercial<br><span class='muted'>Volume MQL/SQL bom + conversão de venda &lt;20% · MQL 187 · SQL 145 · Vendas 26 · SQL→Venda 17.9% · MQL→Venda 13.9%</span></li><li><strong>Priorizar pipe: Social Media</strong> · trava: Fechamento do card atual<br><span class='muted'>Pipe já maduro · Card em FU / apresentação / construção</span></li><li><strong>Landing / Rastreamento / Social / Website (sem Diag. Mídia)</strong> · trava: ROI da operação<br><span class='muted'>BE não + results baixo · BE não · results 3.0</span></li><li><strong>Web Design / E-com + Designer + Régua abandono</strong> · trava: Conversão da loja<br><span class='muted'>Modelo e-commerce / white space site · Modelo Ecommerce · white space —</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://docs.google.com/spreadsheets/d/1GuNZ7M2GlskDATp10FOwZZgR_A7WX73VyJ4jI-oUVXc/edit?usp=sharing" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1cLMVytMO4Jq0GBAfJegc7EKvU-f-h9tEWeiPSc71Q5U/edit?usp=sharing" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE não · Results 3 · NPS 10</p>
+          <p>Ops midia: True · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: SQL · 81397.56/1000000 · Fee R$ 15.836 · Pipe R$ 111.000</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-10</td><td>follow_up</td><td>Social Media</td><td>Executar</td><td>R$ 111.000</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="FBLS">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    <article class="acc-card" id="acc-BRIL" data-ticker="BRIL">
+      <div class="acc-head"><div>
+        <div class="eyebrow">Exclusive · B2B · Beleza e Cosméticos · Lead 0.36</div>
+        <h3>BRIL · Brilho Maquiagem</h3>
+        <div class="acc-pills" style="margin-top:.4rem"><span class="pill-info">Fit SEO B2B</span>
+          <span class="pill-warn">Quebrar restrição</span>
+          <span class="pill-danger">Danger</span>
+        </div>
+      </div></div>
+      <div class="mini-grid">
+        <div class="mini"><div class="mini-l">Leads</div><div class="mini-n">170</div></div>
+        <div class="mini"><div class="mini-l">MQL</div><div class="mini-n">51</div></div>
+        <div class="mini"><div class="mini-l">SQL</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">Vendas</div><div class="mini-n">0</div></div>
+        <div class="mini"><div class="mini-l">MQL to SQL</div><div class="mini-n">0%</div></div>
+        <div class="mini"><div class="mini-l">SQL to Venda</div><div class="mini-n ">—</div></div>
+        <div class="mini"><div class="mini-l">MQL to Venda</div><div class="mini-n badn">0%</div></div>
+        <div class="mini"><div class="mini-l">Time vendas</div><div class="mini-n">1</div></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Trava principal to produto</h4>
+          <p><strong>Inbound orgânico / autoridade de busca</strong></p>
+          <p class="prod-main">SEO (TER ou EXECUTAR)</p>
+          <h4>Mapa gap to produto</h4>
+          <ul class="gap-list"><li><strong>SEO (TER ou EXECUTAR)</strong> · trava: Inbound orgânico / autoridade de busca<br><span class='muted'>B2B sem SEO no escopo · Modelo B2B · segmento Beleza e Cosméticos · SEO contratado: não</span></li><li><strong>Reativar Mídia Paga EXECUTAR · Copy/Designer</strong> · trava: ops_media false<br><span class='muted'>Mídia operacional off · Cockpit algorithm_ops_paid_media_bool = false</span></li><li><strong>Escuta + alinhar Coord · TER leve só depois</strong> · trava: NPS 10 / flag Danger<br><span class='muted'>Risco de confiança · Não empurrar ticket alto cego</span></li></ul>
+          <div class="link-row"><a class="btn" href="https://flow.collieassociados.com/break-evens/121" target="_blank" rel="noopener">Break-even</a><a class="btn btn-ghost" href="[Growth Pack | Toque Special] v2" target="_blank" rel="noopener">GrowthPack</a></div>
+        </div>
+        <div>
+          <h4>BE · ops · escopo</h4>
+          <p>BE BE não · Results 10 · NPS 10</p>
+          <p>Ops midia: False · SEO: nao · CRM: nao · SDR: nao · Site: nao</p>
+          <p class="muted">Goal: MQL · 170/175 · Fee R$ 25.275 · Pipe R$ 78.000</p>
+          <h4>Ja monetizado</h4>
+          <ul><li class='muted'>Nada finalizado no Expansion.</li></ul>
+        </div>
+      </div>
+      <h4>Historico Expansion</h4>
+      <div class="table-card tight"><table>
+        <thead><tr><th>Criado</th><th>Etapa</th><th>Produto</th><th>Step</th><th>Receita</th></tr></thead>
+        <tbody><tr><td>2026-06-10</td><td>account_planning</td><td>Tiktok Shop</td><td>Executar</td><td>R$ 78.000</td></tr></tbody>
+      </table></div>
+      <h4>Acompanhar proposta</h4>
+      <div class="tracker" data-ticker="BRIL">
+        <label><input type="checkbox" data-k="proposta_feita"> Proposta montada</label>
+        <label><input type="checkbox" data-k="proposta_enviada"> Enviada / apresentada</label>
+        <label><input type="checkbox" data-k="reuniao"> Reuniao / transicao</label>
+        <label><input type="checkbox" data-k="fechado"> Fechado</label>
+        <input type="text" data-k="bloqueio" placeholder="Bloqueio" class="track-input">
+        <input type="text" data-k="nota" placeholder="Nota" class="track-input">
+      </div>
+    </article>
+    </section>
+
+    <section class="callout">
+      <div class="eyebrow">Fonte</div>
+      <p>Cockpit paid_traffic_* + project_maturity_* (10/08) · Expansion · Lead Score · planilha carteira. Diag. Midia excluido. Tracking em localStorage.</p>
+    </section>
+  </main>
+
+  <script>
+  const KEY = 'v4_20_ataque_tracking_2026_08';
+  function loadTrack() { try { return JSON.parse(localStorage.getItem(KEY)||'{}'); } catch(e) { return {}; } }
+  function saveTrack(t) { localStorage.setItem(KEY, JSON.stringify(t)); }
+  function applyTrack() {
+    const t = loadTrack();
+    document.querySelectorAll('.tracker').forEach(box => {
+      const st = t[box.dataset.ticker] || {};
+      box.querySelectorAll('input[type=checkbox]').forEach(inp => inp.checked = !!st[inp.dataset.k]);
+      box.querySelectorAll('input[type=text]').forEach(inp => inp.value = st[inp.dataset.k] || '');
+    });
+    document.querySelectorAll('#placa-table tbody tr').forEach(tr => {
+      const st = t[tr.dataset.ticker] || {};
+      tr.querySelectorAll('.track-cell').forEach(td => {
+        td.innerHTML = '<span class="track-dot '+(st[td.dataset.k]?'on':'')+'"></span>';
+      });
+    });
+  }
+  document.querySelectorAll('.tracker').forEach(box => {
+    box.addEventListener('change', () => {
+      const t = loadTrack(); const tick = box.dataset.ticker; t[tick]=t[tick]||{};
+      box.querySelectorAll('input').forEach(inp => {
+        t[tick][inp.dataset.k] = inp.type==='checkbox' ? inp.checked : inp.value;
+      });
+      saveTrack(t); applyTrack();
+    });
+    box.addEventListener('input', e => {
+      if (e.target.type!=='text') return;
+      const t=loadTrack(); const tick=box.dataset.ticker; t[tick]=t[tick]||{};
+      t[tick][e.target.dataset.k]=e.target.value; saveTrack(t);
+    });
+  });
+  function filterTable() {
+    const squad=document.getElementById('f-squad').value;
+    const fit=document.getElementById('f-fit').value;
+    const q=(document.getElementById('f-search').value||'').toLowerCase();
+    document.querySelectorAll('#placa-table tbody tr').forEach(tr => {
+      const okS=!squad||tr.dataset.squad===squad;
+      const e=+tr.dataset.estrut, s=+tr.dataset.seo;
+      const okF=!fit||(fit==='estrut'&&e)||(fit==='seo'&&s)||(fit==='both'&&e&&s);
+      const okQ=!q||tr.innerText.toLowerCase().includes(q);
+      tr.style.display=(okS&&okF&&okQ)?'':'none';
+    });
+    document.querySelectorAll('.acc-card').forEach(card => {
+      const row=document.querySelector('#placa-table tr[data-ticker="'+card.dataset.ticker+'"]');
+      card.style.display=(!row||row.style.display==='none')?'none':'';
+    });
+  }
+  ['f-squad','f-fit'].forEach(id=>document.getElementById(id).addEventListener('change', filterTable));
+  document.getElementById('f-search').addEventListener('input', filterTable);
+  document.getElementById('btn-export').addEventListener('click', () => {
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([JSON.stringify(loadTrack(),null,2)],{type:'application/json'}));
+    a.download='tracking-20-contas.json'; a.click();
+  });
+  applyTrack();
+  </script>
+</body>
+</html>
