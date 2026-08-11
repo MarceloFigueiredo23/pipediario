@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funil E.C. · mai–jul/2026 · dados sólidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,500;75..100,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens-relatorios-v4.css">
+  <style>
+    .pill-safe,.pill-warn,.pill-danger,.pill-info,.pill-mute {
+      display:inline-block; padding:.2rem .55rem; border-radius:999px; font-size:.72rem; font-weight:700;
+      border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.08); margin:.1rem;
+    }
+    .pill-safe { color: var(--safe); } .pill-warn { color: var(--care); }
+    .pill-danger { color: var(--danger); } .pill-info { color: #9ad0ff; }
+    .pill-mute { color: var(--text-muted); }
+    .table-card { overflow-x:auto; }
+    .bad { color: var(--danger); font-weight:700; }
+    .muted { color: var(--text-muted); }
+    table { font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"><img src="./assets/v4-company-logo-branca-oficial.svg" alt="V4 Company"></span>
+      Funil · E.C. mai–jul/2026
+    </div>
+    <nav class="nav-pills">
+      <a href="#geral">Geral</a>
+      <a href="#placa">Placar</a>
+      <a href="#meses">Por mês</a>
+    </nav>
+  </header>
+  <main class="report-shell">
+    <section class="hero" id="geral">
+      <div class="hero-card hero-watermark" data-watermark="V4">
+        <div class="eyebrow">Farmer · período mai+jun+jul/2026 · sem agosto · Cockpit paid_traffic history</div>
+        <h1>Contas com funil sólido para apresentar E.C. sem errar métrica.</h1>
+        <p>Só entram contas com Leads, MQL, SQL e Vendas preenchidos no histórico Flow/Cockpit. Prioridade: qualidade do dado + volume + conversão fraca (SQL→Venda ou MQL→Venda &lt;20%).</p>
+      </div>
+      <aside class="verdict glass">
+        <div>
+          <div class="eyebrow">Selecionadas</div>
+          <strong>20</strong>
+          <span>de 128 com algum funil no período.</span>
+        </div>
+        <div class="pill">Sólidas: 15 · Boas: 12 · E.C. alto: 15</div>
+      </aside>
+    </section>
+    <div class="cards">
+      <div class="metric"><div class="metric-label">Período</div><div class="metric-number" style="font-size:clamp(28px,4vw,40px)">3m</div><small>Mai + Jun + Jul/2026</small></div>
+      <div class="metric"><div class="metric-label">Selecionadas</div><div class="metric-number">20</div><small>Máx. 20 · dados apresentáveis</small></div>
+      <div class="metric"><div class="metric-label">E.C. alto</div><div class="metric-number">15</div><small>Volume + conversão fraca</small></div>
+      <div class="metric"><div class="metric-label">E.C. médio</div><div class="metric-number">5</div><small>Volume ok · conv. a validar</small></div>
+    </div>
+    <section class="callout">
+      <div class="eyebrow">Regra de qualidade</div>
+      <h2>Sólido = 3 meses com L/MQL/SQL/Vendas + timestamps frescos em ≥2 meses.</h2>
+      <p><strong>E.C. alto:</strong> MQL≥50 ou SQL≥20 no trimestre e (SQL→Venda &lt;20% com SQL≥20, ou MQL→Venda &lt;20% com MQL≥50 e SQL≥20). <strong>Fonte:</strong> paid_traffic_*_realized_qty (histórico semanal, último sábado de cada mês, soma mai+jun+jul quando o padrão é reset mensal).</p>
+    </section>
+    <section id="placa">
+      <div class="section-head"><div>
+        <div class="eyebrow">Placar</div>
+        <h2>Totais mai–jul · taxas · fit E.C.</h2>
+      </div></div>
+      <div class="table-card"><table>
+        <thead><tr>
+          <th>#</th><th>Conta</th><th>Squad</th><th>Modelo</th><th>Flag</th>
+          <th>Leads</th><th>MQL</th><th>SQL</th><th>Vendas</th>
+          <th>L→MQL</th><th>MQL→SQL</th><th>SQL→V</th><th>MQL→V</th>
+          <th>Dado</th><th>Fit E.C.</th><th>Cobertura</th>
+        </tr></thead>
+        <tbody>
+<tr>
+  <td>1</td>
+  <td><strong>XPTR</strong><br><span class="muted">XP INVESTIMENTOS - TRADER</span></td>
+  <td>Exclusive</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>51804</td>
+  <td>7078</td>
+  <td>633</td>
+  <td>270</td>
+  <td>13.7%</td>
+  <td>8.9%</td>
+  <td class="">42.7%</td>
+  <td class="bad">3.8%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>AINE</strong><br><span class="muted">AVANTI INTERMEDIACOES DE NEGOCIOS EMPRESARIAIS LTDA</span></td>
+  <td>Exclusive</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>3523</td>
+  <td>3365</td>
+  <td>639</td>
+  <td>37</td>
+  <td>95.5%</td>
+  <td>19.0%</td>
+  <td class="bad">5.8%</td>
+  <td class="bad">1.1%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>IOAM</strong><br><span class="muted">IOA MARINGÁ</span></td>
+  <td>Billions</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>2780</td>
+  <td>1595</td>
+  <td>312</td>
+  <td>69</td>
+  <td>57.4%</td>
+  <td>19.6%</td>
+  <td class="">22.1%</td>
+  <td class="bad">4.3%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>ACCE</strong><br><span class="muted">ACCENTURE PARTICIPACOES LTDA(ACCENTURE PARTICIPACOES LTDA - 54.271.277/0001-88)</span></td>
+  <td>Invictus</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>878</td>
+  <td>398</td>
+  <td>103</td>
+  <td>27</td>
+  <td>45.3%</td>
+  <td>25.9%</td>
+  <td class="">26.2%</td>
+  <td class="bad">6.8%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>FIEE</strong><br><span class="muted">FIBERWAN INDUSTRIA DE EQUIPAMENTOS ELETRONICOS LTDA</span></td>
+  <td>Billions</td>
+  <td>B2B</td>
+  <td>Safe</td>
+  <td>553</td>
+  <td>219</td>
+  <td>173</td>
+  <td>4</td>
+  <td>39.6%</td>
+  <td>79.0%</td>
+  <td class="bad">2.3%</td>
+  <td class="bad">1.8%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>SICA</strong><br><span class="muted">SAMEACH INDUSTRIA E COMERCIO DE ACESSORIOS LTDA</span></td>
+  <td>Billions</td>
+  <td>B2B</td>
+  <td>Danger</td>
+  <td>543</td>
+  <td>217</td>
+  <td>123</td>
+  <td>32</td>
+  <td>40.0%</td>
+  <td>56.7%</td>
+  <td class="">26.0%</td>
+  <td class="bad">14.7%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>VIJO</strong><br><span class="muted">VIA JOURNEY</span></td>
+  <td>Exclusive</td>
+  <td>B2C</td>
+  <td>Care</td>
+  <td>303</td>
+  <td>207</td>
+  <td>28</td>
+  <td>10</td>
+  <td>68.3%</td>
+  <td>13.5%</td>
+  <td class="">35.7%</td>
+  <td class="bad">4.8%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>FARE1</strong><br><span class="muted">FARES AQUINO SOCIEDADE INDIVIDUAL DE ADVOCACIA</span></td>
+  <td>Invictus</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>536</td>
+  <td>117</td>
+  <td>53</td>
+  <td>18</td>
+  <td>21.8%</td>
+  <td>45.3%</td>
+  <td class="">34.0%</td>
+  <td class="bad">15.4%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>CIVA</strong><br><span class="muted">CARFLIX INTERMEDIACAO DE VEICULOS AUTOMOTORES S.A.</span></td>
+  <td>Exclusive</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>9785</td>
+  <td>3798</td>
+  <td>1563</td>
+  <td>802</td>
+  <td>38.8%</td>
+  <td>41.2%</td>
+  <td class="">51.3%</td>
+  <td class="">21.1%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-warn">E.C. medio</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong>SFCF</strong><br><span class="muted">SAFRAS &amp; CIFRAS EDUCACIONAL LTDA</span></td>
+  <td>Exclusive</td>
+  <td>B2C</td>
+  <td>Critical</td>
+  <td>386</td>
+  <td>123</td>
+  <td>12</td>
+  <td>4</td>
+  <td>31.9%</td>
+  <td>9.8%</td>
+  <td class="">33.3%</td>
+  <td class="bad">3.3%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-warn">E.C. medio</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><strong>NOVA</strong><br><span class="muted">NOVA ROTA ATACADISTA LTDA - 54.875.095/0001-16(NOVA ROTA ATACADISTA LTDA - 54.875.095/0001-16) - MONETIZAÇÃO</span></td>
+  <td>Exclusive</td>
+  <td>B2B</td>
+  <td>Critical</td>
+  <td>793</td>
+  <td>88</td>
+  <td>5</td>
+  <td>0</td>
+  <td>11.1%</td>
+  <td>5.7%</td>
+  <td class="bad">0.0%</td>
+  <td class="bad">0.0%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-warn">E.C. medio</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><strong>WACO</strong><br><span class="muted">THE WAY CONCIERGE MEDICINE(THE WAY CONCIERGE MEDICINE)</span></td>
+  <td>Exclusive</td>
+  <td>B2C</td>
+  <td>Safe</td>
+  <td>481</td>
+  <td>85</td>
+  <td>54</td>
+  <td>29</td>
+  <td>17.7%</td>
+  <td>63.5%</td>
+  <td class="">53.7%</td>
+  <td class="">34.1%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-warn">E.C. medio</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><strong>SIMA1</strong><br><span class="muted">SIMAO DISTRIBUIDORA DE EMBALAGENS DESCARTAVEIS LTDA - 10.649.489/0001-80(SIMAO DISTRIBUIDORA DE EMBALAGENS DESCARTAVEIS LTDA - 10.649.489/0001-80) - MONETIZAÇÃO</span></td>
+  <td>Exclusive</td>
+  <td>B2B</td>
+  <td>Critical</td>
+  <td>488</td>
+  <td>73</td>
+  <td>2</td>
+  <td>0</td>
+  <td>15.0%</td>
+  <td>2.7%</td>
+  <td class="bad">0.0%</td>
+  <td class="bad">0.0%</td>
+  <td><span class="pill-safe">solido</span></td>
+  <td><span class="pill-warn">E.C. medio</span></td>
+  <td class="muted" style="font-size:.8rem">3/3 meses · fresh 2</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><strong>BRANQ</strong><br><span class="muted">BRANQUINHO &amp; SANTANA - SOCIEDADE DE ADVOGADOS</span></td>
+  <td>Billions</td>
+  <td>—</td>
+  <td>Care</td>
+  <td>1436</td>
+  <td>755</td>
+  <td>59</td>
+  <td>16</td>
+  <td>52.6%</td>
+  <td>7.8%</td>
+  <td class="">27.1%</td>
+  <td class="bad">2.1%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 2</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><strong>TROPM</strong><br><span class="muted">TROPICAL &amp; MAGIC DISTRIBUIDORA DE ALIMENTOS E BEBIDAS LTDA</span></td>
+  <td>Billions</td>
+  <td>B2B</td>
+  <td>Danger</td>
+  <td>1104</td>
+  <td>617</td>
+  <td>125</td>
+  <td>2</td>
+  <td>55.9%</td>
+  <td>20.3%</td>
+  <td class="bad">1.6%</td>
+  <td class="bad">0.3%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 2</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><strong>AERO</strong><br><span class="muted">AERO TD ESCOLA DE AVIACAO CIVIL LTDA</span></td>
+  <td>Invictus</td>
+  <td>B2C</td>
+  <td>Care</td>
+  <td>693</td>
+  <td>476</td>
+  <td>52</td>
+  <td>52</td>
+  <td>68.7%</td>
+  <td>10.9%</td>
+  <td class="">100.0%</td>
+  <td class="bad">10.9%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 2</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><strong>PSTN</strong><br><span class="muted">WK CARPETES</span></td>
+  <td>Billions</td>
+  <td>B2B</td>
+  <td>Care</td>
+  <td>261</td>
+  <td>147</td>
+  <td>43</td>
+  <td>4</td>
+  <td>56.3%</td>
+  <td>29.3%</td>
+  <td class="bad">9.3%</td>
+  <td class="bad">2.7%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 3</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><strong>EZBU</strong><br><span class="muted">ESPAÇO ZABEU</span></td>
+  <td>Billions</td>
+  <td>B2C</td>
+  <td>Care</td>
+  <td>957</td>
+  <td>93</td>
+  <td>34</td>
+  <td>13</td>
+  <td>9.7%</td>
+  <td>36.6%</td>
+  <td class="">38.2%</td>
+  <td class="bad">14.0%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 2</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><strong>DPON</strong><br><span class="muted">DPONET DESENVOLVIMENTO DE SISTEMAS E CONSULTORIA EM SEGURANCA DA INFORMACAO LTDA.</span></td>
+  <td>Invictus</td>
+  <td>B2B</td>
+  <td>Care</td>
+  <td>86</td>
+  <td>62</td>
+  <td>48</td>
+  <td>6</td>
+  <td>72.1%</td>
+  <td>77.4%</td>
+  <td class="bad">12.5%</td>
+  <td class="bad">9.7%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 2</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><strong>VISOF</strong><br><span class="muted">VISOFLEX PORTAS E PORTOES LTDA</span></td>
+  <td>Invictus</td>
+  <td>B2B</td>
+  <td>Care</td>
+  <td>152</td>
+  <td>42</td>
+  <td>34</td>
+  <td>0</td>
+  <td>27.6%</td>
+  <td>81.0%</td>
+  <td class="bad">0.0%</td>
+  <td class="bad">0.0%</td>
+  <td><span class="pill-info">bom</span></td>
+  <td><span class="pill-safe">E.C. alto</span></td>
+  <td class="muted" style="font-size:.8rem">2/3 meses · fresh 1</td>
+</tr></tbody>
+      </table></div>
+    </section>
+    <section id="meses">
+      <div class="section-head"><div>
+        <div class="eyebrow">Breakdown mensal</div>
+        <h2>Último sábado de cada mês (LOCF).</h2>
+      </div></div>
+      <div class="table-card"><table>
+        <thead><tr><th>Conta</th><th>Mai</th><th>Jun</th><th>Jul</th></tr></thead>
+        <tbody><tr><td><strong>XPTR</strong> XP INVESTIMENTOS - TRADER</td><td><strong>05</strong><br>L 15916 · MQL 1911 · SQL 169 · V 86</td><td><strong>06</strong><br>L 17489 · MQL 2720 · SQL 241 · V 87</td><td><strong>07</strong><br>L 18399 · MQL 2447 · SQL 223 · V 97</td></tr><tr><td><strong>AINE</strong> AVANTI INTERMEDIACOES DE NEGOCIOS EMPRES</td><td><strong>05</strong><br>L 1652 · MQL 1475 · SQL 183 · V 13</td><td><strong>06</strong><br>L 754 · MQL 765 · SQL 198 · V 13</td><td><strong>07</strong><br>L 1117 · MQL 1125 · SQL 258 · V 11</td></tr><tr><td><strong>IOAM</strong> IOA MARINGÁ</td><td><strong>05</strong><br>L 546 · MQL 46 · SQL 46 · V 21</td><td><strong>06</strong><br>L 1886 · MQL 1282 · SQL 221 · V 41</td><td><strong>07</strong><br>L 348 · MQL 267 · SQL 45 · V 7</td></tr><tr><td><strong>ACCE</strong> ACCENTURE PARTICIPACOES LTDA(ACCENTURE P</td><td><strong>05</strong><br>L 375 · MQL 118 · SQL 23 · V 9</td><td><strong>06</strong><br>L 209 · MQL 105 · SQL 66 · V 7</td><td><strong>07</strong><br>L 294 · MQL 175 · SQL 14 · V 11</td></tr><tr><td><strong>FIEE</strong> FIBERWAN INDUSTRIA DE EQUIPAMENTOS ELETR</td><td><strong>05</strong><br>L 243 · MQL 98 · SQL 94 · V 1</td><td><strong>06</strong><br>L 231 · MQL 82 · SQL 68 · V 2</td><td><strong>07</strong><br>L 79 · MQL 39 · SQL 11 · V 1</td></tr><tr><td><strong>SICA</strong> SAMEACH INDUSTRIA E COMERCIO DE ACESSORI</td><td><strong>05</strong><br>L 275 · MQL 101 · SQL 62 · V 11</td><td><strong>06</strong><br>L 197 · MQL 105 · SQL 50 · V 20</td><td><strong>07</strong><br>L 71 · MQL 11 · SQL 11 · V 1</td></tr><tr><td><strong>VIJO</strong> VIA JOURNEY</td><td><strong>05</strong><br>L 151 · MQL 83 · SQL 13 · V 7</td><td><strong>06</strong><br>L 45 · MQL 32 · SQL 8 · V 1</td><td><strong>07</strong><br>L 107 · MQL 92 · SQL 7 · V 2</td></tr><tr><td><strong>FARE1</strong> FARES AQUINO SOCIEDADE INDIVIDUAL DE ADV</td><td><strong>05</strong><br>L 132 · MQL 42 · SQL 10 · V 2</td><td><strong>06</strong><br>L 253 · MQL 45 · SQL 18 · V 9</td><td><strong>07</strong><br>L 151 · MQL 30 · SQL 25 · V 7</td></tr><tr><td><strong>CIVA</strong> CARFLIX INTERMEDIACAO DE VEICULOS AUTOMO</td><td><strong>05</strong><br>L 3455 · MQL 1100 · SQL 436 · V 293</td><td><strong>06</strong><br>L 3590 · MQL 1778 · SQL 826 · V 275</td><td><strong>07</strong><br>L 2740 · MQL 920 · SQL 301 · V 234</td></tr><tr><td><strong>SFCF</strong> SAFRAS &amp; CIFRAS EDUCACIONAL LTDA</td><td><strong>05</strong><br>L 220 · MQL 56 · SQL 12 · V 0</td><td><strong>06</strong><br>L 0 · MQL 0 · SQL 0 · V 0</td><td><strong>07</strong><br>L 166 · MQL 67 · SQL 0 · V 4</td></tr><tr><td><strong>NOVA</strong> NOVA ROTA ATACADISTA LTDA - 54.875.095/0</td><td><strong>05</strong><br>L 354 · MQL 42 · SQL 3 · V 0</td><td><strong>06</strong><br>L 261 · MQL 12 · SQL 0 · V 0</td><td><strong>07</strong><br>L 178 · MQL 34 · SQL 2 · V 0</td></tr><tr><td><strong>WACO</strong> THE WAY CONCIERGE MEDICINE(THE WAY CONCI</td><td><strong>05</strong><br>L 203 · MQL 34 · SQL 18 · V 10</td><td><strong>06</strong><br>L 147 · MQL 25 · SQL 19 · V 8</td><td><strong>07</strong><br>L 131 · MQL 26 · SQL 17 · V 11</td></tr><tr><td><strong>SIMA1</strong> SIMAO DISTRIBUIDORA DE EMBALAGENS DESCAR</td><td><strong>05</strong><br>L 49 · MQL 27 · SQL 0 · V 0</td><td><strong>06</strong><br>L 261 · MQL 12 · SQL 0 · V 0</td><td><strong>07</strong><br>L 178 · MQL 34 · SQL 2 · V 0</td></tr><tr><td><strong>BRANQ</strong> BRANQUINHO &amp; SANTANA - SOCIEDADE DE ADVO</td><td><strong>05</strong><br>L 0 · MQL 0 · SQL 0 · V 0</td><td><strong>06</strong><br>L 728 · MQL 263 · SQL 30 · V 8</td><td><strong>07</strong><br>L 708 · MQL 492 · SQL 29 · V 8</td></tr><tr><td><strong>TROPM</strong> TROPICAL &amp; MAGIC DISTRIBUIDORA DE ALIMEN</td><td><strong>05</strong><br>L 0 · MQL 0 · SQL 0 · V 0</td><td><strong>06</strong><br>L 774 · MQL 454 · SQL 97 · V 2</td><td><strong>07</strong><br>L 330 · MQL 163 · SQL 28 · V 0</td></tr><tr><td><strong>AERO</strong> AERO TD ESCOLA DE AVIACAO CIVIL LTDA</td><td><strong>05</strong><br>L 513 · MQL 406 · SQL 45 · V 45</td><td><strong>06</strong><br>L 180 · MQL 70 · SQL 7 · V 7</td><td><strong>07</strong><br>L 180 · MQL 70 · SQL 7 · V 7</td></tr><tr><td><strong>PSTN</strong> WK CARPETES</td><td><strong>05</strong><br>L 67 · MQL 43 · SQL 11 · V 0</td><td><strong>06</strong><br>L 138 · MQL 42 · SQL 15 · V 2</td><td><strong>07</strong><br>L 56 · MQL 62 · SQL 17 · V 2</td></tr><tr><td><strong>EZBU</strong> ESPAÇO ZABEU</td><td><strong>05</strong><br>L 236 · MQL 0 · SQL 0 · V 0</td><td><strong>06</strong><br>L 633 · MQL 66 · SQL 6 · V 9</td><td><strong>07</strong><br>L 88 · MQL 27 · SQL 28 · V 4</td></tr><tr><td><strong>DPON</strong> DPONET DESENVOLVIMENTO DE SISTEMAS E CON</td><td><strong>05</strong><br>L 73 · MQL 55 · SQL 45 · V 5</td><td><strong>06</strong><br>L 13 · MQL 7 · SQL 3 · V 1</td><td><strong>07</strong><br>L 13 · MQL 7 · SQL 3 · V 1</td></tr><tr><td><strong>VISOF</strong> VISOFLEX PORTAS E PORTOES LTDA</td><td><strong>05</strong><br>L 76 · MQL 21 · SQL 16 · V 0</td><td><strong>06</strong><br>L 76 · MQL 21 · SQL 16 · V 0</td><td><strong>07</strong><br>L 76 · MQL 21 · SQL 18 · V 0</td></tr></tbody>
+      </table></div>
+    </section>
+    <section class="callout">
+      <div class="eyebrow">Fonte</div>
+      <p>Cockpit query_history weekly · America/Sao_Paulo · Executar active · gerado para direcionamento E.C. (Estruturação Comercial / Sales Enablement).</p>
+    </section>
+  </main>
+</body>
+</html>
