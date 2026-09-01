@@ -176,14 +176,17 @@ td.num { font-variant-numeric: tabular-nums; }
 .tl-item time { color: var(--accent-gold); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .tl-item strong { display: block; margin-bottom: 4px; }
 .tl-item span { color: var(--text-muted); font-size: 14px; line-height: 1.4; }
-.diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .diag-card {
-  padding: 22px; border-radius: 20px; border: 1px solid var(--line);
-  background: var(--surface-glass-soft);
+  padding: 32px 28px; border-radius: 22px; border: 1px solid var(--line);
+  background: var(--surface-glass-soft); min-height: 240px; overflow: visible;
 }
-.diag-card h3 { margin-bottom: 10px; }
-.diag-card ul { margin: 0; padding-left: 18px; color: var(--text-muted); font-size: 14px; line-height: 1.5; }
-.diag-card li { margin: 6px 0; }
+.diag-card h3 {
+  margin-bottom: 16px; font-size: clamp(20px, 2.6vw, 24px); line-height: 1.2;
+  font-stretch: 85%; letter-spacing: -0.03em;
+}
+.diag-card ul { margin: 0; padding-left: 22px; color: var(--text-muted); font-size: 16px; line-height: 1.6; }
+.diag-card li { margin: 12px 0; }
 .quote-card {
   padding: 26px 28px; border-radius: var(--radius-card); border: 1px solid var(--line);
   background: linear-gradient(135deg, var(--surface-glass-strong), var(--surface-glass-soft));
@@ -195,35 +198,57 @@ td.num { font-variant-numeric: tabular-nums; }
   color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
 }
 .audit-cta {
-  display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; align-items: center;
-  margin: 16px 0 20px; padding: 26px 28px; border-radius: var(--radius-card);
+  display: grid; grid-template-columns: 1.5fr auto; gap: 22px; align-items: center;
+  margin: 16px 0 22px; padding: 30px 32px; border-radius: var(--radius-card);
   border: 1px solid rgba(255,138,150,0.5);
   background: linear-gradient(135deg, rgba(232,29,47,0.28), rgba(26,6,8,0.5));
   box-shadow: var(--shadow);
 }
-.audit-cta h3 { margin: 8px 0 10px; font-size: clamp(22px, 3vw, 30px); }
-.audit-cta p { margin: 0; color: var(--text-muted); font-size: 14.5px; line-height: 1.45; }
+.audit-cta h3 { margin: 8px 0 12px; font-size: clamp(24px, 3.4vw, 34px); line-height: 1.05; }
+.audit-cta p { margin: 0; color: var(--text-muted); font-size: 16px; line-height: 1.5; max-width: 58ch; }
 .btn-audit {
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 16px 22px; border-radius: var(--radius-pill);
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 18px 26px; border-radius: var(--radius-pill); white-space: nowrap;
   background: var(--brand); color: #fff; text-decoration: none;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.18); box-shadow: var(--shadow);
 }
 .btn-audit:hover { filter: brightness(1.08); }
-.btn-audit span { opacity: 0.85; font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+.btn-audit span { opacity: 0.85; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+#auditoria .audit-bleed {
+  width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+  padding: 0 clamp(12px, 2.5vw, 28px); box-sizing: border-box;
+}
 .audit-frame {
-  margin-top: 16px; border-radius: var(--radius-table); overflow: hidden;
+  margin-top: 8px; border-radius: 20px; overflow: hidden;
   border: 1px solid var(--line); background: #0a0a0a; box-shadow: var(--shadow);
+  position: relative;
+}
+.audit-frame-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; border-bottom: 1px solid var(--line);
+  background: rgba(26,6,8,0.92);
+}
+.audit-frame-bar strong { font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+.audit-frame-bar a {
+  color: var(--accent-gold); font-size: 13px; font-weight: 700; text-decoration: none;
 }
 .audit-frame iframe {
-  display: block; width: 100%; height: min(72vh, 720px); border: 0; background: #0a0a0a;
+  display: block; width: 100%;
+  height: 100vh; min-height: 900px; max-height: none;
+  border: 0; background: #0a0a0a;
 }
 .kpi-strip {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 16px 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 18px 0 22px;
 }
-.kpi-strip .metric { padding: 16px; }
-.kpi-strip .metric-number { font-size: clamp(22px, 3vw, 30px); }
+.kpi-strip .metric { padding: 24px 20px; overflow: visible; min-width: 0; }
+.kpi-strip .metric-number {
+  font-size: clamp(24px, 3.2vw, 34px); font-stretch: 85%;
+  letter-spacing: -0.04em; overflow: visible; word-break: break-word;
+}
+.kpi-strip .metric-label { font-size: 12px; }
+.kpi-strip .metric small { font-size: 14px; line-height: 1.45; overflow: visible; }
+#auditoria .report-wide { width: min(1280px, 100%); }
 footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
 @media (max-width: 900px) {
   .cards, .cards.cols-3, .cards.cols-2, .diag-grid { grid-template-columns: 1fr; }
@@ -235,6 +260,10 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
   .table-card { overflow-x: auto; }
   .hero-logo { position: static; width: 140px; margin-bottom: 12px; display: block; }
   .audit-cta, .kpi-strip { grid-template-columns: 1fr; }
+  .audit-frame iframe { height: 88vh; min-height: 700px; }
+  .audit-cta { text-align: left; }
+  .audit-cta > div:last-child { text-align: left !important; }
+  .kpi-strip .metric-number { font-size: 26px; }
 }
   </style>
 </head>
@@ -509,17 +538,23 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
         </div>
       </div>
 
-      <div class="audit-frame" aria-label="Prévia da auditoria MaidPad">
-        <iframe
-          src="https://auditoria-maidpad.vercel.app/"
-          title="Auditoria SEO GEO MaidPad"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
+      <div class="audit-bleed">
+        <div class="audit-frame" aria-label="Auditoria MaidPad em tela ampla">
+          <div class="audit-frame-bar">
+            <strong>Deck completo · use setas / scroll dentro do quadro</strong>
+            <a href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener">Abrir em tela cheia ↗</a>
+          </div>
+          <iframe
+            src="https://auditoria-maidpad.vercel.app/"
+            title="Auditoria SEO GEO MaidPad"
+            loading="eager"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
       </div>
-      <p class="muted" style="margin:10px 0 0;font-size:12.5px;">
-        Se o embed não carregar no seu browser, use o botão
-        <a href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent-gold);font-weight:700;">abrir auditoria completa</a>.
+      <p class="muted" style="margin:14px 0 0;font-size:13.5px;line-height:1.45;">
+        O deck é em slides fullscreen. Se ainda cortar algum canto, abra em
+        <a href="https://auditoria-maidpad.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent-gold);font-weight:700;">auditoria-maidpad.vercel.app</a>.
       </p>
     </section>
 
